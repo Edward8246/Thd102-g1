@@ -1,0 +1,67 @@
+header {
+    @include flexCenter;
+    @include size(100%,100px);
+    background-color: $color_lightblue;
+    align-items: center; 
+    box-sizing: border-box;    
+    padding: 2vw 18.75vw;
+
+    .header_left,.header_right{
+        width: 33.33%;
+        display: flex;
+        align-items: center;
+    }
+
+
+    .header_right{
+        display: flex;
+        justify-content: end;
+    }
+
+    .logo{
+        width: 120px;
+        img{
+            width: 100%;
+        }
+    }
+
+    
+    .btn{
+        @include fontStyle($h6,$color_blue);
+        transition: all .3s;
+    }
+
+    .bar{
+        @include btn($color_blue,$white,$color_lightblue,$border-radius-50);
+        @include size(50px,50px,50%);
+        border: none;
+        &:hover{
+            @include btn_hover($white,$color_blue,$color_blue);
+            border: none;
+        }
+    }
+    
+    .user{
+        @include size(120px,50px,50%);
+        @include btn($color_blue,$white,$color_lightblue,$border-radius-50);
+        border: none;
+        padding:12px 24px;
+        &:hover{
+            @include btn_hover($white,$color_blue,$color_blue);
+            border: none;
+        }
+        i{
+            margin-right: 20px;  
+        }
+        
+    }
+    .cart{
+        margin-right: 20px;   
+        &:hover{
+            color: $white;
+            @include font_shadow;
+        }   
+    }
+}
+
+
