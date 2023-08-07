@@ -48,13 +48,13 @@
 
 //商品頁和活動頁tag-full
 @mixin tag-full($bgc){
-    color: white;
+    // color: white;
     background-color: $bgc;
     border-radius: 10px;
-    font-size: $h7;
+    // font-size: $h7;
     text-align: center;
-    line-height: 1.5;
-
+    // line-height: 1.5;
+    @include fontStyle($h7, $white, 400, 1.5);
     @include size(91px, 27px);
 
 }
