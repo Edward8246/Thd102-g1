@@ -11,3 +11,11 @@
     border-bottom: 1px solid $color_blue;
     padding-bottom: 25px;
 }
+.box-text{
+    @include flex(row,center,center);
+}
+.tag-color{
+    @include size(16px,16px,50%);
+    background-color: $color_tag_purple;
+
+}
