@@ -1,0 +1,22 @@
+
+//@include btn(字體顏色,背景顏色,border顏色,border弧度)
+
+@mixin btn($color,$bgc,$bd_color,$bdrs:null){
+    color:$color;
+    background-color: $bgc;
+    border-radius: $bdrs;
+    transition: .5s;
+    cursor: pointer;
+    text-align: center;
+    border: solid 1px $bd_color;
+    white-space: nowrap;
+}
+
+//@include btn_hover(字體顏色,背景顏色,border顏色)
+@mixin btn_hover($color,$bgc,$bd_color){
+    color:$color;
+    background-color:$bgc;
+    border: solid 1px $bd_color;
+    @include btn_shadow;
+}
+

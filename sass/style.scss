@@ -1,0 +1,52 @@
+*{
+    // outline: solid 1px red;   
+}
+//reset
+@import './reset/reset';
+// base
+@import './base/base';
+@import './base/color';
+@import './base/font';
+@import './base/image';
+
+// mixin
+@import './mixin/mixin';
+
+// component
+@import './component/btn';
+@import './component/title';
+
+// layout
+@import './layout/body';
+
+// page
+@import './page/index';
+
+
+//mixin
+
+.card {
+    @include size(100px, 100px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

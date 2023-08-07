@@ -1,0 +1,12 @@
+body {
+    font-size : $fontsize;
+    font-family: $font-family;
+    color: $fontColor;
+    background-color: $backgroundColor;
+
+}
+
+.wrapper {
+   @import './header';
+   @import './footer';
+}
