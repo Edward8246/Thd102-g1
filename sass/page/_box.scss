@@ -1,3 +1,6 @@
+.box-body{
+    // outline: 1px solid red;
+}
 .box-banner{
     background-image: url(../../images/box/box_banner.jpg);
     background-size: cover;
@@ -5,17 +8,56 @@
     @include size(100%, 300px);
     margin-bottom: 50px;
 }
+.box-wrapper{
+    max-width: 1200px;
+    // outline: 1px solid red;
+    margin: 0 auto;
+    @include flex(row,space-between,center);
+    
+    flex-wrap: wrap;
+
+
+}
+
 .select-tag{
     width: 100%;
     @include flex(row,space-around,center);
     border-bottom: 1px solid $color_blue;
     padding-bottom: 25px;
+    margin-bottom: 70px;
+}
+.box-tag{
+    font-size: $h5;
 }
 .box-text{
-    @include flex(row,center,center);
+    //  outline: 1px solid red;
+    @include flex(row,start,center);
+    
+    margin-top: 15px;
+    margin-bottom: 15px;
+    h6{
+        margin-left: 15px;
+        margin-right: 69px;
+    }
+    p{
+        margin-right: 15px;
+        margin-left: 5px;
+    }
 }
 .tag-color{
     @include size(16px,16px,50%);
     background-color: $color_tag_purple;
 
+}
+.more{
+    @include btn($white,$color_blue,$color_blue,50px);
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    padding: 8px 0;
+    margin-bottom: 200px;
+
+    &:hover{
+        @include btn_hover($color_blue,$white,$color_blue);
+    }
 }
