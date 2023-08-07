@@ -1,33 +1,46 @@
 .card-act{
-    // @include size(384px, 475px);
     height: 475px;
     background-color: white;
     border-radius: 5px;
+    @include btn_shadow($black, .8);
+
+    .image{
+        height: 278px;
+        overflow: hidden;
+    }
     
     .act-info{
         padding: 20px 34px;
-        h4{
-            font-size: $h4;
-        }
 
-        ul{
-            display: flex;
-            li{
-                // border: 1px solid red;
-                @include size(105px, 36px);
-                &:nth-child(2){
-                    border-left: 1.5px solid $black;
-                    border-right: 1.5px solid $black;
-                }
+        .act-txt{
+            margin-top: 10px;
 
-                p{
-                    color: $black;
-                    line-height: 2;
-                    text-align: center;
-                }
+            h4{
+                font-size: $h4;
+                color: $black;
             }
-           
+    
+            ul{
+                display: flex;
+                margin-top: 10px;
+                li{
+                    // border: 1px solid red;
+                    @include size(105px, 36px);
+                    &:nth-child(2){
+                        border-left: 1.5px solid $black;
+                        border-right: 1.5px solid $black;
+                    }
+    
+                    p{
+                        color: $black;
+                        line-height: 2;
+                        text-align: center;
+                    }
+                }
+               
+            }
         }
+        
     }
 }
 
