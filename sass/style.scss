@@ -1,6 +1,3 @@
-*{
-    // outline: solid 1px red;   
-}
 //reset
 @import './reset/reset';
 // base
@@ -18,6 +15,7 @@
 @import './component/card-act';
 @import './component/tag';
 @import './component/grid';
+@import './component/flex';
 
 // layout
 @import './layout/body';

@@ -1,8 +1,9 @@
 .card-act{
-    height: 475px;
+    height: 460px;
     background-color: white;
     border-radius: 5px;
-    @include btn_shadow($black, .8);
+    overflow: hidden;
+    @include btn_shadow($black, .4);
 
     .image{
         height: 278px;
@@ -44,3 +45,24 @@
     }
 }
 
+.btn_group{
+    margin: 0px auto;
+    font-size: 0;
+
+    button{
+        display: inline-block;
+        font-size: $h7;
+        height: 43px;
+    }
+}
+
+.left{
+    @include btn($color_blue, $white, $color_blue);
+    border-radius: 50px 0 0 50px;
+}
+
+.right{
+    border-radius: 0 50px 50px 0;
+    @include btn($white, $color_blue, $color_blue);
+
+}
