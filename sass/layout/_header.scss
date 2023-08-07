@@ -1,10 +1,18 @@
+*{
+    outline: red solid 1px;
+}
+
 header {
-    @include flexCenter;
-    @include size(100%,100px);
-    background-color: $color_lightblue;
-    align-items: center; 
-    box-sizing: border-box;    
-    padding: 2vw 18.75vw;
+    @include flex(column,center,start);
+    .nav{
+
+        @include flexCenter;
+        @include size(100%,100px);
+        background-color: $color_lightblue;
+        align-items: center; 
+        box-sizing: border-box;    
+        padding: 2vw 18.75vw;
+    }
 
     .header_left,.header_right{
         width: 33.33%;
@@ -61,6 +69,18 @@ header {
             color: $white;
             @include font_shadow;
         }   
+    }
+    .header_cataPage{
+        width: 100%;
+        padding: 80px 18.75vw;
+
+        .image{
+            @include size(33%);
+        }
+
+
+
+
     }
 }
 

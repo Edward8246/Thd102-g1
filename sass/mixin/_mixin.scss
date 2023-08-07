@@ -4,7 +4,14 @@
     height: $h ;
     border-radius: $bdrs;
 }
-
+//@include flex(方向,主軸排列,副軸排列)
+//(預設置中)
+@mixin flex($d:row,$jc:center,$ai:center){
+    display: flex;
+    flex-direction: $d;
+    justify-content: $jc;
+    align-items: $ai;
+}
 
 // @include center(寬 ,高) 置中
 @mixin center($w , $h){
@@ -89,7 +96,8 @@
 // }
 
 //字體大小/顏色/字重
-@mixin fontStyle($font-size,$font-color,$font-weight:400){
+@mixin fontStyle($font-size,$font-color,$font-weight:400,$line-height:1.2){
+    line-height: $line-height;
     font-size:$font-size;
     color:$font-color;
     font-weight: $font-weight;
