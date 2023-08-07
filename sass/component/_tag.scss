@@ -1,0 +1,19 @@
+.ft-red{
+    @include tag-full($color_tag_red);
+}
+
+.ft-green{
+    @include tag-full($color_tag_green);
+}
+
+.ft-purple{
+    @include tag-full($color_tag_purple);
+}
+
+.ft-yellow{
+    @include tag-full($color_tag_yellow);
+}
+
+.ft-blue{
+    @include tag-full($color_tag_blue);
+}
