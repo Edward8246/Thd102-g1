@@ -2,4 +2,29 @@
     @include size(384px, 475px);
     background-color: white;
     border-radius: 5px;
+    
+    .act-info{
+        padding: 20px 34px;
+        color: $black;
+
+        h4{
+            font-size: $h4;
+        }
+
+        ul{
+            display: flex;
+            li{
+                // border: 1px solid red;
+                text-align: center;
+                line-height: 2;
+                @include size(105px, 36px);
+                &:nth-child(2){
+                    border-left: 1.5px solid $black;
+                    border-right: 1.5px solid $black;
+                }
+            }
+           
+        }
+    }
 }
+

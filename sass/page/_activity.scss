@@ -1,3 +1,10 @@
+.act-banner{
+    background-image: url(../../images/activity-banner.jpg);
+    @include size(100%, 300px);
+    background-size: cover;
+    margin-bottom: 50px;
+}   
+
 .act-title{
     font-size: $h4;
     text-align: center;
