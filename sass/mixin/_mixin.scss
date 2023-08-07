@@ -37,6 +37,21 @@
 //font_shadow(<i>標籤使用)
 @mixin font_shadow($shadow_color:$color_darkblue,$opacity:.5){
     text-shadow: 0 0 4px rgba($shadow_color,$opacity);
+<<<<<<< HEAD
+=======
+}
+
+//商品頁和活動頁tag-full
+@mixin tag-full($bgc){
+    color: white;
+    background-color: $bgc;
+    border-radius: 20px;
+    font-size: $h7;
+    @include size(91px, 27px);
+    text-align: center;
+    line-height: 1.5;
+
+>>>>>>> dev
 }
 
 // //================ breakpoint ============================

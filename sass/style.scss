@@ -15,14 +15,20 @@
 // component
 @import './component/btn';
 @import './component/title';
+@import './component/card-act';
+@import './component/tag';
 
 // layout
 @import './layout/body';
 
 // page
 @import './page/index';
+<<<<<<< HEAD
 @import './page/login';
 
+=======
+@import './page/activity';
+>>>>>>> dev
 
 //mixin
 
