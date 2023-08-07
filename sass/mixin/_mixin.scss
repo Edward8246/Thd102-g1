@@ -43,11 +43,13 @@
 @mixin tag-full($bgc){
     color: white;
     background-color: $bgc;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: $h7;
-    @include size(91px, 27px);
     text-align: center;
     line-height: 1.5;
+
+    @include size(91px, 27px);
+
 }
 
 // //================ breakpoint ============================

@@ -1,0 +1,13 @@
+.box-banner{
+    background-image: url(../../images/box/box_banner.jpg);
+    background-size: cover;
+    background-position: top center;
+    @include size(100%, 300px);
+    margin-bottom: 50px;
+}
+.select-tag{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
