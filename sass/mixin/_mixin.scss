@@ -36,7 +36,7 @@
 
 //font_shadow(<i>標籤使用)
 @mixin font_shadow($shadow_color:$color_darkblue,$opacity:.5){
-    font-shadow: 0 0 4px rgba($shadow_color,$opacity);
+    text-shadow: 0 0 4px rgba($shadow_color,$opacity);
 }
 
 // //================ breakpoint ============================

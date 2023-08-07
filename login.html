@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>login</title>
+</head>
+<body>
+    <div calss="container">
+        <div class="overlay" id="overlay">
+            <div class="log-in" id="log-in">
+                <div class="overlay-left">
+                    <h1>歡迎回來</h1>
+                    <p>有會員就直接登入吧!</p>
+                    <button class="switch-button" id="slide-right-button">登入</button>
+                </div>
+            </div>
+            <div class="sign-up" id="sign-up">
+                <h1>還不是會員嗎?</h1>
+                <p>快加入我們吧!</p>
+                <button class="switch-button" id="slide-left-button">註冊</button>
+            </div>
+            <div class="form">
+                
+                <form class="log-in-form" id="log-in-form">
+                    <h2 class="title">登入</h2>
+                    <div class="input-left">
+                        <div class="log-in-email">
+                            <label class="title-test">電子信箱</label>
+                            <input class="input-space" type="text" placeholder="請輸入E-mail">
+                        </div>
+                        <div class="log-in-password">
+                            <label class="title-test">密碼</label>
+                            <input class="input-space" type="text" placeholder="請輸入密碼">
+                        </div>
+                        <a href="#" class="forgot_password">忘記密碼了嗎?</a>
+                    </div>
+                    <div class="log-in-other">
+                        <button type="button" class="facebook">
+                            <img src="./images/icon/logo_facebook.svg" alt="">
+                            使用 Facebook 登入
+                        </button>
+                        <button type="button" class="google">
+                            <img src="./images/icon/logo_google.svg" alt="">
+                            使用 Google 登入
+                        </button>    
+                    </div>   
+                    <button class="log-in-button">登入</button>
+                </form>
+
+                <form class="sign-up-form" id="sign-up-form">
+                    <h2 class="title">註冊</h2>
+                    <div class="input-right">
+                        <div class="sign-up-name">
+                            <label class="title-test">姓名</label>
+                            <input class="input-space" type="text" placeholder="請輸入姓名">
+                        </div>
+                        <div class="sign-up-email">
+                            <label class="title-test">電子信箱</label>
+                            <input class="input-space" type="text" placeholder="請輸入E-mail">
+                        </div>
+                        <div class="sign-up-passwaod">
+                            <label class="title-test">密碼</label>
+                            <input class="input-space" type="text" placeholder="請輸入密碼">
+                        </div>
+                        <div class="sign-up-passwaod2">
+                            <label class="title-test">確認密碼</label>
+                            <input class="input-space" type="text" placeholder="請再次輸入密碼">
+                        </div>
+                        <p class="text">註冊即表示您已同意服務條款及隱私權政策</p>
+                    </div>
+                    <button class="sign-up-button">註冊會員</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+                       
+                       
+
+    
+</body>
+</html>
