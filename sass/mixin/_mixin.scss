@@ -28,6 +28,15 @@
     @include flexCenter;
 }
 
+//格線
+@mixin grid($num , $r:null) {
+    @for $i from 1 through $num {
+        .col-#{$r}#{$i} {
+            width: calc($i / $num) * 100%;
+        }
+    }
+}
+
 
 //position:absolute置中
 @mixin abCenter{
