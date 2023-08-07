@@ -5,14 +5,19 @@
 .container{
     height: 100%;
     width: 100%;
-    background-color: #f5f5f570; 
+    // background-color: #f5f5f570; 
 }
 
-.overylay{
+.overlay{
     background-image: url(/images/login_bg.jpg);
     width: 836px;
     height: auto;
     position: relative;
     margin: 6% auto;
     padding: 5px;
+    border-radius: 10px;
+}
+
+.log-in{
+
 }
