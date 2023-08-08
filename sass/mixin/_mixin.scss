@@ -46,6 +46,15 @@
     }
 }
 
+@mixin gridTest($num, $gut, $r:null){
+    @for $i from 1 through $num {
+        .colte-#{$r}#{$i} {
+            // width: calc(100% / $num - ($gut * ($num -1)));
+            width: calc((100% / $num * $i) - ($gut / $num * ($num - $i)));
+        }
+    }
+}
+
 
 //position:absolute置中
 @mixin abCenter{
@@ -141,8 +150,3 @@
 //         }
 //     }
 // }
-
-
-=======
->>>>>>> dev
->>>>>>> my
