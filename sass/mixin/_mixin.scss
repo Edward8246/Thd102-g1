@@ -29,6 +29,14 @@
     @include flexCenter;
 }
 
+//字體大小/顏色/字重
+@mixin fontStyle($font-size,$font-color,$font-weight:400,$line-height:1.2){
+    line-height: $line-height;
+    font-size:$font-size;
+    color:$font-color;
+    font-weight: $font-weight;
+}
+
 //格線
 @mixin grid($num , $r:null) {
     @for $i from 1 through $num {
@@ -121,3 +129,20 @@
 // }
 
 
+// 圖片背景使用
+// @each  
+// @mixin img_bg($list) {
+//     @each $i in $list {
+//         .#{$i}_slider {
+//             background-image: url('../../images/#{$i}.jpg');
+//             background-repeat: no-repeat;
+//             background-size: cover;
+//             @content;
+//         }
+//     }
+// }
+
+
+=======
+>>>>>>> dev
+>>>>>>> my
