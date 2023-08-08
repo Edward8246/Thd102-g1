@@ -7,7 +7,15 @@
 }
 .select-tag{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    @include flex(row,space-around,center);
+    border-bottom: 1px solid $color_blue;
+    padding-bottom: 25px;
+}
+.box-text{
+    @include flex(row,center,center);
+}
+.tag-color{
+    @include size(16px,16px,50%);
+    background-color: $color_tag_purple;
+
 }
