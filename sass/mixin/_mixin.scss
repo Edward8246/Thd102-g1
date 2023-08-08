@@ -4,6 +4,7 @@
     height: $h ;
     border-radius: $bdrs;
 }
+
 //@include flex(方向,主軸排列,副軸排列)
 //(預設置中)
 @mixin flex($d:row,$jc:center,$ai:center){
@@ -68,6 +69,36 @@
 
 }
 
+//btn相關
+//@include btn(字體顏色,背景顏色,border顏色,border弧度)
+@mixin btn($color,$bgc,$bd_color,$bdrs:null){
+    color:$color;
+    background-color: $bgc;
+    border-radius: $bdrs;
+    transition:background-color .5s;
+    cursor: pointer;
+    border: solid 1px $bd_color;
+    white-space: nowrap;
+    @include flex;
+}
+
+//@include btn_hover(字體顏色,背景顏色,border顏色)
+@mixin btn_hover($color,$bgc,$bd_color){
+    color:$color;
+    background-color:$bgc;
+    border: solid 1px $bd_color;
+    @include btn_shadow;
+}
+
+//字體大小/顏色/字重
+@mixin fontStyle($font-size,$font-color,$font-weight:400,$line-height:1.2){
+    line-height: $line-height;
+    font-size:$font-size;
+    color:$font-color;
+    font-weight: $font-weight;
+}
+
+
 // //================ breakpoint ============================
 //  //手機板
 // @mixin m() {
@@ -90,25 +121,3 @@
 // }
 
 
-
-
-// 圖片背景使用
-// @each  
-// @mixin img_bg($list) {
-//     @each $i in $list {
-//         .#{$i}_slider {
-//             background-image: url('../../images/#{$i}.jpg');
-//             background-repeat: no-repeat;
-//             background-size: cover;
-//             @content;
-//         }
-//     }
-// }
-
-//字體大小/顏色/字重
-@mixin fontStyle($font-size,$font-color,$font-weight:400,$line-height:1.2){
-    line-height: $line-height;
-    font-size:$font-size;
-    color:$font-color;
-    font-weight: $font-weight;
-}

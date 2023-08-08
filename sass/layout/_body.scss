@@ -2,7 +2,31 @@ body {
     font-family: $font-family;
     background-color: $backgroundColor;
     @include fontStyle($fontsize,$fontColor,400,1.2); 
-}
+    h1{
+       font-size:$h1;
+       font-weight: $font-w-700;
+    }
+    h2{
+        font-size:$h2;
+       font-weight: $font-w-700;
+    }
+    h3{
+        font-size:$h3;
+    }
+    h4{
+        font-size:$h4 ;
+    }
+    h5{
+        font-size:$h5;
+    }
+    h6{
+        font-size:$h6;
+    }
+    p{
+        font-size:$h7 ;
+        line-height: 1.6;
+    }
+    
 
 h1{
     @include fontStyle($h1,$font-color,700);
@@ -36,4 +60,4 @@ p{
     margin: 0 auto;
 }
 
-
+}
