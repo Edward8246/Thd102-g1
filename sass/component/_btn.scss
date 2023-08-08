@@ -6,3 +6,12 @@
         border: none;
     }
 }
+
+
+.btn_load{
+    @include btn($white, $color_darkblue, $color_darkblue, 100px);
+    @include size(180px, 43px);
+    font-size: $h7;
+    margin: 0 auto;
+    margin-top: 48px;
+}
