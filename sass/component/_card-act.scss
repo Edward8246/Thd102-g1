@@ -2,10 +2,11 @@
     height: 460px;
     background-color: white;
     border-radius: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 56px;
     @include btn_shadow($black, .4);
     .card-top{
         overflow: hidden;
+        // border-radius: 5px;
         .image{
             height: 278px;
             overflow: hidden;
@@ -62,10 +63,15 @@
 .left{
     @include btn($color_blue, $white, $color_blue);
     border-radius: 50px 0 0 50px;
+    &:hover{
+        @include btn_hover($color_darkblue, $color_lightblue, none);
+    }
 }
 
 .right{
     border-radius: 0 50px 50px 0;
     @include btn($white, $color_blue, $color_blue);
-
+    &:hover{
+        @include btn_hover($color_darkblue, $color_lightblue, none);
+    }
 }
