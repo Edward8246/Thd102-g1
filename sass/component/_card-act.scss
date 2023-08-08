@@ -2,47 +2,50 @@
     height: 460px;
     background-color: white;
     border-radius: 5px;
-    overflow: hidden;
+    margin-bottom: 30px;
     @include btn_shadow($black, .4);
-
-    .image{
-        height: 278px;
+    .card-top{
         overflow: hidden;
-    }
-    
-    .act-info{
-        padding: 20px 34px;
-
-        .act-txt{
-            margin-top: 10px;
-
-            h4{
-                font-size: $h4;
-                color: $black;
-            }
-    
-            ul{
-                display: flex;
-                margin-top: 10px;
-                li{
-                    // border: 1px solid red;
-                    @include size(105px, 36px);
-                    &:nth-child(2){
-                        border-left: 1.5px solid $black;
-                        border-right: 1.5px solid $black;
-                    }
-    
-                    p{
-                        color: $black;
-                        line-height: 2;
-                        text-align: center;
-                    }
-                }
-               
-            }
+        .image{
+            height: 278px;
+            overflow: hidden;
         }
         
+        .act-info{
+            padding: 20px 34px;
+    
+            .act-txt{
+                margin-top: 10px;
+    
+                h4{
+                    font-size: $h4;
+                    color: $black;
+                }
+        
+                ul{
+                    display: flex;
+                    margin-top: 10px;
+                    li{
+                        // border: 1px solid red;
+                        @include size(105px, 36px);
+                        &:nth-child(2){
+                            border-left: 1.5px solid $black;
+                            border-right: 1.5px solid $black;
+                        }
+        
+                        p{
+                            color: $black;
+                            line-height: 2;
+                            text-align: center;
+                        }
+                    }
+                   
+                }
+            }
+            
+        }
     }
+    
 }
 
 .btn_group{

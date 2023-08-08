@@ -11,4 +11,11 @@
     margin-bottom: 50px;
 }
 
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
 

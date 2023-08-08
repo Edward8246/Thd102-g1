@@ -105,36 +105,39 @@ table {
   height: 460px;
   background-color: white;
   border-radius: 5px;
-  overflow: hidden;
+  margin-bottom: 30px;
   box-shadow: 0 0 4px rgba(51, 51, 51, 0.4);
 }
-.card-act .image {
+.card-act .card-top {
+  overflow: hidden;
+}
+.card-act .card-top .image {
   height: 278px;
   overflow: hidden;
 }
-.card-act .act-info {
+.card-act .card-top .act-info {
   padding: 20px 34px;
 }
-.card-act .act-info .act-txt {
+.card-act .card-top .act-info .act-txt {
   margin-top: 10px;
 }
-.card-act .act-info .act-txt h4 {
+.card-act .card-top .act-info .act-txt h4 {
   font-size: 28px;
   color: #333;
 }
-.card-act .act-info .act-txt ul {
+.card-act .card-top .act-info .act-txt ul {
   display: flex;
   margin-top: 10px;
 }
-.card-act .act-info .act-txt ul li {
+.card-act .card-top .act-info .act-txt ul li {
   width: 105px;
   height: 36px;
 }
-.card-act .act-info .act-txt ul li:nth-child(2) {
+.card-act .card-top .act-info .act-txt ul li:nth-child(2) {
   border-left: 1.5px solid #333;
   border-right: 1.5px solid #333;
 }
-.card-act .act-info .act-txt ul li p {
+.card-act .card-top .act-info .act-txt ul li p {
   color: #333;
   line-height: 2;
   text-align: center;
@@ -318,6 +321,54 @@ table {
 
 .col-12 {
   width: 100%;
+}
+
+.colte-1 {
+  width: calc(8.3333333333% - 22px);
+}
+
+.colte-2 {
+  width: calc(16.6666666667% - 20px);
+}
+
+.colte-3 {
+  width: calc(25% - 18px);
+}
+
+.colte-4 {
+  width: calc(33.3333333333% - 16px);
+}
+
+.colte-5 {
+  width: calc(41.6666666667% - 14px);
+}
+
+.colte-6 {
+  width: calc(50% - 12px);
+}
+
+.colte-7 {
+  width: calc(58.3333333333% - 10px);
+}
+
+.colte-8 {
+  width: calc(66.6666666667% - 8px);
+}
+
+.colte-9 {
+  width: calc(75% - 6px);
+}
+
+.colte-10 {
+  width: calc(83.3333333333% - 4px);
+}
+
+.colte-11 {
+  width: calc(91.6666666667% - 2px);
+}
+
+.colte-12 {
+  width: calc(100% - 0px);
 }
 
 .flexCenter {
@@ -592,6 +643,13 @@ body .wrapper-1200 {
   font-size: 28px;
   text-align: center;
   margin-bottom: 50px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .container {
