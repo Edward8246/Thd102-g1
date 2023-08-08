@@ -1,6 +1,4 @@
-.box-body{
-    // outline: 1px solid red;
-}
+
 .box-banner{
     background-image: url(../../images/box/box_banner.jpg);
     background-size: cover;
@@ -29,26 +27,7 @@
 .box-tag{
     font-size: $h5;
 }
-.box-text{
-    //  outline: 1px solid red;
-    @include flex(row,start,center);
-    
-    margin-top: 15px;
-    margin-bottom: 15px;
-    h6{
-        margin-left: 15px;
-        margin-right: 69px;
-    }
-    p{
-        margin-right: 15px;
-        margin-left: 5px;
-    }
-}
-.tag-color{
-    @include size(16px,16px,50%);
-    background-color: $color_tag_purple;
 
-}
 .more{
     @include btn($white,$color_blue,$color_blue,50px);
     width: 150px;

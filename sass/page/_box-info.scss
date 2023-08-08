@@ -1,0 +1,13 @@
+.box-info-wrapper{
+    max-width: 792px;
+    margin: 0 auto;
+}
+.steps{
+    width: 100%;
+    @include flex(row,space-between,center);
+    border-bottom: 1px solid $color_blue;
+    padding-bottom: 25px;
+    margin-bottom: 70px;
+    margin-top: 50px;
+
+}
