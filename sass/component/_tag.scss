@@ -17,3 +17,19 @@
 .ft-blue{
     @include tag-full($color_tag_blue);
 }
+
+.tb-green{
+    @include tag-border($color_tag_green);
+}
+
+.tb-green{
+    @include tag-border($color_tag_green);
+}
+
+.tb-red{
+    @include tag-border($color_tag_red);
+}
+
+.tb-purple{
+    @include tag-border($color_tag_purple);
+}

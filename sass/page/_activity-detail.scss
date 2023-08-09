@@ -1,0 +1,46 @@
+//左側
+.left-desc{
+    
+    .act-d-img{
+        height: 502px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+}
+
+//資訊
+.detail-info{
+    padding-left: 24px;
+    position: sticky;
+    border: 1px solid red;
+    h1{
+        margin-bottom: 32px;
+    }
+    .detail-info-txt{
+        display: flex;
+        margin-bottom: 24px;
+        i{
+            font-size: $h5;
+            margin-right: 10px;
+        }
+
+        h6{
+
+        }
+    }
+}
+
+.join{
+    .join-txt{
+       @include flex(row, space-between);
+       margin-bottom: 10px;
+       span{
+        color: $color_grayblue;
+       }
+    }
+
+    button{
+        @include btn($white, $color_blue, $color_blue, 100px);
+        @include size(180px, 43px);
+    }
+}

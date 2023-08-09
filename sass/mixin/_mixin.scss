@@ -81,15 +81,23 @@
 
 //商品頁和活動頁tag-full
 @mixin tag-full($bgc){
-    // color: white;
     background-color: $bgc;
     border-radius: 10px;
-    // font-size: $h7;
     text-align: center;
-    // line-height: 1.5;
     @include fontStyle($h7, $white, 400, 1.5);
     @include size(91px, 27px);
+}
 
+// tag外框
+@mixin tag-border($bdc, $bgc: null){
+    background-color: $bgc;
+    border: 1.5px solid $bdc;
+    font-size: $h6;
+    color: $bdc;
+    border-radius: 100px;
+    text-align: center;
+    line-height: 1.5;
+    @include size(180px, 36px);
 }
 
 //btn相關
