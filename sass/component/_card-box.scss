@@ -3,7 +3,7 @@
     width: 350px;
     background-color: $color_cream;
     border-radius: 12px;
-    @include btn_shadow($black, .8);
+    @include btn_shadow($black, .4);
     margin-bottom: 70px;
     overflow: hidden;
 

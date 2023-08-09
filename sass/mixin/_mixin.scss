@@ -62,6 +62,12 @@
     left: 50%;
     transform: translateX(-50%);
 }
+@mixin abCenter_xy{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
 
 //btn_shadow
 @mixin btn_shadow($shadow_color:$color_darkblue,$opacity:.5){
