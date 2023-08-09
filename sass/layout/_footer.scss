@@ -1,2 +1,74 @@
 footer {
+  width: 100%;
+  position: relative;
+  @include flex(column,center,center); 
+  
+  
+  .footer_content{
+    width: 100%;
+    background-color: $color_blue; 
+    border-radius: 50px 50px 0 0 ;
+    padding: 40px $side_padding-360px;
+  }
+  .footer_logo{
+    @include flex(row,space-between,center); 
+    width: 100%;
+    margin-bottom: 40px;
+    img{
+        width: 100px;
+    }
+
+    //logo兩旁線條
+    &::before , &::after{
+        content: "";
+        @include size(18vw,0.5px,50px);
+        background-color: $white;
+    
+      }
+
+  }
+
+  
+  .footer_links{
+    display: flex;
+    padding: 0 5vw;
+    width: 100%;
+    a{
+        color:$white;
+        transition:color .2s;
+        &:hover{
+            color:$color_lightblue;
+        }
+    }
+    
+    
+  }
+  .footer_link{
+    padding: 10px;
+  }
+  
+  .footer_left{
+    @include flex(column,space-between,start);
+    flex: 1;
+  }
+  .footer_middle{
+    flex: 1;
+    @include flex(row,space-between,center);
+  }
+  
+  .footer_right{
+    @include flex(column,space-between,end);
+    flex: 1;
+  }
+  .remind{
+    width: 100%;
+    background-color: $color_lightblue;
+    color: $color_darkblue;
+    text-align: center;
+    padding: 10px 20px;
+    p{
+        font-size: 10px;
+    }
+    
+  }
 }
