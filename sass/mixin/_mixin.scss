@@ -144,11 +144,11 @@
 }
 
 // //平板
-// @mixin t() {
-//     @media screen and (max-width: $t) {
-//         @content;
-//     }
-// }  
+@mixin t() {
+    @media screen and (max-width: $t) {
+        @content;
+    }
+}  
 // // 自己設定
 @mixin d($b){
     @media screen and (max-width: $b) {
