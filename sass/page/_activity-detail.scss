@@ -1,12 +1,20 @@
 //左側
 .left-desc{
-    border: 1px solid red;    
+    // border: 1px solid red;    
     .act-d-img{
-        height: 502px;
+        // height: 502px;
         border-radius: 12px;
         overflow: hidden;
+
+        @include m(){
+            height: auto;
+        }
     }
     .desc{
+        hr{
+            background-color: $color_darkblue;
+            opacity: 50%;
+        }
         
         h4{
             margin-top: 48px;
@@ -21,8 +29,11 @@
 //資訊
 .detail-info{
     padding-left: 24px;
+    @include m(){
+        display: none;
+    }
     
-    border: 1px solid red;
+    // border: 1px solid red;
     .detail-info-box{
         position: sticky;
         top: 0;
@@ -36,23 +47,68 @@
                 font-size: $h5;
                 margin-right: 10px;
             }
-    
         }
-    }
-    
+
+        .join{
+            .join-txt{
+                @include flex(row, space-between);
+                margin-bottom: 10px;
+                span{
+                color: $color_grayblue;
+                   }
+            }
+        }
+
+        button{
+            @include btn($white, $color_blue, $color_blue, 100px);
+            @include size(180px, 43px);
+        }
+    } 
 }
 
-.join{
-    .join-txt{
-       @include flex(row, space-between);
-       margin-bottom: 10px;
-       span{
-        color: $color_grayblue;
-       }
+//rwd
+.detail-info-rwd{
+    margin-top: 24px;
+    display: none;
+    @include m(){
+        display: block;
     }
+    
+    // border: 1px solid red;
+    .detail-info-box{
+        h1{
+            margin-bottom: 32px;
+        }
+        .detail-info-txt{
+            display: flex;
+            margin-bottom: 24px;
+            i{
+                font-size: $h5;
+                margin-right: 10px;
+            }
+        }
 
-    button{
-        @include btn($white, $color_blue, $color_blue, 100px);
-        @include size(180px, 43px);
-    }
+        .join{
+            .join-txt{
+                @include flex(row, space-between);
+                margin-bottom: 10px;
+                span{
+                color: $color_grayblue;
+                   }
+            }
+        }
+
+        button{
+            @include btn($white, $color_blue, $color_blue, 100px);
+            @include size(180px, 43px);
+            margin: 20px auto 0;
+        }
+    } 
+}
+
+
+
+.test{
+    height: 500px;
+    width: 100%;
 }

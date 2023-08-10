@@ -1,9 +1,11 @@
 .card-act{
+    width: 335px;
     height: 460px;
     background-color: white;
     // overflow: hidden;
     border-radius: 5px;
-    margin-bottom: 56px;
+    // margin-bottom: 56px;
+    margin: 0 1% 56px;
     @include btn_shadow($black, .4);
 
     @include rwdGrid($m){
@@ -19,7 +21,7 @@
         }
         
         .act-info{
-            padding: 20px 34px;
+            padding: 20px;
             @include rwdGrid($m){
                 padding: 20px 18px;
             }
