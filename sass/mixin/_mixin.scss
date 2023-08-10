@@ -55,6 +55,13 @@
     }
 }
 
+//rwd格線(測試
+@mixin rwdGrid($d){
+    @media screen and (max-width: $d){
+        @content;
+    }
+}
+
 
 //position:absolute置中
 @mixin abCenter{
@@ -84,7 +91,7 @@
     background-color: $bgc;
     border-radius: 10px;
     text-align: center;
-    @include fontStyle($h7, $white, 400, 1.5);
+    @include fontStyle($h7, $white, 400, 1.6);
     @include size(91px, 27px);
 }
 
@@ -92,11 +99,9 @@
 @mixin tag-border($bdc, $bgc: null){
     background-color: $bgc;
     border: 1.5px solid $bdc;
-    font-size: $h6;
-    color: $bdc;
     border-radius: 100px;
     text-align: center;
-    line-height: 1.5;
+    @include fontStyle($h7, $bdc, 400, 2);
     @include size(180px, 36px);
 }
 

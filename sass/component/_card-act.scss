@@ -1,12 +1,13 @@
 .card-act{
     height: 460px;
     background-color: white;
+    // overflow: hidden;
     border-radius: 5px;
     margin-bottom: 56px;
     @include btn_shadow($black, .4);
     .card-top{
         overflow: hidden;
-        // border-radius: 5px;
+        border-radius: 5px;
         .image{
             height: 278px;
             overflow: hidden;

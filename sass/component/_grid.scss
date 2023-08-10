@@ -1,3 +1,13 @@
 @include grid(12);
 
 @include gridTest(12, 2%);
+
+//手機
+@include rwdGrid($m){
+    @include grid(6, 'm-');
+    @include gridTest(6, 2%, 'm-');
+    .wrapper-t{
+        width: 100%;
+        padding: 20px;
+    }
+}
