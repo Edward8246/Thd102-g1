@@ -18,8 +18,21 @@ html{
         border-bottom: 1px solid #d5d5d5;
         .select-r{
             color: $color_darkblue;
+           
         }
        }
+    }
+    @include m {
+        width: 100%;
+        .select-tag-r{
+            padding-top: 12px;
+            padding-bottom: 10px;
+            .select-r{
+                font-size: $h7;
+                
+            }
+        }
+        
     }
 
 }
@@ -29,6 +42,11 @@ html{
     @include d(820px){
         width: 75%;
         }
+    @include m{
+
+
+        width: 90%;
+    } 
 
     .select-tag {
         width: 100%;
@@ -58,6 +76,9 @@ html{
             align-items: center;
             margin-bottom: 80px;
         }
+         @include m {
+                    font-size: $h5;
+                }
 
         .info-left {
             width: 48%;
@@ -90,20 +111,26 @@ html{
             .info-name{
                 margin-bottom: 10px;
                 @include flexCenter;
+               h2{
+                @include m {
+                    font-size: $h5;
+                }
+               }
                 .r-price{
                     display: none;
                     margin-bottom: 0;
                     @include d(820px){
                         display: block;
                         }
+                    @include m {
+                            font-size: $h5;
+                        }
                 }
             }
             .info-detail {
                 @include flexCenter;
                 width: 55%;
-                @include d(820px){
-                    display: none;
-                    }
+                
 
                 .icon-text {
                     @include flexCenter;
@@ -115,11 +142,21 @@ html{
                         margin-right: 5px;
                     }
                 }
+                @include d(820px){
+                    width: 130px;
+                    .use{
+                        display: none;
+                    }
+                
+                    }
             }
 
             .info-text {
                 letter-spacing: 0.6px;
                 margin-bottom: 15px;
+                @include d(820px){
+                    letter-spacing: 0;
+                    }
                 
             }
 
@@ -161,6 +198,10 @@ html{
 
     h5{
             margin-bottom: 35px;
+            @include m {
+                font-size: $h6;
+
+            }
     }
     .ingredients{
         width: 100%;
@@ -218,6 +259,9 @@ html{
     }
     .steps{
         margin-bottom: 120px;
+        @include d(820px){
+            margin-bottom: 90px;
+            }
         li{
             @include flex(row,flex-start,top);
             margin-bottom: 30px;
@@ -253,26 +297,46 @@ html{
             list-style:disc ;
             li{
                 margin-bottom: 10px;
+                font-size: $h7;
             }
         }
+        @include m{
+            width: 70%;
+        }
     }
-
+    .chef-title{
+        padding-top: 30px;
+        border-top: 1px solid #d5d5d5;
+    }
     .chef{
        @include flexCenter;
-       padding-top: 55px;
-       border-top: 1px solid #d5d5d5;
        padding-bottom: 90px;
        border-bottom: 1px solid #d5d5d5;
+       @include d(820px){
+        flex-direction: column;
+        }
 
        .image{
         width: 25%;
-            border-radius:50%;
+        border-radius:50%;
+        @include d(820px){
+            width: initial;
+            margin-bottom: 20px;
+            }
        }
        .chef-name{
         width: 70%;
+        
           h4{
             margin-bottom: 10px;
-          }  
+          }
+          @include d(820px){
+            width: 100%;
+            h4{
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            } 
        }
     }
     }
