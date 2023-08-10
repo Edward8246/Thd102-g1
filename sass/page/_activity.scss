@@ -3,11 +3,24 @@
     @include size(100%, 300px);
     background-size: cover;
     margin-bottom: 50px;
+
+    @include rwdGrid($m){
+        height: 150px;
+        background-position: top center;
+        margin-bottom: 10px;
+    }
+
 }   
 
 .act-title{
     text-align: center;
     margin-bottom: 36px;
+
+    @include rwdGrid($m){
+        margin-bottom: 10px;
+    }
+    
+    
     h4{
         margin-bottom: 20px;
     }
@@ -17,4 +30,5 @@
     margin: 0 auto;
 }
 
+//rwd
 
