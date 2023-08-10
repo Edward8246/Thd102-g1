@@ -10,9 +10,6 @@
     max-width: 1200px;
     // outline: 1px solid red;
     margin: 0 auto;
-    @include flex(row,space-between,center);
-    
-    flex-wrap: wrap;
 
 
 }

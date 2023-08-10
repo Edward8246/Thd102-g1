@@ -11,6 +11,9 @@ html{
         width: 75%;
        display: block;
        .select-tag-r{
+        position: sticky;
+        top: 0;
+    
         font-size: $h5;
         @include flex(row,space-around,center);
         padding-top: 20px;
@@ -323,12 +326,18 @@ html{
             width: initial;
             margin-bottom: 20px;
             }
+        @include m{
+            width: 40%;
+        }
        }
        .chef-name{
         width: 70%;
         
           h4{
             margin-bottom: 10px;
+            @include m{
+                font-size: 24px;
+            }
           }
           @include d(820px){
             width: 100%;
