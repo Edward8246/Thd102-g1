@@ -5,16 +5,24 @@
     border-radius: 5px;
     margin-bottom: 56px;
     @include btn_shadow($black, .4);
+
+    @include rwdGrid($m){
+        height: 420px;
+    }
+
     .card-top{
         overflow: hidden;
         border-radius: 5px;
         .image{
-            height: 278px;
+            // height: 278px;
             overflow: hidden;
         }
         
         .act-info{
             padding: 20px 34px;
+            @include rwdGrid($m){
+                padding: 20px 18px;
+            }
     
             .act-txt{
                 margin-top: 10px;

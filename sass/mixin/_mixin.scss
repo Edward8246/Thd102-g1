@@ -102,7 +102,7 @@
     border-radius: 100px;
     text-align: center;
     @include fontStyle($h7, $bdc, 400, 2);
-    @include size(180px, 36px);
+    // @include size(180px, 36px);
 }
 
 //btn相關
