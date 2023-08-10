@@ -145,11 +145,11 @@
 //     }
 // }  
 // // 自己設定
-// @mixin d($b){
-//     @media screen and (max-width: $b) {
-//         @content;
-//     }
-// }
+@mixin d($b){
+    @media screen and (max-width: $b) {
+        @content;
+    }
+}
 
 
 // 圖片背景使用
