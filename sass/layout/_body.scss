@@ -34,11 +34,11 @@ body {
    @import './footer';
 }
 
-.wrapper-1200{
-    width: 1200px;
-    margin: 0 auto;
 }
 
-}
 
+.wrapper-t{
+  max-width: $t;
+  margin: 0 auto;
+}
 

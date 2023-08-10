@@ -55,6 +55,13 @@
     }
 }
 
+//rwd格線(測試
+@mixin rwdGrid($d){
+    @media screen and (max-width: $d){
+        @content;
+    }
+}
+
 
 //position:absolute置中
 @mixin abCenter{
