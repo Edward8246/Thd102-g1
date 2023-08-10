@@ -1,6 +1,6 @@
 //左側
 .left-desc{
-    
+    border: 1px solid red;    
     .act-d-img{
         height: 502px;
         border-radius: 12px;
@@ -11,23 +11,25 @@
 //資訊
 .detail-info{
     padding-left: 24px;
-    position: sticky;
+    
     border: 1px solid red;
-    h1{
-        margin-bottom: 32px;
-    }
-    .detail-info-txt{
-        display: flex;
-        margin-bottom: 24px;
-        i{
-            font-size: $h5;
-            margin-right: 10px;
+    .detail-info-box{
+        position: sticky;
+        top: 0;
+        h1{
+            margin-bottom: 32px;
         }
-
-        h6{
-
+        .detail-info-txt{
+            display: flex;
+            margin-bottom: 24px;
+            i{
+                font-size: $h5;
+                margin-right: 10px;
+            }
+    
         }
     }
+    
 }
 
 .join{
