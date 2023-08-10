@@ -1,12 +1,21 @@
 header {
     @include flex(column,center,start);
+    
+
     .nav{
         @include flexCenter;
         @include size(100%,80px);
         background-color: $color_lightblue;
         align-items: center; 
         box-sizing: border-box;    
-        padding: 2vw 18.75vw;
+        padding: 0 $side_padding-360px;
+        box-shadow: 0 1px 20px rgba($color_blue,.2);
+
+        //固定在最上面
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        
     }
 
     .header_left,.header_right{
@@ -29,6 +38,7 @@ header {
     
     .logo{
         width: 100px;
+        cursor: pointer;
     }
     .header_btn{
         @include flex;
@@ -64,17 +74,26 @@ header {
 }
 
 .header_cataPage{
+    position: absolute;
+    top: 40px;
     background-color: rgba($white,.7);
     width: 100%;
-    padding: 0px 18.75vw;
+    padding: 0 $side_padding-360px ;
+    padding-bottom: 40px;
     @include flex(row,space-between,center);
+    //預設扣除nav的高度
+    padding-top: $top_padding;
+    //預設隱藏，點擊bar才會展開
+    //display: none;
     
     .cata_bg{
+       
         flex:2;
-        margin-right: 80px;
+        
     }
     .cata_right{
         flex:3;
+        @include flex(column,center,space-between);
     }
     .pageLinks{
         padding: 20px 0;
@@ -85,11 +104,8 @@ header {
         transition:all .5s;
         &:hover{
             font-weight: 700;
+            color:$color_lightblue;
         }
-        img{
-            width: 16px;
-        }
-        
     }
     
     .food_theme{
