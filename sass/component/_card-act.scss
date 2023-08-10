@@ -1,15 +1,16 @@
 .card-act{
-    width: 335px;
-    height: 460px;
+    // width: 335px;
+    // height: 460px;
     background-color: white;
     // overflow: hidden;
     border-radius: 5px;
-    // margin-bottom: 56px;
-    margin: 0 1% 56px;
+    margin-bottom: 56px;
+    // margin: 0 1% 56px;
+    position: relative;
     @include btn_shadow($black, .4);
 
     @include rwdGrid($m){
-        height: 420px;
+        // height: 420px;
     }
 
     .card-top{
@@ -21,7 +22,7 @@
         }
         
         .act-info{
-            padding: 20px;
+            padding: 20px 20px 45px;
             @include rwdGrid($m){
                 padding: 20px 18px;
             }
@@ -63,6 +64,9 @@
 .btn_group{
     margin: 0px auto;
     font-size: 0;
+    position: absolute;
+    bottom: -20px;
+    @include abCenter();
 
     button{
         display: inline-block;
@@ -75,7 +79,7 @@
     @include btn($color_blue, $white, $color_blue);
     border-radius: 50px 0 0 50px;
     &:hover{
-        @include btn_hover($color_darkblue, $color_lightblue, none);
+        @include btn_shadow();
     }
 }
 
@@ -83,6 +87,6 @@
     border-radius: 0 50px 50px 0;
     @include btn($white, $color_blue, $color_blue);
     &:hover{
-        @include btn_hover($color_darkblue, $color_lightblue, none);
+        @include btn_shadow;
     }
 }
