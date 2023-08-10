@@ -33,3 +33,7 @@
 .tb-purple{
     @include tag-border($color_tag_purple);
 }
+
+.tb-green{
+    @include tag-border($color_tag_green);
+}
