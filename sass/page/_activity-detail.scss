@@ -1,12 +1,16 @@
 //左側
 .left-desc{
-    border: 1px solid red;    
+    // border: 1px solid red;    
     .act-d-img{
         height: 502px;
         border-radius: 12px;
         overflow: hidden;
     }
     .desc{
+        hr{
+            background-color: $color_darkblue;
+            opacity: 50%;
+        }
         
         h4{
             margin-top: 48px;
@@ -22,7 +26,7 @@
 .detail-info{
     padding-left: 24px;
     
-    border: 1px solid red;
+    // border: 1px solid red;
     .detail-info-box{
         position: sticky;
         top: 0;
