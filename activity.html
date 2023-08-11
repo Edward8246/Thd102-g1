@@ -25,7 +25,7 @@
     </section>
 
     <!-- 卡片 -->
-    <section class="">
+    <section>
         <div class="grid-b">
             <div class="card-act">
                 <div class="card-top">
@@ -186,8 +186,140 @@
         
 
         <!-- 載入更多 -->
-        <button type="button" class="btn_load">載入更多</button>
     </section>
+    <button type="button" class="btn_load">載入更多</button>
+
+    <!-- 測試vue -->
+    <section>
+        <div class="grid-b" id="test">
+            <div class="card-act" v-for="card, index in arr_act" :key="index">
+                <!-- <div class="card-top">
+                    <div class="image">
+                        <img src="./images/activity-1.jpg" alt="">
+                    </div>
+                    <div class="act-info">
+                        <div class="ft-red">
+                            新品宣傳
+                        </div>
+                        <div class="act-txt">
+                            <h4>新咖哩飯登場!</h4>
+                            <ul>
+                                <li class="act-txt-info">
+                                    <i class="fa-solid fa-calendar"></i>
+                                    <p>2023/08/23 18:00</p>
+                        
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-clock"></i>
+                                    <p>2hr</p>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-calendar"></i>
+                                    <p>Hako 小廚房</p>
+                                </li>
+                            </ul>
+                        </div>
+          
+                    </div>
+                </div> -->
+                <div class="card-top">
+                    <div class="image">
+                        <img :src="img" alt="">
+                    </div>
+                    <div class="act-info">
+                        <div class="ft-red">
+                            {{ card.tag }}
+                        </div>
+                        <div class="act-txt">
+                            <h4>{{ card.name }}</h4>
+                            <ul>
+                                <li class="act-txt-info">
+                                    <i class="fa-solid fa-calendar"></i>
+                                    <p>{{card.date}}</p>
+                        
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-clock"></i>
+                                    <p>{{card.dur}}</p>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-calendar"></i>
+                                    <p>{{card.loc}}</p>
+                                </li>
+                            </ul>
+                        </div>
+          
+                    </div>
+                </div>
+               
     
+                <div class="btn_group col-9">
+                    <button type="button" class="left col-6" href="">詳細資訊</button>
+                    <button type="button" class="right col-6" href="">馬上報名!</button>
+                </div>
+                
+            </div>
+    
+    </section>
+
+    <!-- <script src="./vendors/vue/vue.global.js"></script> -->
+    <script src="./vendors/vue/vue.global.prod.js"></script>
+    <script>
+        const activity = Vue.createApp({
+            data(){
+                return{
+                    arr_act: [
+                    {
+                        tag: '新品宣傳',
+                        name: '夏日清涼特惠',
+                        date: '2023-07-25 14:00',
+                        dur: '2 小時',
+                        loc: '市中心商場',
+                        img:'./images/activity-1.jpg'
+                    },
+                    {
+                        tag: '私廚教學',
+                        name: '健康素食料理',
+                        date: '2023-08-10 18:30',
+                        dur: '2.5 小時',
+                        loc: '烹飪教室',
+                        img:'./images/activity-1.jpg'
+
+                    },
+                    {
+                        tag: '共享餐桌',
+                        name: '國際美食交流會',
+                        date: '2023-09-05 19:00',
+                        dur: '3 小時',
+                        loc: '文化中心廣場',
+                        img:'./images/activity-1.jpg'
+
+                    },
+                    {
+                        tag: '新品發佈',
+                        name: '秋季時尚專場',
+                        date: '2023-09-15 15:30',
+                        dur: '2 小時',
+                        loc: '購物中心 A 店',
+                        img:'./images/activity-1.jpg'
+
+                    },
+                    {
+                        tag: '私廚體驗',
+                        name: '泰式料理大師班',
+                        date: '2023-10-08 17:00',
+                        dur: '3 小時',
+                        loc: '國際廚藝學院',
+                        img:'./images/activity-1.jpg'
+
+                    }
+                    ]
+                }
+            },
+            
+        });
+
+        activity.mount('#test');
+    </script>
 </body>
 </html>
