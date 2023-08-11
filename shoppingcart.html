@@ -4,9 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoppingcart</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" >
     
 </head>
 <body>
-    
+
+    <header>
+        
+    </header>
+<!--------------------------------上排付款流程 -->
+    <ul class="process">
+        <li class="cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h5 class="cart-text">購物車</h5>
+        </li>
+
+        <li class="pay">
+            <i class="fa-regular fa-credit-card"></i>
+            <h5 class="pay-text">付款方式</h5>
+        </li>
+
+        <li class="success">
+            <i class="fa-solid fa-check"></i>
+            <h5 class="success-text">付款成功</h5>
+        </li>
+    </ul>
+
+<!----------------------購物車列表文字-->
+
+    <div class="shoppingcart-list">
+        <div class="shopping-item-title"><h3>訂購商品</h3></div>
+        <div class="shoppingcart-unit-price"><h3>單價</h3></div>
+        <div class="shoppingcart-quantity"><h3>數量</h3></div>
+        <div class="shoppingcart-amount"><h3>金額</h3></div>
+    </div>
+    <hr>
+    <!--------------------商品卡片-->
+    <div class="shoppingcart-item">
+        <ul>
+            <li>
+                <div class="item-img">
+                    <img src="./images/shoppingcart/item1.png" alt="">
+                </div>
+
+                <div class="item-wrapper">
+                    <div class="item-title">
+                        <div class="item-title-block ft-red">盒子</div>
+                        <h4 class="item-title-text">薑汁燒肉</h4>
+                    </div>
+                    <div class="item-price">
+                        <h4 class="price">$188</h4>
+                    </div>
+                    <div class="item-quantity">
+                        <div class="btn-number">
+                            <div class="b-n b-sub col-3 quantity-sub" ></div>
+                            <input class="quantity-num col-6" type="text" value="1">
+                            <div class="b-n b-add col-3 quantity-add" ></div>
+                        </div>
+                    </div>
+                    <div class="item-amount">
+                        <h4 class="amount">$188</h4>
+                    </div>
+                    <div class="item-del">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="item-img">
+                    <img src="./images/shoppingcart/item1.png" alt="">
+                </div>
+                
+                <div class="item-wrapper">
+                    <div class="item-title">
+                        <div class="item-title-block ft-red">盒子</div>
+                        <h4 class="item-title-text">薑汁燒肉</h4>
+                    </div>
+                    <div class="item-price">
+                        <h4 class="price">$188</h4>
+                    </div>
+                    <div class="item-quantity">
+                        <div class="btn-number">
+                            <div class="b-n b-sub col-3 quantity-sub" ></div>
+                            <input class="quantity-num col-6" type="text" value="1">
+                            <div class="b-n b-add col-3 quantity-add" ></div>
+                        </div>
+                    </div>
+                    <div class="item-amount">
+                        <h4 class="amount">$376</h4>
+                    </div>
+                    <div class="item-del">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <!-------------------------------------------訂購活動-->
+    <div class="item-activity">
+        <h3 class="itema-activity-title">訂購活動</h3>
+        <ul>
+            <li>
+                <div class="item-img">
+                    <img src="./images/shoppingcart/item1.png" alt="">
+                </div>
+
+                <div class="item-wrapper">
+                    <div class="item-title">
+                        <div class="item-title-block ft-purple">活動</div>
+                        <h4 class="item-title-text">咖哩飯新登場!</h4>
+                    </div>
+                    <div class="item-price activity-price">
+                        <h4 class="price">$1200</h4>
+                    </div>
+                    <div class="item-quantity">
+                        <div class="btn-number">
+                            <div class="b-n b-sub col-3 quantity-sub" ></div>
+                            <input class="quantity-num col-6" type="text" value="1">
+                            <div class="b-n b-add col-3 quantity-add" ></div>
+                        </div>
+                    </div>
+                    <div class="item-amount">
+                        <h4 class="amount">$1200</h4>
+                    </div>
+                    <div class="item-del">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <!-- 總計 -->
+    <div class="item-total">
+        <h2 class="total">總計 : $2964</h2>
+        <div class="item-button">
+            <a href="#"><button class="btn_shopping-prev prev">繼續購物</button></a>
+            <a href="#"><button class="btn_shopping-next next">下一步</button></a>  
+        </div>
+    </div>
+
+    <!-------------------------------------------footer-->
+    <div class="shoppingcart-footer">
+
+    </div>
 </body>
 </html>

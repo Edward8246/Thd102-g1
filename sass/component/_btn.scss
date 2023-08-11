@@ -72,3 +72,21 @@
         color: $color_darkblue;
     }
 }
+.btn_shopping-prev{
+    @include btn($fontColor,#fff,$color_blue,$border-radius-50);
+    width: 181px;
+    height: 50px;
+    &:hover{
+        @include btn_hover($white,$color_blue,$color_blue);
+        border: none;
+    }
+}
+.btn_shopping-next{
+    @include btn($white ,$color_blue,$color_blue,$border-radius-50);
+    width: 181px;
+    height: 50px;
+    &:hover{
+        @include btn_hover($fontColor,#fff,$color_blue);
+        
+    }
+}
