@@ -4,7 +4,7 @@
     background-color: $color_cream;
     border-radius: 12px;
     @include btn_shadow($black, .4);
-    margin-bottom: 70px;
+   
     overflow: hidden;
 
     
@@ -14,22 +14,47 @@
     .box-text{
         //  outline: 1px solid red;
         @include flex(row,start,center);
+        @include m{
+            justify-content: space-between;
+            padding: 0 10px;
+        }
         
         margin-top: 15px;
         margin-bottom: 15px;
         h6{
             margin-left: 15px;
             margin-right: 69px;
+            @include m{
+                margin: 0;
+            }
         }
         p{
             margin-right: 15px;
             margin-left: 5px;
+            @include m{
+               margin-right: 0;
+            }
+           
         }
-    }
-    .tag-color{
-        @include size(16px,16px,50%);
-        background-color: $color_tag_purple;
+        .t-n{
+            @include m{
+                display: none
+            }
+        }
+        .tag-color{
+            @include size(16px,16px,50%);
+            background-color: $color_tag_purple;
+            @include m{
+                display: none;
+            }
+        
+        }
+        .time-icon{
+            display: flex;
+            align-items: center;
+           
+        }
     
     }
-
+   
 }

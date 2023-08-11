@@ -1,39 +1,111 @@
+.grid-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // gap: 20px;
+    grid-column-gap: 24px;
+    grid-row-gap: 30px;
+    // padding-bottom: 15px;
+    padding: 15px;
 
-.box-banner{
+    // @include t{
+    //     grid-template-columns: 1fr 1fr;
+
+    // }
+    @include d(1000px) {
+        // grid-template-columns: 1fr 1fr;
+    }
+
+    @include m {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.tb-green-w {
+    @include tag-border-w($color_tag_green, 100px);
+}
+
+.tb-yellow-w {
+    @include tag-border-w($color_tag_yellow, 100px);
+    margin-right: 5px;
+}
+
+.tb-red-w {
+    @include tag-border-w($color_tag_red, 100px);
+}
+
+.tb-purple-w {
+    @include tag-border-w($color_tag_purple, 100px);
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.tb-blue-w {
+    @include tag-border-w($color_tag_blue, 100px);
+}
+
+.box-banner {
     background-image: url(../../images/box/box_banner.jpg);
     background-size: cover;
     background-position: top center;
     @include size(100%, 300px);
     margin-bottom: 50px;
 }
-.box-wrapper{
+
+.box-wrapper {
     max-width: 1200px;
     // outline: 1px solid red;
     margin: 0 auto;
 
+    @include m {
+        max-width: 375px;
+        margin-bottom: 50px;
+    }
+
+
 
 }
 
-.select-tag{
+.select-tag {
     width: 100%;
-    @include flex(row,space-around,center);
+    @include flex(row, space-around, center);
     border-bottom: 1px solid $color_blue;
     padding-bottom: 25px;
     margin-bottom: 70px;
+
+    @include m {
+        display: none;
+    }
 }
-.box-tag{
+
+.select-tag2 {
+    display: none;
+
+    @include m {
+        margin: 0 auto;
+        max-width: 375px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+}
+
+.box-tag {
     font-size: $h5;
 }
 
-.more{
-    @include btn($white,$color_blue,$color_blue,50px);
+.more {
+    @include btn($white, $color_blue, $color_blue, 50px);
     width: 150px;
     display: block;
     margin: 0 auto;
     padding: 8px 0;
     margin-bottom: 200px;
 
-    &:hover{
-        @include btn_hover($color_blue,$white,$color_blue);
+    &:hover {
+        @include btn_hover($color_blue, $white, $color_blue);
     }
 }
