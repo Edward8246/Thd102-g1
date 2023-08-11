@@ -22,8 +22,8 @@
     @include tag-border($color_tag_green);
 }
 
-.tb-green{
-    @include tag-border($color_tag_green);
+.tb-yellow{
+    @include tag-border($color_tag_yellow);
 }
 
 .tb-red{
@@ -34,6 +34,6 @@
     @include tag-border($color_tag_purple);
 }
 
-.tb-green{
-    @include tag-border($color_tag_green);
+.tb-blue{
+    @include tag-border($color_tag_blue);
 }

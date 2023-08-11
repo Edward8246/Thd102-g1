@@ -104,6 +104,15 @@
     @include fontStyle($h7, $bdc, 400, 2);
     @include size(180px, 36px);
 }
+//tag外框 自定義寬
+@mixin tag-border-w($bdc,$width, $bgc: null){
+    background-color: $bgc;
+    border: 1.5px solid $bdc;
+    border-radius: 100px;
+    text-align: center;
+    @include fontStyle($h7, $bdc, 400, 2);
+    @include size($width, 36px);
+}
 
 //btn相關
 //@include btn(字體顏色,背景顏色,border顏色,border弧度)
