@@ -14,7 +14,7 @@ header {
         //固定在最上面
         position: fixed;
         top: 0;
-        z-index: 10;
+        z-index: 20;
         
     }
 
@@ -84,7 +84,7 @@ header {
     //預設扣除nav的高度
     padding-top: $top_padding;
     //預設隱藏，點擊bar才會展開
-    //display: none;
+    display: none;
     
     .cata_bg{
        

@@ -1,1 +1,230 @@
 // 首頁
+.index{
+    *{
+        outline: 1px solid red;
+    }
+    
+    .container{
+        
+        @include flex(column,center,center);
+        width: 100%;
+    }
+    .index_video{
+        width: 100%;
+        margin-top: 80px;
+        font-size: 0;
+        video{
+            width: 100%;
+        }
+    }
+    
+    .article1{
+        overflow: hidden;
+        padding: 80px 0 40px;
+        background-color: $color_cream;
+    }
+    .circlefont{
+        padding: 0 30vw 18%;
+        img{
+            width: 100%;
+        }
+    }
+    .box_explode{  
+        position: relative;
+    }
+    
+    // 文字輪播
+    @keyframes slide{
+        0% { left: -10px; }
+        100% { left: -100%; }     
+    }
+
+    .bg_animattion{
+        font-weight: 700;
+        font-size: 200px;
+        white-space:nowrap;
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;        
+        line-height: 1;
+        z-index: 1;
+
+        div{
+            display: block;
+            width: 200%;
+            height: 200px;
+            position: absolute;
+            overflow: hidden;
+            left: 0;
+            animation: slide 8s linear infinite both;  
+        }
+
+        span{    
+            margin-right: 50px;
+            color:#ECE9D7;
+            width: 50%;
+        }   
+        
+    }
+    
+
+   
+    .box{
+        position: relative;
+        z-index: 5;
+        width: 20vw;
+        margin: 0 auto;
+        img{
+            width: 100%;
+        }
+    }
+    .ingredients_bg{
+        z-index: 10;
+        position: absolute;
+        padding: 0 11.5%;
+        bottom:-20%;
+        transform: scale(0.2);
+        //滑鼠scroll事件
+        &:hover{
+            transition: .8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.8);
+            bottom: 30%;
+            left: 1%;
+        }
+    }
+    .small_info{
+        line-height: 2;
+        letter-spacing: 0.5px;
+        font-size: 14px;
+        text-align: center;
+        padding: 40px $side_padding-360px;
+    }
+// 更多盒子的區塊======================
+    .article2{
+        width: 100%;
+        padding: 80px 2vw;
+        .recipe_slide{ 
+            width: 100%;
+            height: 15vw;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            
+        }
+        
+        .recipes_theme{
+            outline: solid 3px blue;
+            //@include flex(row,space-between,center);
+            position: relative;
+            left: -15vw;
+            height: 15vw;
+
+        }
+        
+        .recipe_item{
+            display: block;
+            width: 15vw;
+            height: 15vw;
+            position: absolute;
+            img{
+                width: 100%;
+            }
+        }
+
+
+    }
+
+
+
+// 更多服務的區塊=======================
+    .article3{
+        width: 100%;
+        padding: 80px $side_padding-360px;
+        margin-bottom: -40px;
+        background-image: url(../../images/index_bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .small_info{
+            padding:40px 0;
+        }
+    }
+    .box_close{
+        width: 15.6vw;
+    }
+    .moreOffer{
+        @include flex(row,center,start);
+        flex-wrap: wrap;
+        text-align: center;
+        .more_info{
+            min-width: 200px;
+            min-height: 200px;
+            width: 33%;
+            padding: 8%; 
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+
+        }
+        p{
+            font-size: 14px;
+        }
+        .title_sm{
+            @include flex;
+            margin-bottom: 20px;
+        }
+        .title_sm{
+
+            font-weight: 700;
+            h6{
+                white-space: nowrap;
+            }
+            &.red{
+                color: darken($color:$color_tag_red, $amount: 5);
+                .circle{
+                    background-color: $color_tag_red;
+                }
+            }
+            &.green{
+                color: darken($color:$color_tag_green, $amount: 5);
+                .circle{
+                    background-color: $color_tag_green;
+                }
+            }
+            &.purple{
+                color: darken($color:$color_tag_purple, $amount: 5);
+                .circle{
+                    background-color: $color_tag_purple;
+                }
+            }
+
+        } 
+      
+
+        .circle{
+            @include size(20px,20px,50%);
+            min-width: 20px;
+            margin-right: 20px;
+        }
+        .newProduct{
+            background-image: url(../../images/index_irregularCircle1.png);
+        }
+        .chefClass{
+            background-image: url(../../images/index_irregularCircle2.png);
+        }
+        .shareTable{
+            background-image: url(../../images/index_irregularCircle3.png);
+        }
+        
+    }
+    
+    .othersOffer{
+        @include size(20vw, 32px);
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+   
+
+}
