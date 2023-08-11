@@ -1,0 +1,97 @@
+.wrapper-member{
+    max-width: 100%;
+    background-color: burlywood;
+}
+
+.member-form{
+    width: 700px;
+    padding: 30px 50px;
+
+}
+
+//上面標籤
+.tabs{
+    display: flex;
+    /* border: 1px solid red; */
+    /* justify-content: flex-start; */
+}
+.main{
+    background-color: $color_cream;
+    height: 500px;
+    padding: 20px;
+}
+.tab{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color:$color_cream;
+
+    padding: 10px 20px; 
+}
+
+.maintext{ 
+    margin: 0 auto;
+    width: 90%;
+    font-size: 20px;
+    line-height: 3;
+    border-bottom: 3px solid #000;
+    margin-bottom: 30px;
+}
+.data{
+    // width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+    // justify-content: space-between;
+    // flex-wrap: wrap;
+    
+    
+}
+.short-g, .long-g{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.short-g{
+    /* border: 1px solid red; */
+    width: 300px;
+    display: flex;
+   
+
+    // justify-content: space-between;
+
+    
+    
+    
+}
+.call{}
+
+.short-g:nth-child(2){
+    width: 300px;
+    display: flex;
+}
+.long-g{
+    width: 100%;
+}
+
+.table{
+    border: 1px solid black;
+    width: 200px;
+    height: 300px;
+
+}
+
+td{
+    border: 1px solid black;
+    // border-bottom: 1px solid black;
+}
+
+
+
+.d-none{
+    // display: none;
+}
+.t-choose{
+    background-color: lightgray;
+}
