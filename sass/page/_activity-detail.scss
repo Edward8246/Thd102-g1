@@ -1,6 +1,18 @@
+.flex-container-ad{
+    display: flex;
+    // justify-content: space-between;
+    // align-items: flex-start;
+    flex-wrap: wrap;
+
+    @include m(){
+        flex-direction: column-reverse;
+    }
+}
 //左側
 .left-desc{
-    // border: 1px solid red;    
+    @include m(){
+        margin-top: 20px;
+    }   
     .act-d-img{
         // height: 502px;
         border-radius: 12px;
@@ -30,15 +42,24 @@
 .detail-info{
     padding-left: 24px;
     @include m(){
-        display: none;
+        // display: none;
+        padding-left: 0;
     }
     
     // border: 1px solid red;
     .detail-info-box{
         position: sticky;
         top: 0;
+
+        @include m(){
+            position: static;
+        }
         h1{
             margin-bottom: 32px;
+
+            @include m(){
+                margin-top: 10px;
+            }
         }
         .detail-info-txt{
             display: flex;
@@ -62,6 +83,11 @@
         button{
             @include btn($white, $color_blue, $color_blue, 100px);
             @include size(180px, 43px);
+           
+            @include m(){
+                margin: 16px auto;
+            }
+            
         }
     } 
 }
