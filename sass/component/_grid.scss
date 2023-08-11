@@ -15,8 +15,8 @@
 .grid-b{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    // padding-bottom: 15px;
+    gap: 70px 20px;
+    padding: 0 6%;
 
     // @include t{
     //     grid-template-columns: 1fr 1fr;

@@ -43,5 +43,9 @@ p{
 .wrapper-t{
   // max-width: $t;
   margin: 0 auto;
+
+  @include m(){
+    // padding: 20px;
+  }
 }
 
