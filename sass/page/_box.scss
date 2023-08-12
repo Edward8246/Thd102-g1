@@ -3,14 +3,14 @@
     grid-template-columns: 1fr 1fr 1fr;
     // gap: 20px;
     grid-column-gap: 24px;
-    grid-row-gap: 30px;
+    grid-row-gap: 70px;
     // padding-bottom: 15px;
     padding: 15px;
 
-    // @include t{
-    //     grid-template-columns: 1fr 1fr;
+    @include d(768px){
+        grid-template-columns: 1fr 1fr;
 
-    // }
+    }
     @include d(1000px) {
         // grid-template-columns: 1fr 1fr;
     }
@@ -21,29 +21,7 @@
 
 }
 
-.tb-green-w {
-    @include tag-border-w($color_tag_green, 100px);
-}
 
-.tb-yellow-w {
-    @include tag-border-w($color_tag_yellow, 100px);
-    margin-right: 5px;
-}
-
-.tb-red-w {
-    @include tag-border-w($color_tag_red, 100px);
-}
-
-.tb-purple-w {
-    @include tag-border-w($color_tag_purple, 100px);
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-}
-
-.tb-blue-w {
-    @include tag-border-w($color_tag_blue, 100px);
-}
 
 .box-banner {
     background-image: url(../../images/box/box_banner.jpg);
@@ -57,6 +35,7 @@
     max-width: 1200px;
     // outline: 1px solid red;
     margin: 0 auto;
+    margin-bottom: 50px;
 
     @include m {
         max-width: 375px;
@@ -73,22 +52,63 @@
     border-bottom: 1px solid $color_blue;
     padding-bottom: 25px;
     margin-bottom: 70px;
-
-    @include m {
+    .tag-green,.tag-purple, .tag-blue,.tag-yellow, .tag-red{
+        position: relative;
+    }
+    
+    .tag-green::before{
+        @include tag_before($color_tag_green);
+    }
+    .tag-purple::before{
+        @include tag_before($color_tag_purple);
+    }
+    .tag-blue::before{
+        @include tag_before($color_tag_blue);
+    }
+    .tag-yellow::before{
+        @include tag_before($color_tag_yellow);
+    }
+    .tag-red::before{
+        @include tag_before($color_tag_red);
+    }
+    .box-tag{
+        cursor: pointer;
+        &:hover::before{
+            width: 100%;
+        }
+    }
+    @include d(768px){
         display: none;
     }
 }
 
 .select-tag2 {
+
     display: none;
+    
+   @include d(768px){
+
+       margin: 0 auto;
+  
+       display: flex;
+       flex-wrap: wrap;
+       gap: 15px;
+       justify-content: center;
+       margin-bottom: 50px;
+   }
 
     @include m {
-        margin: 0 auto;
-        max-width: 375px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 50px;
+        gap: 10px;
+       
+      
+    }
+    .box-tag-m{
+        cursor: pointer;
+        width: 25%;
+        @include m{
+            width: 30%;
+        }
+        
     }
 
 }

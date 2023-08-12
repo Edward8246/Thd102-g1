@@ -14,7 +14,7 @@
     .box-text{
         //  outline: 1px solid red;
         @include flex(row,start,center);
-        @include m{
+        @include d(1200px){
             justify-content: space-between;
             padding: 0 10px;
         }
@@ -23,35 +23,49 @@
         margin-bottom: 15px;
         h6{
             margin-left: 15px;
-            margin-right: 69px;
-            @include m{
+            margin-right: 90px;
+            @include d(1200px){
                 margin: 0;
+            }
+            @include m{
+                
+                font-size: 18px;
             }
         }
         p{
             margin-right: 15px;
             margin-left: 5px;
+            @include d(1200px){
+                margin-right: 0;
+            }
             @include m{
                margin-right: 0;
+               font-size: 14px;
             }
            
         }
         .t-n{
-            @include m{
+            @include d(1200px){
                 display: none
             }
         }
         .tag-color{
             @include size(16px,16px,50%);
             background-color: $color_tag_purple;
-            @include m{
+            @include d(1200px){
                 display: none;
             }
+        
         
         }
         .time-icon{
             display: flex;
             align-items: center;
+            i{
+                @include m{
+                    font-size: 14px;
+                }
+            }
            
         }
     

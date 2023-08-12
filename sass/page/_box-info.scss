@@ -146,6 +146,9 @@ html{
                     .fa-solid {
                         margin-right: 5px;
                     }
+                    svg{
+                        margin-right: 3px;
+                    }
                 }
                 @include d(820px){
                     width: 130px;

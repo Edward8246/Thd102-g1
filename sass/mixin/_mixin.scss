@@ -143,6 +143,20 @@
     font-weight: $font-weight;
 }
 
+//商品頁 不同顏色tag 的 before
+@mixin tag_before($bgc){
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 35px;
+    width: 0;
+    height: 4px;
+    background-color:$bgc;
+    /* z-index: -1; */
+    transition: width .3s ease-out;
+}
+
 
 // //================ breakpoint ============================
 //  //手機板
