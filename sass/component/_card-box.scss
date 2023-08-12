@@ -51,13 +51,23 @@
         }
         .tag-color{
             @include size(16px,16px,50%);
-            background-color: $color_tag_purple;
+            
             @include d(1200px){
                 display: none;
             }
         
         
         }
+        .box-purple{
+            background-color: $color_tag_purple;
+        }
+        .box-green{
+            background-color: $color_tag_green;
+        }
+        .box-blue{
+            background-color: $color_tag_blue;
+        }
+
         .time-icon{
             display: flex;
             align-items: center;
@@ -68,6 +78,8 @@
             }
            
         }
+
+
     
     }
    
