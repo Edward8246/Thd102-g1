@@ -1,243 +1,241 @@
-header{
-    height: 120px;
-    background-color: $color_lightblue;
-    width: 100%;
-}
+.shopping{
 
-// 購物車  上排流程----------------------------------------
-.process{
-    display: flex;
-    justify-content: space-around;
-    width: 62.5%;
-    margin: 70px auto 100px auto;
     
-}
-.cart{
-    width: 122px;
-    height: 122px;
-    border-radius: 50%;
-    background-color: $color_blue;
-    // border: 1px solid #000;
-}
-.fa-cart-shopping{
-    width: 122px;
-    font-size: 35px;
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 10px;
-    color: $white;
-    // border: 1px solid #000;
-}
-.cart-text{
-    text-align: center;
-    color: $white;
-    overflow: hidden;
-    // border: 1px solid #000;
-}
-
-
-.pay{
-    width: 122px;
-    height: 122px;
-    border-radius: 50%;
-    background-color: $color_warterblue;
-}
-
-.fa-credit-card{
-    width: 122px;
-    font-size: 35px;
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 10px;
-    color: $white;
-}
-.pay-text{
-    text-align: center;
-    color: $black;
-    // border: 1px solid #000;
-}
-.success{
-    width: 122px;
-    height: 122px;
-    border-radius: 50%;
-    background-color: $color_warterblue;
-}
-.fa-check{
-    width: 122px;
-    font-size: 40px;
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 5px;
-    color: $white;
-}
-.success-text{
-    text-align: center;
-    color: $black;
-    // border: 1px solid #000;
-}
-
-// ---------------------------------------------------
-.shoppingcart-list{
-    display: flex;
-    justify-content: space-around;
-    width: 62.5%;
-    margin: 0 auto;
-}
-
-.shoppingcart-unit-price{
-    margin-left: 130px;
-}
-hr{
-    width: 70.3%;
-    margin-top: 30px;
-    // color: #fff;
-}
-
-//--------------------商品卡片-------------------
-.shoppingcart-item{
-    margin: 70px auto;
-    // border: 1px solid #000;
-    width: 70.3%;
-}
-.shoppingcart-item ul{}
-.shoppingcart-item li{
-    display: flex;
-    margin-bottom: 70px; 
-}
-.item-img{
-    width: 260px;
-    height: 190px;
-    // border-radius: 10px;
-}
-.item-wrapper{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-left: 50px;
-}
-.item-title{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // 購物車  上排流程----------------------------------------
+    .process{
+        display: flex;
+        justify-content: space-around;
+        width: 62.5%;
+        margin: 70px auto 100px auto;
+        
+    }
+    .cart{
+        width: 122px;
+        height: 122px;
+        border-radius: 50%;
+        background-color: $color_blue;
+        // border: 1px solid #000;
+    }
+    .fa-cart-shopping{
+        width: 122px;
+        font-size: 35px;
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+        color: $white;
+        // border: 1px solid #000;
+    }
+    .cart-text{
+        text-align: center;
+        color: $white;
+        overflow: hidden;
+        // border: 1px solid #000;
+    }
+    
+    
+    .pay{
+        width: 122px;
+        height: 122px;
+        border-radius: 50%;
+        background-color: $color_warterblue;
+    }
+    
+    .fa-credit-card{
+        width: 122px;
+        font-size: 35px;
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+        color: $white;
+    }
+    .pay-text{
+        text-align: center;
+        color: $black;
+        // border: 1px solid #000;
+    }
+    .success{
+        width: 122px;
+        height: 122px;
+        border-radius: 50%;
+        background-color: $color_warterblue;
+    }
+    .fa-check{
+        width: 122px;
+        font-size: 40px;
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 5px;
+        color: $white;
+    }
+    .success-text{
+        text-align: center;
+        color: $black;
+        // border: 1px solid #000;
+    }
+    
+    // ---------------------------------------------------
+    .shoppingcart-list{
+        display: flex;
+        justify-content: space-around;
+        width: 62.5%;
+        margin: 0 auto;
+    }
+    
+    .shoppingcart-unit-price{
+        margin-left: 130px;
+    }
+    hr{
+        width: 70.3%;
+        margin-top: 30px;
+        // color: #fff;
+    }
+    
+    //--------------------商品卡片-------------------
+    .shoppingcart-item{
+        margin: 70px auto;
+        // border: 1px solid #000;
+        width: 70.3%;
+    }
+    .shoppingcart-item ul{}
+    .shoppingcart-item li{
+        display: flex;
+        margin-bottom: 70px; 
+    }
+    .item-img{
+        width: 260px;
+        height: 190px;
+        // border-radius: 10px;
+    }
+    .item-wrapper{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 50px;
+    }
+    .item-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    
+    }
+    .item-title .item-title-block{
+        width: 100px;
+        height: 25px;
+        margin-top: -40px;
+        text-align: center;
+        line-height: 1.4;
+        // border: 1px solid #000;    
+    }
+    
+    .item-title .item-title-text{
+        margin-top: 18px;
+    }
+    .item-price{
+        display: flex;
+        align-items: center;
+    }
+    .item-quantity{
+        display: flex;
+        align-items: center;
+    }
+    .btn-number{
+        margin-top: 10px;
+        width: 150px;
+    }
+    .quantity-num{
+        background-color: $white;
+        // width: 150px;
+        text-align: center;
+        border: none;
+        font-size: $h5;
+    }
+    .quantity-sub{
+        // width: 100%;
+        
+    }
+    
+    .item-amount{
+        display: flex;
+        align-items: center;
+    }
+    .item-del{
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+        color: $gray;
+    }
+    //--------------------------------訂購活動
+    .item-activity{
+        width: 70.3%;
+        margin: 50px auto;
+        // border: 1px solid #000;
+    }
+    .itema-activity-title{
+        margin-left: 120px;
+    }
+    .item-activity ul{
+        margin-top: 70px;
+    }
+    .item-activity li{
+        display: flex;
+        margin-bottom: 70px;
+        // border: 1px solid #000;
+    }
+    .activity-price{
+        margin-left: -55px;
+    }
+    
+    // 總計
+    .item-total{
+        width: 70.3%;
+        margin: 0 auto;
+        // border: 1px solid #000;
+        padding-right: 100px;
+        margin-bottom: 70px;
+    }
+    .total{
+        margin-top: 70px;
+        font-size: $h2;
+        // border: 1px solid #000;
+        text-align: end;
+    }
+    .item-button{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 70px;
+    }
+    .prev{
+        font-size: $h6;
+        font-weight: $font-w-700;
+    }
+    .next{
+        font-size: $h6;
+        font-weight: $font-w-700;
+        margin-left: 20px;
+    }
+    // footer
+    .shoppingcart-footer{
+        height: 518px;
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 50px 50px 0 0;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
-}
-.item-title .item-title-block{
-    width: 100px;
-    height: 25px;
-    margin-top: -40px;
-    text-align: center;
-    line-height: 1.4;
-    // border: 1px solid #000;    
-}
-
-.item-title .item-title-text{
-    margin-top: 18px;
-}
-.item-price{
-    display: flex;
-    align-items: center;
-}
-.item-quantity{
-    display: flex;
-    align-items: center;
-}
-.btn-number{
-    margin-top: 10px;
-    width: 150px;
-}
-.quantity-num{
-    background-color: $white;
-    // width: 150px;
-    text-align: center;
-    border: none;
-    font-size: $h5;
-}
-.quantity-sub{
-    // width: 100%;
-    
-}
-
-.item-amount{
-    display: flex;
-    align-items: center;
-}
-.item-del{
-    display: flex;
-    align-items: center;
-    font-size: 25px;
-    color: $gray;
-}
-//--------------------------------訂購活動
-.item-activity{
-    width: 70.3%;
-    margin: 50px auto;
-    // border: 1px solid #000;
-}
-.itema-activity-title{
-    margin-left: 120px;
-}
-.item-activity ul{
-    margin-top: 70px;
-}
-.item-activity li{
-    display: flex;
-    margin-bottom: 70px;
-    // border: 1px solid #000;
-}
-.activity-price{
-    margin-left: -55px;
-}
-
-// 總計
-.item-total{
-    width: 70.3%;
-    margin: 0 auto;
-    // border: 1px solid #000;
-    padding-right: 100px;
-    margin-bottom: 70px;
-}
-.total{
-    margin-top: 70px;
-    font-size: $h2;
-    // border: 1px solid #000;
-    text-align: end;
-}
-.item-button{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 70px;
-}
-.prev{
-    font-size: $h6;
-    font-weight: $font-w-700;
-}
-.next{
-    font-size: $h6;
-    font-weight: $font-w-700;
-    margin-left: 20px;
-}
-// footer
-.shoppingcart-footer{
-    height: 518px;
-    width: 100%;
-    border: 1px solid #000;
-    border-radius: 50px 50px 0 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}    

@@ -93,7 +93,129 @@
 
         <!-- container -->
         <div class="container">
-            
+            <!-- 影片 -->
+            <section class="index_video">
+                <video  class="missionBG02" src="./images/indexVideo01_sm.mp4" autoplay muted loop></video>
+            </section>
+
+            <!-- 動畫效果 -->
+            <article class="article1">
+                <div class="image circlefont">
+                    <img src="./images/index_circlefont.svg" alt="">
+                </div>
+                <div class="box_explode">
+                    <div class="bg_animattion">
+                        <div>
+                            <span>HAKO</span>
+                            <span>HAKO</span>
+                            <span>HAKO</span>
+                            <span>HAKO</span>
+                        </div>
+                    </div>
+
+                    <div class="image ingredients_bg">
+                        <img src="./images/index-ingredients_bg.png" alt="">
+                    </div>
+                    <div class="image box box_open">
+                        <img src="./images/index-box_open.png" alt="">
+                    </div>
+                </div>
+                <p class="small_info">
+                    食物盒子不只是一個原食商品，我們希望在忙碌的日子裡，無論您身在何處，也要照顧好自己的身心靈。<br> 
+                    透過一步步隨著食譜的製作，輕鬆品味私廚料理，在這個平台上，陌生人只是還沒認識的好朋友，<br>
+                    我們邀請您參與我們以食會友的各種活動。<br>
+                    我們關心地方小農，共享、參與和創新，讓食物的滋味連結著全球的善意與關懷。
+                </p>
+            </article>
+            <!-- 更多盒子 -->
+            <article class="article2">
+                <!-- 帶入食譜資料  -->
+                <div class="recipe_slide block1">
+                    <div class="recipes_theme">
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food1.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food2.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food3.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food4.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food5.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food6.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- <div class="recipe_slide block2">
+                    <div class="recipes_theme">
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food7.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food8.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food9.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food10.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food11.jpg" alt="">
+                        </a>
+                        <a class="image recipe_item" href='#'>
+                            <img src="./images/index_food12.jpg" alt="">
+                        </a>
+                    </div>
+                </div> -->
+                
+            </article>
+
+ 
+
+            </article>
+           <!-- 盒子以外的服務 -->
+           <article class="article3">
+               <div class="image box box_close">                   
+                  <img src="./images/index-box_close.png" alt="">
+                </div>
+                  <p class="small_info">
+                    HAKO 為熱愛烹飪的食材探索者，我們相信烹飪是一場有趣的冒險，每一道菜都是一個獨特的故事。<br>我們將選擇新鮮、優質的食材，結合精心設計的食譜，為您提供一個愉快的烹飪體驗。<br>參加我們的精彩活動，與其他食材探索者一同分享美食和烹飪的喜悅，我們將為您帶來難忘的體驗和驚喜 !
+                </p>
+                <div class="moreOffer">
+                    <div class="more_info newProduct">
+                        <div class="title_sm red">
+                            <div class="circle"></div>
+                            <h6>新品宣傳</h6>
+                        </div>
+                        <p>每份餐點有專屬的大廚食譜，人人都可輕鬆完成一份美味精緻料理。</p>
+                    </div>
+                    <div class="more_info chefClass">
+                        <div class="title_sm green">
+                            <div class="circle"></div>
+                            <h6>私廚教學</h6>
+                        </div>
+                        <p>肉多多、菜多多、海鮮多多，我們盡力滿足您的挑剔胃口。</p>
+                    </div>
+                    <div class="more_info shareTable">
+                        <div class="title_sm purple">
+                            <div class="circle"></div>
+                            <h6>共享餐桌</h6>
+                        </div>
+                        <p>盒子100%可回收材質，您亦可再下次貨到時將盒子交由我們貨運人員協助送回。</p>
+                    </div>    
+                </div>
+                <button class="btn_transparent othersOffer">
+                    盒子以外的體驗
+                </button>
+            </article>
         </div>
 
         <!-- footer -->
@@ -138,6 +260,9 @@
 
 
     </div>
-
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./js/index.js"></script>
+    
 </body>
 </html>

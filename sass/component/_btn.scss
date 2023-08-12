@@ -1,3 +1,6 @@
+//@include btn(字體顏色,背景顏色,border顏色,border弧度)
+//@include btn_hover(字體顏色,背景顏色,border顏色)
+
 .btn_white{
     @include btn($color_blue,$white,$color_lightblue,$border-radius-50);
     border: none;
@@ -6,6 +9,19 @@
         border: none;
     }
 }
+
+.btn_transparent{
+    @include btn($color_blue,rgba($white,.2),$color_blue,$border-radius-50);
+    padding: 8px 20px;
+    font-weight: 700;
+    &:hover{
+        @include btn_hover($white,$color_blue,$color_blue);
+        font-weight: 400;
+    }
+
+}
+
+
 
 
 .btn_load{
