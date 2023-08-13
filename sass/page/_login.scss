@@ -546,11 +546,15 @@ form {
     //註冊
     //登入隱藏
     .sign-in-container{
-        display: none;
+        display: none; 
+        
+
     }
     //註冊出現
     .sign-up-container{
         opacity:1;
+        transform: translateX(0);
+
     }
 
         
