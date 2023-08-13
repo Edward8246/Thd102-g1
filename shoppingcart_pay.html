@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppingcart-Pay</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" >
+</head>
+<body>
+    <!--------------------------------上排付款流程 -->
+<div class="wrapper shopping shopping-pay">
+
+    <ul class="process">
+        <li class="cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h5 class="cart-text">購物車</h5>
+        </li>
+
+        <li class="pay">
+            <i class="fa-regular fa-credit-card"></i>
+            <h5 class="pay-text">付款方式</h5>
+        </li>
+
+        <li class="success">
+            <i class="fa-solid fa-check"></i>
+            <h5 class="success-text">付款成功</h5>
+        </li>
+    </ul>
+
+    <!--付款的表單------------->
+
+    <div class="paypage">
+        <h2>輸入以下資料</h2>
+        <form action="" class="paypage-form">
+            
+            <h5 class="form-h5">姓名</h5>
+            <input type="text" name="name">
+            <h5 class="form-h5">電話</h5>
+            <input type="text" name="phone">
+            <h5 class="form-h5">信箱</h5>
+            <input type="text" name="mail">
+            <h5 class="form-h5">地址(只能郵寄到府)</h5>
+            <input type="text" name="address">
+            <br>
+            <input type="checkbox" name="sameuser" class="checkbox"><span>同會員資料</span>
+            <h5 class="form-h5">信用卡卡號</h5>
+            <input type="text" class="card-number"><span class="pay-dash">-</span><input type="text" class="card-number"><span class="pay-dash">-</span><input type="text" class="card-number"><span class="pay-dash">-</span><input type="text" class="card-number">
+            <h5 class="form-h5">有效年月</h5>
+            <input type="text" class="pay-carddate" placeholder="MM"><span class="pay-slash">/</span><input type="text" class="pay-carddate" placeholder="YY">
+            <h5 class="form-h5">卡片背面末三碼</h5>
+            <input type="text" placeholder="XXX" class="chip-number">
+            <br>
+            <input type="checkbox" name="agree" class="checkbox"><span>點選結帳即為同意此<span class="terms">購買條款</span></span>
+            <div class="pay-button">
+                <a href="#"><button class="btn_shopping-prev pay-prev">回上一步</button></a>
+                <a href="#"><button class="btn_shopping-next pay-next">下一步</button></a>  
+            </div>
+
+        </form>
+    </div>
+
+
+
+</div>
+    
+</body>
+</html>

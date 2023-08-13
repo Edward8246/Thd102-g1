@@ -1,21 +1,17 @@
-// .container{
-//     height: 100%;
-//     width: 100%;
-//     // background-color: #f5f5f570; 
-// }
-
-// .overlay{
-//     background-image: url(/images/login_bg.jpg);
-//     width: 800px;
-//     height: 450px;
-// }
 
 .loginPage{
-    background-color: #fff;
-    @include flex;
-    height: 100vh;
+   @include flex;
     padding: 20px;
+    height: 100vh;
+    width: 100%; 
+    background-color: #d2d9da6a;  
     position: relative;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-family;
+    position: fixed;
+    top: 0;
+    z-index: 10;
 
 
 
@@ -44,7 +40,7 @@
     min-height: 480px;    
     
     //display:none控制
-    //display: none;
+    // display: none;
 }
 
 .loginPage{
@@ -101,9 +97,14 @@
 .text{
     font-size: 12px;
     text-align: center;
-    margin-bottom: 16px;
-
+    // margin-bottom: 16px;
 }
+
+.text_p{
+    text-align: center;
+}
+
+
 button {
     width: 100%;
     padding: 8px;
@@ -118,10 +119,11 @@ button {
     }
     &.facebook,&.google{
         @include btn($color_darkblue,#DDF1F3,#DDF1F3,$border-radius-50);
-        @include flex(row,space-between,center);
+        @include flex(row,center,center);
+        gap: 16px;
         padding:  8px 52px;
         &:hover{
-            @include btn($color_darkblue,$color_lightblue,$color_lightblue,$border-radius-50); 
+            @include btn_hover($color_darkblue,$color_lightblue,$color_lightblue); 
         }
     }
     
@@ -130,9 +132,6 @@ button {
 //btn
 }
 
-.btn-M{
-    display: none;
-}
 
 button:active {
     transform: scale(0.95);
@@ -217,7 +216,7 @@ form {
     transition: transform 0.6s ease-in-out;
     z-index: 10;
 
-    // display: none;
+    //display: none;
 }
 
 .container.right-panel-active .overlay-container{
@@ -236,6 +235,8 @@ form {
     width: 200%;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
+    
+    //display: none;
 }
 
 .container.right-panel-active .overlay {
@@ -266,6 +267,15 @@ form {
 .overlay-right {
     right: 0;
     transform: translateX(0);
+}
+
+.login_signup, .signup_login{
+    display: none;
+}
+
+.textarea{
+    color: $color_darkblue
+    
 }
 
 
@@ -495,5 +505,60 @@ form {
 
     }
 
+
 }
+
+.log-in-form{
+    display: none;
 }
+.sign-up-form{
+    display: none;
+}
+
+
+    // <!-- 手機會員 -->
+    //登入
+    @include d(768px){
+        .overlay-container{
+            display: none;
+        } 
+        .container{
+            width:352px;
+        }
+        form{
+            width: 352px;
+        }
+        
+        .login_signup, .signup_login{
+            margin-top: 12px;
+            @include flex;
+            font-size: 8px;
+        }
+
+        .sigup-link,.login-link{
+            color: $color_blue;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+
+
+    //註冊
+    //登入隱藏
+    .sign-in-container{
+        display: none; 
+        
+
+    }
+    //註冊出現
+    .sign-up-container{
+        opacity:1;
+        transform: translateX(0);
+
+    }
+
+        
+    }
+
+}
+

@@ -8,39 +8,45 @@
     <title>login</title>
 </head>
 <body>
-    <div class="wrapper loginPage">
-        
+    <div class="wrapper loginPage" id="loginPage">
         
         <div class="container" id="container">
-            <div class="close-btn">&times;</div>
+            <div class="close-btn" id="close-btn">&times;</div>
 
             <div class="form-container sign-up-container" id="sign-up-container">
                 <form action="#">
                 <h2 class="title2">註冊</h2>
                     <div class="form_input">
                         <label class="title-text">姓名</label>
-                        <input class="input-space" type="text" placeholder="請輸入姓名">
+                        <input class="input-space" name="name" type="text" placeholder="請輸入姓名">
                     </div>
     
                     <div class="form_input">
                         <label class="title-text">電子信箱</label>
-                        <input class="input-space" type="email" type="text" placeholder="請輸入E-mail">
+                        <input class="input-space" name="email" type="text" placeholder="請輸入E-mail">
                     </div>
     
                     <div class="form_input">
                         <label class="title-text">密碼</label>
-                        <input class="input-space" type="password" type="text" placeholder="請輸入密碼">
+                        <input class="input-space" name="password" type="text" placeholder="請輸入密碼">
                     </div>
                     
                     <div class="form_input">
                         <label class="title-text">確認密碼</label>
-                        <input class="input-space" type="password" type="text" placeholder="請再次輸入密碼">
+                        <input class="input-space" name="password2"  type="text" placeholder="請再次輸入密碼">
                     </div>
                     <p class="text">註冊即表示您已同意服務條款及隱私權政策</p>
                     <button>註冊會員</button>
                     
+                    <div class="signup_login">
+                        <div class="textarea">歡迎回來!
+                            <span href="#" class="text login-link">立即登入</span>
+                        </div>
+                    </div>
+                    
                 </form>
             </div>
+
             
             <div class="form-container sign-in-container" id="sign-in-container">
                 <form action="#">
@@ -48,16 +54,21 @@
     
                     <div class="form_input">
                         <label class="title-text">電子信箱</label>
-                        <input class="input-space" type="email" placeholder="請輸入E-mail">
+                        <input class="input-space" name="email" type="email" placeholder="請輸入E-mail">
                     </div>
     
                     <div class="form_input">
                         <label class="title-text">密碼</label>
-                        <input class="input-space" type="password" placeholder="請輸入密碼">
+                        <input class="input-space" name="password" type="password" placeholder="請輸入密碼">
                     </div>
     
                     <a href="#" class="forgot_password">忘記密碼了嗎?</a>
                     
+                    <button>登入</button>
+                    
+                    <p class="text_p">or</p>
+
+
                     <div class="log-in-other">
                         <button type="button" class="facebook">
                             <img src="./images/icon/logo_facebook.svg" alt="">
@@ -68,11 +79,14 @@
                             使用 Google 登入
                         </button>   
                     </div> 
-    
-                    <button>登入</button>
-                    <button class="btn-M">註冊會員</button>
-
+                    
+                    <div class="login_signup">
+                        <div class="textarea">還不是會員嗎?
+                            <span class="text sigup-link" id="sigup-link">立即註冊</span>
+                        </div>
+                    </div>
                 </form>
+                    
             </div>
     
             <div class="overlay-container">
@@ -135,22 +149,22 @@
         </div>
         
         
-            <!-- 成功忘記密碼 -->
-            <div class="password successPage" >
-                <div class="password-success">
-                    <div class="password-icon">
-                        <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
-                    </div>
-                    <div class="password-success-txt">
-                        <p>已傳送重置密碼的電子信箱 </p>
-                    </div>
-                    <button class="success-button">完成</button>
+        <!-- 成功忘記密碼 -->
+        <div class="password successPage" >
+            <div class="password-success">
+                <div class="password-icon">
+                    <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
                 </div>
+                <div class="password-success-txt">
+                    <p>已傳送重置密碼的電子信箱 </p>
+                </div>
+                <button class="success-button">完成</button>
             </div>
-
+        </div>
     </div>
 
-        <script src="./js/login.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="./js/login.js"></script>
     
 </body>
 </html>
