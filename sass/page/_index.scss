@@ -44,12 +44,13 @@
         font-size: 200px;
         white-space:nowrap;
         width: 100%;
-        height: 180px;
+        height: 200px;
         overflow: hidden;
         position: absolute;
-        bottom: 0;        
+        bottom: 0px;        
         line-height: 1;
         z-index: 1;
+
 
         div{
             display: block;
@@ -58,7 +59,7 @@
             position: absolute;
             overflow: hidden;
             left: 0;
-            animation: slide 8s linear infinite both;  
+            animation: slide 12s linear infinite both;  
         }
 
         span{    
@@ -101,42 +102,70 @@
         text-align: center;
         padding: 40px $side_padding-360px;
     }
-// 更多盒子的區塊======================
+    
+    // 更多盒子的區塊======================
     .article2{
         width: 100%;
-        padding: 80px 2vw;
-        .recipe_slide{ 
-            width: 100%;
-            height: 15vw;
-            position: relative;
-            margin: auto;
-            overflow: hidden;
-            
-        }
-        
-        .recipes_theme{
-            outline: solid 3px blue;
-            //@include flex(row,space-between,center);
-            position: relative;
-            left: -15vw;
-            height: 15vw;
+        @include flex(column);
+        background-color: $color_cream;
+        padding: 40px;
 
+        .recipe_slide{    
+            width: 100%;
+            height:15vw;
+            overflow:hidden;
+           
+
+            &.block1 .recipes_theme{
+            left: -10%; 
+            }
+            
+            &.block2 .recipes_theme{
+            right: -90%;
+            }
         }
+        .recipes_theme {
+            position: relative; 
+        } 
         
         .recipe_item{
-            display: block;
-            width: 15vw;
-            height: 15vw;
-            position: absolute;
+            width:16%;
+            height:15vw;
+            position:absolute;
+            @include flex;
             img{
                 width: 100%;
+                opacity:0.9;
             }
+        }
+        //article2更多盒子的中間資訊
+        .article2_info{
+            @include flex(row,space-between,center);
+            width: 100%;
+            
+            padding: 40px calc($side_padding-360px - 20px);
+            p{
+                width: 24%;
+                padding: 0;
+            }
+            .box_half{
+                width: 25vw;
+                @include abCenter;
+            }
+            
+            .morebox{
+                width: 24%;
+            }
+            .btn_transparent{
+                width: 100%;
+            }
+          
+
+        
         }
 
 
     }
-
-
 
 // 更多服務的區塊=======================
     .article3{
