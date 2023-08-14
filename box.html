@@ -8,168 +8,126 @@
     <title>Hako:盒子</title>
 </head>
 <body >
-    <div class="box-banner"></div>
-    <section class="select-tag">
-        <div class="box-tag tag-green">西式料理</div>
-        <div class="box-tag tag-purple">中式料理</div>
-        <div class="box-tag tag-blue" >日式料理</div>
-        <div class="box-tag tag-yellow">健康料理</div>
-        <div class="box-tag tag-red">快速料理</div>
-    </section>
-    <section class="select-tag2">
-        <div class="box-tag-m tb-green ">西式料理</div>
-        <div class="box-tag-m tb-purple ">中式料理</div>
-        <div class="box-tag-m tb-blue ">日式料理</div>
-        <div class="box-tag-m tb-yellow ">健康料理</div>
-        <div class="box-tag-m tb-red ">快速料理</div>
-    </section>
-    <section class="box-wrapper grid-box">
-        <div class="card-box  ">
-            <div class="image">
-                <img src="./images/box/box_tofu.jpg" alt="">
-            </div>
-            <div class="box-text">
-                <h6>麻婆豆腐</h6>
-                <div class="tag-color box-purple"></div>
-                <p class="t-n">中式料理</p>
-                <div class="time-icon">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>20分鐘</p>
+    <div id="my_app" class="box-container">
+        <div class="box-banner"></div>
+        <section class="select-tag">
+            <div class="box-tag tag-green">西式料理</div>
+            <div class="box-tag tag-purple">中式料理</div>
+            <div class="box-tag tag-blue" >日式料理</div>
+            <div class="box-tag tag-yellow">健康料理</div>
+            <div class="box-tag tag-red">快速料理</div>
+        </section>
+        <section class="select-tag2">
+            <div class="box-tag-m tb-green ">西式料理</div>
+            <div class="box-tag-m tb-purple ">中式料理</div>
+            <div class="box-tag-m tb-blue ">日式料理</div>
+            <div class="box-tag-m tb-yellow ">健康料理</div>
+            <div class="box-tag-m tb-red ">快速料理</div>
+        </section>
+        <section class="box-wrapper grid-box">
+            <div class="card-box  " v-for="item in items" :key="item.id">
+                <div class="image">
+                    <img :src="item.img" alt="">
                 </div>
-               
-                
-            </div>
-        </div>
-        <div class="card-box  ">
-            <div class="image">
-                <img src="./images/box/box_tofu.jpg" alt="">
-            </div>
-            <div class="box-text">
-                <h6>麻婆豆腐</h6>
-                <div class="tag-color"></div>
-                <p class="t-n">中式料理</p>
-                <div class="time-icon">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>20分鐘</p>
+                <div class="box-text">
+                    <h6>{{item.name}}</h6>
+                    <div class="tag-color " :class="'box-'+item.color"></div>
+                    <p class="t-n">{{ item.cuisine }}</p>
+                    <div class="time-icon">
+                        <i class="fa-solid fa-clock"></i>
+                        <p>{{ item.time }}</p>
+                    </div>
+                   
+                    
                 </div>
-               
-                
             </div>
-        </div>
-        <div class="card-box  ">
-            <div class="image">
-                <img src="./images/box/box_tofu.jpg" alt="">
-            </div>
-            <div class="box-text">
-                <h6>麻婆豆腐</h6>
-                <div class="tag-color"></div>
-                <p class="t-n">中式料理</p>
-                <div class="time-icon">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>20分鐘</p>
-                </div>
-               
-                
-            </div>
-        </div>
-        <div class="card-box  ">
-            <div class="image">
-                <img src="./images/box/box_tofu.jpg" alt="">
-            </div>
-            <div class="box-text">
-                <h6>麻婆豆腐</h6>
-                <div class="tag-color"></div>
-                <p class="t-n">中式料理</p>
-                <div class="time-icon">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>20分鐘</p>
-                </div>
-               
-                
-            </div>
-        </div>
-        <div class="card-box  ">
-            <div class="image">
-                <img src="./images/box/box_tofu.jpg" alt="">
-            </div>
-            <div class="box-text">
-                <h6>麻婆豆腐</h6>
-                <div class="tag-color"></div>
-                <p class="t-n">中式料理</p>
-                <div class="time-icon">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>20分鐘</p>
-                </div>
-               
-                
-            </div>
-        </div>
-        <div class="card-box  ">
-            <div class="image">
-                <img src="./images/box/box_tofu.jpg" alt="">
-            </div>
-            <div class="box-text">
-                <h6>麻婆豆腐</h6>
-                <div class="tag-color"></div>
-                <p class="t-n">中式料理</p>
-                <div class="time-icon">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>20分鐘</p>
-                </div>
-               
-                
-            </div>
-        </div>
-        <div class="card-box  ">
-            <div class="image">
-                <img src="./images/box/box_tofu.jpg" alt="">
-            </div>
-            <div class="box-text">
-                <h6>麻婆豆腐</h6>
-                <div class="tag-color"></div>
-                <p class="t-n">中式料理</p>
-                <div class="time-icon">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>20分鐘</p>
-                </div>
-               
-                
-            </div>
-        </div>
-        <div class="card-box  ">
-            <div class="image">
-                <img src="./images/box/box_tofu.jpg" alt="">
-            </div>
-            <div class="box-text">
-                <h6>麻婆豆腐</h6>
-                <div class="tag-color"></div>
-                <p class="t-n">中式料理</p>
-                <div class="time-icon">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>20分鐘</p>
-                </div>
-               
-                
-            </div>
-        </div>
-        <div class="card-box  ">
-            <div class="image">
-                <img src="./images/box/box_tofu.jpg" alt="">
-            </div>
-            <div class="box-text">
-                <h6>麻婆豆腐</h6>
-                <div class="tag-color"></div>
-                <p class="t-n">中式料理</p>
-                <div class="time-icon">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>20分鐘</p>
-                </div>
-               
-                
-            </div>
-        </div>
-       
-    </section>
-    <button class="more">載入更多</button>
+        </section>
+        <button class="more">載入更多</button>
+    </div>
+    <script src="vendors/vue/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+  data(){
+    return {
+      items: [
+        {
+          id: 1,
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 2,
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 3,
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 4,
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 5,
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 6,
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 7,
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 8,
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 9,
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        }
+      ]
+    };
+  }
+});
+
+app.mount("#my_app");
+    </script>
 </body>
 </html>
