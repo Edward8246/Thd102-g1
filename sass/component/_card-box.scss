@@ -1,6 +1,7 @@
 .card-box{
     // outline: 1px solid red;
     // width: 350px;
+    color: $color_darkblue;
     background-color: $color_cream;
     border-radius: 12px;
     @include btn_shadow($black, .4);

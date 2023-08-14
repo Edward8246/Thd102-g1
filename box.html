@@ -25,7 +25,7 @@
             <div class="box-tag-m tb-red ">快速料理</div>
         </section>
         <section class="box-wrapper grid-box">
-            <div class="card-box  " v-for="item in items" :key="item.id">
+            <a :href="'box_info.html#/'+item.id" class="card-box  " v-for="item in items" :key="item.name">
                 <div class="image">
                     <img :src="item.img" alt="">
                 </div>
@@ -40,7 +40,7 @@
                    
                     
                 </div>
-            </div>
+            </a>
         </section>
         <button class="more">載入更多</button>
     </div>
@@ -52,72 +52,80 @@
       items: [
         {
           id: 1,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
+          img: "./images/box/box_ginger.jpg",
+          name: "薑汁燒肉",
           color: "purple",
           cuisine:"中式料理",
           time:"20分鐘"
         },
         {
           id: 2,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
+          img: "./images/box/box_sushi.jpg",
+          name: "蟹肉棒壽司捲",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"15分鐘"
         },
         {
           id: 3,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
+          img: "./images/box/box_salad.jpg",
+          name: "夏日野薺盛宴",
           color: "purple",
-          cuisine:"中式料理",
+          cuisine:"西式料理",
           time:"20分鐘"
         },
         {
           id: 4,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
+          img: "./images/box/box_pork.jpg",
+          name: "糖醋排骨",
+          color: "green",
           cuisine:"中式料理",
-          time:"20分鐘"
+          time:"40分鐘"
         },
         {
           id: 5,
           img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
+          name: "POKE",
+          color: "green",
+          cuisine:"西式料理",
           time:"20分鐘"
         },
         {
           id: 6,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
+          img: "./images/box/box_hamburger.jpg",
+          name: "火腿漢堡",
+          color: "green",
+          cuisine:"西式料理",
+          time:"35分鐘"
         },
         {
           id: 7,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
+          img: "./images/box/box_dumpling.jpg",
+          name: "韭菜豬肉水餃",
           color: "purple",
           cuisine:"中式料理",
-          time:"20分鐘"
+          time:"40分鐘"
         },
         {
           id: 8,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
+          img: "./images/box/box_donburi.jpg",
+          name: "牛肉丼飯",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"30分鐘"
         },
         {
           id: 9,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
+          img: "./images/box/box_curry.jpg",
+          name: "牛肉咖哩飯",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"40分鐘"
+        },
+        {
+          id: 10,
+          img: "./images/box/box_ginger.jpg",
+          name: "薑汁燒肉",
           color: "purple",
           cuisine:"中式料理",
           time:"20分鐘"
@@ -125,7 +133,7 @@
       ],
       chinese: [
         {
-          id: 1,
+          id: 10,
           img: "./images/box/box_tofu.jpg",
           name: "麻婆豆腐",
           color: "purple",
@@ -133,123 +141,102 @@
           time:"20分鐘"
         },
         {
-          id: 2,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
+          id: 4,
+          img: "./images/box/box_pork.jpg",
+          name: "糖醋排骨",
+          color: "green",
           cuisine:"中式料理",
-          time:"20分鐘"
+          time:"40分鐘"
         },
       ],
       japanese: [
         {
-          id: 1,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
-        },
-        {
           id: 2,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
+          img: "./images/box/box_sushi.jpg",
+          name: "蟹肉棒壽司捲",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"15分鐘"
         },
         {
-          id: 3,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
+          id: 8,
+          img: "./images/box/box_donburi.jpg",
+          name: "牛肉丼飯",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"30分鐘"
+        },
+        {
+          id: 9,
+          img: "./images/box/box_curry.jpg",
+          name: "牛肉咖哩飯",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"40分鐘"
         }
       ],
       health: [
         {
-          id: 1,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
-        },
-        {
-          id: 2,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
-        },
-        {
           id: 3,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
+          img: "./images/box/box_salad.jpg",
+          name: "夏日野薺盛宴",
           color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
-        },
-        {
-          id: 4,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
-        }
-      ],
-      fast: [
-        {
-          id: 1,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
-        },
-        {
-          id: 2,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
-        },
-        {
-          id: 3,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
-          time:"20分鐘"
-        },
-        {
-          id: 4,
-          img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
+          cuisine:"西式料理",
           time:"20分鐘"
         },
         {
           id: 5,
           img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
-          color: "purple",
-          cuisine:"中式料理",
+          name: "POKE",
+          color: "green",
+          cuisine:"西式料理",
           time:"20分鐘"
         },
         {
-          id: 6,
+          id: 5,
           img: "./images/box/box_tofu.jpg",
-          name: "麻婆豆腐",
+          name: "POKE",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 7,
+          img: "./images/box/box_dumpling.jpg",
+          name: "韭菜豬肉水餃",
           color: "purple",
           cuisine:"中式料理",
+          time:"40分鐘"
+        }
+      ],
+      fast: [
+        {
+          id: 2,
+          img: "./images/box/box_sushi.jpg",
+          name: "蟹肉棒壽司捲",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"15分鐘"
+        },
+        {
+          id: 3,
+          img: "./images/box/box_salad.jpg",
+          name: "夏日野薺盛宴",
+          color: "purple",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 5,
+          img: "./images/box/box_tofu.jpg",
+          name: "POKE",
+          color: "green",
+          cuisine:"西式料理",
           time:"20分鐘"
         }
+        
+        
+        
 
       ]
     };
