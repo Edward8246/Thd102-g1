@@ -7,6 +7,7 @@ const {
     watch
 } = require('gulp');
 
+
 function task(cb) {
     console.log('gulp ok');
     cb();
@@ -186,7 +187,7 @@ exports.vue = vue;
  */
 
 //開發用
-exports.dev = series(parallel(includeHTML , styleSass , minijs , img_copy, vue) , browser);
+exports.dev = series(parallel(includeHTML , styleSass , minijs , img_copy) , browser);
 
 
 

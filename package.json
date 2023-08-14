@@ -35,5 +35,8 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.64.2"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
   }
 }
