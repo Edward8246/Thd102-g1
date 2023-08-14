@@ -44,7 +44,7 @@ p{
   max-width: $t;
   margin: 0 auto;
 
-  @include m(){
+  @include p(){
     padding: 0 20px;
   }
 }
