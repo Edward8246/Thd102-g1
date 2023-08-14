@@ -41,7 +41,11 @@ p{
 
 
 .wrapper-t{
-  // max-width: $t;
+  max-width: $t;
   margin: 0 auto;
+
+  @include p(){
+    padding: 0 20px;
+  }
 }
 
