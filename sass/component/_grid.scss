@@ -15,19 +15,33 @@
 .grid-b{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+<<<<<<< HEAD
     // gap: 20px;
     grid-column-gap: 24px;
     grid-row-gap: 30px;
     // padding-bottom: 15px;
     padding: 15px;
+=======
+    gap: 70px 20px;
+    // padding: 0 360px;
+>>>>>>> 29e4d85280d60c63a81f16333c01eeb5d15dd7da
 
-    // @include t{
-    //     grid-template-columns: 1fr 1fr;
+    @include t{
+        padding: 0 6%;
+    }
+    @include p(){
+        // padding: 0 6%;
+        grid-template-columns: 1fr 1fr;
 
+<<<<<<< HEAD
     // }
    
+=======
+    }
+>>>>>>> 29e4d85280d60c63a81f16333c01eeb5d15dd7da
     @include m{
         grid-template-columns: 1fr;
+        gap: 56px 20px;
     }
     
 }

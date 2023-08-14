@@ -175,11 +175,22 @@ function clear() {
 
 exports.c = clear;
 
+//test
+/* const webpack = require('webpack-stream');
+function vue() {
+    return gulp.src('src/vue/*.vue')
+      .pipe(webpack(require('./webpack.config.js'))) // 使用 webpack 打包 Vue 文件
+      .pipe(gulp.dest('dist/js'));
+  };
+exports.vue = vue;
+ */
 
 //開發用
-exports.dev = series(parallel(includeHTML , styleSass , minijs , img_copy) , browser);
+exports.dev = series(parallel(includeHTML , styleSass , minijs , img_copy, vue) , browser);
 
 
 
 //上線用
 exports.online = series(clear ,parallel(includeHTML , styleSass , babel5 , min_images))
+
+

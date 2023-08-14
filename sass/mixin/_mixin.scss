@@ -90,9 +90,10 @@
 @mixin tag-full($bgc){
     background-color: $bgc;
     border-radius: 10px;
-    text-align: center;
+    // text-align: center;
     @include fontStyle($h7, $white, 400, 1.6);
     @include size(91px, 27px);
+    @include flex;
 }
 
 // tag外框
@@ -100,9 +101,10 @@
     background-color: $bgc;
     border: 1.5px solid $bdc;
     border-radius: 100px;
-    text-align: center;
+    // text-align: center;
     @include fontStyle($h7, $bdc, 400, 2);
     // @include size(180px, 36px);
+    @include flex;
 }
 //tag外框 自定義寬
 @mixin tag-border-w($bdc,$width, $bgc: null){
@@ -151,13 +153,19 @@
         @content;
     }
 }
-
 // //平板
+@mixin p() {
+    @media screen and (max-width: $p) {
+        @content;
+    }
+}  
+//電腦1200px
 @mixin t() {
     @media screen and (max-width: $t) {
         @content;
     }
-}  
+} 
+
 // // 自己設定
 @mixin d($b){
     @media screen and (max-width: $b) {
