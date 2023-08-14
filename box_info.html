@@ -11,9 +11,10 @@
 
 <body>
   <!-- @@include('layout/header.html') -->
+  <div id="app" class="info-wrapper">
     <div class="info-top">
         <div class="image">
-            <img src="./images/box-info/box-info-tofu.jpg" alt="">
+            <img :src="product.img" alt="">
         </div>
         <div class="select-tag-r">
             <a href="#buy" class="select-r">訂購</a>
@@ -32,24 +33,26 @@
         <section id="buy" class="buy">
             <div class="info-left">
                 <div class="image">
-                    <img src="./images/box-info/box-info-tofu.jpg" alt="">
+                    <img :src="product.img" alt="">
                 </div>
                 <div class="info-tags">
-                    <div class="ft-purple">中式料理</div>
-                    <div class="ft-red">快速料理</div>
+                    <div class="ft-purple">{{ product.cuisine }}</div>
+                    <div v-if="fast" :class="'ft-'+product.color">快速料理</div>
+                    <div v-if="health" class="ft-yellow">快速料理</div>
+
                 </div>
             </div>
 
             <div class="info-right ">
                 <div class="info-name">
-                    <h2>薑汁燒肉</h2>
-                    <h4 class="r-price">$188</h4>
+                    <h2>{{ product.name }}</h2>
+                    <h4 class="r-price">${{product.price}}</h4>
                 </div>
 
                 <div class="info-detail">
                     <div class="icon-text">
                         <i class="fa-solid fa-clock"></i>
-                        <span>20分鐘</span>
+                        <span>{{ product.time }}</span>
                     </div>
                     <div class="icon-text">
                         <i class="fa-solid fa-user"></i>
@@ -59,14 +62,14 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
                             <path d="M8.41667 0.0625C6.94167 0.0625 5.64167 0.89125 5.225 2.09542C4.78333 1.92542 4.31667 1.83333 3.83333 1.83333C2.94928 1.83333 2.10143 2.13184 1.47631 2.6632C0.851189 3.19455 0.5 3.91522 0.5 4.66667C0.501974 5.29413 0.748328 5.90339 1.2006 6.3993C1.65287 6.89521 2.2856 7.24988 3 7.40792V12.4583H13.8333V7.40792C15.3 7.08208 16.3333 5.95583 16.3333 4.66667C16.3333 3.91522 15.9821 3.19455 15.357 2.6632C14.7319 2.13184 13.8841 1.83333 13 1.83333C12.5167 1.83333 12.05 1.92542 11.6083 2.09542C11.1917 0.89125 9.89167 0.0625 8.41667 0.0625ZM8 6.4375H8.83333V11.3958H8V6.4375ZM5.5 7.85417H6.33333V11.3958H5.5V7.85417ZM10.5 7.85417H11.3333V11.3958H10.5V7.85417ZM3 13.1667V13.875C3 14.0629 3.0878 14.243 3.24408 14.3759C3.40036 14.5087 3.61232 14.5833 3.83333 14.5833H13C13.221 14.5833 13.433 14.5087 13.5893 14.3759C13.7455 14.243 13.8333 14.0629 13.8333 13.875V13.1667H3Z" fill="#255359"/>
                             </svg>
-                        <span>平底鍋</span>
+                        <span>{{ product.tool }}</span>
                     </div>
                 </div>
                 <p class="info-text">
-                    薑燒豬肉是一道傳統的日本料理，結合了豬肉的香嫩與薑汁的辛香，是一道美味又營養的料理。這道菜色香味俱全，適合當作家庭晚餐或宴客招待的佳餚。現在就讓我們來學習如何製作這道美味的薑燒豬肉吧！
+                    {{ product.intro }}
                 </p>
                 <h4 class="box-price">
-                    $188
+                    ${{ product.price }}
                 </h4>
                 <div class="btn-number">
                     <div class="b-n b-sub col-2"></div>
@@ -84,16 +87,11 @@
         <section class="ingredients">
 
             <ul class="items colte-5">
-                <li> <span class="item-name ">豬肉(建議使用豬里肌肉或肩肉，切成薄片)</span>
-                    <span class="item-num">500g</span>
+                <li v-for=" ingredient in product.ingredients" :key="ingredient.name">
+                     <span class="item-name ">{{ingredient.item}}</span>
+                    <span class="item-num">{{ ingredient.num }}</span>
                 </li>
-                <li><span class="item-name ">沙拉油</span><span class="item-num">2匙</span></li>
-                <li><span class="item-name ">醬油</span><span class="item-num">3匙</span></li>
-                <li><span class="item-name ">日本料理酒(或米酒)</span> <span class="item-num">3匙</span></li>
-                <li><span class="item-name ">大蒜（切成末狀）</span><span class="item-num">1顆</span></li>
-                <li><span class="item-name ">洋蔥（切成薄片）</span><span class="item-num">1顆</span></li>
-                <li><span class="item-name ">蔥花(裝飾用)</span> <span class="item-num">適量</span></li>
-                <li><span class="item-name ">薑汁(將薑切成細絲，擠壓出汁液)</span> <span class="item-num">2匙</span></li>
+                
             </ul>
 
 
@@ -103,49 +101,13 @@
         </section>
         <h5 id="step">料理步驟</h5>
         <ul class="steps">
-            <li class="step">
-                <span>1</span>
+            <li v-for="step in product.steps" :key="id" class="step">
+                <span>{{ step.id }}</span>
                 <div class="step-text">
-                    <h6>準備豬肉</h6>
-                    <p>將豬肉洗淨，用廚房紙巾擦乾，然後將豬肉切成薄片，厚度約為3到5毫米，備用。</p>
+                    <h6>{{ step.title }}</h6>
+                    <p>{{ step.do }}</p>
                 </div>
             </li>
-            <li class="step">
-                <span>2</span>
-                <div class="step-text">
-                    <h6>調製薑燒醬汁</h6>
-                    <p>在一個碗中，將醬油、日本料酒、薑汁、糖和蜂蜜混合在一起，攪拌均勻，成為薑燒醬汁。</p>
-                </div>
-            </li>
-            <li class="step">
-                <span>3</span>
-                <div class="step-text">
-                    <h6>燒烤豬肉</h6>
-                    <p>將平底鍋加熱，倒入沙拉油，待油熱後，將豬肉片逐一鋪在平底鍋中，煎至兩面呈金黃色。取出煎好的豬肉，備用。</p>
-                </div>
-            </li>
-            <li class="step">
-                <span>4</span>
-                <div class="step-text">
-                    <h6>炒香蔬菜</h6>
-                    <p>在同一平底鍋中加入切好的蒜末、洋蔥片、紅甜椒和綠甜椒，用中火炒熟，直至蔬菜變軟。</p>
-                </div>
-            </li>
-            <li class="step">
-                <span>5</span>
-                <div class="step-text">
-                    <h6>拌炒豬肉與蔬菜</h6>
-                    <p>將煎好的豬肉加回平底鍋中，將薑燒醬汁均勻地淋在豬肉和蔬菜上，用中火拌炒至醬汁均勻地附著在食材表面，並將火力調至小火燜煮約2-3分鐘，讓豬肉充分吸收薑燒醬汁的味道。</p>
-                </div>
-            </li>
-            <li class="step">
-                <span>6</span>
-                <div class="step-text">
-                    <h6>裝盤與裝飾</h6>
-                    <p>將薑燒豬肉盛盤，撒上適量蔥花作為裝飾。你的美味薑燒豬肉現在已經完成，趕快享用吧！</p>
-                </div>
-            </li>
-
         </ul>
         <div class="tips ">
             <div class="tip-icon">
@@ -153,25 +115,75 @@
                 <h5>小撇步</h5>
             </div>
             <ul class="tip-text">
-                <li>可以根據個人口味增減糖和蜂蜜的份量，調整甜度。</li>
-                <li>薑燒豬肉應盡快食用，以免過度燉煮影響肉質口感。</li>
-                <li>若喜歡更多蔬菜，可以增加其他蔬菜種類如胡蘿蔔或香菇。</li>
+                <li>{{ product.tip1 }}</li>
+                <li>{{ product.tip2 }}</li>
+                <li>{{ product.tip3 }}</li>
             </ul>
         </div>
 
         <h5 class="chef-title">主廚介紹</h5>
         <div class="chef">
             <div class="image ">
-                <img src="./images/box-info/box-info-chef1.png" alt="">
+                <img :src="product.chefImg" alt="">
             </div>
             <div class="chef-name ">
-                <h4>橫山一郎</h4>
-                <p>橫山一郎是一位熱愛料理的資深日本料理大廚，擁有超過25年的廚藝經驗。他在年輕時就對料理產生濃厚的興趣，經過多年的學習與精進，成為了日本料理界的翹楚。橫山一郎對於傳統的日本料理深具造詣，同時也敢於嘗試創新，將傳統料理元素與現代烹飪技巧巧妙結合。
+                <h4>{{ product.chefName }}</h4>
+                <p>{{ product.chefIntro }}
                 </p>
             </div>
         </div>
     </div>
+  </div>
+   
+    <script src="vendors/vue/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return {
+                    product: {
+                        name: "薑汁燒肉",
+                        img: "./images/box-info/box-info-tofu.jpg",
+                        color: "purple",
+                        cuisine:"中式料理",
+                        health: false,
+                        fast: true,
+                        price: "188",
+                        time: "20分鐘",
+                        tool: "平底鍋",
+                        intro:"薑燒豬肉是一道傳統的日本料理，結合了豬肉的香嫩與薑汁的辛香，是一道美味又營養的料理。這道菜色香味俱全，適合當作家庭晚餐或宴客招待的佳餚。現在就讓我們來學習如何製作這道美味的薑燒豬肉吧！",
+                        ingredients:[
+                            {item:"豬肉(建議使用豬里肌肉或肩肉，切成薄片)", num:"500g"},
+                            {item:"醬油", num:"3匙"},
+                            {item:"日本料理酒(或米酒)", num:"3匙"},
+                            {item:"大蒜（切成末狀）", num:"1顆"},
+                            {item:"洋蔥（切成薄片）", num:"1顆"},
+                            {item:"蔥花(裝飾用)", num:"適量"},
+                            {item:"薑汁(將薑切成細絲，擠壓出汁液)", num:"2匙"}
 
+                        ],
+                        steps:[
+                            {id:1, title:"準備豬肉", do:"將豬肉洗淨，用廚房紙巾擦乾，然後將豬肉切成薄片，厚度約為3到5毫米，備用。"},
+                            {id:2, title:"調製薑燒醬汁", do:"在一個碗中，將醬油、日本料酒、薑汁、糖和蜂蜜混合在一起，攪拌均勻，成為薑燒醬汁。"},
+                            {id:3, title:"燒烤豬肉", do:"將平底鍋加熱，倒入沙拉油，待油熱後，將豬肉片逐一鋪在平底鍋中，煎至兩面呈金黃色。取出煎好的豬肉，備用。"},
+                            {id:4, title:"炒香蔬菜", do:"在同一平底鍋中加入切好的蒜末、洋蔥片、紅甜椒和綠甜椒，用中火炒熟，直至蔬菜變軟。"},
+                            {id:5, title:"拌炒豬肉與蔬菜", do:"薑燒豬肉盛盤，撒上適量蔥花作為裝飾。你的美味薑燒豬肉現在已經完成，趕快享用吧！"},
+                            {id:6, title:"裝盤與裝飾", do:"將薑燒豬肉盛盤，撒上適量蔥花作為裝飾。你的美味薑燒豬肉現在已經完成，趕快享用吧！"}
+                        ],
+                        tip1:"可以根據個人口味增減糖和蜂蜜的份量，調整甜度。",
+                        tip2:"薑燒豬肉應盡快食用，以免過度燉煮影響肉質口感。",
+                        tip3:"若喜歡更多蔬菜，可以增加其他蔬菜種類如胡蘿蔔或香菇。",
+                        chefName:"橫山一郎",
+                        chefIntro:"橫山一郎是一位熱愛料理的資深日本料理大廚，擁有超過25年的廚藝經驗。他在年輕時就對料理產生濃厚的興趣，經過多年的學習與精進，成為了日本料理界的翹楚。橫山一郎對於傳統的日本料理深具造詣，同時也敢於嘗試創新，將傳統料理元素與現代烹飪技巧巧妙結合。",
+                        chefImg:"./images/box-info/box-info-chef1.png"
+
+
+                    }
+                };
+            }
+        });
+
+        app.mount("#app");
+    </script>
 </body>
 
 </html>
