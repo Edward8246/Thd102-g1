@@ -144,13 +144,19 @@
         @content;
     }
 }
-
 // //平板
+@mixin p() {
+    @media screen and (max-width: $p) {
+        @content;
+    }
+}  
+//電腦1200px
 @mixin t() {
     @media screen and (max-width: $t) {
         @content;
     }
-}  
+} 
+
 // // 自己設定
 @mixin d($b){
     @media screen and (max-width: $b) {

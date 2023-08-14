@@ -17,10 +17,7 @@
         }
         
         .act-info{
-            padding: 20px 20px 45px;
-            @include rwdGrid($m){
-                padding: 20px 18px;
-            }
+            padding: 20px 30px 45px;
     
             .act-txt{
                 margin-top: 10px;
@@ -39,6 +36,7 @@
                         // @include size(105px, 36px);
                         i{
                             display: inline-block;
+                            margin-right: 5px;
                         }
                         p{
                             display: inline-block;
