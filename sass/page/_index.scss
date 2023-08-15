@@ -1,8 +1,8 @@
 // 首頁
 .index{
-    // *{
-    //     outline: 1px solid red;
-    // }
+    *{
+        //outline: 1px solid red;
+    }
     
     .container{
         
@@ -104,10 +104,9 @@
 
         .recipe_slide{    
             width: 100%;
-            height:15vw;
+            height:14vw;
             overflow:hidden;
            
-
             &.block1 .recipes_theme{
             left: -10%; 
             }
@@ -121,13 +120,21 @@
         } 
         
         .recipe_item{
-            width:16%;
-            height:15vw;
+            width:14vw;
+            height:14vw;
             position:absolute;
             @include flex;
+            border-radius: 16px;
+            overflow: hidden;
+            
             img{
                 width: 100%;
-                opacity:0.9;
+                opacity:0.8;
+                transition: 0.5s;
+                &:hover{ 
+                    transform: scale(1.25);
+                    opacity:1;
+                }
             }
         }
         //article2更多盒子的中間資訊

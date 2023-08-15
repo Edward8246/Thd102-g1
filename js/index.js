@@ -42,9 +42,9 @@ selectormove(".article3",".shareTable");
 //#1 食材爆炸
 const t2 = gsap.timeline({
   scrollTrigger: {
-    trigger: ".container",
-    start: "top top",
-    end: "+=10",
+    trigger: ".article1",
+    start: "top center",
+    end: "top center",
     scrub: 1, //啟用了 scrub 功能，動畫的進度會根據滾動的位置進行平滑過渡。
     pin: true, //觸發器元素在觸發時固定在視窗上方，創建出一種視差滾動的效果。
     //markers: true,
