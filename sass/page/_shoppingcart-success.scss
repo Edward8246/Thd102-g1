@@ -1,0 +1,27 @@
+.shopping-success{
+    // 付款頁面  上排流程圖
+    .cart{
+        background-color: $color_warterblue;
+    }
+    .cart-text{
+        color: $black;
+    }
+    .pay{
+        background-color: $color_blue;
+    }
+    .pay-text{
+        color: $white;
+    }
+    .success{
+        background-color: $black;
+    }
+
+    h6{
+        color: $color_lightblue;
+    }
+
+    h1{
+        color: #ccc;
+        
+    }
+}
