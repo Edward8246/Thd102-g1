@@ -13,11 +13,11 @@
     <div id="my_app" class="box-container">
         <div class="box-banner"></div>
         <section class="select-tag">
-            <div class="box-tag tag-green " :class="{ on: currentTag === 'w' }" @click="show('w')">西式料理</div>
-            <div class="box-tag tag-purple" :class="{ on: currentTag === 'c' }" @click="show('c')">中式料理</div>
-            <div class="box-tag tag-blue" :class="{ on: currentTag === 'j' }" @click="show('j')">日式料理</div>
-            <div class="box-tag tag-yellow" :class="{ on: currentTag === 'h' }" @click="show('h')">健康料理</div>
-            <div class="box-tag tag-red" :class="{ on: currentTag === 'f' }" @click="show('f')">快速料理</div>
+            <div class="box-tag tag-green " :class="{ on: currentTag === 'w' }" @click="show('w', 'western','all')">西式料理</div>
+            <div class="box-tag tag-purple" :class="{ on: currentTag === 'c' }" @click="show('c', 'chinese','all')">中式料理</div>
+            <div class="box-tag tag-blue" :class="{ on: currentTag === 'j' }" @click="show('j', 'japanese','all')">日式料理</div>
+            <div class="box-tag tag-yellow" :class="{ on: currentTag === 'h' }" @click="show('h', 'health','all')">健康料理</div>
+            <div class="box-tag tag-red" :class="{ on: currentTag === 'f' }" @click="show('f', 'fast','all')">快速料理</div>
         </section>
         <section class="select-tag2">
             <div class="box-tag-m tb-green "  :class="{ onGreen: currentTagM === 'green' }" @click="show2('green')">西式料理</div>
@@ -76,7 +76,7 @@
           id: 3,
           img: "./images/box/box_salad.jpg",
           name: "夏日野薺盛宴",
-          color: "purple",
+          color: "green",
           cuisine:"西式料理",
           time:"20分鐘"
         },
@@ -84,13 +84,13 @@
           id: 4,
           img: "./images/box/box_pork.jpg",
           name: "糖醋排骨",
-          color: "green",
+          color: "purple",
           cuisine:"中式料理",
           time:"40分鐘"
         },
         {
           id: 5,
-          img: "./images/box/box_tofu.jpg",
+          img: "./images/box/box_poke.jpg",
           name: "POKE",
           color: "green",
           cuisine:"西式料理",
@@ -137,6 +137,32 @@
           time:"20分鐘"
         }
       ],
+      western: [
+      {
+          id: 3,
+          img: "./images/box/box_salad.jpg",
+          name: "夏日野薺盛宴",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 5,
+          img: "./images/box/box_poke.jpg",
+          name: "POKE",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 6,
+          img: "./images/box/box_hamburger.jpg",
+          name: "火腿漢堡",
+          color: "green",
+          cuisine:"西式料理",
+          time:"35分鐘"
+        }
+      ],
       chinese: [
         {
           id: 10,
@@ -150,10 +176,18 @@
           id: 4,
           img: "./images/box/box_pork.jpg",
           name: "糖醋排骨",
-          color: "green",
+          color: "purple",
           cuisine:"中式料理",
           time:"40分鐘"
         },
+        {
+          id: 7,
+          img: "./images/box/box_dumpling.jpg",
+          name: "韭菜豬肉水餃",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"40分鐘"
+        }
       ],
       japanese: [
         {
@@ -186,21 +220,13 @@
           id: 3,
           img: "./images/box/box_salad.jpg",
           name: "夏日野薺盛宴",
-          color: "purple",
-          cuisine:"西式料理",
-          time:"20分鐘"
-        },
-        {
-          id: 5,
-          img: "./images/box/box_tofu.jpg",
-          name: "POKE",
           color: "green",
           cuisine:"西式料理",
           time:"20分鐘"
         },
         {
           id: 5,
-          img: "./images/box/box_tofu.jpg",
+          img: "./images/box/box_poke.jpg",
           name: "POKE",
           color: "green",
           cuisine:"西式料理",
@@ -228,13 +254,13 @@
           id: 3,
           img: "./images/box/box_salad.jpg",
           name: "夏日野薺盛宴",
-          color: "purple",
+          color: "green",
           cuisine:"西式料理",
           time:"20分鐘"
         },
         {
           id: 5,
-          img: "./images/box/box_tofu.jpg",
+          img: "./images/box/box_poke.jpg",
           name: "POKE",
           color: "green",
           cuisine:"西式料理",
@@ -246,10 +272,11 @@
     };
   },
   methods:{
-    show(tag){
+    show(tag, category,all){
       // e.target.classList.toggle("on");
-
+      this[all] = this.items;
       // 移除所有 tag 上的 "on" 樣式
+      const items = 'items';
       const tags = document.querySelectorAll('.box-tag');
       tags.forEach(tagElement => {
         tagElement.classList.remove('on');
@@ -264,8 +291,11 @@
       // 切換到選中的標籤
       if(this.currentTag === tag){
         this.currentTag = "";
+        this.items = this[all];
       }else{
         this.currentTag = tag;
+        
+        this.items = this[category];
       }
       
       
