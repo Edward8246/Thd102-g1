@@ -108,8 +108,8 @@
         </div>
     
         <!-- 登入成功 -->
-        <div class="login successPage" >
-            <div class="signin-success">
+      
+            <div class="signin-success" id="signin-success">
                 <div class="signin-icon">
                     <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
                 </div>
@@ -119,31 +119,31 @@
                 <button class="back-button">前往會員專區</button>
                 <button class="home-button">回首頁</button>
             </div>
-        </div>
+      
 
 
         <!-- 註冊成功 -->
-        <div class="signup successPage" >
-            <div class="signup-success">
+        
+            <div class="signup-success" id="signup-success">
                 <div class="signup-icon">
                     <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
                 </div>
                 <div class="signup-success-txt">
                     <p>註冊成功！歡迎加入!</p>
                 </div>
-                <button class="back-button">前往會員專區</button>
-                <button class="home-button">回首頁</button>
+                <button class="back-button" id="back-button">前往會員專區</button>
+                <button class="home-button" id="home-button">回首頁</button>
             </div>
-        </div>
+       
 
 
         <!-- 忘記密碼 -->
         <div class="container-forgot" id="container-forgot">
-            <div class="main-forget">
+            <div class="main-forget" >
                 <h2>忘記密碼</h2>
                 <div class="forgotpassword">
                     <label class="title-test">請輸入您的電子郵件</label>
-si                    <input class="input-space" type="text" placeholder="請輸入Email">
+                    <input class="input-space" type="text" placeholder="請輸入Email">
                 </div>
                 <button class="confirm-button" id="confirm-button">確認送出</button>
                 <button class="cancel-button" id="cancel-button">取消</button>
@@ -152,24 +152,25 @@ si                    <input class="input-space" type="text" placeholder="請輸
         
         
         <!-- 成功忘記密碼 -->
-        <div class="password successPage" id="successPw">
-            <div class="password-success">
-                <div class="password-icon">
-                    <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
-                </div>
-                <div class="password-success-txt">
-                    <p>已傳送重置密碼的電子信箱 </p>
-                </div>
-                <button class="success-button">完成</button>
+        <div class="password-success" id="successPw">
+            <div class="close-pwbtn" id="close-pwbtn">&times;</div>
+            <div class="password-icon">
+                <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
             </div>
+            <div class="password-success-txt">
+                <p>已傳送重置密碼的電子信箱 </p>
+            </div>
+            <button class="success-button">完成</button>
         </div>
+        
     </div>
 
 
+<!-- 
  <div class="text">
     <img src="./images/login_bg.jpg" alt="">
 
- </div>
+ </div> -->
 
     <script src="./js/login.js"></script>
     
