@@ -1,17 +1,16 @@
 
-//關視窗
-// document.getElementById("loginbutton2").addEventListener("click", function(){
-//     document.querySelector(".poppup").style.display = "flex";
+// 關視窗
+// document.getElementById("container").addEventListener("click", function(){
+//     document.querySelector(".container").style.display = "flex";
 // })
 
 // document.querySelector(".close-btn").addEventListener("click", function(){
-// 	document.querySelector(".loginPage").style.display = "none";
+// 	document.querySelector(".container").style.display = "none";
 // })
 
 
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
-const goBackButton = document.getElementById('goBack');
 const container = document.getElementById('container');
 
 signUpButton.addEventListener('click', () => {
@@ -24,13 +23,6 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 
-goBackButton.addEventListener('click', () => {
-	document.getElementById("sign-in-container").style.display = "block";
-});
-
-
-
-
 ///RDW
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -38,6 +30,46 @@ document.addEventListener("DOMContentLoaded", function() {
     const signInContainer = document.getElementById("sign-in-container");
 
     signUpLink.addEventListener("click", function() {
-        signUpLink.
+    signInContainer.style.display = "none";
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const loginLink = document.getElementById("login-link");
+    const signInContainer = document.getElementById("sign-in-container");
+
+    loginLink.addEventListener("click", function() {
+    signInContainer.style.display = "block";
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const forgotPwBtn = document.getElementById("forgot_password");
+    forgotPwBtn.addEventListener("click", function() {
+    container.style.display = "none";
+    
+    const forgotPwForm = document.getElementById("container-forgot");
+    forgotPwForm.style.display = "block";
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cancelBtn = document.getElementById("cancel-button");
+    cancelBtn.addEventListener("click", function() {
+    const forgotPwForm = document.getElementById("container-forgot");
+    forgotPwForm.style.display = "none";
+    
+    container.style.display = "block";
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const confirmBtn = document.getElementById("confirm-button");
+    confirmBtn.addEventListener("click", function() {
+    const forgotPwForm = document.getElementById("container-forgot");
+    forgotPwForm.style.display = "none";
+    
+    const successPw = document.getElementById("successPw");
+    successPw.style.display = "block";
     });
 });
