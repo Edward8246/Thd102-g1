@@ -1,8 +1,8 @@
 // 首頁
 .index{
-    *{
-        //outline: 1px solid red;
-    }
+    // *{
+    //     outline: 1px solid red;
+    // }
     
     .container{
         
@@ -99,7 +99,7 @@
     .article2{
         width: 100%;
         @include flex(column);
-        background-color: $white;
+        background-color: $color_cream;
         padding: 40px;
 
         .recipe_slide{    
