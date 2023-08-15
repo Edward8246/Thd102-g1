@@ -124,7 +124,7 @@ button {
     }
     &.facebook,&.google{
         @include btn($color_darkblue,#DDF1F3,#DDF1F3,$border-radius-50);
-        @include flex(row,center,center);
+        @include flex(row,start,center);
         gap: 16px;
         padding:  8px 52px;
         &:hover{
