@@ -105,8 +105,8 @@
     </style> -->
   </head>
   <body>
-     
-    <div id="the_block" class="ContainerFAQ">
+    <div id="the_block" class="ContainerFAQ0">
+    <div class="ContainerFAQ">
       <div class="ContainerFAQ2">
         <button class="buttonFAQ" type="button" v-for="tab in tabs" :key="tab.id" class=""
         v-bind:class="{activeFAQ: currentTab == tab.id}" @click="currentTab = tab.id">{{ tab.name }}</button>
@@ -115,6 +115,7 @@
       
       <component v-bind:is="current_tab_component" class="tab_contentFAQ"></component>
     </div>
+  </div>
     
     <!-- <script src="vendors/vue/vue.global.js"></script> -->
 
