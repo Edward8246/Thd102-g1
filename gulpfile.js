@@ -188,19 +188,3 @@ exports.dev = series(parallel(includeHTML , styleSass , minijs , img_copy) , bro
 
 //上線用
 exports.online = series(clear ,parallel(includeHTML , styleSass , babel5 , min_images))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
