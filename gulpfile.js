@@ -1,4 +1,3 @@
-
 const {
     src,
     dest,
@@ -7,13 +6,14 @@ const {
     watch
 } = require('gulp');
 
-
+// console log
 function task(cb) {
     console.log('gulp ok');
     cb();
 }
 
-exports.taskconsole = task
+exports.a = task
+
 
 function taskA(cb) {
     console.log('taskA');
@@ -25,58 +25,51 @@ function taskB(cb) {
     cb();
 }
 
-//同時開始執行
-exports.sync = parallel(taskA, taskB);
-//有順序之分 先執行完A 再執行B
-exports.async = series(taskA, taskB);
+//同時
+exports.sync = parallel(taskA , taskB);
+
+//順序
+exports.async = series(taskA , taskB);
 
 
 // 搬家
 function copy(){
-    //將所有html檔 及 所有js檔 複製一個到dist資料夾裡面,but main.js不要搬進去
-    //要加中括號
-    return src(['*.html', '*.js', '!main.js']).pipe(dest('dist'))
-
-    //所有的檔案都搬進去
-    // return src('*.*').pipe(dest('dist'))
-    //所有的html檔
-    // return src('*.html').pipe(dest('dist'))
-
-    // **/*.scss 上一層的所以scss檔
+    return src(['*.html' , '*.js' , '!main.js' , '**/*.scss']).pipe(dest('dist'))
 }
+//  過去檔案會有index about gulpfile 不會有main.js
 
 exports.m = copy;
 
-// 圖片打包
+//圖片打包
 function img_copy(){
     return src(['images/*.*' , 'images/**/*.*']).pipe(dest('dist/images'))
 }
 
-//css壓縮
+//css 壓縮
 
-const cleanCss = require('gulp-clean-css');
+const cleanCSS = require('gulp-clean-css');
 
 function minify(){
-    return src('css/*.css')
-    .pipe(cleanCss())
-    .pipe(dest('dist/css'))
+   return src('css/*.css')
+     .pipe(cleanCSS())
+     .pipe(dest('dist/css'))
 }
 
 exports.cssmini = minify;
 
 const uglify = require('gulp-uglify');
 
+
 function minijs(){
-    return src('js/main.js')
+ return  src('js/*.js')
     .pipe(uglify())
     .pipe(dest('dist/js'))
 }
-
 exports.js = minijs;
 
 
-// sass 編譯
 
+// sass 編譯
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
@@ -84,19 +77,19 @@ const autoprefixer = require('gulp-autoprefixer');
 function styleSass() {
     return src('./sass/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass.sync().on('error', sass.logError)) // 編譯 css
-        // .pipe(cleanCss()) // minify 壓縮css
+        .pipe(sass.sync().on('error', sass.logError))//編譯scss
+        // .pipe(cleanCSS())// minify css
         .pipe(autoprefixer({
             cascade: false
         }))
         .pipe(sourcemaps.write())
-        .pipe(dest('./dist/css'))
+        .pipe(dest('./dist/css'));
 }
 
 exports.style = styleSass;
 
 
-// html template
+//html template
 const fileinclude = require('gulp-file-include');
 
 function includeHTML() {
@@ -108,16 +101,18 @@ function includeHTML() {
         .pipe(dest('./dist'))
 }
 
+
 exports.html = includeHTML;
 
 function watchfile(){
-    watch(['*.html' , 'layout/*.html'], includeHTML);
-    watch(['sass/*.scss' , 'sass/**/*.scss'], styleSass);
- //    watch('js/*.js' , minijs);
- }
- exports.w = watchfile;
+   watch(['*.html' , 'layout/*.html'], includeHTML);
+   watch(['sass/*.scss' , 'sass/**/*.scss'], styleSass);
+//    watch('js/*.js' , minijs);
+}
+exports.w = watchfile;
 
 
+//同步瀏覽器
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 
@@ -139,7 +134,8 @@ function browser(done) {
 
 exports.default = browser;
 
-// 壓縮圖片
+
+//壓縮圖片
 const imagemin = require('gulp-imagemin');
 
 function min_images(){
@@ -150,10 +146,11 @@ function min_images(){
     .pipe(dest('dist/images'))
 }
 
-exports.pic = min_images;
+
+exports.pic = min_images
 
 
-// ess6 -> es5 (跨瀏覽器用)
+// es6 -> es5
 const babel = require('gulp-babel');
 
 function babel5() {
@@ -164,9 +161,11 @@ function babel5() {
         .pipe(dest('dist/js'));
 }
 
+
 exports.es = babel5;
 
-// 清除舊檔案
+
+//清除舊檔案
 const clean = require('gulp-clean');
 
 function clear() {
@@ -176,15 +175,11 @@ function clear() {
 
 exports.c = clear;
 
-//test
-/* const webpack = require('webpack-stream');
-function vue() {
-    return gulp.src('src/vue/*.vue')
-      .pipe(webpack(require('./webpack.config.js'))) // 使用 webpack 打包 Vue 文件
-      .pipe(gulp.dest('dist/js'));
-  };
-exports.vue = vue;
- */
+
+
+
+
+
 
 //開發用
 exports.dev = series(parallel(includeHTML , styleSass , minijs , img_copy) , browser);
@@ -193,5 +188,19 @@ exports.dev = series(parallel(includeHTML , styleSass , minijs , img_copy) , bro
 
 //上線用
 exports.online = series(clear ,parallel(includeHTML , styleSass , babel5 , min_images))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

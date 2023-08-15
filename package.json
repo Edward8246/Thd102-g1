@@ -1,5 +1,5 @@
 {
-  "name": "thd102-g1",
+  "name": "sassproject",
   "version": "1.0.0",
   "description": "講義:\r https://spiny-cheese-0b2.notion.site/Sass-0bf5c6c7ba1c4f63b8b4c9513c4f810b",
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Edward8246/Thd102-g1.git"
+    "url": "git+https://github.com/sexfat/thd102.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Edward8246/Thd102-g1.git"
+    "url": "https://github.com/sexfat/thd102/issues"
   },
-  "homepage": "https://github.com/Edward8246/Thd102-g1.git",
+  "homepage": "https://github.com/sexfat/thd102#readme",
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
@@ -35,9 +35,5 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.64.2"
-  },
-  "dependencies": {
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
   }
 }
