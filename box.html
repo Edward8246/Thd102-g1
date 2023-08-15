@@ -20,11 +20,11 @@
             <div class="box-tag tag-red" :class="{ on: currentTag === 'f' }" @click="show('f', 'fast','all')">快速料理</div>
         </section>
         <section class="select-tag2">
-            <div class="box-tag-m tb-green "  :class="{ onGreen: currentTagM === 'green' }" @click="show2('green')">西式料理</div>
-            <div class="box-tag-m tb-purple " :class="{ onPurple: currentTagM === 'purple' }" @click="show2('purple')">中式料理</div>
-            <div class="box-tag-m tb-blue " :class="{ onBlue: currentTagM === 'blue' }" @click="show2('blue')">日式料理</div>
-            <div class="box-tag-m tb-yellow " :class="{ onYellow: currentTagM === 'yellow' }" @click="show2('yellow')">健康料理</div>
-            <div class="box-tag-m tb-red " :class="{ onRed: currentTagM === 'red' }" @click="show2('red')">快速料理</div>
+            <div class="box-tag-m tb-green "  :class="{ onGreen: currentTagM === 'green' }" @click="show2('green', 'western','all')">西式料理</div>
+            <div class="box-tag-m tb-purple " :class="{ onPurple: currentTagM === 'purple' }" @click="show2('purple', 'chinese','all')">中式料理</div>
+            <div class="box-tag-m tb-blue " :class="{ onBlue: currentTagM === 'blue' }" @click="show2('blue', 'japanese','all')">日式料理</div>
+            <div class="box-tag-m tb-yellow " :class="{ onYellow: currentTagM === 'yellow' }" @click="show2('yellow', 'health','all')">健康料理</div>
+            <div class="box-tag-m tb-red " :class="{ onRed: currentTagM === 'red' }" @click="show2('red', 'fast','all')">快速料理</div>
         </section>
         <section class="box-wrapper grid-box">
             <a :href="'box_info.html#/'+item.id" class="card-box  " v-for="item in items" :key="item.name">
@@ -55,6 +55,7 @@
         const app = Vue.createApp({
   data(){
     return {
+      all:[],
       items: [
         {
           id: 1,
@@ -268,27 +269,33 @@
         }
       ],
       currentTag: '',
-      currentTagM: ''
+      currentTagM: '',
+      firstTimeTag:true
     };
   },
   methods:{
     show(tag, category,all){
       // e.target.classList.toggle("on");
-      this[all] = this.items;
+      
       // 移除所有 tag 上的 "on" 樣式
-      const items = 'items';
+      
       const tags = document.querySelectorAll('.box-tag');
       tags.forEach(tagElement => {
         tagElement.classList.remove('on');
       });
       
       // 添加 "on" 樣式給當前點選的 tag
-      const currentTagElement = document.querySelector(`.box-tag.${tag}`);
-      if (currentTagElement) {
-        currentTagElement.classList.add('on');
-      }
-
+      // const currentTagElement = document.querySelector(`.box-tag.${tag}`);
+      // if (currentTagElement) {
+      //   currentTagElement.classList.add('on');
+      // }
+      //不用加上去 上面html :class已經加了
+      
       // 切換到選中的標籤
+      if(this.firstTimeTag){
+        this[all] = this.items;
+        this.firstTimeTag = false;
+      }
       if(this.currentTag === tag){
         this.currentTag = "";
         this.items = this[all];
@@ -300,7 +307,7 @@
       
       
     },
-    show2(tag){
+    show2(tag, category,all){
       // e.target.classList.toggle("on");
 
       // 移除所有 tag 上的 "on" 樣式
@@ -314,16 +321,23 @@
       });
       
       // 添加 "on" 樣式給當前點選的 tag
-      const currentTagElement = document.querySelector(`.box-tag-m.${tag}`);
-      if (currentTagElement) {
-        currentTagElement.classList.add('onGreen');
-      }
+      // const currentTagElement = document.querySelector(`.box-tag-m.${tag}`);
+      // if (currentTagElement) {
+      //   currentTagElement.classList.add(`on${tag}`);
+      // }
+      //不用加上去 上面html :class已經加了
 
       // 切換到選中的標籤
+      if(this.firstTimeTag){
+        this[all] = this.items;
+        this.firstTimeTag = false;
+      }
       if(this.currentTagM === tag){
         this.currentTagM = "";
+        this.items = this[all];
       }else{
         this.currentTagM = tag;
+        this.items = this[category];
       }
       
       
