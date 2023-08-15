@@ -38,6 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const signInContainer = document.getElementById("sign-in-container");
 
     signUpLink.addEventListener("click", function() {
-        signUpLink.
+        
     });
 });
