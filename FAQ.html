@@ -19,7 +19,7 @@
     <div class="ContainerFAQ">
       <div class="ContainerFAQ2">
         <button class="buttonFAQ" type="button" v-for="tab in tabs" :key="tab.id" class=""
-        v-bind:class="{activeFAQ: currentTab == tab.id}" @click="currentTab = tab.id">{{ tab.name }}{{tab.icon}}</button>
+        v-bind:class="{activeFAQ: currentTab == tab.id}" @click="currentTab = tab.id">{{ tab.name }}<span v-html="tab.icon"></span></button>
         
       </div>
       
