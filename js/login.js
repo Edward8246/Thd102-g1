@@ -1,12 +1,12 @@
 
 // 關視窗
-// document.getElementById("container").addEventListener("click", function(){
-//     document.querySelector(".container").style.display = "flex";
-// })
+document.getElementById("user").addEventListener("click", function(){
+    document.querySelector(".loginPage").style.display = "flex";
+})
 
-// document.querySelector(".close-btn").addEventListener("click", function(){
-// 	document.querySelector(".container").style.display = "none";
-// })
+document.querySelector(".close-btn").addEventListener("click", function(){
+	document.querySelector(".loginPage").style.display = "none";
+})
 
 
 const signUpButton = document.getElementById('signUp');
