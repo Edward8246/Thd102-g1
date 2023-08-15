@@ -4,14 +4,17 @@
     padding: 20px;
     height: 100vh;
     width: 100%; 
-    background-color: #d2d9da6a;  
+    background-color: rgba($white,.8);  
     position: relative;
     justify-content: center;
     align-items: center;
     font-family: $font-family;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 30;
+
+     //控制
+     display: none;
 
 
 
@@ -28,6 +31,9 @@
     &:hover{
         color:$color_lightblue;
     }
+   
+   
+   
 }
 
 .container-login {
@@ -39,7 +45,7 @@
     max-width: 100%;
     min-height: 480px;    
     
-    //display:none控制
+    //控制
     // display: none;
 }
 
@@ -58,8 +64,7 @@
     letter-spacing: 2px;
     color: #eee;
     text-align: center;  
-    /* border-bottom: 1px solid $white;   */
-    /* padding-bottom: 20px; */
+  
 }
 
 .p1{
@@ -286,32 +291,20 @@ form {
 
 // <!-- 登入成功 -->
 
-.login.successPage{
-    height: 100vh;
-    width: 100%; 
-    background-color: #d2d9da6a;  
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: $font-family;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-
-    //開啟
-    display: none;
-    // display:flex;
-}
-
 .signin-success{
-    height: 300px;
-    max-width: 836px;
-    // background-color: $color_orange;
     border-radius: 15px;
+    background-color: $color_cream;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(#333,.2);
 
+        //開啟
+    display: none;
+    
 }
+
+
 
 .signin-icon i{
     font-size: 120px;
@@ -333,7 +326,7 @@ form {
     align-items: center;
     
     @include btn($white,$color_blue,$color_blue,$border-radius-50);
-    width: 100%;
+    width: 80%;
     padding: 6px;
     font-weight: 500;
 
@@ -349,31 +342,19 @@ form {
 
 
 // <!-- 註冊成功 -->
-.signup.successPage{
-    height: 100vh;
-    width: 100%; 
-    background-color: #d2d9da6a;  
-    // position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: $font-family;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-
-
-    //開關
-    display: none;
-}
-
 .signup-success{
-    height: 300px;
-    max-width: 836px;
-    // background-color: $color_orange;
+    // height: 300px;
+    // max-width: 836px;
     border-radius: 15px;
+    background-color: $color_cream;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(#333,.2);
 
+
+     //開關
+    display: none;
 }
 
 .signup-icon i{
@@ -393,20 +374,6 @@ form {
 // <!-- 忘記密碼 -->
 
 .container-forgot{
-    // height: 100vh;
-    // width: 100%; 
-    background-color: #d2d9da6a;  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: $font-family;
-    // position: fixed;
-    top: 0;
-    z-index: 10;
-
-
-        //開啟
     display: none;  
 }
 
@@ -416,6 +383,8 @@ form {
     background-color: $color_cream;
     border-radius: 15px;
     padding: 0 40px;
+
+    
     
 }
 
@@ -455,35 +424,40 @@ form {
 
 // <!-- 成功忘記密碼 -->
 
-.password.successPage{
-    // height: 100vh;
-    // width: 100%; 
-    // background-color: #d2d9da6a;  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: $font-family;
-    position: fixed;
-    top: 0;
-    z-index: 10;
+.password-success{
+    background-color: $color_cream;
+    //height: 60vh;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(#333,.2);
+    position: relative;
 
-
-        //開啟
+    //開關
     display: none;  
-
 }
 
-.password-success{
-    height: 300px;
-    max-width: 836px;
-    border-radius: 15px;
+.close-pwbtn{
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 900;
+    position: absolute;
+    right:5%;
+    top: 5%;
+    color: $color_darkblue;
+    transition:.5s;
+    
+    &:hover{
+        color:$color_lightblue;
+    }
+
 }
 
 .password-icon i{
     font-size: 120px;
     padding: 40px;
     justify-items: center;
+
 }
 
 .password-success-txt{
@@ -496,8 +470,7 @@ form {
     align-items: center;
     
     @include btn($white,$color_blue,$color_blue,$border-radius-50);
-    width: 100%;
-    padding: 6px;
+    width: 80%;
     font-weight: 500;
 
     &:active{
