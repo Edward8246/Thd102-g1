@@ -30,7 +30,7 @@
     }
 }
 
-.container {
+.container-login {
     border-radius: 15px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     position: relative;
@@ -174,7 +174,7 @@ form {
     z-index: 3;
 }
 
-.container.right-panel-active .sign-in-container {
+.container-login.right-panel-active .sign-in-container {
     transform: translateX(100%);
 }
 
@@ -187,7 +187,7 @@ form {
     // display: none;
 }
 
-.container.right-panel-active .sign-up-container {
+.container-login.right-panel-active .sign-up-container {
     transform: translateX(100%);
     opacity: 1; 
     z-index: 5;
@@ -219,7 +219,7 @@ form {
     //display: none;
 }
 
-.container.right-panel-active .overlay-container{
+.container-login.right-panel-active .overlay-container{
     transform: translateX(-100%);
 }
 
@@ -239,7 +239,7 @@ form {
     //display: none;
 }
 
-.container.right-panel-active .overlay {
+.container-login.right-panel-active .overlay {
     transform: translateX(50%);
 }
 
@@ -260,7 +260,7 @@ form {
     border-radius: 15px;
 }
 
-.container.right-panel-active .overlay-left {
+.container-login .right-panel-active .overlay-left {
     transform: translateX(0);
 }
 
@@ -298,11 +298,11 @@ form {
     font-family: $font-family;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 100;
 
     //開啟
     display: none;
-    //display:flex;
+    // display:flex;
 }
 
 .signin-success{
@@ -393,15 +393,15 @@ form {
 // <!-- 忘記密碼 -->
 
 .container-forgot{
-    height: 100vh;
-    width: 100%; 
+    // height: 100vh;
+    // width: 100%; 
     background-color: #d2d9da6a;  
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: $font-family;
-    position: fixed;
+    // position: fixed;
     top: 0;
     z-index: 10;
 
@@ -456,9 +456,9 @@ form {
 // <!-- 成功忘記密碼 -->
 
 .password.successPage{
-    height: 100vh;
-    width: 100%; 
-    background-color: #d2d9da6a;  
+    // height: 100vh;
+    // width: 100%; 
+    // background-color: #d2d9da6a;  
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -522,7 +522,7 @@ form {
         .overlay-container{
             display: none;
         } 
-        .container{
+        .container-login{
             width:352px;
         }
         form{
@@ -546,7 +546,7 @@ form {
     //註冊
     //登入隱藏
     .sign-in-container{
-        display: none; 
+        // display: none; 
         
 
     }
