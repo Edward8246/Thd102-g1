@@ -1,9 +1,5 @@
 .ContainerFAQ0{
-    .activeFAQ{
-      background-color: #1E88A8;
-      color: #f5f5f5;
-  
-    }
+    
     .tab_contentFAQ{
       /* border: 1px solid #A5DEE4; */
       padding: 10px;
@@ -37,7 +33,13 @@
    border-radius: 10px;
    font-size: 32px;
   border: 1px solid #333;
+  background-color: aqua;
   
+  }
+  .activeFAQ{
+    background-color: #1E88A8;
+    color: #f5f5f5;
+
   }
   
   
