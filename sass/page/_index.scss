@@ -1,7 +1,7 @@
 // 首頁
 .index{
     *{
-        outline: 1px solid red;
+        //outline: 1px solid red;
     }
     
     .container{
@@ -71,7 +71,6 @@
     }
     
 
-   
     .box{
         position: relative;
         z-index: 5;
@@ -87,13 +86,6 @@
         padding: 0 11.5%;
         bottom:-20%;
         transform: scale(0.2);
-        //滑鼠scroll事件
-        &:hover{
-            transition: .8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: scale(0.8);
-            bottom: 30%;
-            left: 1%;
-        }
     }
     .small_info{
         line-height: 2;
@@ -107,7 +99,7 @@
     .article2{
         width: 100%;
         @include flex(column);
-        background-color: $color_cream;
+        background-color: $white;
         padding: 40px;
 
         .recipe_slide{    
@@ -140,6 +132,7 @@
         }
         //article2更多盒子的中間資訊
         .article2_info{
+            position: relative;
             @include flex(row,space-between,center);
             width: 100%;
             
@@ -151,6 +144,7 @@
             .box_half{
                 width: 25vw;
                 @include abCenter;
+                filter: drop-shadow(0 0 20px rgba(#aaa,.2));
             }
             
             .morebox{
@@ -184,9 +178,10 @@
         width: 15.6vw;
     }
     .moreOffer{
-        @include flex(row,center,start);
+        @include flex(row,space-evenly,start);
         flex-wrap: wrap;
         text-align: center;
+        margin-bottom: 20px;
         .more_info{
             min-width: 200px;
             min-height: 200px;
