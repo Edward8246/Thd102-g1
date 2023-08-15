@@ -13,18 +13,18 @@
     <div id="my_app" class="box-container">
         <div class="box-banner"></div>
         <section class="select-tag">
-            <div class="box-tag tag-green">西式料理</div>
-            <div class="box-tag tag-purple">中式料理</div>
-            <div class="box-tag tag-blue" >日式料理</div>
-            <div class="box-tag tag-yellow">健康料理</div>
-            <div class="box-tag tag-red">快速料理</div>
+            <div class="box-tag tag-green " :class="{ on: currentTag === 'w' }" @click="show('w')">西式料理</div>
+            <div class="box-tag tag-purple" :class="{ on: currentTag === 'c' }" @click="show('c')">中式料理</div>
+            <div class="box-tag tag-blue" :class="{ on: currentTag === 'j' }" @click="show('j')">日式料理</div>
+            <div class="box-tag tag-yellow" :class="{ on: currentTag === 'h' }" @click="show('h')">健康料理</div>
+            <div class="box-tag tag-red" :class="{ on: currentTag === 'f' }" @click="show('f')">快速料理</div>
         </section>
         <section class="select-tag2">
-            <div class="box-tag-m tb-green ">西式料理</div>
-            <div class="box-tag-m tb-purple ">中式料理</div>
-            <div class="box-tag-m tb-blue ">日式料理</div>
-            <div class="box-tag-m tb-yellow ">健康料理</div>
-            <div class="box-tag-m tb-red ">快速料理</div>
+            <div class="box-tag-m tb-green "  :class="{ onGreen: currentTagM === 'green' }" @click="show2('green')">西式料理</div>
+            <div class="box-tag-m tb-purple " :class="{ onPurple: currentTagM === 'purple' }" @click="show2('purple')">中式料理</div>
+            <div class="box-tag-m tb-blue " :class="{ onBlue: currentTagM === 'blue' }" @click="show2('blue')">日式料理</div>
+            <div class="box-tag-m tb-yellow " :class="{ onYellow: currentTagM === 'yellow' }" @click="show2('yellow')">健康料理</div>
+            <div class="box-tag-m tb-red " :class="{ onRed: currentTagM === 'red' }" @click="show2('red')">快速料理</div>
         </section>
         <section class="box-wrapper grid-box">
             <a :href="'box_info.html#/'+item.id" class="card-box  " v-for="item in items" :key="item.name">
@@ -240,12 +240,64 @@
           cuisine:"西式料理",
           time:"20分鐘"
         }
-        
-        
-        
-
-      ]
+      ],
+      currentTag: '',
+      currentTagM: ''
     };
+  },
+  methods:{
+    show(tag){
+      // e.target.classList.toggle("on");
+
+      // 移除所有 tag 上的 "on" 樣式
+      const tags = document.querySelectorAll('.box-tag');
+      tags.forEach(tagElement => {
+        tagElement.classList.remove('on');
+      });
+      
+      // 添加 "on" 樣式給當前點選的 tag
+      const currentTagElement = document.querySelector(`.box-tag.${tag}`);
+      if (currentTagElement) {
+        currentTagElement.classList.add('on');
+      }
+
+      // 切換到選中的標籤
+      if(this.currentTag === tag){
+        this.currentTag = "";
+      }else{
+        this.currentTag = tag;
+      }
+      
+      
+    },
+    show2(tag){
+      // e.target.classList.toggle("on");
+
+      // 移除所有 tag 上的 "on" 樣式
+      const tags = document.querySelectorAll('.box-tag-m');
+      tags.forEach(tagElement => {
+        tagElement.classList.remove('onGreen');
+        tagElement.classList.remove('onPurple');
+        tagElement.classList.remove('onBlue');
+        tagElement.classList.remove('onYellow');
+        tagElement.classList.remove('onRed');
+      });
+      
+      // 添加 "on" 樣式給當前點選的 tag
+      const currentTagElement = document.querySelector(`.box-tag-m.${tag}`);
+      if (currentTagElement) {
+        currentTagElement.classList.add('onGreen');
+      }
+
+      // 切換到選中的標籤
+      if(this.currentTagM === tag){
+        this.currentTagM = "";
+      }else{
+        this.currentTagM = tag;
+      }
+      
+      
+    }
   }
 });
 
