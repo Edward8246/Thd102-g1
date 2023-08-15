@@ -31,12 +31,15 @@
                 </div>
                 <div class="box-text">
                     <h6>{{item.name}}</h6>
-                    <div class="tag-color " :class="'box-'+item.color"></div>
+                    <div class="tag-group">
+                      <div class="tag-color " :class="'box-'+item.color"></div>
                     <p class="t-n">{{ item.cuisine }}</p>
                     <div class="time-icon">
                         <i class="fa-solid fa-clock"></i>
                         <p>{{ item.time }}</p>
                     </div>
+                    </div>
+                    
                    
                     
                 </div>
@@ -45,6 +48,7 @@
         <button class="more">載入更多</button>
     </div>
     <script src="vendors/vue/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@3.5.2/dist/vue-router.min.js"></script>
     <script>
         const app = Vue.createApp({
   data(){
@@ -124,8 +128,8 @@
         },
         {
           id: 10,
-          img: "./images/box/box_ginger.jpg",
-          name: "薑汁燒肉",
+          img: "./images/box/box_tofu.jpg",
+          name: "麻婆豆腐",
           color: "purple",
           cuisine:"中式料理",
           time:"20分鐘"
