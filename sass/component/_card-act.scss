@@ -57,11 +57,13 @@
     position: absolute;
     bottom: -20px;
     @include abCenter();
+    @include flex();
 
-    button{
-        display: inline-block;
+    a{
+        // display: inline-block;
         font-size: $h7;
         height: 43px;
+        
     }
 }
 
