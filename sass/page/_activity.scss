@@ -1,5 +1,5 @@
 .act-banner{
-    background-image: url(../../images/activity-banner.jpg);
+    background-image: url(../../images/activity/activity-banner.jpg);
     @include size(100%, 300px);
     background-size: cover;
     margin-bottom: 50px;
@@ -32,17 +32,17 @@
     .tb-red, .tb-green, .tb-purple{
         cursor: pointer;
     }
-    .tb-red:hover{
-        @include btn_hover($white, $color_tag_red, $color_tag_red);
-        transition:.5s;
+    .tbredOn{
+        background-color: $color_tag_red;
+        color: $white;
     }
-    .tb-green:hover{
-        @include btn_hover($white, $color_tag_green, $color_tag_green);
-        transition:.5s;
+    .tbgreenOn{
+        background-color: $color_tag_green;
+        color: $white;
     }
-    .tb-purple:hover{
-        @include btn_hover($white, $color_tag_purple, $color_tag_purple);
-        transition:.5s;
+    .tbpurpleOn{
+        background-color: $color_tag_purple;
+        color: $white;
     }
     
 }
