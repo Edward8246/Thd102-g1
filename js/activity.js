@@ -1,6 +1,7 @@
   const activity = Vue.createApp({
             data(){
                 return{
+                    currentTag: "",
                     arr_act: [
                     {
                         tag: '新品宣傳',
@@ -48,6 +49,23 @@
                         adr: '台北市快樂路123號4樓'
                     }
                     
+                    ],
+                    tags:[
+                        {
+                            id:'tag1',
+                            class: 'tb-red',
+                            name: '新品宣傳'
+                        },
+                        {
+                            id:'tag1',
+                            class: 'tb-green',
+                            name: '私廚教學'
+                        },
+                        {
+                            id:'tag1',
+                            class: 'tb-purple',
+                            name: '共享餐桌'
+                        }
                     ]
                 }
             },

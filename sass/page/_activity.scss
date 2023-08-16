@@ -28,12 +28,32 @@
 
 .tags{
     margin: 0 auto;
+
+    .tb-red, .tb-green, .tb-purple{
+        cursor: pointer;
+    }
+    .tb-red:hover{
+        @include btn_hover($white, $color_tag_red, $color_tag_red);
+        transition:.5s;
+    }
+    .tb-green:hover{
+        @include btn_hover($white, $color_tag_green, $color_tag_green);
+        transition:.5s;
+    }
+    .tb-purple:hover{
+        @include btn_hover($white, $color_tag_purple, $color_tag_purple);
+        transition:.5s;
+    }
+    
 }
 
 .act-cards{
     border: 1px solid red;
     margin: 0 auto;
 }
-//rwd
+
+.card-group{
+    margin-bottom: 80px;
+}
 
 
