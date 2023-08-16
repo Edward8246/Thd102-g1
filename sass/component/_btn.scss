@@ -41,9 +41,9 @@
 }
 
 .btn-number{
+    
     display: flex;
     border-radius: 10px;
-    border: 1px solid $color_blue;
     height: 35px;
     overflow: hidden;
     margin-bottom: 10px;
@@ -52,6 +52,9 @@
         color: $white;
         cursor: pointer;
         width: 20%;
+        height: 100%;
+        // border: 1px solid $color_blue;
+
     }
     .b-sub{
         position: relative;
@@ -91,6 +94,11 @@
         font-size: $h7;
         border: none;
         color: $color_darkblue;
+        width: 60%;
+        height: 100%;
+        border: 1px solid $color_blue;
+
+       
     }
 }
 .btn_shopping-prev{

@@ -15,8 +15,9 @@
         // grid-template-columns: 1fr 1fr;
     }
 
-    @include m {
+    @include d(550px) {
         grid-template-columns: 1fr;
+       
     }
 
 }
@@ -37,7 +38,7 @@
     margin: 0 auto;
     margin-bottom: 50px;
 
-    @include m {
+    @include d(550px) {
         max-width: 375px;
         margin-bottom: 50px;
     }

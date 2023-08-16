@@ -13,15 +13,139 @@
 
 <body>
   <!-- @@include('layout/header.html') -->
+
   <div id="app">
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
+    <div class="info-wrapper">
+        <div class="info-top">
+            <div class="image">
+                <img :src="product[0].img" alt="">
+            </div>
+            <div class="select-tag-r">
+                <a href="#buy" class="select-r">訂購</a>
+                <a href="#ingred" class="select-r">食材</a>
+                <a href="#step" class="select-r">步驟</a>
+            </div>
+    
+        </div>
+        <div class="box-info-wrapper ">
+            <section class="select-tag">
+                <a href="#buy" class="select">訂購</a>
+                <a href="#ingred" class="select">食材</a>
+                <a href="#step" class="select">步驟</a>
+            </section>
+    
+            <section id="buy" class="buy">
+                <div class="info-left">
+                    <div class="image">
+                        <img :src="product[0].img" alt="">
+                    </div>
+                    <div class="info-tags">
+                        <div class="ft-purple">{{ product[0].cuisine }}</div>
+                        <div v-if="fast" :class="'ft-'+product[0].color">快速料理</div>
+                        <div v-if="health" class="ft-yellow">快速料理</div>
+    
+                    </div>
+                </div>
+    
+                <div class="info-right ">
+                    <div class="info-name">
+                        <h2>{{ product[0].name }}</h2>
+                        <h4 class="r-price">${{product[0].price}}</h4>
+                    </div>
+    
+                    <div class="info-detail">
+                        <div class="icon-text">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>{{ product[0].time }}</span>
+                        </div>
+                        <div class="icon-text">
+                            <i class="fa-solid fa-user"></i>
+                            <span>1人份</span>
+                        </div>
+                        <div class="icon-text use">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
+                                <path d="M8.41667 0.0625C6.94167 0.0625 5.64167 0.89125 5.225 2.09542C4.78333 1.92542 4.31667 1.83333 3.83333 1.83333C2.94928 1.83333 2.10143 2.13184 1.47631 2.6632C0.851189 3.19455 0.5 3.91522 0.5 4.66667C0.501974 5.29413 0.748328 5.90339 1.2006 6.3993C1.65287 6.89521 2.2856 7.24988 3 7.40792V12.4583H13.8333V7.40792C15.3 7.08208 16.3333 5.95583 16.3333 4.66667C16.3333 3.91522 15.9821 3.19455 15.357 2.6632C14.7319 2.13184 13.8841 1.83333 13 1.83333C12.5167 1.83333 12.05 1.92542 11.6083 2.09542C11.1917 0.89125 9.89167 0.0625 8.41667 0.0625ZM8 6.4375H8.83333V11.3958H8V6.4375ZM5.5 7.85417H6.33333V11.3958H5.5V7.85417ZM10.5 7.85417H11.3333V11.3958H10.5V7.85417ZM3 13.1667V13.875C3 14.0629 3.0878 14.243 3.24408 14.3759C3.40036 14.5087 3.61232 14.5833 3.83333 14.5833H13C13.221 14.5833 13.433 14.5087 13.5893 14.3759C13.7455 14.243 13.8333 14.0629 13.8333 13.875V13.1667H3Z" fill="#255359"/>
+                                </svg>
+                            <span>{{ product[0].tool }}</span>
+                        </div>
+                    </div>
+                    <p class="info-text">
+                        {{ product[0].intro }}
+                    </p>
+                    <h4 class="box-price">
+                        ${{ product[0].price }}
+                    </h4>
+                    <div class="btn-number">
+                        <div class="b-n b-sub col-2"></div>
+                        <input class="text col-8" type="text" value="1" readonly="readonly">
+                        <div class="b-n b-add col-2"></div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="b-buy b-left colte-6">加入購物車</button>
+                        <button class="b-buy b-right colte-6">立即購買</button>
+                    </div>
+    
+                </div>
+            </section>
+            <h5 id="ingred">食材</h5>
+            <section class="ingredients">
+    
+                <ul class="items colte-5">
+                    <li v-for=" ingredient in product[0].ingredients" :key="ingredient.name">
+                         <span class="item-name ">{{ingredient.item}}</span>
+                        <span class="item-num">{{ ingredient.num }}</span>
+                    </li>
+                    
+                </ul>
+    
+    
+                <div class="image colte-5">
+                    <img src="./images/box-info/box-info-Ingredients.jpg" alt="">
+                </div>
+            </section>
+            <h5 id="step">料理步驟</h5>
+            <ul class="steps">
+                <li v-for="step in product[0].steps" :key="id" class="step">
+                    <span>{{ step.id }}</span>
+                    <div class="step-text">
+                        <h6>{{ step.title }}</h6>
+                        <p>{{ step.do }}</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="tips ">
+                <div class="tip-icon">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <h5>小撇步</h5>
+                </div>
+                <ul class="tip-text">
+                    <li>{{ product[0].tip1 }}</li>
+                    <li>{{ product[0].tip2 }}</li>
+                    <li>{{ product[0].tip3 }}</li>
+                </ul>
+            </div>
+    
+            <h5 class="chef-title">主廚介紹</h5>
+            <div class="chef">
+                <div class="image ">
+                    <img :src="product[0].chefImg" alt="">
+                </div>
+                <div class="chef-name ">
+                    <h4>{{ product[0].chefName }}</h4>
+                    <p>{{ product[0].chefIntro }}
+                    </p>
+                </div>
+            </div>
+        </div>
+      </div>
   </div>
  
    
-    <script src="vendors/vue/vue.global.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
-  <script src="https://unpkg.com/vue-router@3.5.2/dist/vue-router.min.js"></script>
-  <script>
+    <script src="js/vue.global.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/vue-router@3.5.2/dist/vue-router.min.js"></script> -->
+  <!-- <script>
     const ProductA = {
          template: ` <div class="info-wrapper">
     <div class="info-top">
@@ -380,9 +504,9 @@
 
 
     
-  </script>
+  </script> -->
   
-    <!-- <script>
+    <script>
         
         const app = Vue.createApp({
             data(){
@@ -470,7 +594,7 @@
         });
 
         app.mount("#app");
-    </script> -->
+    </script>
 </body>
 
 </html>
