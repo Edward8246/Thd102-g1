@@ -96,6 +96,8 @@
 }
 
 .header_cataPage{
+    position: absolute;
+    margin-top: 80px;
     z-index: 1;
     background-color: rgba($white,1);
     width: 100%;
@@ -103,11 +105,11 @@
     padding: 40px $side_padding-360px;
     @include flex(row,space-evenly,center);
     transform: translateY(0vh);
-    transition: 1s;
+    transition: 1.5s;
 
     &.-none{
         //預設隱藏，點擊bar才會展開
-        transform: translateY(-100vh);
+        transform: translateY(-200vh);
     }
     
     
