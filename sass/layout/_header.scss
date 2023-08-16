@@ -1,21 +1,23 @@
-header {
-    @include flex(column,center,start);
-    
+.wrapper_header {
+    *{
+        //outline: 1px red solid;
+    }
+
+    @include flex(column,start,space-between);
+    //固定在最上面
+    position:fixed;
+    z-index: 20;
+    width: 100%;
 
     .nav{
+        z-index: 2;
         @include flexCenter;
         @include size(100%,80px);
         background-color: $color_lightblue;
         align-items: center; 
         box-sizing: border-box;    
         padding: 0 $side_padding-360px;
-        box-shadow: 0 1px 20px rgba($color_blue,.2);
-
-        //固定在最上面
-        position: fixed;
-        top: 0;
-        z-index: 20;
-        
+        box-shadow: 0 1px 20px rgba($color_blue,.2); 
     }
 
     .header_left,.header_right{
@@ -57,8 +59,29 @@ header {
     .user{
         @include size(100px,32px);
         padding:4px 20px;
+        transition:color .5s;
         i{
-            margin-right: 20px;  
+            margin-right: 20px;
+            &:hover{
+                @include font_shadow;
+            }  
+        }
+        @include p(){
+            padding: 0;
+            background-color: transparent;
+            @include size(initial,initial);
+            
+            &:hover{
+                background-color: transparent;
+                box-shadow: 0 0 0 rgba(#fff,0);
+            }
+            & h7{
+                display: none;
+            }
+            i{
+                margin: 0;
+                
+            }
         }
     }
     .cart{
@@ -69,60 +92,105 @@ header {
             color: $white;
             @include font_shadow;
         }   
-    }
-    
+    }  
 }
 
 .header_cataPage{
     position: absolute;
-    top: 40px;
-    background-color: rgba($white,.7);
+    margin-top: 80px;
+    z-index: 1;
+    background-color: rgba($white,1);
     width: 100%;
-    padding: 0 $side_padding-360px ;
-    padding-bottom: 40px;
-    @include flex(row,space-between,center);
-    //預設扣除nav的高度
-    padding-top: $top_padding;
-    //預設隱藏，點擊bar才會展開
-    display: none;
+    box-shadow: 0 4px 4px rgba(#333,.2);
+    padding: 40px $side_padding-360px;
+    @include flex(row,space-evenly,center);
+    transform: translateY(0vh);
+    transition: 1.5s;
+
+    &.-none{
+        //預設隱藏，點擊bar才會展開
+        transform: translateY(-200vh);
+    }
     
+    
+    
+    @include d(468px){
+        padding: 0 0 80px;
+    }
+
     .cata_bg{
-       
-        flex:2;
-        
+        flex:2; 
+        @include d(468px){
+            position: absolute;
+            bottom: 20px;
+            width: 60vw;
+            opacity:.3;
+            z-index: 0;
+        }      
+            
     }
     .cata_right{
         flex:3;
-        @include flex(column,center,space-between);
+        @include flex(column,space-between,start);
+        @include d(468px){
+            z-index: 5;
+        }
+    }
+    .pageLinks_container{
+        @include flex(row,space-between);
+        flex-wrap: wrap;
     }
     .pageLinks{
-        padding: 20px 0;
-        @include size(160px,auto);
+        padding: 20px 8px;
+        width: 50%;
+        min-width: 144px;
+        max-width: 160px;
         @include flex(row,space-between,center);
         color:$color_blue;
-        display: flex;
         transition:all .5s;
         &:hover{
             font-weight: 700;
             color:$color_lightblue;
         }
+        //斷點 p(800px)
+        @include p(){
+            width: 100%;
+            min-width: none;
+            max-width: none;
+            padding: 20px;
+        }
+        //428
+        @include d(468px){
+            padding: 20px $side_padding-360px;
+            &:hover,&:active{
+                box-shadow: inset 0 2px 2px rgba(#333,.3);
+                background-color:rgba($color_blue,.8);
+                color:$color_cream;
+            }
+        }
     }
     
     .food_theme{
-        @include flexCenter;
+        @include flex(row,space-between,start);
         flex-wrap: wrap;
 
+        //800
+        @include p(){
+            display: none; 
+        }
     }
     .food_item{
         margin-bottom: 20px;
-        width: 160px;
+        width: 30%;
         position: relative;
         opacity: 0.8;
         transition: .5s;
-        border-radius: 20px;
+        border-radius: 16px;
+        overflow: hidden;
         &:hover{
             opacity:1;
             box-shadow: 0 0 10px rgba($color_darkblue,.5);
+            
             & p{
                 text-shadow: 0 0 4px rgba($color_darkblue,1);
             }
@@ -138,10 +206,13 @@ header {
             letter-spacing: 12px;
         }
     }
-    .pageLinks_container{
-        @include flex(row,space-between);
-        flex-wrap: wrap;
-    }
+    
+    
+
+
+    
 
 
 }
+
+

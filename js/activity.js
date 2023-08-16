@@ -1,14 +1,15 @@
   const activity = Vue.createApp({
             data(){
                 return{
+                    currentTag: "",
                     arr_act: [
                     {
                         tag: '新品宣傳',
-                        name: '夏日清涼特惠',
+                        name: '咖哩飯新登場',
                         date: '2023-07-25 14:00',
                         dur: '2 小時',
-                        img:'./images/activity-1.jpg',
-                        loc: '愛德華商場',
+                        img:'./images/activity-2.jpg',
+                        loc: '馬吉小簡商場',
                         adr: '台北市快樂路123號4樓'
                     },
                     {
@@ -35,7 +36,7 @@
                         date: '2023-09-05 19:00',
                         dur: '3 小時',
                         img:'./images/activity-1.jpg',
-                        loc: '購物中心 A 店',
+                        loc: '紹育愛德華A店',
                         adr: '台北市繁華路789號5樓'
                     },
                     {
@@ -44,10 +45,27 @@
                         date: '2023-09-15 15:30',
                         dur: '2 小時',
                         img:'./images/activity-1.jpg',
-                        loc: '國際廚藝學院',
-                        adr: '新北市烹飪路101號，大樓C棟'
+                        loc: '馬吉小簡商場',
+                        adr: '台北市快樂路123號4樓'
                     }
                     
+                    ],
+                    tags:[
+                        {
+                            id:'tag1',
+                            class: 'tb-red',
+                            name: '新品宣傳'
+                        },
+                        {
+                            id:'tag1',
+                            class: 'tb-green',
+                            name: '私廚教學'
+                        },
+                        {
+                            id:'tag1',
+                            class: 'tb-purple',
+                            name: '共享餐桌'
+                        }
                     ]
                 }
             },
