@@ -14,16 +14,68 @@
 
     <div class="act-banner"></div>
     <!-- 標題區 -->
-    <section class="">
-        <div class="act-title wrapper-t">
-            <h4 class="">活動列表</h4>
-            <div class="tags flexCenter colte-6 colte-m-6">
-                <div class="tb-red colte-4 colte-m-2">新品宣傳</div>
-                <div class="tb-green colte-4 colte-m-2">私廚教學</div>
-                <div class="tb-purple colte-4 colte-m-2">共享餐桌</div>
-            </div>
-        </div>      
-    </section>
+    <div id="test">
+        <section class="">
+            <div class="act-title wrapper-t">
+                <h4 class="">活動列表</h4>
+                <div class="tags flexCenter colte-6 colte-m-6">
+                    <div class="tb-red colte-4 colte-m-2">新品宣傳</div>
+                    <div class="tb-green colte-4 colte-m-2">私廚教學</div>
+                    <div class="tb-purple colte-4 colte-m-2">共享餐桌</div>
+                </div>
+            </div>      
+        </section>
+
+        <section class="card-group">
+            <div class="grid-b wrapper-t" id="test">
+                <div class="card-act" v-for="card, index in arr_act" :key="index">
+                    
+                    <div class="card-top">
+                        <div class="image">
+                            <img :src="card.img" alt="">
+                        </div>
+                        <div class="act-info">
+                            <div :class="tagColor(card.tag)">
+                                {{ card.tag }}
+                            </div>
+                            <div class="act-txt">
+                                <h4>{{ card.name }}</h4>
+                                <ul>
+                                    <li class="act-txt-info">
+                                        <i class="fa-solid fa-calendar"></i>
+                                        <p>{{card.date}}</p>
+                            
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-clock"></i>
+                                        <p>{{card.dur}}</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <p>{{card.loc}}</p>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+              
+                        </div>
+                    </div>
+                   
+        
+                    <div class="btn_group col-9">
+                        <a class="left col-6" href="./activity_detail.html"><p>詳細資訊</p></a>
+                        <a class="right col-6" href=""><p>馬上報名!</p></a>
+                    </div>
+                    
+                </div>
+        
+        </section>
+
+        <button type="button" class="more">載入更多</button>
+
+
+    </div>
+    
 
     <!-- html卡片 -->
     <!-- <section>
@@ -175,58 +227,12 @@
     </section> -->
 
     <!-- 測試vue -->
-    <section>
-        <div class="grid-b wrapper-t" id="test">
-            <div class="card-act" v-for="card, index in arr_act" :key="index">
-                
-                <div class="card-top">
-                    <div class="image">
-                        <img :src="card.img" alt="">
-                    </div>
-                    <div class="act-info">
-                        <div :class="tagColor(card.tag)">
-                            {{ card.tag }}
-                        </div>
-                        <div class="act-txt">
-                            <h4>{{ card.name }}</h4>
-                            <ul>
-                                <li class="act-txt-info">
-                                    <i class="fa-solid fa-calendar"></i>
-                                    <p>{{card.date}}</p>
-                        
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-clock"></i>
-                                    <p>{{card.dur}}</p>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <p>{{card.loc}}</p>
-                                </li>
-                               
-                            </ul>
-                        </div>
-          
-                    </div>
-                </div>
-               
     
-                <div class="btn_group col-9">
-                    <a class="left col-6" href="./activity_detail.html"><p>詳細資訊</p></a>
-                    <a class="right col-6" href=""><p>馬上報名!</p></a>
-                </div>
-                
-            </div>
-    
-    </section>
 
     <!-- 載入更多 -->
-    <button type="button" class="btn_load">載入更多</button>
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <!-- <script src="./vendors/vue/vue.global.js"></script> -->
-    <!-- <script src="./vendors/vue/vue.global.prod.js"></script> -->
     <script src="./js/activity.js"></script>
 </body>
 </html>
