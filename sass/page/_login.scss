@@ -11,7 +11,7 @@
     font-family: $font-family;
     position: fixed;
     top: 0;
-    z-index: 30;
+    z-index: 50;
 
      //控制
     display: none;
@@ -296,8 +296,8 @@ form {
     text-align: center;
     box-shadow: 0 0 20px rgba(#333,.2);
 
-        //開啟
-    display: none;
+    //開啟
+    //display: none;
     
 }
 

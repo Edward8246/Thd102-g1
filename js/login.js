@@ -1,5 +1,5 @@
 //點擊登入鍵跳出LOGIN
-document.getElementById("user").addEventListener("click", function(){
+document.getElementById("user_login").addEventListener("click", function(){
     document.querySelector(".loginPage").style.display = "flex";
     //修改密碼成功畫面關閉
     const successPw = document.getElementById("successPw");
@@ -97,4 +97,28 @@ document.addEventListener("DOMContentLoaded", function() {
     loginPage.style.display = "none";
 
     });
+});
+
+//登入成功畫面 > 點選按鈕 回首頁 or 會員中心
+document.addEventListener("DOMContentLoaded", function() {
+    let member_button = document.getElementById("back-button");
+    let home_button = document.getElementById("home-button");
+
+    //按鈕登出鍵
+    function btn_logout(){
+        let user_login = document.getElementById("user_login"); 
+        let user_logout = document.getElementById("user_logout"); 
+        user_logout.classList.remove("-none");
+        user_login.classList.add("-none");
+    }
+
+    member_button.addEventListener("click",function(e){
+        e.preventDefault(); // 取消預設事件 test用後續要修改
+        btn_logout();
+    })
+    home_button.addEventListener("click",function(e){
+        e.preventDefault(); // 取消預設事件 test用後續要修改
+        btn_logout();
+    })
+
 });
