@@ -119,3 +119,64 @@
         
     }
 }
+.btn-number-shopping{
+    
+    display: flex;
+    border-radius: 10px;
+    height: 35px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    .b-n{
+        background-color: $color_blue;
+        color: $white;
+        cursor: pointer;
+        width: 20%;
+        height: 100%;
+        // border: 1px solid $color_blue;
+
+    }
+    .b-sub{
+        position: relative;
+        &::before{
+            display: inline-block;
+            content: "";
+            width: 20px;
+            height: 2px;
+            background-color: $white;
+            @include abCenter_xy;
+        }
+       
+    }
+    .b-add{
+        position: relative;
+
+        &::before{
+            display: inline-block;
+            content: "";
+            width: 20px;
+            height: 2px;
+            background-color: $white;
+            @include abCenter_xy;
+        }
+        &::after{
+            display: inline-block;
+            content: "";
+            width: 2px;
+            height: 20px;
+            background-color: $white;
+            @include abCenter_xy;
+        }
+
+        }
+    .text{
+        text-align: center;
+        font-size: $h7;
+        border: none;
+        color: $color_darkblue;
+        width: 60%;
+        height: 100%;
+        border: 1px solid $color_blue;
+
+       
+    }
+}
