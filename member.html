@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+
+    @@include('./layout/header.html')
+    @@include('./layout/login.html) 
+    
+
     <div class="wrapper memberform">
         <div class="member_tabs">
             <div class="tab member t-choose">會員資料</div>
@@ -132,7 +137,9 @@
         </div>
         </div>
     </div>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="./js/member.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>
