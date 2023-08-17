@@ -9,6 +9,8 @@ document.querySelector(".close-btn").addEventListener("click", function(){
 })
 
 
+
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
@@ -71,5 +73,14 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const successPw = document.getElementById("successPw");
     successPw.style.display = "block";
+    
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    let successBtn = document.getElementById("success-button");
+    successBtn.addEventListener("click", function() {
+    let loginPage = document.getElementById("loginPage");
+    loginPage.style.display = "none";
     });
 });
