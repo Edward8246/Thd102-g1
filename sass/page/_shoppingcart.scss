@@ -1,20 +1,30 @@
 .shopping{
-
+    // *{
+    //     outline: solid 1px red;
+    // }
     
     // 購物車  上排流程----------------------------------------
     .process{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        align-items: center;
         width: 62.5%;
         margin: 70px auto 100px auto;
-        
+        position: relative;
+        // z-index: 5;
     }
+    .line{
+        width: 18%;
+        height: 3px;
+        background-color: $color_warterblue;
+    }
+
     .cart{
         width: 122px;
         height: 122px;
         border-radius: 50%;
         background-color: $color_blue;
-        // border: 1px solid #000;
+        // border: 1px solid #000;        
     }
     .fa-cart-shopping{
         width: 122px;
@@ -75,8 +85,9 @@
     
     // ---------------------------------------------------
     .shoppingcart-list{
+        border: 1px solid #000;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         width: 62.5%;
         margin: 0 auto;
     }
@@ -203,6 +214,7 @@
         margin-top: 70px;
     }
     .prev{
+        
         font-size: $h6;
         font-weight: $font-w-700;
     }
@@ -218,21 +230,9 @@
         border: 1px solid #000;
         border-radius: 50px 50px 0 0;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
 }    
+@media screen and (max-width: 428px){
+    .shopping{
+        width: 100%;
+    }
+}
