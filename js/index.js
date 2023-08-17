@@ -56,7 +56,7 @@ t2.to(".ingredients_bg", { scale: 0.8, duration: 1});
 
 
 //============================================
-//#2 食材搖擺
+//#2 食材、箱子搖擺
 function Tween() {
   TweenLite.fromTo(
     ".box_open,.ingredients_bg,.more_info,.box", 
@@ -73,7 +73,7 @@ function Tween() {
 Tween();
 
 //============================================
-//article2菜單
+//article2菜單 輪播
 gsap.set(".block1 .recipe_item", {
     x: (i) => i * 15+"vw"
   });
