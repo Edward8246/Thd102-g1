@@ -1,3 +1,7 @@
+.boxPage{
+    .container{
+        margin-top: 80px;
+    }
 .grid-box {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -155,4 +159,6 @@
     &:hover {
         @include btn_hover($color_blue, $white, $color_blue);
     }
+}
+
 }
