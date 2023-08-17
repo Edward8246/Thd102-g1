@@ -1,17 +1,20 @@
 
 .loginPage{
-   @include flex;
+    @include flex;
     padding: 20px;
     height: 100vh;
     width: 100%; 
-    background-color: #d2d9da6a;  
+    background-color: rgba($white,.8);  
     position: relative;
     justify-content: center;
     align-items: center;
     font-family: $font-family;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 30;
+
+     //控制
+    display: none;
 
 
 
@@ -30,7 +33,7 @@
     }
 }
 
-.container {
+.container-login {
     border-radius: 15px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     position: relative;
@@ -39,7 +42,7 @@
     max-width: 100%;
     min-height: 480px;    
     
-    //display:none控制
+    //控制
     // display: none;
 }
 
@@ -58,8 +61,7 @@
     letter-spacing: 2px;
     color: #eee;
     text-align: center;  
-    /* border-bottom: 1px solid $white;   */
-    /* padding-bottom: 20px; */
+  
 }
 
 .p1{
@@ -119,7 +121,7 @@ button {
     }
     &.facebook,&.google{
         @include btn($color_darkblue,#DDF1F3,#DDF1F3,$border-radius-50);
-        @include flex(row,center,center);
+        @include flex(row,start,center);
         gap: 16px;
         padding:  8px 52px;
         &:hover{
@@ -155,7 +157,7 @@ form {
     height: 100%;
     background-color: #FFFFFF;
     padding: 5% 40px;
-    border-radius: 15px;
+    // border-radius: 15px;
     @include flex(column,center,space-between);
 }
 
@@ -174,7 +176,7 @@ form {
     z-index: 3;
 }
 
-.container.right-panel-active .sign-in-container {
+.container-login.right-panel-active .sign-in-container {
     transform: translateX(100%);
 }
 
@@ -187,7 +189,7 @@ form {
     // display: none;
 }
 
-.container.right-panel-active .sign-up-container {
+.container-login.right-panel-active .sign-up-container {
     transform: translateX(100%);
     opacity: 1; 
     z-index: 5;
@@ -219,7 +221,7 @@ form {
     //display: none;
 }
 
-.container.right-panel-active .overlay-container{
+.container-login.right-panel-active .overlay-container{
     transform: translateX(-100%);
 }
 
@@ -239,7 +241,7 @@ form {
     //display: none;
 }
 
-.container.right-panel-active .overlay {
+.container-login.right-panel-active .overlay {
     transform: translateX(50%);
 }
 
@@ -260,7 +262,7 @@ form {
     border-radius: 15px;
 }
 
-.container.right-panel-active .overlay-left {
+.container-login .right-panel-active .overlay-left {
     transform: translateX(0);
 }
 
@@ -286,32 +288,20 @@ form {
 
 // <!-- 登入成功 -->
 
-.login.successPage{
-    height: 100vh;
-    width: 100%; 
-    background-color: #d2d9da6a;  
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: $font-family;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-
-    //開啟
-    display: none;
-    //display:flex;
-}
-
 .signin-success{
-    height: 300px;
-    max-width: 836px;
-    // background-color: $color_orange;
     border-radius: 15px;
+    background-color: $color_cream;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(#333,.2);
 
+        //開啟
+    display: none;
+    
 }
+
+
 
 .signin-icon i{
     font-size: 120px;
@@ -333,7 +323,7 @@ form {
     align-items: center;
     
     @include btn($white,$color_blue,$color_blue,$border-radius-50);
-    width: 100%;
+    width: 80%;
     padding: 6px;
     font-weight: 500;
 
@@ -349,31 +339,19 @@ form {
 
 
 // <!-- 註冊成功 -->
-.signup.successPage{
-    height: 100vh;
-    width: 100%; 
-    background-color: #d2d9da6a;  
-    // position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: $font-family;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-
-
-    //開關
-    display: none;
-}
-
 .signup-success{
-    height: 300px;
-    max-width: 836px;
-    // background-color: $color_orange;
+    // height: 300px;
+    // max-width: 836px;
     border-radius: 15px;
+    background-color: $color_cream;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(#333,.2);
 
+
+     //開關
+    display: none;
 }
 
 .signup-icon i{
@@ -393,20 +371,6 @@ form {
 // <!-- 忘記密碼 -->
 
 .container-forgot{
-    height: 100vh;
-    width: 100%; 
-    background-color: #d2d9da6a;  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: $font-family;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-
-
-        //開啟
     display: none;  
 }
 
@@ -416,6 +380,8 @@ form {
     background-color: $color_cream;
     border-radius: 15px;
     padding: 0 40px;
+
+    
     
 }
 
@@ -455,35 +421,26 @@ form {
 
 // <!-- 成功忘記密碼 -->
 
-.password.successPage{
-    height: 100vh;
-    width: 100%; 
-    background-color: #d2d9da6a;  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: $font-family;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-
-
-        //開啟
-    display: none;  
-
-}
-
 .password-success{
-    height: 300px;
-    max-width: 836px;
+    background-color: $color_cream;
+    //height: 60vh;
     border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(#333,.2);
+    position: relative;
+
+    //開關
+    display: none;  
 }
+
+
 
 .password-icon i{
     font-size: 120px;
     padding: 40px;
     justify-items: center;
+
 }
 
 .password-success-txt{
@@ -496,8 +453,7 @@ form {
     align-items: center;
     
     @include btn($white,$color_blue,$color_blue,$border-radius-50);
-    width: 100%;
-    padding: 6px;
+    width: 80%;
     font-weight: 500;
 
     &:active{
@@ -522,7 +478,7 @@ form {
         .overlay-container{
             display: none;
         } 
-        .container{
+        .container-login{
             width:352px;
         }
         form{
@@ -541,12 +497,18 @@ form {
             font-weight: 700;
         }
 
+        .container-login.right-panel-active .sign-up-container {
+            transform: translateX(0);
+            animation: none;
+
+        }
+
 
 
     //註冊
     //登入隱藏
     .sign-in-container{
-        display: none; 
+        // display: none; 
         
 
     }

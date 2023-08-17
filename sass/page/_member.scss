@@ -1,98 +1,284 @@
-.member{
-    max-width: 100%;
-    background-color: burlywood;
-}
+.memberform{
+    position: relative;
+    *{
+        // outline: solid 1px red;
+    }
+    .container{
+        font-family: $font-family;
+        width: 100%;
+        //max-width: 800px;
+        margin-top: 80px;
+        padding: 80px $side_padding-360px;
 
-.member_tabs{
-    width: 700px;
-    padding: 30px 50px;
-    background-color:$color_lightblue;
-    display: flex;
-    justify-content: flex-start;
-}
+        @include d(610px){
+            padding: 80px 4%;
+        }
 
-//上面標籤
-.tab{
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    background-color:$color_cream;
+    }
 
-    padding: 10px 20px; 
-}
-.t-choose{
-    background-color: #cac5c5;
-}
-.setting{
-    background-color:$color_lightblue;
-    width: 700px;
-    padding: 20px;
-}
 
-.main_text{ 
-    margin: 0 auto;
-    width: 90%;
-    font-size: 20px;
-    line-height: 3;
-    border-bottom: 3px solid #000;
-    margin-bottom: 30px;
-    font-size: 20px;
-}
-.data{
-    // width: 100%;
-    padding: 20px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    
-    // justify-content: space-between;
-    // flex-wrap: wrap;
+    .member_tabs{
+        display: flex;
     
     
-}
-.short-g, .long-g{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-.short-g{
-    /* border: 1px solid red; */
-    width: 300px;
-    display: flex;
+    }
+    .main{
+        background-color: $color_cream;
+        padding: 20px;
+        @include flex(column,space-between,space-between)
+    
+    }
+    .tab{
+        
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background-color: #c0c0c0;
+        padding: 10px 20px;
+        
+        
+    }
+    .main_text{ 
+        width: 100%;
+        font-size: 20px;
+        line-height: 3;
+        border-bottom: 3px solid #000;
+        margin-bottom: 30px;
+    }
+    
+    .data{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+    }
+    
+    .short-g{  
+        width: 45%;        
+    }
+
+    .long-g{
+        /* border: 1px solid blue; */
+        width: 100%;
+    }
+
+    .short-g, .long-g{
+        display: flex;
+        flex-direction: column; 
+        margin-bottom: 20px;
+        //min-width:200px;
+        @include d(468px){
+            width: 100%;
+        }
+
+        
+    }
+    
+    .title-text{
+        padding: 6px 0;
+    }
+    
+    .input-space{
+        border-radius: 8px ;
+        background-color: white;
+        border: none;
+        padding: 10px;
+        border: 1px solid $color_darkblue;
+    }
+    
    
-
-    // justify-content: space-between;
-
+    .t-choose{
+        background-color: $color_cream;
+    }
+    .btns{
+        margin: 20px auto;
+        width: 80%;
+        @include flex(row,center,center)
+    }
+    .btn{
+        margin: 0 10px;
+    }
+    .btn_cxl{
+        padding: 5px 20px;
+        font-size: 16px;
+    
+        @include btn($color_darkblue,$color_lightblue,$color_blue,$border-radius-50);
+        border: none;
+    
+        &:active{
+            @include btn_hover($white,$color_darkblue,$color_lightblue);
+            border: none;
+        }
+        
+        
+    }
+    
+    .btn_change{
+        padding: 5px 20px;
+        font-size: 16px;    
+        
+        @include btn($white,$color_blue,$color_blue,$border-radius-50);
+        border: none;
+        
+        &:active{
+            @include btn_hover($white,$color_darkblue,$color_lightblue);
+            border: none;
+        }
+    }
     
     
+    //隱藏商品訂單查詢
+    .d-none{
+        display: none;
+    }
     
-}
-.call{}
-
-.short-g:nth-child(2){
-    width: 300px;
-    display: flex;
-}
-.long-g{
+    
+    // 商品訂單查詢
+    
+    
+    $baseColor: #398b93;
+    $borderRadius: 10px;
+    $imageBig: 100px;
+    $imageSmall: 60px;
+    $padding: 10px;
+    
+    .table {
+    background-color: darken($baseColor, 5%);
+    color: white;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    }
+    
+    .tbimg {
+    border-radius: 50%;
+    height: $imageSmall;
+    width: $imageSmall;
+    }
+    
+    .table-users {
+    border: 1px solid darken($baseColor, 5%);
+    border-radius: $borderRadius;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    max-width: calc(100% - 2em);
+    margin: 0 auto;
+    overflow: hidden;
+    // width: 100%;
+    }
+    .table_imfo{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    table {
     width: 100%;
-}
+    
+        td,th {
+            color: darken($baseColor, 10%);
+            padding: $padding;
+        }
+    
+        td {
+            text-align: center;
+            vertical-align: middle;
+    
+            &:last-child {
+                font-size: 0.95em;
+                line-height: 1.4;
+                // text-align: left;
+            }
+        }
+    
+        th {
+            background-color: lighten($baseColor, 50%);
+            font-weight: 300;
+        }
+    
+        tr {
+            &:nth-child(even) {
+                background-color: white;
+            }
+            &:nth-child(2n + 1) {
+                background-color: lighten($baseColor, 55%);
+            }
+        }
+    }
+    .btn_back{
+        width: 200px;
+        margin:  20px auto;
+        padding: 5px 20px;
+        font-size: 16px;
+        // margin-left: auto;
+        // margin-bottom: auto;
+    //    
+        
+        
+        @include btn($white,$color_blue,$color_blue,$border-radius-50);
+        border: none;
+        
+        &:active{
+            @include btn_hover($white,$color_darkblue,$color_lightblue);
+            border: none;
+        }
+    
+    }
+    
+    @media screen and (max-width: 800px) {
+    table,tr,td {
+        display: block;
+        //width: 550px;
+    }
+    
+    td {
+        &:first-child {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: $imageBig;
+        }
+    
+        &:not(:first-child) {
+            clear: both;
+            margin-left: $imageBig;
+            padding: 4px 20px 4px 90px;
+            position: relative;
+            text-align: left;
+    
+            &:before {
+            // color: lighten($baseColor, 30%);
+            content: "";
+            display: block;
+            left: 0;
+            position: absolute;
+            }
+        }
+    
+        &:nth-child(2):before {
+            content: "訂單編號:";
+        }
+        &:nth-child(3):before {
+            content: "訂單日期:";
+        }
+        &:nth-child(4):before {
+            content: "訂單金額:";
+        }
+        &:nth-child(5):before {
+            content: "訂單商品:";
+        }
+    }
+    
+    tr {
+        
+        padding: $padding 0;
+        position: relative;
+        
+        &:first-child {
+            display: none;
+        }
+    }
+    }
+    
+     
 
-.table{
-    border: 1px solid black;
-    width: 200px;
-    height: 300px;
-
-}
-
-td{
-    border: 1px solid black;
-    // border-bottom: 1px solid black;
-}
-
-
-
-.d-none{
-    // display: none;
-}
-.t-choose{
-    background-color: lightgray;
 }

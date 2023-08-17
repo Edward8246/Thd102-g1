@@ -1,3 +1,7 @@
+.boxPage{
+    .container{
+        margin-top: 80px;
+    }
 .grid-box {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -7,7 +11,7 @@
     // padding-bottom: 15px;
     padding: 15px;
 
-    @include d(768px){
+    @include d(850px){
         grid-template-columns: 1fr 1fr;
 
     }
@@ -15,8 +19,9 @@
         // grid-template-columns: 1fr 1fr;
     }
 
-    @include m {
+    @include d(550px) {
         grid-template-columns: 1fr;
+       
     }
 
 }
@@ -37,7 +42,7 @@
     margin: 0 auto;
     margin-bottom: 50px;
 
-    @include m {
+    @include d(550px) {
         max-width: 375px;
         margin-bottom: 50px;
     }
@@ -77,6 +82,12 @@
             width: 100%;
         }
     }
+    // 點擊要加上的class
+    .on{
+        &::before{
+            width: 100%;
+        }
+    }
     @include d(768px){
         display: none;
     }
@@ -110,6 +121,26 @@
         }
         
     }
+    .onGreen{
+        @include btn_hover($white,$color_tag_green,$color_tag_green);
+        box-shadow: none;
+    }
+    .onPurple{
+        @include btn_hover($white,$color_tag_purple,$color_tag_purple);
+        box-shadow: none;
+    }
+    .onBlue{
+        @include btn_hover($white,$color_tag_blue,$color_tag_blue);
+        box-shadow: none;
+    }
+    .onYellow{
+        @include btn_hover($white,$color_tag_yellow,$color_tag_yellow);
+        box-shadow: none;
+    }
+    .onRed{
+        @include btn_hover($white,$color_tag_red,$color_tag_red);
+        box-shadow: none;
+    }
 
 }
 
@@ -128,4 +159,6 @@
     &:hover {
         @include btn_hover($color_blue, $white, $color_blue);
     }
+}
+
 }

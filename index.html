@@ -3,95 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/logo_icon.ico">
     <title>HAKO:首頁</title>
     <link rel="stylesheet" href="./css/style.css">
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-
+    @@include('./layout/login.html')
     <div class="wrapper index">
         <!-- header -->
-        <header>
-            <nav class="nav">
-                <div class="header_left">
-                    <button class='btn_white bar'>
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                </div>
-                
-                
-                <a href="./index.html">
-                    <div class="image logo">
-                        <img src="./images/header_logo.svg" alt="">
-                    </div>
-                </a>
-                
-                <div class="header_right">
-                
-                    <div class="header_btn">
-                        <!-- 要抽換購物車href頁面 -->
-                        <a  class="cart" href=#>
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </a>
-                        
-                        <div class="btn_white user">
-                            <i class="fa-solid fa-user"></i>
-                            <h7>登入</h7>
-                        </div>
-                        
-                    </div>
-    
-                </div>
-            </nav>
-            <!-- 預設隱藏 -->
-            <div class="header_cataPage">
-                <div class="image cata_bg">
-                    <img src="./images/header_cata_box.png" alt="">
-                </div>
-                <div class="cata_right">
-                    <a class="pageLinks" href=#>
-                        <h5>預定盒子</h5>
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <div class="food_theme">
-                        <a class="image food_item western" href=#>
-                            <img src="./images/header_cata_food1.png" alt="">
-                            <p>西式</p>
-                        </a>
-                        <a class="image food_item Chinese" href=#> 
-                            <img src="./images/header_cata_food2.png" alt="">
-                            <p>中式</p>
-                        </a>
-                        <a class="image food_item Japanese" href=#>
-                            <img src="./images/header_cata_food3.png" alt="">
-                            <p>日式</p>
-                        </a>
-                    </div>
-                    <div class="pageLinks_container">
-                        <a class="pageLinks" href=#>
-                            <h5>近期活動</h5>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a class="pageLinks" href=#>
-                            <h5>關於我們</h5>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a class="pageLinks" href=#>
-                            <h5>FAQ</h5>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a class="pageLinks" href=#>
-                            <h5>造訪首頁</h5>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </header>
-
+        @@include('./layout/header.html')
         <!-- container -->
+        @@include('./layout/backToTop.html')
         <div class="container">
             <!-- 影片 -->
             <section class="index_video">
@@ -232,51 +156,19 @@
         </div>
 
         <!-- footer -->
-        <footer class="footer">
-            <div class="footer_content">
-                <div class="image footer_logo">
-                    <img src="./images/footer_logo.svg" alt="">
-                </div>
-    
-                <ul class="footer_links">
-                    <div class="footer_left">
-                        <li class="footer_link"><a>關於我們</a></li>
-                        <li class="footer_link"><a>常見問題</a></li>
-                        <li class="footer_link"><a>會員登入</a></li>
-                    </div>
-                    <div class="footer_middle">
-                        <a class="media_link">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                        <a class="media_link">
-                            <i class="fa-brands fa-square-facebook"></i>
-                        </a>
-                        <a class="media_link">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-                    <div class="footer_right">
-                        <li class="footer_link"><a>訂購盒子</a></li>
-                        <li class="footer_link"><a>預約活動</a></li>
-                        <li class="footer_link"><a>會員中心</a></li>
-                    </div>
-    
-                </ul>
-            </div>
-
-            <div class="remind">
-                <p>本網站為緯育TibaMe【第85期】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</p>
-            </div>
-
-        </footer>
+        @@include('./layout/footer.html')
         
 
 
     </div>
 
-    <!-- gsap -->
+    <!-- gsap cdn-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- js -->
     <script src="./js/index.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/login.js"></script>
     
 </body>
 </html>

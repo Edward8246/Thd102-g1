@@ -4,55 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./images/logo_icon.ico">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Hako:盒子</title>
 </head>
 <body >
+  @@include('./layout/login.html')
+<div class="wrapper boxPage">
+  <!-- @@include('layout/header.html') -->
+  <div class="container">
     <div id="my_app" class="box-container">
-        <div class="box-banner"></div>
-        <section class="select-tag">
-            <div class="box-tag tag-green">西式料理</div>
-            <div class="box-tag tag-purple">中式料理</div>
-            <div class="box-tag tag-blue" >日式料理</div>
-            <div class="box-tag tag-yellow">健康料理</div>
-            <div class="box-tag tag-red">快速料理</div>
-        </section>
-        <section class="select-tag2">
-            <div class="box-tag-m tb-green ">西式料理</div>
-            <div class="box-tag-m tb-purple ">中式料理</div>
-            <div class="box-tag-m tb-blue ">日式料理</div>
-            <div class="box-tag-m tb-yellow ">健康料理</div>
-            <div class="box-tag-m tb-red ">快速料理</div>
-        </section>
-        <section class="box-wrapper grid-box">
-            <a :href="'box_info.html#/'+item.id" class="card-box  " v-for="item in items" :key="item.name">
-                <div class="image">
-                    <img :src="item.img" alt="">
-                </div>
-                <div class="box-text">
-                    <h6>{{item.name}}</h6>
-                    <div class="tag-group">
-                      <div class="tag-color " :class="'box-'+item.color"></div>
-                    <p class="t-n">{{ item.cuisine }}</p>
-                    <div class="time-icon">
-                        <i class="fa-solid fa-clock"></i>
-                        <p>{{ item.time }}</p>
-                    </div>
-                    </div>
-                    
-                   
-                    
-                </div>
-            </a>
-        </section>
-        <button class="more">載入更多</button>
-    </div>
-    <script src="vendors/vue/vue.global.js"></script>
-    <script src="https://unpkg.com/vue-router@3.5.2/dist/vue-router.min.js"></script>
+      <div class="box-banner"></div>
+      <section class="select-tag">
+          <div class="box-tag tag-green " :class="{ on: currentTag === 'w' }" @click="show('w', 'western','all')">西式料理</div>
+          <div class="box-tag tag-purple" :class="{ on: currentTag === 'c' }" @click="show('c', 'chinese','all')">中式料理</div>
+          <div class="box-tag tag-blue" :class="{ on: currentTag === 'j' }" @click="show('j', 'japanese','all')">日式料理</div>
+          <div class="box-tag tag-yellow" :class="{ on: currentTag === 'h' }" @click="show('h', 'health','all')">健康料理</div>
+          <div class="box-tag tag-red" :class="{ on: currentTag === 'f' }" @click="show('f', 'fast','all')">快速料理</div>
+      </section>
+      <section class="select-tag2">
+          <div class="box-tag-m tb-green "  :class="{ onGreen: currentTagM === 'green' }" @click="show2('green', 'western','all')">西式料理</div>
+          <div class="box-tag-m tb-purple " :class="{ onPurple: currentTagM === 'purple' }" @click="show2('purple', 'chinese','all')">中式料理</div>
+          <div class="box-tag-m tb-blue " :class="{ onBlue: currentTagM === 'blue' }" @click="show2('blue', 'japanese','all')">日式料理</div>
+          <div class="box-tag-m tb-yellow " :class="{ onYellow: currentTagM === 'yellow' }" @click="show2('yellow', 'health','all')">健康料理</div>
+          <div class="box-tag-m tb-red " :class="{ onRed: currentTagM === 'red' }" @click="show2('red', 'fast','all')">快速料理</div>
+      </section>
+      <section class="box-wrapper grid-box">
+          <a :href="'box_info.html?id='+item.id" class="card-box  " v-for="(item, index) in items" :key="item.name" v-show="index < displayedItems">
+              <div class="image">
+                  <img :src="item.img" alt="">
+              </div>
+              <div class="box-text">
+                  <h6>{{item.name}}</h6>
+                  <div class="tag-group">
+                    <div class="tag-color " :class="'box-'+item.color"></div>
+                  <p class="t-n">{{ item.cuisine }}</p>
+                  <div class="time-icon">
+                      <i class="fa-solid fa-clock"></i>
+                      <p>{{ item.time }}</p>
+                  </div>
+                  </div>
+                  
+                 
+                  
+              </div>
+          </a>
+      </section>
+      <button id="load-more" class="more" v-if="displayedItems < items.length" @click="loadMoreItems()">載入更多</button>
+  </div>
+  </div>
+  @@include('./layout/footer.html')
+</div>    
+
+    
+    <script src="js/vue.global.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/login.js"></script>
+   
     <script>
         const app = Vue.createApp({
   data(){
     return {
+      all:[],
       items: [
         {
           id: 1,
@@ -60,7 +74,7 @@
           name: "薑汁燒肉",
           color: "purple",
           cuisine:"中式料理",
-          time:"20分鐘"
+          time:"40分鐘"
         },
         {
           id: 2,
@@ -74,7 +88,7 @@
           id: 3,
           img: "./images/box/box_salad.jpg",
           name: "夏日野薺盛宴",
-          color: "purple",
+          color: "green",
           cuisine:"西式料理",
           time:"20分鐘"
         },
@@ -82,13 +96,13 @@
           id: 4,
           img: "./images/box/box_pork.jpg",
           name: "糖醋排骨",
-          color: "green",
+          color: "purple",
           cuisine:"中式料理",
           time:"40分鐘"
         },
         {
           id: 5,
-          img: "./images/box/box_tofu.jpg",
+          img: "./images/box/box_poke.jpg",
           name: "POKE",
           color: "green",
           cuisine:"西式料理",
@@ -132,10 +146,182 @@
           name: "麻婆豆腐",
           color: "purple",
           cuisine:"中式料理",
+          time:"30分鐘"
+        },
+        {
+          id: 11,
+          img: "./images/box/box_cornsoup.jpg",
+          name: "玉米濃湯",
+          color: "green",
+          cuisine:"西式料理",
+          time:"35分鐘"
+        },
+        {
+          id: 12,
+          img: "./images/box/box_beefhamburger.jpg",
+          name: "牛肉漢堡套餐",
+          color: "green",
+          cuisine:"西式料理",
+          time:"45分鐘"
+        },
+        {
+          id: 13,
+          img: "./images/box/box_avocadosalad.jpg",
+          name: "酪梨沙拉",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 14,
+          img: "./images/box/box_friedpork.jpg",
+          name: "炸豬排",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"40分鐘"
+        },
+        {
+          id: 15,
+          img: "./images/box/box_ramen.jpg",
+          name: "豚骨拉麵",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"40分鐘"
+        },
+        {
+          id: 16,
+          img: "./images/box/box_taiyaki.jpg",
+          name: "鯛魚燒",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"35分鐘"
+        },
+        {
+          id: 17,
+          img: "./images/box/box_tempura.jpg",
+          name: "炸蝦天婦羅",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"40分鐘"
+        },
+        {
+          id: 18,
+          img: "./images/box/box_kungpao.jpg",
+          name: "宮保雞丁",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"25分鐘"
+        },
+        {
+          id: 19,
+          img: "./images/box/box_dongpo.jpg",
+          name: "東坡肉",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"50分鐘"
+        },
+        {
+          id: 20,
+          img: "./images/box/box_beefnoodle.jpg",
+          name: "牛肉麵",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"50分鐘"
+        },
+        {
+          id: 21,
+          img: "./images/box/box_spegatti.jpg",
+          name: "番茄義大利麵",
+          color: "green",
+          cuisine:"西式料理",
+          time:"30分鐘"
+        }
+        
+      ],
+      western: [
+      {
+          id: 3,
+          img: "./images/box/box_salad.jpg",
+          name: "夏日野薺盛宴",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 5,
+          img: "./images/box/box_poke.jpg",
+          name: "POKE",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 6,
+          img: "./images/box/box_hamburger.jpg",
+          name: "火腿漢堡",
+          color: "green",
+          cuisine:"西式料理",
+          time:"35分鐘"
+        },
+        {
+          id: 11,
+          img: "./images/box/box_cornsoup.jpg",
+          name: "玉米濃湯",
+          color: "green",
+          cuisine:"西式料理",
+          time:"35分鐘"
+        },
+        {
+          id: 12,
+          img: "./images/box/box_beefhamburger.jpg",
+          name: "牛肉漢堡套餐",
+          color: "green",
+          cuisine:"西式料理",
+          time:"45分鐘"
+        },
+        {
+          id: 13,
+          img: "./images/box/box_avocadosalad.jpg",
+          name: "酪梨沙拉",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 21,
+          img: "./images/box/box_spegatti.jpg",
+          name: "番茄義大利麵",
+          color: "green",
+          cuisine:"西式料理",
           time:"20分鐘"
         }
+        
       ],
       chinese: [
+      {
+          id: 1,
+          img: "./images/box/box_ginger.jpg",
+          name: "薑汁燒肉",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 4,
+          img: "./images/box/box_pork.jpg",
+          name: "糖醋排骨",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"40分鐘"
+        },
+        {
+          id: 7,
+          img: "./images/box/box_dumpling.jpg",
+          name: "韭菜豬肉水餃",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"40分鐘"
+        },
         {
           id: 10,
           img: "./images/box/box_tofu.jpg",
@@ -145,13 +331,31 @@
           time:"20分鐘"
         },
         {
-          id: 4,
-          img: "./images/box/box_pork.jpg",
-          name: "糖醋排骨",
-          color: "green",
+          id: 18,
+          img: "./images/box/box_kungpao.jpg",
+          name: "宮保雞丁",
+          color: "purple",
           cuisine:"中式料理",
-          time:"40分鐘"
+          time:"25分鐘"
         },
+        {
+          id: 19,
+          img: "./images/box/box_dongpo.jpg",
+          name: "東坡肉",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"50分鐘"
+        },
+        {
+          id: 20,
+          img: "./images/box/box_beefnoodle.jpg",
+          name: "牛肉麵",
+          color: "purple",
+          cuisine:"中式料理",
+          time:"50分鐘"
+        }
+        
+       
       ],
       japanese: [
         {
@@ -177,6 +381,38 @@
           color: "blue",
           cuisine:"日式料理",
           time:"40分鐘"
+        },
+        {
+          id: 14,
+          img: "./images/box/box_friedpork.jpg",
+          name: "炸豬排",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"40分鐘"
+        },
+        {
+          id: 15,
+          img: "./images/box/box_ramen.jpg",
+          name: "豚骨拉麵",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"40分鐘"
+        },
+        {
+          id: 16,
+          img: "./images/box/box_taiyaki.jpg",
+          name: "鯛魚燒",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"35分鐘"
+        },
+        {
+          id: 17,
+          img: "./images/box/box_tempura.jpg",
+          name: "炸蝦天婦羅",
+          color: "blue",
+          cuisine:"日式料理",
+          time:"40分鐘"
         }
       ],
       health: [
@@ -184,21 +420,13 @@
           id: 3,
           img: "./images/box/box_salad.jpg",
           name: "夏日野薺盛宴",
-          color: "purple",
-          cuisine:"西式料理",
-          time:"20分鐘"
-        },
-        {
-          id: 5,
-          img: "./images/box/box_tofu.jpg",
-          name: "POKE",
           color: "green",
           cuisine:"西式料理",
           time:"20分鐘"
         },
         {
           id: 5,
-          img: "./images/box/box_tofu.jpg",
+          img: "./images/box/box_poke.jpg",
           name: "POKE",
           color: "green",
           cuisine:"西式料理",
@@ -211,6 +439,22 @@
           color: "purple",
           cuisine:"中式料理",
           time:"40分鐘"
+        },
+        {
+          id: 13,
+          img: "./images/box/box_avocadosalad.jpg",
+          name: "酪梨沙拉",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+        {
+          id: 21,
+          img: "./images/box/box_spegatti.jpg",
+          name: "番茄義大利麵",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
         }
       ],
       fast: [
@@ -226,25 +470,138 @@
           id: 3,
           img: "./images/box/box_salad.jpg",
           name: "夏日野薺盛宴",
-          color: "purple",
+          color: "green",
           cuisine:"西式料理",
           time:"20分鐘"
         },
         {
           id: 5,
-          img: "./images/box/box_tofu.jpg",
+          img: "./images/box/box_poke.jpg",
           name: "POKE",
           color: "green",
           cuisine:"西式料理",
           time:"20分鐘"
-        }
-        
-        
-        
-
-      ]
+        },
+        {
+          id: 13,
+          img: "./images/box/box_avocadosalad.jpg",
+          name: "酪梨沙拉",
+          color: "green",
+          cuisine:"西式料理",
+          time:"20分鐘"
+        },
+      ],
+      currentTag: '',
+      currentTagM: '',
+      firstTimeTag:true,
+      itemsPerPage: 6, // 每次新增的商品數量
+      displayedItems: 12 // 初始已顯示的商品數量
     };
+  },
+  methods:{
+    //網頁版
+    show(tag, category,all){
+      // e.target.classList.toggle("on");
+      
+      // 移除所有 tag 上的 "on" 樣式
+      
+      const tags = document.querySelectorAll('.box-tag');
+      tags.forEach(tagElement => {
+        tagElement.classList.remove('on');
+      });
+      
+      // 添加 "on" 樣式給當前點選的 tag
+      // const currentTagElement = document.querySelector(`.box-tag.${tag}`);
+      // if (currentTagElement) {
+      //   currentTagElement.classList.add('on');
+      // }
+      //不用加上去 上面html :class已經加了
+      
+      // 切換到選中的標籤
+      if(this.firstTimeTag){
+        this[all] = this.items;
+        this.firstTimeTag = false;
+      }
+      if(this.currentTag === tag){
+        this.currentTag = "";
+        this.displayedItems = 12;
+        this.items = this[all];
+      }else{
+        this.currentTag = tag;
+        this.displayedItems = 12;
+        this.items = this[category];
+      }
+      
+      
+    },
+    //手機版
+    show2(tag, category,all){
+      // e.target.classList.toggle("on");
+
+      // 移除所有 tag 上的 "on" 樣式
+      const tags = document.querySelectorAll('.box-tag-m');
+      tags.forEach(tagElement => {
+        tagElement.classList.remove('onGreen');
+        tagElement.classList.remove('onPurple');
+        tagElement.classList.remove('onBlue');
+        tagElement.classList.remove('onYellow');
+        tagElement.classList.remove('onRed');
+      });
+      
+      // 添加 "on" 樣式給當前點選的 tag
+      // const currentTagElement = document.querySelector(`.box-tag-m.${tag}`);
+      // if (currentTagElement) {
+      //   currentTagElement.classList.add(`on${tag}`);
+      // }
+      //不用加上去 上面html :class已經加了
+
+      // 切換到選中的標籤
+      if(this.firstTimeTag){
+        this[all] = this.items;
+        this.firstTimeTag = false;
+      }
+      if(this.currentTagM === tag){
+        this.currentTagM = "";
+        this.displayedItems = 12;
+        this.items = this[all];
+    
+       
+      }else{
+        this.currentTagM = tag;
+        this.displayedItems = 12;
+        this.items = this[category];
+       
+       
+      }
+      
+      
+    },
+    loadMoreItems() {
+    this.displayedItems += this.itemsPerPage;
+      console.log("aaa");
+    // 根據已顯示的商品數量，更新 items 陣列，以顯示更多的商品
+    // if (this.currentTag) {
+    //   this.items = this[this.currentTag].slice(0, this.displayedItems);
+    // } else {
+    //   this.items = this.all.slice(0, this.displayedItems);
+    // }
   }
+  },
+//   mounted() {
+//   // ...之前的代碼
+
+//   const loadMoreButton = document.getElementById('load-more');
+//   if (loadMoreButton) {
+//     loadMoreButton.addEventListener('click', this.loadMoreItems);
+//   }
+// },
+
+
+
+
+
+
+
 });
 
 app.mount("#my_app");

@@ -1,0 +1,19 @@
+.backToTop{
+    z-index: 20;
+    position: fixed;
+    bottom: 20%;
+    right: 2vw;
+    filter: drop-shadow(0 0 8px rgba(#fff,.8));
+    cursor: pointer;
+    .image{
+        width: 60px;
+      img{
+        width: 100%;
+      }
+    }
+
+    @include m(){
+      display: none;
+    }
+  }
+  
