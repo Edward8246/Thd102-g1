@@ -11,73 +11,80 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <!-- @@include('layout/header.html') -->
-
-    <div class="act-banner"></div>
-    <!-- 標題區 -->
-    <div id="test">
-        <section>
-            <div class="act-title wrapper-t">
-                <h4 class="">活動列表</h4>
-                <div class="tags flexCenter colte-6 colte-m-6">
-                    <div class="tb-red colte-4 colte-m-2" :class="{ tbredOn: currentTag === 'red' }" @click="show('red', $event, 'newProd')">新品宣傳</div>
-                    <div class="tb-green colte-4 colte-m-2" :class="{ tbgreenOn: currentTag === 'green' }" @click="show('green', $event, 'cook')">私廚教學</div>
-                    <div class="tb-purple colte-4 colte-m-2" :class="{ tbpurpleOn: currentTag === 'purple' }" @click="show('purple', $event, 'share')">共享餐桌</div>
-                </div>
-            </div>      
-        </section>
-        
-        <section class="card-group">
-            <div class="grid-b wrapper-t">
+    @@include('./layout/login.html')
+    <div class="wrapper activity">
+        @@include('layout/header.html')
+        <!-- body -->
+        <div class="container">
+            <div class="act-banner"></div>
+            <!-- 標題區 -->
+            <div id="test">
+                <section>
+                    <div class="act-title wrapper-t">
+                        <h4 class="">活動列表</h4>
+                        <div class="tags flexCenter colte-6 colte-m-6">
+                            <div class="tb-red colte-4 colte-m-2" :class="{ tbredOn: currentTag === 'red' }" @click="show('red', $event, 'newProd')">新品宣傳</div>
+                            <div class="tb-green colte-4 colte-m-2" :class="{ tbgreenOn: currentTag === 'green' }" @click="show('green', $event, 'cook')">私廚教學</div>
+                            <div class="tb-purple colte-4 colte-m-2" :class="{ tbpurpleOn: currentTag === 'purple' }" @click="show('purple', $event, 'share')">共享餐桌</div>
+                        </div>
+                    </div>      
+                </section>
                 
+                <section class="card-group">
+                    <div class="grid-b wrapper-t">
+                        
 
-                <div class="card-act animate__animated animate__fadeIn" v-for="card, index in filteredList" :key="index">
-                    
-                    <div class="card-top">
-                        <div class="image">
-                            <img :src="card.img" alt="">
-                        </div>
-                        <div class="act-info">
-                            <div :class="tagColor(card.tag)">
-                                {{ card.tag }}
-                            </div>
-                            <div class="act-txt">
-                                <h4>{{ card.name }}</h4>
-                                <ul>
-                                    <li class="act-txt-info">
-                                        <i class="fa-solid fa-calendar"></i>
-                                        <p>{{card.date}}</p>
+                        <div class="card-act animate__animated animate__fadeIn" v-for="card, index in filteredList" :key="index">
                             
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-clock"></i>
-                                        <p>{{card.dur}}</p>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        <p>{{card.loc}}</p>
-                                    </li>
-                                   
-                                </ul>
-                            </div>
-              
-                        </div>
-                    </div>
-                   
-        
-                    <div class="btn_group col-9">
-                        <a class="left col-6" href="./activity_detail.html"><p>詳細資訊</p></a>
-                        <a class="right col-6" href=""><p>馬上報名!</p></a>
-                    </div>
+                            <div class="card-top">
+                                <div class="image">
+                                    <img :src="card.img" alt="">
+                                </div>
+                                <div class="act-info">
+                                    <div :class="tagColor(card.tag)">
+                                        {{ card.tag }}
+                                    </div>
+                                    <div class="act-txt">
+                                        <h4>{{ card.name }}</h4>
+                                        <ul>
+                                            <li class="act-txt-info">
+                                                <i class="fa-solid fa-calendar"></i>
+                                                <p>{{card.date}}</p>
+                                    
+                                            </li>
+                                            <li>
+                                                <i class="fa-solid fa-clock"></i>
+                                                <p>{{card.dur}}</p>
+                                            </li>
+                                            <li>
+                                                <i class="fa-solid fa-location-dot"></i>
+                                                <p>{{card.loc}}</p>
+                                            </li>
+                                        
+                                        </ul>
+                                    </div>
                     
-                </div>
-                </transition>
-        
-        </section>
+                                </div>
+                            </div>
+                        
+                
+                            <div class="btn_group col-9">
+                                <a class="left col-6" href="./activity_detail.html"><p>詳細資訊</p></a>
+                                <a class="right col-6" href=""><p>馬上報名!</p></a>
+                            </div>
+                            
+                        </div>
+                        </transition>
+                
+                </section>
 
-        <button type="button" class="more">載入更多</button>
+                <button type="button" class="more">載入更多</button>
 
 
+            </div>
+        </div>
+        @@include('layout/footer.html')
+    
     </div>
     
 
@@ -230,13 +237,13 @@
         </div>
     </section> -->
 
-    <!-- 測試vue -->
     
 
-    <!-- 載入更多 -->
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/header.js"></script>
     <script src="./js/activity.js"></script>
 </body>
 </html>
