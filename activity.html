@@ -18,7 +18,7 @@
         <div class="container">
             <div class="act-banner"></div>
             <!-- 標題區 -->
-            <div id="test">
+            <div id="actInfo">
                 <section>
                     <div class="act-title wrapper-t">
                         <h4 class="">活動列表</h4>
@@ -33,8 +33,8 @@
                 <section class="card-group">
                     <div class="grid-b wrapper-t">
                         
-
-                        <div class="card-act animate__animated animate__fadeIn" v-for="card, index in filteredList" :key="index">
+                        
+                        <div class="card-act" v-for="card, index in filteredList" :key="index" v-show="index < displayedItems">
                             
                             <div class="card-top">
                                 <div class="image">
@@ -70,15 +70,14 @@
                 
                             <div class="btn_group col-9">
                                 <a class="left col-6" href="./activity_detail.html"><p>詳細資訊</p></a>
-                                <a class="right col-6" href=""><p>馬上報名!</p></a>
+                                <a class="right col-6" id="apply" href="./activity_detail.html" @click="disable((new Date(card.date)).getTime(), $event)"><p>馬上報名!</p></a>
                             </div>
                             
                         </div>
-                        </transition>
                 
                 </section>
 
-                <button type="button" class="more">載入更多</button>
+                <button type="button" class="more" v-show="displayedItems < filteredList.length" @click="loadMore()">載入更多</button>
 
 
             </div>
