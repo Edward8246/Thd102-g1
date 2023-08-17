@@ -11,135 +11,133 @@
 </head>
 <body>
 
-    @@include('./layout/header.html')
-    @@include('./layout/login.html) 
-    
-
     <div class="wrapper memberform">
-        <div class="member_tabs">
-            <div class="tab member t-choose">會員資料</div>
-            <div class="tab product">商品訂單查詢</div>
-            <div class="tab activity">報名活動查詢</div>
-        </div>
-        <div class="main setting">
-            <h1 class="main_text">基本資料設定</h1>
-        <div class="data">
-
-            <div class="short-g">
-                    <label for="name" class="title-text">姓名*</label>
-                    <input class="input-space"type="text" name="name" id="name">
+        @@include('./layout/header.html')
+        <div class="container">
+            <div class="member_tabs">
+                <div class="tab member t-choose">會員資料</div>
+                <div class="tab product">商品訂單查詢</div>
+                <div class="tab activity">報名活動查詢</div>
+            </div>
+            <div class="main">
+                <h1 class="main_text">基本資料設定</h1>
+                <div class="data">
+                    <div class="short-g">
+                        <label for="name" class="title-text">姓名*</label>
+                        <input class="input-space"type="text" name="name" id="name">
+                    </div>
+    
+                    <div class="short-g">
+                        <label for="phone" class="title-text">電話號碼*</label>
+                        <input  class="input-space" type="text" name="phone" id="phone">
+                    </div>
+    
+                    <div class="long-g">
+                        <label for="address" class="title-text">地址*</label>
+                        <input  class="input-space" type="text" name="address" id="address">
+                    </div>
+    
+                    <div class="long-g">
+                        <label for="email" class="title-text">電子郵件*</label>
+                        <input class="input-space" type="text" name="eamil" id="eamil">
+                    </div>
+                    
+                    <div class="long-g">
+                        <label for="password" lass="title-text">密碼*</label>
+                        <input  class="input-space" type="text" name="password" id="password">
+                    </div>
+                    <div class="btns">
+                        <button type="button" class="btn btn_cxl">取消變更</button>
+                        <button type="button" class="btn btn_change">儲存變更</button>
+                    </div>
                 </div>
-
-                <div class="short-g">
-                    <label for="phone" class="title-text">電話號碼*</label>
-                    <input  class="input-space" type="text" name="phone" id="phone">
+            
+            </div>
+            <!-- 商品訂單查詢 -->
+    
+            <div class="main product-list d-none">
+                <h1 class="main_text">商品訂單查詢</h1>
+                <div class="table-users"> 
+                    <table class="table_imfo" cellspacing="0">
+                        <tr>
+                            <th>訂單商品</th>
+                            <th>訂單編號</th>
+                            <th>訂單日期</th>
+                            <th>訂單金額</th>
+                            <th width="230">商品名稱</th>
+                        </tr>
+                    
+                        <tr>
+                            <td><img src="./images/shoppingcart/item1.png" class="tbimg"></td>
+                            <td>THD102-000000</td>
+                            <td>2023/05/20</td>
+                            <td>$500</td>
+                            <td>薑燒豬肉 * 3 <br>蔥燒牛肉 * 1 </td>
+                        </tr>
+                    
+                        <tr>
+                            <td><img src="./images/shoppingcart/item1.png" class="tbimg"></td>
+                            <td>THD102-000000</td>
+                            <td>2023/05/20</td>
+                            <td>$500</td>
+                            <td>薑燒豬肉 * 3 <br>蔥燒牛肉 * 1 </td>
+                        </tr>
+    
+                        <tr>
+                            <td><img src="./images/shoppingcart/item1.png" class="tbimg"></td>
+                            <td>THD102-000000</td>
+                            <td>2023/05/20</td>
+                            <td>$500</td>
+                            <td>薑燒豬肉 * 3 <br>蔥燒牛肉 * 1 </td>
+                        </tr>
+    
+                        <tr>
+                            <td><img src="./images/shoppingcart/item1.png" class="tbimg"></td>
+                            <td>THD102-000000</td>
+                            <td>2023/05/20</td>
+                            <td>$500</td>
+                            <td>薑燒豬肉 * 3 <br>蔥燒牛肉 * 1 </td>
+                        </tr>
+                    </table>
                 </div>
-
-                <div class="long-g">
-                    <label for="address" class="title-text">地址*</label>
-                    <input  class="input-space" type="text" name="address" id="address">
-                </div>
-
-                <div class="long-g">
-                    <label for="email" class="title-text">電子郵件*</label>
-                    <input class="input-space" type="text" name="eamil" id="eamil">
-                </div>
-                
-                <div class="long-g">
-                    <label for="password" lass="title-text">密碼*</label>
-                    <input  class="input-space" type="text" name="password" id="password">
-                </div>
-                <button type="button" class="btn_cxl">取消變更</button>
-                <button type="button" class="btn_change">儲存變更</button>
+                <button type="button" class="btn_back">返回</button>
             </div>
     
-        </div>
-
-        <!-- 商品訂單查詢 -->
-
-        <div class="main product-list d-none">
-            <h1 class="main_text">商品訂單查詢</h1>
-
-            <div class="table-users"> 
-                <table class="table_imfo" cellspacing="0">
-                    <tr>
-                        <th>訂單商品</th>
-                        <th>訂單編號</th>
-                        <th>訂單日期</th>
-                        <th>訂單金額</th>
-                        <th width="230">商品名稱</th>
-                    </tr>
-                
-                    <tr>
-                        <td><img src="./images/shoppingcart/item1.png" class="tbimg"></td>
-                        <td>THD102-000000</td>
-                        <td>2023/05/20</td>
-                        <td>$500</td>
-                        <td>薑燒豬肉 * 3 <br>蔥燒牛肉 * 1 </td>
-                    </tr>
-                
-                    <tr>
-                        <td><img src="./images/shoppingcart/item1.png" class="tbimg"></td>
-                        <td>THD102-000000</td>
-                        <td>2023/05/20</td>
-                        <td>$500</td>
-                        <td>薑燒豬肉 * 3 <br>蔥燒牛肉 * 1 </td>
-                    </tr>
-
-                    <tr>
-                        <td><img src="./images/shoppingcart/item1.png" class="tbimg"></td>
-                        <td>THD102-000000</td>
-                        <td>2023/05/20</td>
-                        <td>$500</td>
-                        <td>薑燒豬肉 * 3 <br>蔥燒牛肉 * 1 </td>
-                    </tr>
-
-                    <tr>
-                        <td><img src="./images/shoppingcart/item1.png" class="tbimg"></td>
-                        <td>THD102-000000</td>
-                        <td>2023/05/20</td>
-                        <td>$500</td>
-                        <td>薑燒豬肉 * 3 <br>蔥燒牛肉 * 1 </td>
-                    </tr>
-                </table>
+            <!-- 報名活動查詢 -->
+    
+            <div class="main activity-list d-none">
+                <h1 class="main_text">報名活動查詢</h1>
+    
+                <div class="table-users"> 
+                    <table class="table_imfo" cellspacing="0">
+                        <tr>
+                            <th>訂單商品</th>
+                            <th>訂單編號</th>
+                            <th>訂單日期</th>
+                            <th>訂單金額</th>
+                            <th width="230">商品名稱</th>
+                        </tr>
+                    
+                        <tr>
+                            <td><img src="./images/index_food5.jpg" class="tbimg"></td>
+                            <td>THD102-000000</td>
+                            <td>2023/05/20</td>
+                            <td>$5,000</td>
+                            <td>咖哩飯新登場</td>
+                        </tr>
+                    </table>
+                </div>
+            
+                <button type="button" class="btn_back">返回</button>
             </div>
-            <button type="button" class="btn_back">返回</button>
-        
         </div>
-
-        <!-- 報名活動查詢 -->
-
-        <div class="main activity-list d-none">
-            <h1 class="main_text">報名活動查詢</h1>
-
-            <div class="table-users"> 
-                <table class="table_imfo" cellspacing="0">
-                    <tr>
-                        <th>訂單商品</th>
-                        <th>訂單編號</th>
-                        <th>訂單日期</th>
-                        <th>訂單金額</th>
-                        <th width="230">商品名稱</th>
-                    </tr>
-                
-                    <tr>
-                        <td><img src="./images/index_food5.jpg" class="tbimg"></td>
-                        <td>THD102-000000</td>
-                        <td>2023/05/20</td>
-                        <td>$5,000</td>
-                        <td>咖哩飯新登場</td>
-                    </tr>
-                </table>
-            </div>
-        
-            <button type="button" class="btn_back">返回</button>
-
-        </div>
-        </div>
+        @@include('./layout/footer.html')
     </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./js/header.js"></script>
     <script src="./js/member.js"></script>
-    <script src="./js/login.js"></script>
+
 </body>
 </html>

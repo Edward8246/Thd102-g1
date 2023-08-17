@@ -497,6 +497,12 @@ form {
             font-weight: 700;
         }
 
+        .container-login.right-panel-active .sign-up-container {
+            transform: translateX(0);
+            animation: none;
+
+        }
+
 
 
     //註冊
