@@ -6,8 +6,9 @@
     @include flex(column,start,space-between);
     //固定在最上面
     position:fixed;
-    z-index: 20;
+    z-index: 40;
     width: 100%;
+    top: 0;
 
     .nav{
         z-index: 2;
@@ -50,10 +51,34 @@
         @include btn($color_blue,$white,$color_lightblue,$border-radius-50);
         @include size(32px,32px,50%);
         border: none;
+        @include flex(column,center,center);
+
         &:hover{
             @include btn_hover($white,$color_blue,$color_blue);
             border: none;
+            .line{
+                background-color: $white;
+            }
         }
+
+        .line {
+            width: 14px;
+            height: 1.5px;
+            background-color: $color_blue;
+            border-radius: 2px;
+            margin: 1px 0;
+            transition: all 0.5s;
+        }
+        
+
+        //當顯示為X樣式
+        &.-close {
+            position: relative;
+            .line {
+              position: absolute;
+            }
+        }
+
     }
     
     .user{
@@ -69,7 +94,7 @@
         @include p(){
             padding: 0;
             background-color: transparent;
-            @include size(initial,initial);
+            @include size(initial,initial,0);
             
             &:hover{
                 background-color: transparent;
@@ -99,10 +124,10 @@
     position: absolute;
     margin-top: 80px;
     z-index: 1;
-    background-color: rgba($white,1);
+    background-color: rgba($white,.9);
     width: 100%;
     box-shadow: 0 4px 4px rgba(#333,.2);
-    padding: 40px $side_padding-360px;
+    padding: 20px $side_padding-360px;
     @include flex(row,space-evenly,center);
     transform: translateY(0vh);
     transition: 1.5s;
@@ -142,9 +167,8 @@
     }
     .pageLinks{
         padding: 20px 8px;
-        width: 50%;
+        width: 45%;
         min-width: 144px;
-        max-width: 160px;
         @include flex(row,space-between,center);
         color:$color_blue;
         transition:all .5s;

@@ -1,4 +1,8 @@
 footer {
+
+  //*{outline: solid 1px red;}
+  
+  z-index: 30;
   width: 100%;
   position: relative;
   @include flex(column,center,center); 
@@ -9,11 +13,19 @@ footer {
     background-color: $color_blue; 
     border-radius: 50px 50px 0 0 ;
     padding: 40px $side_padding-360px;
+
+    @include m(){
+      background-color: transparent; 
+      padding: 40px 20px;
+    }
   }
   .footer_logo{
     @include flex(row,space-between,center); 
     width: 100%;
     margin-bottom: 40px;
+    @include m(){
+      display: none;
+    }
     img{
         width: 100px;
     }
@@ -28,10 +40,26 @@ footer {
 
   }
 
+  .topText{
+    display: none;
+    @include m(){
+      @include flex(row,space-between);
+      margin-bottom: 40px;
+      .line{
+        width: 28%;
+        height: .5px;
+        background-color: $color_darkblue;
+      }
+    }
+  }
+  .toTop_text{
+    font-size: 12px;
+    color: $color_darkblue;
+  }
   
   .footer_links{
     display: flex;
-    padding: 0 5vw;
+    padding: 0 1vw;
     width: 100%;
     a{
         color:$white;
@@ -39,26 +67,38 @@ footer {
         &:hover{
             color:$color_lightblue;
         }
+        @include m(){
+          color:$color_darkblue;
+        }
     }
-    
-    
   }
   .footer_link{
-    padding: 10px;
+    padding: 10px 0;
   }
   
   .footer_left{
     @include flex(column,space-between,start);
     flex: 1;
+
+    @include m(){
+      display: none;
+    }
   }
   .footer_middle{
     flex: 1;
     @include flex(row,space-between,center);
+    @include m(){
+      padding: 0 $side_padding-360px;
+    }
   }
   
   .footer_right{
     @include flex(column,space-between,end);
     flex: 1;
+
+    @include m(){
+      display: none;
+    }
   }
   .remind{
     width: 100%;
