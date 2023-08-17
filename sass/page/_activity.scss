@@ -31,18 +31,34 @@
 
     .tb-red, .tb-green, .tb-purple{
         cursor: pointer;
+        &:hover{
+            background-color: #fff;
+            transition: background-color .5s;
+        }
     }
     .tbredOn{
         background-color: $color_tag_red;
         color: $white;
+        &:hover{
+            background-color: $color_tag_red;
+            color: $white;
+        }
     }
     .tbgreenOn{
         background-color: $color_tag_green;
         color: $white;
+        &:hover{
+            background-color: $color_tag_green;
+            color: $white;
+        }
     }
     .tbpurpleOn{
         background-color: $color_tag_purple;
         color: $white;
+        &:hover{
+            background-color: $color_tag_purple;
+        color: $white;
+        }
     }
     
 }
