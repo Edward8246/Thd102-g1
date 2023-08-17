@@ -15,20 +15,20 @@
     <div class="act-banner"></div>
     <!-- 標題區 -->
     <div id="test">
-        <section class="">
+        <section>
             <div class="act-title wrapper-t">
                 <h4 class="">活動列表</h4>
                 <div class="tags flexCenter colte-6 colte-m-6">
-                    <div class="tb-red colte-4 colte-m-2">新品宣傳</div>
-                    <div class="tb-green colte-4 colte-m-2">私廚教學</div>
-                    <div class="tb-purple colte-4 colte-m-2">共享餐桌</div>
+                    <div class="tb-red colte-4 colte-m-2" :class="{ tbredOn: currentTag === 'red' }" @click="show('red', $event, 'newProd')">新品宣傳</div>
+                    <div class="tb-green colte-4 colte-m-2" :class="{ tbgreenOn: currentTag === 'green' }" @click="show('green', $event, 'cook')">私廚教學</div>
+                    <div class="tb-purple colte-4 colte-m-2" :class="{ tbpurpleOn: currentTag === 'purple' }" @click="show('purple', $event, 'share')">共享餐桌</div>
                 </div>
             </div>      
         </section>
 
         <section class="card-group">
             <div class="grid-b wrapper-t" id="test">
-                <div class="card-act" v-for="card, index in arr_act" :key="index">
+                <div class="card-act" v-for="card, index in filteredList" :key="index">
                     
                     <div class="card-top">
                         <div class="image">
