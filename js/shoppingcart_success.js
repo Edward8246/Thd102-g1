@@ -3,7 +3,7 @@ $(function(){
     $(window).scroll(function(){
         console.log($(this).scrollTop());
         let move = $(this).scrollTop();
-        if(move >= 710){
+        if(move >= 500){
             $('.success-food1').addClass('foodmove1');
             $('.success-food2').addClass('foodmove2');
             $('.success-food3').addClass('foodmove3');
