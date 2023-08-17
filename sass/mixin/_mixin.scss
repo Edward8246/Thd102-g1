@@ -167,7 +167,7 @@
         @content;
     }
 }
-// //平板
+// //平板 
 @mixin p() {
     @media screen and (max-width: $p) {
         @content;

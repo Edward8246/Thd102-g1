@@ -109,6 +109,11 @@
             }
         }
     }
+    .-none{
+        //display: flex;
+        display: none;
+    }
+    
     .cart{
         @include fontStyle($h7,$color_blue);
         transition: color .3s;
