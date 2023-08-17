@@ -10,49 +10,58 @@
     <title>Hako:盒子</title>
 </head>
 <body >
+  @@include('./layout/login.html')
+<div class="wrapper boxPage">
   <!-- @@include('layout/header.html') -->
-
+  <div class="container">
     <div id="my_app" class="box-container">
-        <div class="box-banner"></div>
-        <section class="select-tag">
-            <div class="box-tag tag-green " :class="{ on: currentTag === 'w' }" @click="show('w', 'western','all')">西式料理</div>
-            <div class="box-tag tag-purple" :class="{ on: currentTag === 'c' }" @click="show('c', 'chinese','all')">中式料理</div>
-            <div class="box-tag tag-blue" :class="{ on: currentTag === 'j' }" @click="show('j', 'japanese','all')">日式料理</div>
-            <div class="box-tag tag-yellow" :class="{ on: currentTag === 'h' }" @click="show('h', 'health','all')">健康料理</div>
-            <div class="box-tag tag-red" :class="{ on: currentTag === 'f' }" @click="show('f', 'fast','all')">快速料理</div>
-        </section>
-        <section class="select-tag2">
-            <div class="box-tag-m tb-green "  :class="{ onGreen: currentTagM === 'green' }" @click="show2('green', 'western','all')">西式料理</div>
-            <div class="box-tag-m tb-purple " :class="{ onPurple: currentTagM === 'purple' }" @click="show2('purple', 'chinese','all')">中式料理</div>
-            <div class="box-tag-m tb-blue " :class="{ onBlue: currentTagM === 'blue' }" @click="show2('blue', 'japanese','all')">日式料理</div>
-            <div class="box-tag-m tb-yellow " :class="{ onYellow: currentTagM === 'yellow' }" @click="show2('yellow', 'health','all')">健康料理</div>
-            <div class="box-tag-m tb-red " :class="{ onRed: currentTagM === 'red' }" @click="show2('red', 'fast','all')">快速料理</div>
-        </section>
-        <section class="box-wrapper grid-box">
-            <a :href="'box_info.html#/'+item.id" class="card-box  " v-for="(item, index) in items" :key="item.name" v-show="index < displayedItems">
-                <div class="image">
-                    <img :src="item.img" alt="">
-                </div>
-                <div class="box-text">
-                    <h6>{{item.name}}</h6>
-                    <div class="tag-group">
-                      <div class="tag-color " :class="'box-'+item.color"></div>
-                    <p class="t-n">{{ item.cuisine }}</p>
-                    <div class="time-icon">
-                        <i class="fa-solid fa-clock"></i>
-                        <p>{{ item.time }}</p>
-                    </div>
-                    </div>
-                    
-                   
-                    
-                </div>
-            </a>
-        </section>
-        <button id="load-more" class="more" v-if="displayedItems < items.length" @click="loadMoreItems()">載入更多</button>
-    </div>
+      <div class="box-banner"></div>
+      <section class="select-tag">
+          <div class="box-tag tag-green " :class="{ on: currentTag === 'w' }" @click="show('w', 'western','all')">西式料理</div>
+          <div class="box-tag tag-purple" :class="{ on: currentTag === 'c' }" @click="show('c', 'chinese','all')">中式料理</div>
+          <div class="box-tag tag-blue" :class="{ on: currentTag === 'j' }" @click="show('j', 'japanese','all')">日式料理</div>
+          <div class="box-tag tag-yellow" :class="{ on: currentTag === 'h' }" @click="show('h', 'health','all')">健康料理</div>
+          <div class="box-tag tag-red" :class="{ on: currentTag === 'f' }" @click="show('f', 'fast','all')">快速料理</div>
+      </section>
+      <section class="select-tag2">
+          <div class="box-tag-m tb-green "  :class="{ onGreen: currentTagM === 'green' }" @click="show2('green', 'western','all')">西式料理</div>
+          <div class="box-tag-m tb-purple " :class="{ onPurple: currentTagM === 'purple' }" @click="show2('purple', 'chinese','all')">中式料理</div>
+          <div class="box-tag-m tb-blue " :class="{ onBlue: currentTagM === 'blue' }" @click="show2('blue', 'japanese','all')">日式料理</div>
+          <div class="box-tag-m tb-yellow " :class="{ onYellow: currentTagM === 'yellow' }" @click="show2('yellow', 'health','all')">健康料理</div>
+          <div class="box-tag-m tb-red " :class="{ onRed: currentTagM === 'red' }" @click="show2('red', 'fast','all')">快速料理</div>
+      </section>
+      <section class="box-wrapper grid-box">
+          <a :href="'box_info.html?id='+item.id" class="card-box  " v-for="(item, index) in items" :key="item.name" v-show="index < displayedItems">
+              <div class="image">
+                  <img :src="item.img" alt="">
+              </div>
+              <div class="box-text">
+                  <h6>{{item.name}}</h6>
+                  <div class="tag-group">
+                    <div class="tag-color " :class="'box-'+item.color"></div>
+                  <p class="t-n">{{ item.cuisine }}</p>
+                  <div class="time-icon">
+                      <i class="fa-solid fa-clock"></i>
+                      <p>{{ item.time }}</p>
+                  </div>
+                  </div>
+                  
+                 
+                  
+              </div>
+          </a>
+      </section>
+      <button id="load-more" class="more" v-if="displayedItems < items.length" @click="loadMoreItems()">載入更多</button>
+  </div>
+  </div>
+  @@include('./layout/footer.html')
+</div>    
+
+    
     <script src="js/vue.global.js"></script>
-    <script src="https://unpkg.com/vue-router@3.5.2/dist/vue-router.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/login.js"></script>
+   
     <script>
         const app = Vue.createApp({
   data(){
@@ -486,10 +495,11 @@
       currentTagM: '',
       firstTimeTag:true,
       itemsPerPage: 6, // 每次新增的商品數量
-      displayedItems: 9 // 初始已顯示的商品數量
+      displayedItems: 12 // 初始已顯示的商品數量
     };
   },
   methods:{
+    //網頁版
     show(tag, category,all){
       // e.target.classList.toggle("on");
       
@@ -514,16 +524,17 @@
       }
       if(this.currentTag === tag){
         this.currentTag = "";
-        this.displayedItems = 9;
+        this.displayedItems = 12;
         this.items = this[all];
       }else{
         this.currentTag = tag;
-        this.displayedItems = 9;
+        this.displayedItems = 12;
         this.items = this[category];
       }
       
       
     },
+    //手機版
     show2(tag, category,all){
       // e.target.classList.toggle("on");
 
@@ -551,13 +562,13 @@
       }
       if(this.currentTagM === tag){
         this.currentTagM = "";
-        this.displayedItems = 9;
+        this.displayedItems = 12;
         this.items = this[all];
     
        
       }else{
         this.currentTagM = tag;
-        this.displayedItems = 9;
+        this.displayedItems = 12;
         this.items = this[category];
        
        
