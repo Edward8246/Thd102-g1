@@ -61,7 +61,7 @@ const uglify = require('gulp-uglify');
 
 
 function minijs(){
- return  src(['js/*.js', 'js/vendors/*.js'])
+ return  src('js/*.js')
     .pipe(uglify())
     .pipe(dest('dist/js'))
 }
