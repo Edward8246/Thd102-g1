@@ -136,9 +136,11 @@ const activity = Vue.createApp({
                         let click_el = event.target;
                         // console.log(click_el);
 
+
                         if(this.currentTag == curr && click_el.classList.contains(`tb${curr}On`)){
                             this.currentTag = '';
                             this.filteredList = this.arr_act;
+        
                         }else{
                             this.currentTag = curr;
                             
