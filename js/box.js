@@ -266,7 +266,7 @@ const app = Vue.createApp({
         let tag = urlParams.get('tag') ;
         let category = urlParams.get('category') ;
         this.show(tag,category,'all');
-        console.log('aaa');
+        // console.log('aaa');
 
     }
 

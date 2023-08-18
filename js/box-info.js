@@ -2,7 +2,7 @@ const app = Vue.createApp({
             
     data(){
         return {
-            index : null,
+            index : 0,
             product: [
             {   id:1,
                 name: "薑汁燒肉",
@@ -235,6 +235,7 @@ const app = Vue.createApp({
             let btn_add = document.getElementsByClassName('b-add')[0];
             if(buy_value.value < 30){
                 buy_value.value = parseInt(buy_value.value) +1;
+                // buy_value.value +=1;
             }else{
                 window.alert("超過庫存數量")
             }
