@@ -1,75 +1,98 @@
-.act-banner{
-    background-image: url(../../images/activity/activity-banner.jpg);
-    @include size(100%, 300px);
-    background-size: cover;
-    margin-bottom: 50px;
+.activity{
 
-    @include rwdGrid($m){
-        height: 150px;
-        background-position: top center;
-        margin-bottom: 10px;
+    .container{
+        margin-top: 80px;
     }
 
-}   
+    .act-banner{
+        background-image: url(../../images/activity/activity-banner.jpg);
+        @include size(100%, 300px);
+        background-size: cover;
+        margin-bottom: 50px;
 
-.act-title{
-    text-align: center;
-    margin-bottom: 40px;
+        @include rwdGrid($m){
+            height: 150px;
+            background-position: top center;
+            margin-bottom: 10px;
+        }
 
-    @include rwdGrid($m){
-        margin: 30px 0;
-    }
-    
-    
-    h4{
-        margin-bottom: 20px;
-    }
-}
+    }   
 
-.tags{
-    margin: 0 auto;
+    .act-title{
+        text-align: center;
+        margin-bottom: 40px;
 
-    .tb-red, .tb-green, .tb-purple{
-        cursor: pointer;
-        &:hover{
-            background-color: #fff;
-            transition: background-color .5s;
+        @include rwdGrid($m){
+            margin: 30px 0;
+        }
+        
+        
+        h4{
+            margin-bottom: 20px;
         }
     }
-    .tbredOn{
-        background-color: $color_tag_red;
-        color: $white;
-        &:hover{
+
+    .tags{
+        margin: 0 auto;
+
+        .tb-red, .tb-green, .tb-purple{
+            cursor: pointer;
+            &:hover{
+                background-color: #fff;
+                transition: background-color .5s;
+            }
+        }
+        .tbredOn{
             background-color: $color_tag_red;
             color: $white;
+            &:hover{
+                background-color: $color_tag_red;
+                color: $white;
+            }
         }
-    }
-    .tbgreenOn{
-        background-color: $color_tag_green;
-        color: $white;
-        &:hover{
+        .tbgreenOn{
             background-color: $color_tag_green;
             color: $white;
+            &:hover{
+                background-color: $color_tag_green;
+                color: $white;
+            }
         }
-    }
-    .tbpurpleOn{
-        background-color: $color_tag_purple;
-        color: $white;
-        &:hover{
+        .tbpurpleOn{
             background-color: $color_tag_purple;
-        color: $white;
+            color: $white;
+            &:hover{
+                background-color: $color_tag_purple;
+            color: $white;
+            }
         }
+        
+    }
+
+    .act-cards{
+        border: 1px solid red;
+        margin: 0 auto;
+    }
+
+    .card-group{
+        margin-bottom: 80px;
+    }
+
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.disabled{
+    background-color: #74B4C7;
+    border: 1px solid #74B4C7;
+    cursor: not-allowed;
+    &:hover{
+        box-shadow: none;
     }
     
 }
-
-.act-cards{
-    border: 1px solid red;
-    margin: 0 auto;
-}
-
-.card-group{
-    margin-bottom: 80px;
-}
-
-

@@ -1,7 +1,11 @@
 const activity = Vue.createApp({
             data(){
                 return{
+                    dateNow: Date.now(),
                     currentTag: "",
+                    displayedItems: 6,
+                    itemsPerPage: 6,
+                    noclick: false,
                     arr_act: [
                     {
                         tag: '新品宣傳',
@@ -47,6 +51,27 @@ const activity = Vue.createApp({
                         img:'./images/activity/activity-carbonara.jpg',
                         loc: '馬吉小簡商場',
                         adr: '台北市快樂路123號4樓'
+                    },
+                    {
+                        "tag": "新品宣傳",
+                        "name": "麻婆豆腐嘗鮮",
+                        "date": "2023-09-01 14:00",
+                        "dur": "2 小時",
+                        "loc": "台北市信義區光復南路123號"
+                    },
+                    {
+                        "tag": "私廚教學",
+                        "name": "精緻法式料理教學",
+                        "date": "2023-09-10 18:30",
+                        "dur": "2.5 小時",
+                        "loc": "台北市大安區敦化南路一段456巷7號"
+                    },
+                    {
+                        "tag": "共享餐桌",
+                        "name": "九月之友共享之夜",
+                        "date": "2023-09-20 19:00",
+                        "dur": "3 小時",
+                        "loc": "台北市中山區民生東路三段789號"
                     }
                     
                     ],
@@ -158,11 +183,29 @@ const activity = Vue.createApp({
                                 break;
                             }
                         };
-
                         
-
+                },
+                loadMore(){
+                   this.displayedItems += this.itemsPerPage 
+                },
+                disable(date, e){
+                    // e.preventDefault();
+                    // console.log(e.target.closest('a').classList.add('disabled'));
+                    
+                    if(date <= this.dateNow){
+                        e.preventDefault();
+                        // e.target.closest('a').classList.add('disabled');
+        
+                    }
+                   
+                },
+                buttonDisable(date){
+                    if(date <= this.dateNow){
+                        return true;
+                    }
                 }
+                
             },
         });
 
-        activity.mount('#test');
+        activity.mount('#actInfo');
