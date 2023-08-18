@@ -119,6 +119,11 @@
         
     }
 }
+
+
+
+
+//購物車按鈕
 .btn-number-shopping{
     
     display: flex;
@@ -126,16 +131,16 @@
     height: 35px;
     overflow: hidden;
     margin-bottom: 10px;
-    .b-n{
+    border: 1px solid $color_blue;
+    .b-n-shopping{
         background-color: $color_blue;
         color: $white;
         cursor: pointer;
-        width: 20%;
+        width: 25%;
         height: 100%;
-        // border: 1px solid $color_blue;
 
     }
-    .b-sub{
+    .b-sub-shopping{
         position: relative;
         &::before{
             display: inline-block;
@@ -147,7 +152,7 @@
         }
        
     }
-    .b-add{
+    .b-add-shopping{
         position: relative;
 
         &::before{
@@ -168,7 +173,7 @@
         }
 
         }
-    .text{
+    .text-shopping{
         text-align: center;
         font-size: $h7;
         border: none;
