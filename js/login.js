@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //登入成功畫面 > 點選按鈕 回首頁 or 會員中心
 document.addEventListener("DOMContentLoaded", function() {
-    let member_button = document.getElementById("back-button");
+    let member_button = document.getElementById("member-button");
     let home_button = document.getElementById("home-button");
 
     //按鈕登出鍵
