@@ -55,6 +55,7 @@ html{
         } 
     
         .select-tag {
+            padding-top: 20px;
             width: 100%;
             @include flex(row, space-between, center);
             border-bottom: 1px solid $color_blue;
@@ -136,7 +137,7 @@ html{
                 }
                 .info-detail {
                     @include flexCenter;
-                    width: 55%;
+                    width: 60%;
                     
     
                     .icon-text {
@@ -309,6 +310,9 @@ html{
                     margin-bottom: 10px;
                     font-size: $h7;
                 }
+            }
+            @include d(820px){
+                width: 80%;
             }
             @include m{
                 width: 70%;
