@@ -19,6 +19,9 @@
         box-sizing: border-box;    
         padding: 0 $side_padding-360px;
         box-shadow: 0 1px 20px rgba($color_blue,.2); 
+        @include m(){
+            padding:  0 $side_padding-m;
+        }
     }
 
     .header_left,.header_right{
@@ -136,6 +139,10 @@
     @include flex(row,space-evenly,center);
     transform: translateY(0vh);
     transition: 1.5s;
+
+    @include m(){
+        padding:  20px $side_padding-m;
+    }
 
     &.-none{
         //預設隱藏，點擊bar才會展開
