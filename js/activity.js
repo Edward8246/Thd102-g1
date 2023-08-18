@@ -5,6 +5,7 @@ const activity = Vue.createApp({
                     currentTag: "",
                     displayedItems: 6,
                     itemsPerPage: 6,
+                    noclick: false,
                     arr_act: [
                     {
                         tag: '新品宣傳',
@@ -188,12 +189,22 @@ const activity = Vue.createApp({
                    this.displayedItems += this.itemsPerPage 
                 },
                 disable(date, e){
+                    // e.preventDefault();
+                    // console.log(e.target.closest('a').classList.add('disabled'));
+                    
                     if(date <= this.dateNow){
                         e.preventDefault();
-                        
+                        // e.target.closest('a').classList.add('disabled');
+        
                     }
                    
+                },
+                buttonDisable(date){
+                    if(date <= this.dateNow){
+                        return true;
+                    }
                 }
+                
             },
         });
 
