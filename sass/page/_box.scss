@@ -148,17 +148,6 @@
     font-size: $h5;
 }
 
-.more {
-    @include btn($white, $color_blue, $color_blue, 50px);
-    width: 150px;
-    display: block;
-    margin: 0 auto;
-    padding: 8px 0;
-    margin-bottom: 200px;
 
-    &:hover {
-        @include btn_hover($color_blue, $white, $color_blue);
-    }
-}
 
 }

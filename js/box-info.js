@@ -259,8 +259,8 @@ const app = Vue.createApp({
         // console.log(urlParams.append('page', '1')); // "q=1234&txt=abc&page=1"
         this.index = urlParams.get('id') -1 ;
         
-        console.log(this.index);
-        console.log(urlParams.get('tag'));
+        // console.log(this.index);
+        // console.log(urlParams.get('tag'));
 
     }
 });
