@@ -57,25 +57,30 @@ const activity = Vue.createApp({
                         name: "麻婆豆腐嘗鮮",
                         date: "2023-09-01 14:00",
                         dur: "2 小時",
-                        loc: "台北市信義區光復南路123號"
+                        img:'./images/box/box_tofu.jpg',
+                        loc:"飄香小店",
+                        adr: "台北市信義區光復南路123號"
                     },
                     {
                         tag: "私廚教學",
                         name: "精緻法式料理教學",
                         date: "2023-09-10 18:30",
                         dur: "2.5 小時",
-                        loc: "台北市大安區敦化南路一段456巷7號"
+                        img:'./images/activity/activity-sept.jpg',
+                        loc:"Hako 小廚房",
+                        adr: "台北市大安區敦化南路一段456巷7號"
                     },
                     {
                         tag: "共享餐桌",
                         name: "九月之友共享之夜",
                         date: "2023-09-20 19:00",
                         dur: "3 小時",
-                        loc: "台北市中山區民生東路三段789號"
+                        img:'./images/activity/activity-sept.jpg',
+                        loc:"紹育愛德華A店",
+                        adr: "台北市中山區民生東路三段789號"
                     }
                     
                     ],
-
 
                     tags:[
                         {
@@ -145,23 +150,28 @@ const activity = Vue.createApp({
                             name: "麻婆豆腐嘗鮮",
                             date: "2023-09-01 14:00",
                             dur: "2 小時",
-                            loc: "台北市信義區光復南路123號"
+                            img:'./images/box/box_tofu.jpg',
+                            loc:"飄香小店",
+                            adr: "台北市信義區光復南路123號"
                         },
                         {
                             tag: "私廚教學",
                             name: "精緻法式料理教學",
                             date: "2023-09-10 18:30",
                             dur: "2.5 小時",
-                            loc: "台北市大安區敦化南路一段456巷7號"
+                            img:'./images/activity/activity-french.jpg',
+                            loc:"Hako 小廚房",
+                            adr: "台北市大安區敦化南路一段456巷7號"
                         },
                         {
                             tag: "共享餐桌",
                             name: "九月之友共享之夜",
                             date: "2023-09-20 19:00",
                             dur: "3 小時",
-                            loc: "台北市中山區民生東路三段789號"
-                        }
-                        
+                            img:'./images/activity/activity-sept.jpg',
+                            loc:"紹育愛德華A店",
+                            adr: "台北市中山區民生東路三段789號"
+                        }                    
                     ]
 
                 }
