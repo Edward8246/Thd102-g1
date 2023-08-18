@@ -14,9 +14,10 @@
 <body>
     @@include('./layout/login.html')
 
-    <div class="wrapper boxInfo">
-        <!-- @@include('layout/header.html') -->
-        <div class="container"> <div id="app">
+    <div id="buy"  class="wrapper boxInfo">
+        @@include('layout/header.html')
+        <div  class="container"> 
+            <div id="app">
             <div class="info-wrapper" v-if="index !== null">
                 <div class="info-top">
                     <div class="image">
@@ -36,7 +37,7 @@
                         <a href="#step" class="select">步驟</a>
                     </section>
             
-                    <section id="buy" class="buy">
+                    <section class="buy">
                         <div class="info-left">
                             <div class="image">
                                 <img :src="product[index].img" alt="">
@@ -78,18 +79,18 @@
                                 ${{ product[index].price }}
                             </h4>
                             <div class="btn-number">
-                                <div class="b-n b-sub col-2"></div>
-                                <input class="text col-8" type="text" value="1" readonly="readonly">
-                                <div class="b-n b-add col-2"></div>
+                                <div class="b-n b-sub " @click="subNumber"></div>
+                                <input class="text buy-value" type="text" value="1" readonly="readonly">
+                                <div class="b-n b-add " @click="addNumber"></div>
                             </div>
                             <div class="btn-group">
                                 <button class="b-buy b-left colte-6">加入購物車</button>
-                                <button class="b-buy b-right colte-6">立即購買</button>
+                                <button id="ingred" class="b-buy b-right colte-6">立即購買</button>
                             </div>
             
                         </div>
                     </section>
-                    <h5 id="ingred">食材</h5>
+                    <h5 >食材</h5>
                     <section class="ingredients">
             
                         <ul class="items colte-5">
@@ -97,16 +98,17 @@
                                  <span class="item-name ">{{ingredient.item}}</span>
                                 <span class="item-num">{{ ingredient.num }}</span>
                             </li>
-                            
+                            <div id="step"></div>
                         </ul>
             
             
-                        <div class="image colte-5">
+                        <div  class="image colte-5">
                             <img src="./images/box-info/box-info-Ingredients.jpg" alt="">
+                            
                         </div>
                     </section>
-                    <h5 id="step">料理步驟</h5>
-                    <ul class="steps">
+                    <h5 >料理步驟</h5>
+                    <ul  class="steps">
                         <li v-for="step in product[index].steps" :key="id" class="step">
                             <span>{{ step.id }}</span>
                             <div class="step-text">
@@ -149,111 +151,7 @@
     <script src="js/vue.global.js"></script>
     <script src="js/header.js"></script>
     <script src="js/login.js"></script>
-    <script>
-        
-        const app = Vue.createApp({
-            
-            data(){
-                return {
-                    index : null,
-                    product: [
-                    {   id:1,
-                        name: "薑汁燒肉",
-                        img: "./images/box-info/box-info-ginger.jpg",
-                        color: "purple",
-                        cuisine:"中式料理",
-                        health: false,
-                        fast: true,
-                        price: "188",
-                        time: "20分鐘",
-                        tool: "平底鍋",
-                        intro:"薑燒豬肉是一道傳統的日本料理，結合了豬肉的香嫩與薑汁的辛香，是一道美味又營養的料理。這道菜色香味俱全，適合當作家庭晚餐或宴客招待的佳餚。現在就讓我們來學習如何製作這道美味的薑燒豬肉吧！",
-                        ingredients:[
-                            {item:"豬肉(建議使用豬里肌肉或肩肉，切成薄片)", num:"500g"},
-                            {item:"醬油", num:"3匙"},
-                            {item:"日本料理酒(或米酒)", num:"3匙"},
-                            {item:"大蒜（切成末狀）", num:"1顆"},
-                            {item:"洋蔥（切成薄片）", num:"1顆"},
-                            {item:"蔥花(裝飾用)", num:"適量"},
-                            {item:"薑汁(將薑切成細絲，擠壓出汁液)", num:"2匙"}
-
-                        ],
-                        steps:[
-                            {id:1, title:"準備豬肉", do:"將豬肉洗淨，用廚房紙巾擦乾，然後將豬肉切成薄片，厚度約為3到5毫米，備用。"},
-                            {id:2, title:"調製薑燒醬汁", do:"在一個碗中，將醬油、日本料酒、薑汁、糖和蜂蜜混合在一起，攪拌均勻，成為薑燒醬汁。"},
-                            {id:3, title:"燒烤豬肉", do:"將平底鍋加熱，倒入沙拉油，待油熱後，將豬肉片逐一鋪在平底鍋中，煎至兩面呈金黃色。取出煎好的豬肉，備用。"},
-                            {id:4, title:"炒香蔬菜", do:"在同一平底鍋中加入切好的蒜末、洋蔥片、紅甜椒和綠甜椒，用中火炒熟，直至蔬菜變軟。"},
-                            {id:5, title:"拌炒豬肉與蔬菜", do:"薑燒豬肉盛盤，撒上適量蔥花作為裝飾。你的美味薑燒豬肉現在已經完成，趕快享用吧！"},
-                            {id:6, title:"裝盤與裝飾", do:"將薑燒豬肉盛盤，撒上適量蔥花作為裝飾。你的美味薑燒豬肉現在已經完成，趕快享用吧！"}
-                        ],
-                        tip1:"可以根據個人口味增減糖和蜂蜜的份量，調整甜度。",
-                        tip2:"薑燒豬肉應盡快食用，以免過度燉煮影響肉質口感。",
-                        tip3:"若喜歡更多蔬菜，可以增加其他蔬菜種類如胡蘿蔔或香菇。",
-                        chefName:"橫山一郎",
-                        chefIntro:"橫山一郎是一位熱愛料理的資深日本料理大廚，擁有超過25年的廚藝經驗。他在年輕時就對料理產生濃厚的興趣，經過多年的學習與精進，成為了日本料理界的翹楚。橫山一郎對於傳統的日本料理深具造詣，同時也敢於嘗試創新，將傳統料理元素與現代烹飪技巧巧妙結合。",
-                        chefImg:"./images/box-info/box-info-chef1.png"
-
-
-                    },
-                    {   id:2,
-                        name: "蟹肉棒壽司捲",
-                        img: "./images/box-info/box-info-sushi.jpg",
-                        color: "blue",
-                        cuisine:"日式料理",
-                        health: true,
-                        fast: true,
-                        price: "166",
-                        time: "30分鐘",
-                        tool: "壽司捲蓆",
-                        intro:"這道壽司捲融合了海鮮的鮮美和壽司的美味，將新鮮的蟹肉棒與其他精心挑選的配料結合在一起，呈現出精緻的外觀和豐富的口感，適合作為精緻的小吃或聚會上的一道亮點。",
-                        ingredients:[
-                            {item:"壽司米", num:"300g"},
-                            {item:"蟹肉棒", num:"4-6支"},
-                            {item:"青瓜", num:"1根"},
-                            {item:"胡蘿蔔", num:"1根"},
-                            {item:"酥炸蔥絲", num:"適量"},
-                            {item:"壽司醋", num:"2匙"},
-                            {item:"海苔", num:"1張"}
-                          
-
-
-                        ],
-                        steps:[
-                            {id:1, title:"預備壽司米", do:"將壽司米煮熟，並在煮飯時加入壽司醋，攪拌均勻。讓飯稍微冷卻，備用。"},
-                            {id:2, title:"準備材料", do:"將蟹肉棒、青瓜、胡蘿蔔等切成細長條，備用。"},
-                            {id:3, title:"包裝壽司", do:"在壽司席上鋪上一片海苔，然後在海苔上均勻地鋪上一層壽司米，留下上方約1英寸的空白。"},
-                            {id:4, title:"放置內餡", do:"在壽司米的中間，放上蟹肉棒、青瓜和胡蘿蔔條。您可以根據喜好加入其他配料。"},
-                            {id:5, title:"捲壽司", do:"輕輕抓住壽司席的下方，開始卷起海苔和內餡，形成壽司卷。確保用適度的壓力讓壽司緊實捲起。"},
-                            {id:6, title:"切片", do:"使用鋒利的壽司刀，將壽司捲切成均勻的小片，每片約1-1.5英寸寬。"},
-                            {id:7, title:"裝盤和裝飾", do:"將切好的壽司片整齊地排在盤子上，可以撒上一些酥炸蔥絲作為裝飾。"}
-                        ],
-                        tip1:"壽司米在鋪在海苔上時要稍微濕潤，這有助於讓壽司捲更容易捲起並保持形狀。",
-                        tip2:"在放置內餡時，避免過度填充，以免壽司捲無法緊實捲起。",
-                        tip3:"切割壽司捲時，可以先沾一些水在刀上，這樣可以防止米飯和海苔粘在刀刃上。",
-                        chefName:"橫山一郎",
-                        chefIntro:"橫山一郎是一位熱愛料理的資深日本料理大廚，擁有超過25年的廚藝經驗。他在年輕時就對料理產生濃厚的興趣，經過多年的學習與精進，成為了日本料理界的翹楚。橫山一郎對於傳統的日本料理深具造詣，同時也敢於嘗試創新，將傳統料理元素與現代烹飪技巧巧妙結合。",
-                        chefImg:"./images/box-info/box-info-chef1.png"
-
-
-                    }
-                    ]
-                };
-            },
-            mounted(){
-                let urlParams = new URLSearchParams(window.location.search);
-                console.log(urlParams.has('q')); // true
-                console.log(urlParams.get('id')); // "abc"
-                console.log(urlParams.getAll('action')); // ["abc"]
-                console.log(urlParams.toString()); // "q=1234&txt=abc"
-                console.log(urlParams.append('page', '1')); // "q=1234&txt=abc&page=1"
-                this.index = urlParams.get('id') -1 ;
-                // console.log(this.thisId);
-
-            }
-        });
-
-        app.mount("#app");
-    </script>
+    <script src="js/box-info.js"></script>
 </body>
 
 </html>
