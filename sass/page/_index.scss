@@ -13,13 +13,13 @@
         .missionBG02{
             width: 100%;
             &.video-p{
-                @include m{
+                @include d(500px){
                     display: none;
                 }
             }
             &.video-m{
                 display: none;
-                @include m{
+                @include d(500px){
                     display: block;
                 }
             }
