@@ -69,7 +69,7 @@
                         
                 
                             <div class="btn_group col-9">
-                                <a class="left col-6" href="./activity_detail.html"><p>詳細資訊</p></a>
+                                <a class="left col-6" :href="'./activity_detail.html?id='+ card.id"><p>詳細資訊</p></a>
                                 <a class="right col-6" id="apply" href="" @click="disable((new Date(card.date)).getTime(), $event)" :class="{disabled: buttonDisable((new Date(card.date)).getTime())}"><p>馬上報名!</p></a>
                             </div>
                             
