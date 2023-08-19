@@ -273,3 +273,4 @@ const app = Vue.createApp({
   });
 
   app.mount("#my_app");
+  app.mount("#article2_app");

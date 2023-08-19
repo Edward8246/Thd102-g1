@@ -55,27 +55,27 @@
             </article>
 
             <!-- 更多盒子 -->
-            <article class="article2">
+            <article class="article2" id='article2_app'>
                 <!-- 帶入食譜資料  -->
                 <div class="recipe_slide block1">
                     <div class="recipes_theme">
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food1.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=1'>
+                            <img :src="items.find(item => item.id === 1).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food2.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=2'>
+                            <img :src="items.find(item => item.id === 2).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food3.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=3'>
+                            <img :src="items.find(item => item.id === 3).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food4.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=4'>
+                            <img :src="items.find(item => item.id === 4).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food5.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=5'>
+                            <img :src="items.find(item => item.id === 5).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food6.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=6'>
+                            <img :src="items.find(item => item.id === 6).img" alt="" >
                         </a>
                     </div>
                 </div>
@@ -94,23 +94,23 @@
 
                 <div class="recipe_slide block2">
                     <div class="recipes_theme">
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food7.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=7'>
+                            <img :src="items.find(item => item.id === 7).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food8.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=8'>
+                            <img :src="items.find(item => item.id === 8).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food9.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=9'>
+                            <img :src="items.find(item => item.id === 9).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food10.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=10'>
+                            <img :src="items.find(item => item.id === 10).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food11.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=11'>
+                            <img :src="items.find(item => item.id === 11).img" alt="" >
                         </a>
-                        <a class="image recipe_item" href='#'>
-                            <img src="./images/index_food12.jpg" alt="">
+                        <a class="image recipe_item" href='./box_info.html?id=12'>
+                            <img :src="items.find(item => item.id === 12).img" alt="" >
                         </a>
                     </div>
                 </div>
@@ -167,10 +167,14 @@
     <!-- gsap cdn-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- vue -->
+    <script src="js/vue.global.js"></script>
     <!-- js -->
+    <script src="./js/box.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/login.js"></script>
+    
     
 </body>
 </html>
