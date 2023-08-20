@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+        @@include('./layout/login.html')
+    <div class="wrapper shoppingcart">
+        @@include('./layout/header.html')
+        <div class="container">
+        <!-- 分類 -->
+        <ul class="process">
+            <li class="cart-img">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h5 class="cart-text">購物車</h5>
+            </li>
+            <li class="line"></li>
+    
+            <li class="pay">
+                <i class="fa-regular fa-credit-card"></i>
+                <h5 class="pay-text">付款方式</h5>
+            </li>
+            <li class="line"></li>
+    
+            <li class="success">
+                <i class="fa-solid fa-check"></i>
+                <h5 class="success-text">付款成功</h5>
+            </li>
+        </ul>
+        <!-- 表格 -->
+            <div class="column-labels">
+                <label class="product-image">訂購商品</label>
+                <label class="product-details">商品名稱</label>
+                <label class="product-price">單價</label>
+                <label class="product-quantity">數量</label>
+                <label class="product-line-price">總金額</label>
+                <label class="product-removal"></label>
+            </div>
+            <!-- 產品 -->
+            <!-- 食物 -->
+            <div class="product_theme foodbox">
+                <div class="product_item">
+                    <div class="image product-image">
+                        <img src="./images/box/box_beefhamburger.jpg">
+                    </div>
+                    
+                    <div class="product-details">
+                        <p class="product-tag">盒子</p>
+                        <div class="product-name">薑汁燒肉</div>
+                    </div>
+                    <div class="product-price">$200</div>
+
+                    <div class="btn-number">
+                        <div class="b-n b-sub" @click="subNumber"></div>
+                        <input class="text buy-value" type="text" value="1" readonly="readonly">
+                        <div class="b-n b-add" @click="addNumber"></div>
+                    </div>
+                    
+                    <!-- <div class="product-quantity">
+                        <input type="number" value="2" min="1">
+                    </div> -->
+                    
+                    <div class="product-line-price">$200</div>
+        
+                    <div class="product-removal remove-product">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                
+                </div>
+        
+                <!-- 產品2 -->
+                <div class="product_item">
+                    <div class="product-image">
+                    <img src="./images/box/box_beefhamburger.jpg">
+                    </div>
+                    <div class="product-details">
+                        <p class="product-tag">盒子</p>
+                        <div class="product-name">薑汁燒肉</div>
+                    </div>
+                    <div class="product-price">$200</div>
+                    
+                    <div class="btn-number">
+                        <div class="b-n b-sub" @click="subNumber"></div>
+                        <input class="text buy-value" type="text" value="1" readonly="readonly">
+                        <div class="b-n b-add" @click="addNumber"></div>
+                    </div>
+                    
+                    <div class="product-line-price">$200</div>
+        
+                    <div class="product-removal remove-product">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>            
+                </div>
+            </div>
+
+            <!-- 活動 -->
+            <div class="product_theme activity">
+                <div class="product_item">
+                    <div class="product-image">
+                        <img src="./images/activity/activity-thai.jpg">
+                    </div>
+                    <div class="product-details">
+                        <p class="product-tag">活動</p>
+                        <div class="product-name">泰式料理大師班</div>
+                    </div>
+                    <div class="product-price">$200</div>
+                    
+                    <div class="btn-number">
+                        <div class="b-n b-sub" @click="subNumber"></div>
+                        <input class="text buy-value" type="text" value="1" readonly="readonly">
+                        <div class="b-n b-add" @click="addNumber"></div>
+                    </div>
+                    
+                    <div class="product-line-price">$200</div>
+        
+                    <div class="product-removal remove-product">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                    
+                </div>
+            </div>
+
+            
+    
+        
+            <div class="total">
+                <label>總計 : </label>
+                <div class="totals-value" id="cart-subtotal">$450</div>
+            </div>
+
+            <div class="btns">
+                <button class="btn btn_white keepShop">繼續購物</button>
+                <button class="btn btn_white nextStep">下一步</button>
+            </div>
+            
+        </div>
+        @@include('./layout/footer.html')
+    </div>
+
+
+    <script src="js/header.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
