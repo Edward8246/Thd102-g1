@@ -1,0 +1,247 @@
+.shoppingcart{
+    // *{outline: solid 1px red;}
+    width: 100%;   
+
+    .container {
+        padding: 60px;
+        // padding: $side_padding-360px;
+    }
+    //分類
+    .process{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 62.5%;
+        margin: 70px auto 100px auto;
+        position: relative;
+        // z-index: 5;
+    }
+    .line{
+        width: 18%;
+        height: 3px;
+        background-color: $color_warterblue;
+    }
+
+    .cart-img{
+        width: 122px;
+        height: 122px;
+        border-radius: 50%;
+        background-color: $color_blue;
+        // border: 1px solid #000;        
+    }
+    .cart-img >.fa-cart-shopping{
+        width: 122px;
+        font-size: 35px;
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+        color: $white;
+        // border: 1px solid #000;
+    }
+    .cart-text{
+        text-align: center;
+        color: $white;
+        overflow: hidden;
+        // border: 1px solid #000;
+    }
+    
+    
+    .pay{
+        width: 122px;
+        height: 122px;
+        border-radius: 50%;
+        background-color: $color_warterblue;
+    }
+    
+    .fa-credit-card{
+        width: 122px;
+        font-size: 35px;
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+        color: $white;
+    }
+    .pay-text{
+        text-align: center;
+        color: $black;
+        // border: 1px solid #000;
+    }
+    .success{
+        width: 122px;
+        height: 122px;
+        border-radius: 50%;
+        background-color: $color_warterblue;
+    }
+    .fa-check{
+        width: 122px;
+        font-size: 40px;
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 5px;
+        color: $white;
+    }
+    .success-text{
+        text-align: center;
+        color: $black;
+        // border: 1px solid #000;
+    }
+
+
+    /* Global "table" column settings */
+    .product-image { 
+        width: 20%; 
+    }
+    .product-details { 
+        width: 10%; 
+    }
+    .product-price { 
+        width: 8%; 
+    }
+    .product-quantity { 
+        width: 10%; 
+    }
+    .product-removal { 
+        width: 4%;
+    }
+    .product-line-price { 
+        width: 10%; 
+    }
+
+    
+
+
+    /* Column headers */
+    .column-labels {
+        width: 100%;
+        @include flex(row,space-between); 
+        padding: 0 8px 20px ;
+        border-bottom: 1px solid $black;
+        margin-bottom: 20px;   
+    }
+
+
+    /* Product entries */
+    .product_item {
+        @include flex(row,space-between);
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #aaa;
+        padding: 0 8px 20px ;
+        
+    .product-image {
+        overflow: hidden;
+        border-radius: 16px;
+        font-size: 0;
+        img {
+            width: 100%;
+        }
+    }
+
+    .product-tag{
+        font-size: 14px;
+        width: 60px;
+        border-radius: 16px;
+        text-align: center;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+    
+    .product-details {
+        .product-name {
+            font-weight: 700;
+        }
+        
+    }
+    
+    .btn-number {
+        width: 90px;
+      
+        .b-sub::before{
+            width:10px;
+            
+        }
+
+        .b-add::before {
+            width: 13px;
+        }
+
+        .b-add::after {
+            height: 13px;
+        }
+
+
+        .b-sub{
+            width: 25px;
+        }
+
+        .b-add{
+            width: 25px;
+        }
+        
+    }
+    
+
+    
+    .remove-product {
+        @include flex(row,end);
+        color: rgba($gray,.5);
+        font-size: 20px;
+        transition:.5s;
+        cursor:pointer;
+    }
+    
+    .remove-product:hover {
+        color: rgba($gray,1);
+    }
+    }
+
+    .foodbox{
+        .product-tag{
+            background-color: $color_tag_red;
+            
+        }
+    }
+    .activity{
+        .product-tag {    
+            background-color: $color_tag_green;
+        }
+    }
+
+
+    .total{
+        width: 100%;
+        font-size: 20px;
+        font-weight: 700;
+        @include flex(row,end);
+        label{
+            padding-right: 20px;
+        }
+        
+    }
+    .btns{
+        @include flex(row,end);
+        margin-top: 40px;
+        
+        .keepShop{
+            border: solid 1px $color_blue;
+            margin-right: 20px;
+        }
+        .btn{
+            width: 120px;
+            padding: 8px;  
+            font-weight: 700;
+        }
+        .nextStep{
+            background-color: $color_blue;
+            color:$white;
+            &:hover{
+                background-color: $color_darkblue;
+                color: $white;
+            }
+        }
+    }
+
+
+
+
+}
