@@ -1,3 +1,10 @@
+function close_window(){
+    document.querySelector(".loginPage").style.display = "none";
+    //如在註冊畫面關掉,再開啟會在登入畫面
+    document.getElementById("sign-in-container").style.display = "block";
+	container.classList.remove("right-panel-active");
+}
+
 //點擊登入鍵跳出LOGIN
 document.getElementById("user_login").addEventListener("click", function(){
     document.querySelector(".loginPage").style.display = "flex";
@@ -8,10 +15,13 @@ document.getElementById("user_login").addEventListener("click", function(){
 
 //登入畫面的X關掉鍵
 document.querySelector(".close-btn").addEventListener("click", function(){
-	document.querySelector(".loginPage").style.display = "none";
-    //如在註冊畫面關掉,再開啟會在登入畫面
-    document.getElementById("sign-in-container").style.display = "block";
-	container.classList.remove("right-panel-active");
+	close_window();
+})
+//按下esc觸發關閉
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        close_window();
+    }
 })
 
 
