@@ -916,12 +916,22 @@
 
 //後來新增0821
 .card-body{
-  width: 1646px;
-  height: 676px;
+
+  width: 100%;
+  height: 100%;
+
 }
 
 .containerBackgroundTable .cardNew{
-  width: 1648px;
-  height: 678px;
+
+  width: 100%;
+  height: 100%;
+
+}
+
+
+.containerBackgroundTable .cardNewForLogin{
+  width: 100%;
+  height: 500px;
 }
 
