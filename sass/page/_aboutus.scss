@@ -2,18 +2,284 @@
 //請在.aboutusContainer裡面寫SCSS或CSS
 
 
+// Section 1
 
-
-
-
-.aboutusword01{
-    font-size: 100px;
-}
-
-.aboutuspic01{
+.sectionOne{
     width: 100%;
+    height: 100%;
+    display: flex;
+    background-repeat: no-repeat;
 }
 
+//左邊內容
+
+.leftContent{
+    margin-top: 260px;
+    background-color: #fff;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+    border-radius: 0 230px 0 0;
+    display: flex;
+}
+
+.text_button_wrapper{
+    margin: 0 auto;
+    margin: 10% 0 10% 20%;
+}
+
+.leftContent h1{
+    font-size: 48px;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.leftContent p{
+    margin-top: 20px;
+    font-size: 32px;
+    text-align: center;
+    line-height: 150%;
+    color: #1E88A8;
+}
+
+.btn_transparent{
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.image_wrapper{
+    margin-right: 15%;
+    margin-top: 15%;
+    margin-bottom: 10%;
+}
+
+.aboutus_box{
+    float: right;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+//右邊內容
+
+.rightContent{
+    margin-top: 260px;
+    width: 60%;
+    height: 100%;
+}
+
+
+.rightContent p{
+    color: white;
+    font-size: 16px;
+    padding-left: 30px;
+    padding-right: 140px;
+    padding-bottom: 10px;
+    padding-top: 120px;
+}
+
+
+// Section 2
+
+.sectionTwo{
+    background-color: #fff;
+}
+
+.sectionTwo h1{
+    text-align: center;
+    padding-top: 60px;
+    margin-bottom: 60px;
+}
+
+
+.offers_wrapper{
+
+}
+
+.offers_wrapper ul{
+    display: flex;
+    justify-content: center;
+}
+
+.offers_wrapper li{
+    text-align: center;
+    margin-top: 30px;
+    width: 20%;
+    padding: 60px;
+}
+
+.offers_wrapper li img{
+    margin: auto;
+}
+
+.offers_wrapper h3{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    color: #1E88A8;
+}
+
+.offers_wrapper p{
+}
+
+
+//轉場 transition
+
+.transition{
+
+}
+
+
+
+.transition .box_explode{
+    text-align: center;
+
+}
+
+
+// 文字輪播
+@keyframes slide{
+    0% { left: -10px; }
+    100% { left: -100%; }     
+}
+
+    .bg_animattion{  
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0px;   
+
+        font-weight: 700;
+        font-size: 200px;
+        line-height: 1;
+        white-space:nowrap;
+
+
+    div{
+        display: block;
+        width: 200%;
+        height: 200px;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        animation: slide 12s linear infinite both;  
+    }
+
+    span{ 
+        margin-right: 50px;
+        color:#ECE9D7;
+        width: 50%;
+
+
+        @include d(468px){
+            font-size: 160px;
+        }
+
+    }   
+    
+}
+
+// Section 3
+
+.sectionThree{
+    margin-top: 180px;
+}
+
+.sectionThree h2{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.moreThanBox_wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    // margin: 
+}
+
+.moreThanBox_wrapper ul{
+    display: flex;
+    justify-content: center
+}
+
+.moreThanBox_wrapper li{
+    margin-top: 40px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #A5DEE4;
+    border-bottom: 12px solid #A5DEE4;
+    background: #F8F7EE;
+    width: 282px;
+}
+
+.moreThanBox_wrapper h3{
+    background-color: #1E88A8;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    font-size: 28px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.moreThanBox_wrapper hr{
+    border-top: 1px solid #1E88A8;
+    width: 228px;
+    text-align: center;
+}
+
+.moreThanBox_wrapper h2{
+    font-size: 28px;
+    color: #1E88A8;
+    font-weight: 400;
+
+}
+
+.moreThanBox_wrapper img{
+    margin-top: 20px;
+}
+
+.moreThanBox_wrapper p{
+    text-align: left;
+    padding: 40px;
+}
+
+// Section 4
+
+.sectionFour{
+
+}
+
+.sectionFour h1{
+
+}
+
+.sectionFour_one{
+
+}
+
+.sectionFour_two{
+
+}
+
+.sectionFour_three{
+
+}
+
+.sectionFour ul{
+
+}
+
+.sectionFour li{
+    background-color: #fff;
+
+}
+
+.sectionFour h3{
+
+}
+
+.sectionFour p{
+
+}
 
 
 
