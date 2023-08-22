@@ -275,6 +275,7 @@ const activity = Vue.createApp({
                         return true;
                     }
                 },
+<<<<<<< HEAD
                 addCart() {
                     let buy_value = document.getElementsByClassName("buy-value")[0];
         
@@ -307,6 +308,26 @@ const activity = Vue.createApp({
                     localStorage.setItem('cart2', JSON.stringify(cart2));
                 }
                 
+=======
+                addNumber(){
+                    let buy_value = document.getElementsByClassName("buy-value")[0];
+                    let btn_add = document.getElementsByClassName('b-add')[0];
+                    if(buy_value.value < 25){
+                        buy_value.value = parseInt(buy_value.value) +1;
+                        // buy_value.value +=1;
+                    }else{
+                        window.alert("超過庫存數量")
+                    }
+                },
+                subNumber(){
+                    let btn_sub = document.getElementsByClassName('b-sub')[0];
+                    let buy_value = document.getElementsByClassName("buy-value")[0];
+                    if(buy_value.value >= 2){
+                        buy_value.value -= 1;
+                    }
+          
+                },                
+>>>>>>> a4c480a92e6350fec5ac961e0725da6eac0c2389
             },
             mounted(){
                 let urlParams = new URLSearchParams(window.location.search);
