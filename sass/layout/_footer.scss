@@ -93,7 +93,7 @@ footer {
   }
   
   .footer_right{
-    @include flex(column,space-between,end);
+    @include flex(column,space-between,flex-end);
     flex: 1;
 
     @include m(){
