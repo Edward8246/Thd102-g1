@@ -7,7 +7,7 @@ const app = Vue.createApp({
                 {
                     id: 1,
                     name: "薑汁燒肉",
-                    img: "./images/box/box_ginger.jpg",
+                    img: "./images/box-info/box-info-ginger.jpg",
                     color: "purple",
                     cuisine: "中式料理",
                     health: false,

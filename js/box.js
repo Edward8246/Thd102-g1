@@ -5,7 +5,7 @@ const app = Vue.createApp({
         items: [
           {
             id: 1,
-            img: "./images/box/box_ginger.jpg",
+            img: "./images/box-info/box-info-ginger.jpg",
             name: "薑汁燒肉",
             color: "purple",
             cuisine: "中式料理",
@@ -15,7 +15,7 @@ const app = Vue.createApp({
           },
           {
             id: 2,
-            img: "./images/box/box_sushi.jpg",
+            img: "./images/box-info/box-info-sushi.jpg",
             name: "蟹肉棒壽司捲",
             color: "blue",
             cuisine: "日式料理",
@@ -25,7 +25,7 @@ const app = Vue.createApp({
           },
           {
             id: 3,
-            img: "./images/box/box_salad.jpg",
+            img: "./images/box-info/box-info-salad.jpg",
             name: "夏日野薺盛宴",
             color: "green",
             cuisine: "西式料理",
@@ -35,7 +35,7 @@ const app = Vue.createApp({
           },
           {
             id: 4,
-            img: "./images/box/box_pork.jpg",
+            img: "./images/box-info/box-info-pork.jpg",
             name: "糖醋排骨",
             color: "purple",
             cuisine: "中式料理",
@@ -45,7 +45,7 @@ const app = Vue.createApp({
           },
           {
             id: 5,
-            img: "./images/box/box_poke.jpg",
+            img: "./images/box-info/box-info-poke.jpg",
             name: "POKE",
             color: "green",
             cuisine: "西式料理",
@@ -55,7 +55,7 @@ const app = Vue.createApp({
           },
           {
             id: 6,
-            img: "./images/box/box_hamburger.jpg",
+            img: "./images/box-info/box-info-hamburger.jpg",
             name: "火腿漢堡",
             color: "green",
             cuisine: "西式料理",
@@ -65,7 +65,7 @@ const app = Vue.createApp({
           },
           {
             id: 7,
-            img: "./images/box/box_dumpling.jpg",
+            img: "./images/box-info/box-info-dumpling.jpg",
             name: "韭菜豬肉水餃",
             color: "purple",
             cuisine: "中式料理",
@@ -75,7 +75,7 @@ const app = Vue.createApp({
           },
           {
             id: 8,
-            img: "./images/box/box_donburi.jpg",
+            img: "./images/box-info/box-info-donburi.jpg",
             name: "牛肉丼飯",
             color: "blue",
             cuisine: "日式料理",
@@ -85,7 +85,7 @@ const app = Vue.createApp({
           },
           {
             id: 9,
-            img: "./images/box/box_curry.jpg",
+            img: "./images/box-info/box-info-curry.jpg",
             name: "牛肉咖哩飯",
             color: "blue",
             cuisine: "日式料理",
@@ -95,7 +95,7 @@ const app = Vue.createApp({
           },
           {
             id: 10,
-            img: "./images/box/box_tofu.jpg",
+            img: "./images/box-info/box-info-tofu.jpg",
             name: "麻婆豆腐",
             color: "purple",
             cuisine: "中式料理",
@@ -105,7 +105,7 @@ const app = Vue.createApp({
           },
           {
             id: 11,
-            img: "./images/box/box_cornsoup.jpg",
+            img: "./images/box-info/box-info-cornsoup.jpg",
             name: "玉米濃湯",
             color: "green",
             cuisine: "西式料理",
@@ -115,7 +115,7 @@ const app = Vue.createApp({
           },
           {
             id: 12,
-            img: "./images/box/box_beefhamburger.jpg",
+            img: "./images/box-info/box-info-beefhamburger.jpg",
             name: "牛肉漢堡套餐",
             color: "green",
             cuisine: "西式料理",
@@ -125,7 +125,7 @@ const app = Vue.createApp({
           },
           {
             id: 13,
-            img: "./images/box/box_avocadosalad.jpg",
+            img: "./images/box-info/box-info-avocadosalad.jpg",
             name: "酪梨沙拉",
             color: "green",
             cuisine: "西式料理",
@@ -135,7 +135,7 @@ const app = Vue.createApp({
           },
           {
             id: 14,
-            img: "./images/box/box_friedpork.jpg",
+            img: "./images/box-info/box-info-friedpork.jpg",
             name: "炸豬排",
             color: "blue",
             cuisine: "日式料理",
@@ -145,7 +145,7 @@ const app = Vue.createApp({
           },
           {
             id: 15,
-            img: "./images/box/box_ramen.jpg",
+            img: "./images/box-info/box-info-ramen.jpg",
             name: "豚骨拉麵",
             color: "blue",
             cuisine: "日式料理",
@@ -155,7 +155,7 @@ const app = Vue.createApp({
           },
           {
             id: 16,
-            img: "./images/box/box_taiyaki.jpg",
+            img: "./images/box-info/box-info-taiyaki.jpg",
             name: "鯛魚燒",
             color: "blue",
             cuisine: "日式料理",
@@ -165,7 +165,7 @@ const app = Vue.createApp({
           },
           {
             id: 17,
-            img: "./images/box/box_tempura.jpg",
+            img: "./images/box-info/box-info-tempura.jpg",
             name: "炸蝦天婦羅",
             color: "blue",
             cuisine: "日式料理",
@@ -175,7 +175,7 @@ const app = Vue.createApp({
           },
           {
             id: 18,
-            img: "./images/box/box_kungpao.jpg",
+            img: "./images/box-info/box-info-kungpao.jpg",
             name: "宮保雞丁",
             color: "purple",
             cuisine: "中式料理",
@@ -185,7 +185,7 @@ const app = Vue.createApp({
           },
           {
             id: 19,
-            img: "./images/box/box_dongpo.jpg",
+            img: "./images/box-info/box-info-dongpo.jpg",
             name: "東坡肉",
             color: "purple",
             cuisine: "中式料理",
@@ -195,7 +195,7 @@ const app = Vue.createApp({
           },
           {
             id: 20,
-            img: "./images/box/box_beefnoodle.jpg",
+            img: "./images/box-info/box-info-beefnoodle.jpg",
             name: "牛肉麵",
             color: "purple",
             cuisine: "中式料理",
@@ -205,7 +205,7 @@ const app = Vue.createApp({
           },
           {
             id: 21,
-            img: "./images/box/box_spegatti.jpg",
+            img: "./images/box-info/box-info-spegatti.jpg",
             name: "番茄義大利麵",
             color: "green",
             cuisine: "西式料理",
