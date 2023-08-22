@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,81 +8,90 @@
 
     <title>Shoppingcart</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" >
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
+
 <body>
 
-<!--------------------------------上排付款流程 -->
-<div class="wrapper shopping">
+    <!--------------------------------上排付款流程 -->
+    <div id="app" class="wrapper shopping">
 
-    <ul class="process">
-        <li class="cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <h5 class="cart-text">購物車</h5>
-        </li>
-        <li class="line"></li>
+        <ul class="process">
+            <li class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h5 class="cart-text">購物車</h5>
+            </li>
+            <li class="line"></li>
 
-        <li class="pay">
-            <i class="fa-regular fa-credit-card"></i>
-            <h5 class="pay-text">付款方式</h5>
-        </li>
-        <li class="line"></li>
+            <li class="pay">
+                <i class="fa-regular fa-credit-card"></i>
+                <h5 class="pay-text">付款方式</h5>
+            </li>
+            <li class="line"></li>
 
-        <li class="success">
-            <i class="fa-solid fa-check"></i>
-            <h5 class="success-text">付款成功</h5>
-        </li>
-    </ul>
+            <li class="success">
+                <i class="fa-solid fa-check"></i>
+                <h5 class="success-text">付款成功</h5>
+            </li>
+        </ul>
 
-<!----------------------購物車列表文字-->
+        <!----------------------購物車列表文字-->
 
-    <div class="shoppingcart-list">
-        
-        <div class="shopping-item-title"><h3>訂購商品</h3></div>
+        <div class="shoppingcart-list">
 
-        <div class="shoppingcart-unit-price"><h3>單價</h3></div>
+            <div class="shopping-item-title">
+                <h3>訂購商品</h3>
+            </div>
 
-        <div class="shoppingcart-quantity"><h3>數量</h3></div>
+            <div class="shoppingcart-unit-price">
+                <h3>單價</h3>
+            </div>
 
-        <div class="shoppingcart-amount"><h3>金額</h3></div>
+            <div class="shoppingcart-quantity">
+                <h3>數量</h3>
+            </div>
 
-        
+            <div class="shoppingcart-amount">
+                <h3>金額</h3>
+            </div>
 
-    </div>
-    <hr>
-    <!--------------------商品卡片-->
-    <div class="shoppingcart-item">
-        <ul>
-            <li>
-                <div class="item-img">
-                    <img src="./images/shoppingcart/item1.png" alt="">
-                </div>
 
-                <div class="item-wrapper">
-                    <div class="item-title">
-                        <div class="item-title-block ft-red">盒子</div>
-                        <h4 class="item-title-text">薑汁燒肉</h4>
+
+        </div>
+        <hr>
+        <!--------------------商品卡片-->
+        <div  class="shoppingcart-item">
+            <ul>
+                <li v-for="(item, index) in box" :key="item.id">
+                    <div class="item-img">
+                        <img :src="item.img" alt="">
                     </div>
-                    <div class="item-price">
-                        <h4 class="price">$188</h4>
-                    </div>
-                    <div class="item-quantity">
-                        <div class="btn-number-shopping">
-                            <div class="b-n-shopping b-sub-shopping col-3" ></div>
-                            <input class="quantity-num col-6" type="text" value="1">
-                            <div class="b-n-shopping b-add-shopping col-3" ></div>
+
+                    <div class="item-wrapper">
+                        <div class="item-title">
+                            <div class="item-title-block ft-red">盒子</div>
+                            <h4 class="item-title-text">{{ item.name}}</h4>
+                        </div>
+                        <div class="item-price">
+                            <h4 class="price">${{item.price}}</h4>
+                        </div>
+                        <div class="item-quantity">
+                            <div class="btn-number-shopping">
+                                <div class="b-n-shopping b-sub-shopping col-3" @click="subNumber(index)"></div>
+                                <input class="quantity-num col-6" type="text" v-model="item.quantity">
+                                <div class="b-n-shopping b-add-shopping col-3" @click="addNumber(index)"></div>
+                            </div>
+                        </div>
+                        <div class="item-amount">
+                            <h4 class="amount">${{item.total}}</h4>
+                        </div>
+                        <div class="item-del">
+                            <i class="fa-solid fa-trash-can"></i>
                         </div>
                     </div>
-                    <div class="item-amount">
-                        <h4 class="amount">$188</h4>
-                    </div>
-                    <div class="item-del">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                </div>
-            </li>
-            <li>
+                </li>
+                <!-- <li>
                 <div class="item-img">
                     <img src="./images/shoppingcart/item1.png" alt="">
                 </div>
@@ -108,55 +118,132 @@
                         <i class="fa-solid fa-trash-can"></i>
                     </div>
                 </div>
-            </li>
-        </ul>
-    </div>
-    <hr>
-    <!-------------------------------------------訂購活動-->
-    <div class="item-activity">
-        <h3 class="itema-activity-title">訂購活動</h3>
-        <ul>
-            <li>
-                <div class="item-img">
-                    <img src="./images/shoppingcart/item1.png" alt="">
-                </div>
+            </li> -->
+            </ul>
+        </div>
+        <hr>
+        <!-------------------------------------------訂購活動-->
+        <div class="item-activity">
+            <h3 class="itema-activity-title">訂購活動</h3>
+            <ul>
+                <li v-for="(item, index) in activity" :key="item.name">
+                    <div class="item-img">
+                        <img :src="item.img" alt="">
+                    </div>
 
-                <div class="item-wrapper">
-                    <div class="item-title">
-                        <div class="item-title-block ft-purple">活動</div>
-                        <h4 class="item-title-text">咖哩飯新登場!</h4>
-                    </div>
-                    <div class="item-price activity-price">
-                        <h4 class="price">$1200</h4>
-                    </div>
-                    <div class="item-quantity">
-                        <div class="btn-number-shopping">
-                            <div class="b-n-shopping b-sub-shopping col-3" ></div>
-                            <input class="quantity-num col-6" type="text" value="1">
-                            <div class="b-n-shopping b-add-shopping col-3" ></div>
+                    <div class="item-wrapper">
+                        <div class="item-title">
+                            <div class="item-title-block ft-purple">活動</div>
+                            <h4 class="item-title-text">{{ item.name }}</h4>
+                        </div>
+                        <div class="item-price activity-price">
+                            <h4 class="price">$1200</h4>
+                        </div>
+                        <div class="item-quantity">
+                            <div class="btn-number-shopping">
+                                <div class="b-n-shopping b-sub-shopping col-3" ></div>
+                                <input class="quantity-num col-6" type="text" v-model="item.quantity">
+                                <div class="b-n-shopping b-add-shopping col-3" ></div>
+                            </div>
+                        </div>
+                        <div class="item-amount">
+                            <h4 class="amount">$1200</h4>
+                        </div>
+                        <div class="item-del">
+                            <i class="fa-solid fa-trash-can"></i>
                         </div>
                     </div>
-                    <div class="item-amount">
-                        <h4 class="amount">$1200</h4>
-                    </div>
-                    <div class="item-del">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <hr>
-    <!-- 總計 -->
-    <div class="item-total">
-        <h2 class="total">總計 : $2964</h2>
-        <div class="item-button">
-            <a href="#"><button class="btn_shopping-prev prev">繼續購物</button></a>
-            <a href="#"><button class="btn_shopping-next next">下一步</button></a>  
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <!-- 總計 -->
+        <div class="item-total">
+            <h2 class="total">總計 : $2964</h2>
+            <div class="item-button">
+                <a href="#"><button class="btn_shopping-prev prev">繼續購物</button></a>
+                <a href="#"><button class="btn_shopping-next next">下一步</button></a>
+            </div>
         </div>
     </div>
-</div>
     <!-------------------------------------------footer-->
-    
+    <script src="js/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    box: [],
+                    activity:[]
+                }
+            },
+            computed: {
+                total() {
+                    // 使用 reduce 方法計算總價
+                    return this.items.reduce((total, item) => {
+                        return total + (item.price * item.quantity);
+                    }, 0);
+                }
+            },
+            methods: {
+                addNumber(index) {
+                    let quantity_num = document.getElementsByClassName("quantity-num")[0];
+                    let btn_add = document.getElementsByClassName('b-add-shopping')[0];
+                    if (quantity_num.value < 30) {
+
+                        this.box[index].quantity = parseInt(this.box[index].quantity) + 1; // 增加数量
+                        this.box[index].total = this.box[index].price * this.box[index].quantity; // 更新总价
+                        this.updateTotal();
+
+                        localStorage.setItem('cart', JSON.stringify(this.box));
+                    } else {
+                        window.alert("超過庫存數量")
+                    }
+
+                },
+                subNumber(index) {
+                    let btn_sub = document.getElementsByClassName('b-sub-shopping')[0];
+                    let quantity_num = document.getElementsByClassName("quantity-num")[0];
+                    if (quantity_num.value >= 2) {
+
+                        this.box[index].quantity -= 1; // 减少数量
+                        this.box[index].total = this.box[index].price * this.box[index].quantity;
+                        this.updateTotal();
+
+                        // 保存更改后的数据到localStorage
+                        localStorage.setItem('cart', JSON.stringify(this.box));
+                    }
+
+
+
+
+                },
+                updateTotal() {
+                    // 手动更新 total 属性
+                    this.total = this.box.reduce((total, item) => {
+                        return total + (item.price * item.quantity);
+                    }, 0);
+                },
+            },
+            mounted() {
+                var cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart.length > 0) {
+                    // 在页面中显示购物车中的产品信息
+                    this.box = cart;
+                } else {
+                    // 如果购物车为空，显示一条消息
+                    console.log("購物車是空的");
+                }
+
+                //activity
+                var cart2 = JSON.parse(localStorage.getItem('cart2')) || [];
+                if (cart2.length > 0) {
+                    // 在页面中显示购物车中的产品信息
+                    this.activity = cart2;
+                }
+            }
+        });
+        app.mount("#app");
+    </script>
 </body>
-</html> 
+
+</html>

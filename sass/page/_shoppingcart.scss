@@ -1,10 +1,10 @@
-.shopping{
+.shopping {
     // *{
     //     outline: solid 1px red;
     // }
-    
+
     // 購物車  上排流程----------------------------------------
-    .process{
+    .process {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -13,20 +13,22 @@
         position: relative;
         // z-index: 5;
     }
-    .line{
+
+    .line {
         width: 18%;
         height: 3px;
         background-color: $color_warterblue;
     }
 
-    .cart{
+    .cart {
         width: 122px;
         height: 122px;
         border-radius: 50%;
         background-color: $color_blue;
         // border: 1px solid #000;        
     }
-    .fa-cart-shopping{
+
+    .fa-cart-shopping {
         width: 122px;
         font-size: 35px;
         margin-top: 20px;
@@ -35,22 +37,23 @@
         color: $white;
         // border: 1px solid #000;
     }
-    .cart-text{
+
+    .cart-text {
         text-align: center;
         color: $white;
         overflow: hidden;
         // border: 1px solid #000;
     }
-    
-    
-    .pay{
+
+
+    .pay {
         width: 122px;
         height: 122px;
         border-radius: 50%;
         background-color: $color_warterblue;
     }
-    
-    .fa-credit-card{
+
+    .fa-credit-card {
         width: 122px;
         font-size: 35px;
         margin-top: 20px;
@@ -58,18 +61,21 @@
         margin-bottom: 10px;
         color: $white;
     }
-    .pay-text{
+
+    .pay-text {
         text-align: center;
         color: $black;
         // border: 1px solid #000;
     }
-    .success{
+
+    .success {
         width: 122px;
         height: 122px;
         border-radius: 50%;
         background-color: $color_warterblue;
     }
-    .fa-check{
+
+    .fa-check {
         width: 122px;
         font-size: 40px;
         margin-top: 20px;
@@ -77,60 +83,72 @@
         margin-bottom: 5px;
         color: $white;
     }
-    .success-text{
+
+    .success-text {
         text-align: center;
         color: $black;
         // border: 1px solid #000;
     }
-    
+
     // ---------------------------------------------------
-    .shoppingcart-list{
+    .shoppingcart-list {
         border: 1px solid #000;
         display: flex;
         justify-content: space-between;
         width: 62.5%;
         margin: 0 auto;
     }
-    
-    .shoppingcart-unit-price{
+
+    .shoppingcart-unit-price {
         margin-left: 130px;
     }
-    hr{
+
+    hr {
         width: 70.3%;
         margin-top: 30px;
         // color: #fff;
     }
-    
+
     //--------------------商品卡片-------------------
-    .shoppingcart-item{
+    .shoppingcart-item {
         margin: 70px auto;
         // border: 1px solid #000;
         width: 70.3%;
     }
-    
-    .shoppingcart-item li{
+
+    .shoppingcart-item li {
         display: flex;
-        margin-bottom: 70px; 
+        margin-bottom: 70px;
     }
-    .item-img{
+
+    .item-img {
         width: 260px;
         height: 190px;
+
         // border-radius: 10px;
+        img {
+
+            height: 100%;
+            object-fit: cover;
+        }
     }
-    .item-wrapper{
+
+    .item-wrapper {
         width: 100%;
         display: flex;
         justify-content: space-between;
         margin-left: 50px;
     }
-    .item-title{
+
+    .item-title {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        
-    
+
+
     }
-    .item-title .item-title-block{
+
+    .item-title .item-title-block {
         width: 100px;
         height: 25px;
         margin-top: -40px;
@@ -138,101 +156,117 @@
         line-height: 1.4;
         // border: 1px solid #000;    
     }
-    
-    .item-title .item-title-text{
+
+    .item-title .item-title-text {
         margin-top: 18px;
     }
-    .item-price{
+
+    .item-price {
         display: flex;
         align-items: center;
     }
-    .item-quantity{
+
+    .item-quantity {
         display: flex;
         align-items: center;
     }
-    .btn-number-shopping{
+
+    .btn-number-shopping {
         margin-top: 10px;
         width: 150px;
     }
-    .quantity-num{
+
+    .quantity-num {
         background-color: $white;
         // width: 150px;
         text-align: center;
         border: none;
         font-size: $h5;
     }
-   
-    
-    .item-amount{
+
+
+    .item-amount {
         display: flex;
         align-items: center;
     }
-    .item-del{
+
+    .item-del {
         display: flex;
         align-items: center;
         font-size: 25px;
         color: $gray;
     }
+
     //--------------------------------訂購活動
-    .item-activity{
+    .item-activity {
         width: 70.3%;
         margin: 50px auto;
         // border: 1px solid #000;
     }
-    .itema-activity-title{
+
+    .itema-activity-title {
         margin-left: 120px;
     }
-    .item-activity ul{
+
+    .item-activity ul {
         margin-top: 70px;
     }
-    .item-activity li{
+
+    .item-activity li {
         display: flex;
         margin-bottom: 70px;
         // border: 1px solid #000;
     }
-    .activity-price{
+
+    .activity-price {
         margin-left: -55px;
     }
-    
+
     // 總計
-    .item-total{
+    .item-total {
         width: 70.3%;
         margin: 0 auto;
         // border: 1px solid #000;
         padding-right: 100px;
         margin-bottom: 70px;
     }
-    .total{
+
+    .total {
         margin-top: 70px;
         font-size: $h2;
         // border: 1px solid #000;
         text-align: end;
     }
-    .item-button{
+
+    .item-button {
         display: flex;
         justify-content: flex-end;
         margin-top: 70px;
     }
-    .prev{
-        
+
+    .prev {
+
         font-size: $h6;
         font-weight: $font-w-700;
     }
-    .next{
+
+    .next {
         font-size: $h6;
         font-weight: $font-w-700;
         margin-left: 20px;
     }
+
     // footer
-    .shoppingcart-footer{
+    .shoppingcart-footer {
         height: 518px;
         width: 100%;
         border: 1px solid #000;
         border-radius: 50px 50px 0 0;
     }
-}    
-@media screen and (max-width: 428px){
-    .shopping{
+}
+
+@media screen and (max-width: 428px) {
+    .shopping {
         width: 100%;
     }
 }
