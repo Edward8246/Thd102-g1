@@ -1,0 +1,17 @@
+.container-load{
+    // background-color: rgba(208, 220, 234, .3);
+    width: 100vw;
+    // height: calc(100vh - 80px);
+    height: 100vh;
+    @include flex();
+
+
+    .gif{
+        width: 100px;
+
+        img{
+            width: 100%;
+        }
+
+    }
+}
