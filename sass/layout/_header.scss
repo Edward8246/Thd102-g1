@@ -1,5 +1,5 @@
 .wrapper_header {
-    *{outline: 1px red solid;}
+    //*{outline: 1px red solid;}
 
     @include flex(column,start,space-between);
     //固定在最上面
@@ -90,7 +90,8 @@
             margin-right: 20px;
             &:hover{
                 @include font_shadow;
-            }  
+            } 
+             
         }
         @include p(){
             padding: 0;
@@ -108,6 +109,11 @@
                 margin: 0;
                 
             }
+        }
+    }
+    .logout{
+        &.-none{
+            display: none;
         }
     }
     
