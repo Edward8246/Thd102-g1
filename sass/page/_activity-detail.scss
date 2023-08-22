@@ -92,6 +92,10 @@
             }
         }
 
+        .price{
+            margin-bottom: 20px
+        }
+
         .join{
             .join-txt{
                 @include flex(row, space-between);
