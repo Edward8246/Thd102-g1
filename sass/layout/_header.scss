@@ -1,5 +1,5 @@
 .wrapper_header {
-    //*{outline: 1px red solid;}
+    *{outline: 1px red solid;}
 
     @include flex(column,start,space-between);
     //固定在最上面
@@ -110,10 +110,6 @@
             }
         }
     }
-    .-none{
-        //display: flex;
-        display: none;
-    }
     
     .cart{
         @include fontStyle($h7,$color_blue);
@@ -127,13 +123,13 @@
 }
 
 .header_cataPage{
-    position: absolute;
-    margin-top: 80px;
+    overflow: auto;
     z-index: 1;
     background-color: rgba($white,.9);
     width: 100%;
+    height: calc(100vh - 80px);
     box-shadow: 0 4px 4px rgba(#333,.2);
-    padding: 20px $side_padding-360px;
+    padding: 0px $side_padding-360px;
     @include flex(row,space-evenly,center);
     transform: translateY(0vh);
     transition: 1.5s;
@@ -146,6 +142,7 @@
         //預設隱藏，點擊bar才會展開
         transform: translateY(-200vh);
     }
+   
     
     
     
