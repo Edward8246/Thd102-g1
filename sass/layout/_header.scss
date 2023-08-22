@@ -1,5 +1,5 @@
 .wrapper_header {
-    *{outline: 1px red solid;}
+    //*{outline: 1px red solid;}
 
     @include flex(column,start,space-between);
     //固定在最上面
@@ -28,7 +28,7 @@
         align-items: center;
     }
     .header_right{
-        justify-content: end;
+        justify-content: flex-end;
     }
 
     .btn_white{
