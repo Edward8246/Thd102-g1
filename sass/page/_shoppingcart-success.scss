@@ -1,12 +1,4 @@
 .shopping-success{
-    .process{
-        @include m(){
-            // border: 1px solid #000;
-            align-items: center;
-            width: 100%;
-            padding: 0 6px 0 6px;
-        }
-    }
     // 付款頁面  上排流程圖
     .line{
         width: 18%;
@@ -78,8 +70,6 @@
         z-index: 1;
         left: calc(50% - 144.5px);
         top: 370px;
-        @include m(){
-        }
     }
     //箱子正面外包裝
     .success-box-front{
@@ -117,19 +107,13 @@
     .success-food1-img{
         // border: 1px solid #000;
         width: 100%;
-        @include m(){
-            display: none;
-        }
     }
     .success-food1{
         width: 100px;
         position: absolute;
         z-index: 2;
         top: 50px;
-        left: calc(50% - 280px); 
-        @include m(){
-            display: none;
-        }
+        left: calc(50% - 280px);           
     }
     //-----------------------------------土豆
     .success-food2-img{
@@ -159,20 +143,13 @@
     .success-food4-img{
         // border: 1px solid #000;
         width: 100%;
-        @include m(){
-            display: none;
-        }
     }
     .success-food4{
         width: 70px;
-        height: 100%;
         position: absolute;
         z-index: 2;
         top: 120px;
         left: calc(50% + 200px);
-        @include m(){
-            display: none;
-        }
     }
     //----------------------------------肉
     .success-food5-img{
@@ -317,13 +294,7 @@
         justify-content: center;
         opacity: 0;
     }
-    .btn_shopping-prev{
-        font-size: $h6;
-        font-weight: $font-w-700;
-        margin: 0 10px 0 10px;
-    }
 
-    
 @media screen and (max-width: 1920px){
     .success-animation-wrapper{
         height: 600px;
