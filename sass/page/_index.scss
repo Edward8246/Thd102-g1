@@ -1,6 +1,6 @@
 // 首頁
 .index{
-    //*{outline: 1px solid red;}
+    *{outline: 1px solid red;}
     
     .container{
         @include flex(column,center,center);
