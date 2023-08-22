@@ -101,6 +101,10 @@
        
     }
 }
+
+
+
+//購物車 上頁
 .btn_shopping-prev{
     @include btn($fontColor,#fff,$color_blue,$border-radius-50);
     width: 181px;
@@ -110,6 +114,7 @@
         border: none;
     }
 }
+//購物車 下頁
 .btn_shopping-next{
     @include btn($white ,$color_blue,$color_blue,$border-radius-50);
     width: 181px;

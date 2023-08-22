@@ -23,13 +23,13 @@ $(function(){
 
             setTimeout(function(){
                 $(".success-animation").remove();
-            },9000);
+            },8000);
             setTimeout(function(){
                 $(".success-animation-wrapper").animate({height:'50px'})
-            },9000);
+            },8000);
             setTimeout(function(){
                 $(".shoppinrcart-success-button").animate({opacity:'1'})
-            },10000);
+            },8500);
         }
     })
 })
