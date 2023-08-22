@@ -502,6 +502,7 @@ form {
         .container-login.right-panel-active .sign-up-container {
             transform: translateX(0);
             animation: none;
+            transition: 0s;
 
         }
 
