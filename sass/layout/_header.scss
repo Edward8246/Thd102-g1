@@ -139,6 +139,9 @@
     @include flex(row,space-evenly,center);
     transform: translateY(0vh);
     transition: 1.5s;
+    position: absolute;
+    top:100%;
+    left: 0;
 
     @include m(){
         padding:  20px $side_padding-m;
