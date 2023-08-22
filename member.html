@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./images/logo_icon.ico">
 
-    <title>Document</title>
+    <title>Hako: 會員中心</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -15,37 +15,39 @@
         @@include('./layout/header.html')
         <div class="container">
             <div class="member_tabs">
-                <div class="tab member t-choose">會員資料</div>
-                <div class="tab product">商品訂單查詢</div>
-                <div class="tab activity">報名活動查詢</div>
+                <div class="tab member t-choose"> <h6>會員資料</h6> </div>
+                <div class="tab product"> <h6>商品訂單查詢</h6> </div>
+                <div class="tab activity"> <h6>報名活動查詢</h6> </div>
             </div>
             <div class="main">
-                <h1 class="main_text">基本資料設定</h1>
+                <h5 class="main_text">基本資料設定</h5>
                 <div class="data">
                     <div class="short-g">
-                        <label for="name" class="title-text">姓名*</label>
+                        <label for="name" class="title-text">姓名<span>*</span></label>
                         <input class="input-space"type="text" name="name" id="name">
                     </div>
     
                     <div class="short-g">
-                        <label for="phone" class="title-text">電話號碼*</label>
+                        <label for="phone" class="title-text">電話號碼<span>*</span></label>
                         <input  class="input-space" type="text" name="phone" id="phone">
                     </div>
-    
-                    <div class="long-g">
-                        <label for="address" class="title-text">地址*</label>
-                        <input  class="input-space" type="text" name="address" id="address">
-                    </div>
-    
-                    <div class="long-g">
-                        <label for="email" class="title-text">電子郵件*</label>
+
+                    <div class="short-g">
+                        <label for="email" class="title-text">電子郵件<span>*</span></label>
                         <input class="input-space" type="text" name="eamil" id="eamil">
                     </div>
                     
-                    <div class="long-g">
-                        <label for="password" lass="title-text">密碼*</label>
+                    <div class="short-g">
+                        <label for="password" class="title-text">密碼<span>*</span></label>
                         <input  class="input-space" type="text" name="password" id="password">
                     </div>
+    
+                    <div class="long-g">
+                        <label for="address" class="title-text">地址<span>*</span></label>
+                        <input  class="input-space" type="text" name="address" id="address">
+                    </div>
+    
+                    
                     <div class="btns">
                         <button type="button" class="btn btn_cxl">取消變更</button>
                         <button type="button" class="btn btn_change">儲存變更</button>
@@ -56,7 +58,7 @@
             <!-- 商品訂單查詢 -->
     
             <div class="main product-list d-none">
-                <h1 class="main_text">商品訂單查詢</h1>
+                <h5 class="main_text">商品訂單查詢</h5>
                 <div class="table-users"> 
                     <table class="table_imfo" cellspacing="0">
                         <tr>
@@ -100,13 +102,16 @@
                         </tr>
                     </table>
                 </div>
-                <button type="button" class="btn_back">返回</button>
+                <div class="btns">
+                    <button type="button" class="btn_change">返回</button>
+
+                </div>
             </div>
     
             <!-- 報名活動查詢 -->
     
             <div class="main activity-list d-none">
-                <h1 class="main_text">報名活動查詢</h1>
+                <h5 class="main_text">報名活動查詢</h5>
     
                 <div class="table-users"> 
                     <table class="table_imfo" cellspacing="0">
@@ -128,7 +133,9 @@
                     </table>
                 </div>
             
-                <button type="button" class="btn_back">返回</button>
+                <div class="btns">
+                    <button type="button" class="btn_change">返回</button>
+                </div>
             </div>
         </div>
         @@include('./layout/footer.html')
