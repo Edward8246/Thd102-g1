@@ -275,40 +275,6 @@ const activity = Vue.createApp({
                         return true;
                     }
                 },
-<<<<<<< HEAD
-                addCart() {
-                    let buy_value = document.getElementsByClassName("buy-value")[0];
-        
-                    var productInfo = {
-                        img: this.filteredList[this.idPort].img,
-                        name: this.filteredList[this.idPort].name, // 替换为实际的产品信息
-                        quantity: buy_value.value,
-                        // total: (this.filteredList[this.idPort].price) * buy_value.value
-                        // 添加其他产品信息
-                    };
-        
-                    // 获取购物车数据（如果存在）
-                    var cart2 = JSON.parse(localStorage.getItem('cart2')) || [];
-        
-        
-                    // 检查购物车中是否已经存在相同的商品
-                    const existingItem = cart2.find(cartItem => cartItem.name === productInfo.name);
-        
-                    if (existingItem) {
-                        // 如果存在相同的商品，更新数量
-                        existingItem.quantity = parseInt(existingItem.quantity) + parseInt(productInfo.quantity);
-                        existingItem.total = existingItem.price * existingItem.quantity;
-                    } else {
-                        // 否则，将新商品添加到购物车
-                        cart2.push(productInfo);
-                    }
-        
-        
-                    // 将购物车数据重新存储到 localStorage
-                    localStorage.setItem('cart2', JSON.stringify(cart2));
-                }
-                
-=======
                 addNumber(){
                     let buy_value = document.getElementsByClassName("buy-value")[0];
                     let btn_add = document.getElementsByClassName('b-add')[0];
@@ -327,7 +293,6 @@ const activity = Vue.createApp({
                     }
           
                 },                
->>>>>>> a4c480a92e6350fec5ac961e0725da6eac0c2389
             },
             mounted(){
                 let urlParams = new URLSearchParams(window.location.search);
