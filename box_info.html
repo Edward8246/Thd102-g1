@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    @@include('./layout/loading.html')
     @@include('./layout/login.html')
 
     <div id="buy"  class="wrapper boxInfo">
@@ -39,9 +40,9 @@
             
                     <section class="buy">
                         <div class="info-left">
-                            <div class="image">
-                                <img :src="product[index].img" alt="">
-                            </div>
+                            <!-- <div class="image"> -->
+                                <img class="image" :src="product[index].img" alt="">
+                            <!-- </div> -->
                            
                         </div>
             

@@ -65,6 +65,10 @@
     max-width: 900px;
     margin-bottom: 200px;
     } 
+
+    .accordion-body{
+      line-height: 1.5;
+    }
     
     .accordion-button:not(.collapsed){
           background-color: $color_warterblue;
