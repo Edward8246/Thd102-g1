@@ -12,42 +12,43 @@
         
         <div class="container-login" id="container">
             <div class="close-btn" id="close-btn">&times;</div>
-<!-- 註冊 -->
+
+            <!-- 註冊 -->
             <div class="form-container sign-up-container" id="sign-up-container">
                 <form action="#">
-                <h2 class="title2">註冊</h2>
+                    <h2 class="title2">註冊</h2>
                     <div class="form_input">
                         <label class="title-text">姓名</label>
-                        <input class="input-space" name="name" type="text" placeholder="請輸入姓名">
+                        <input class="input-space" id="signUp_name" name="name" type="text"  placeholder="請輸入姓名">
                     </div>
-    
+
                     <div class="form_input">
                         <label class="title-text">電子信箱</label>
-                        <input class="input-space" name="email" type="text" placeholder="請輸入E-mail">
+                        <input class="input-space" id="signUp_email" name="email" type="text" placeholder="請輸入E-mail">
                     </div>
-    
+
                     <div class="form_input">
                         <label class="title-text">密碼</label>
-                        <input class="input-space" name="password" type="text" placeholder="請輸入密碼">
+                        <input class="input-space" id="signUp_password" name="password" type="text" placeholder="請輸入密碼">
                     </div>
                     
                     <div class="form_input">
                         <label class="title-text">確認密碼</label>
-                        <input class="input-space" name="password2"  type="text" placeholder="請再次輸入密碼">
+                        <input class="input-space" id="signUp_password_2" name="password2"  type="text" placeholder="請再次輸入密碼">
                     </div>
                     <p class="text">註冊即表示您已同意服務條款及隱私權政策</p>
-                    <button>註冊會員</button>
+                    <button id="doSubmit_signUp">註冊會員</button>
                     
                     <div class="signup_login">
                         <div class="textarea">歡迎回來!
-                            <span href="#" class="text login-link" id="login-link">立即登入</span>
+                            <span href="#" class="text login-link">立即登入</span>
                         </div>
                     </div>
                     
                 </form>
             </div>
 
-        <!-- 登入 -->
+            <!-- 登入 -->
             <div class="form-container sign-in-container" id="sign-in-container">
                 <form action="#">
                     <h2 class="title2">登入</h2>
@@ -105,35 +106,37 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     
         <!-- 登入成功 -->
       
-            <div class="signin-success" id="signin-success">
-                <div class="signin-icon">
-                    <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
-                </div>
-                <div class="signin-success-txt">
-                    <p>登入成功！歡迎回來!</p>
-                </div>
-                <a href="../member.html"><button class="member-button" id="member-button">前往會員專區</button></a>
-                <a href="../index.html"><button class="home-button" id="home-button">回首頁</button></a>
+        <div class="signin-success" id="signin-success">
+            <div class="signin-icon">
+                <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
             </div>
+            <div class="signin-success-txt">
+                <p>登入成功！歡迎回來!</p>
+            </div>
+            <a href="../member.html"><button class="member-button" id="member-button">前往會員專區</button></a>
+            <a href="../index.html"><button class="home-button" id="home-button">回首頁</button></a>
+        </div>
       
 
 
         <!-- 註冊成功 -->
         
-            <div class="signup-success" id="signup-success">
-                <div class="signup-icon">
-                    <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
-                </div>
-                <div class="signup-success-txt">
-                    <p>註冊成功！歡迎加入!</p>
-                </div>
-                <button class="member-button" id="member-button">前往會員專區</button>
-                <button class="home-button" id="home-button">回首頁</button>
+        <div class="signup-success" id="signup-success">
+            <div class="signup-icon">
+                <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
             </div>
+            <div class="signup-success-txt">
+                <p>註冊成功！歡迎加入!</p>
+            </div>
+            <button class="member-button" id="member-button">前往會員專區</button>
+            <button class="home-button" id="home-button">回首頁</button>
+        </div>
        
 
 
