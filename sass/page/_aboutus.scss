@@ -82,6 +82,7 @@
 
 .sectionTwo{
     background-color: #fff;
+    background-repeat: no-repeat;
 }
 
 .sectionTwo h1{
@@ -125,14 +126,21 @@
 //轉場 transition
 
 .transition{
-
+    position: relative;
+    width: 100%;
+    height: 600px; //可再調整數值成比例
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 
 .transition .box_explode{
+    position: absolute;
+    bottom: 0;
     text-align: center;
-
+    z-index: 2;
 }
 
 
@@ -187,7 +195,6 @@
 
 .sectionThree h2{
     text-align: center;
-    margin-top: 30px;
     margin-bottom: 20px;
 }
 
@@ -264,6 +271,8 @@
 
 .sectionFour h3{
     margin-bottom: 20px;
+    color: #1E88A8;
+    font-weight: bold;
 
 }
 
@@ -397,7 +406,6 @@
     display: flex;
     margin-right: 40px;
     padding: 30px;
-
 }
 
 .sectionFive img{
@@ -406,6 +414,9 @@
 
 .sectionFive h3{
     margin-bottom: 10px;
+    color: #1E88A8;
+    font-weight: bold;
+    fsz28
 
 }
 
@@ -416,7 +427,12 @@
 .rightPicture{
     border-radius: 20px;
     margin-right: 10%;
+}
 
+.rightPicture img{
+    width: 90%;
+    height: 90%;
+    margin-top: 60px;
 }
 
 
