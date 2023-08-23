@@ -13,6 +13,11 @@ html{
             margin: 0 auto;
             width: 75%;
            display: block;
+           padding-top: 30px;
+           .image{
+            border-radius: 10px;
+            overflow: hidden;
+           }
            .select-tag-r{
             position: sticky;
             top: 0;
@@ -29,6 +34,10 @@ html{
            }
         }
         @include m {
+            padding-top: 0;
+            .image{
+                border-radius: 0;
+            }
             width: 100%;
             .select-tag-r{
                 padding-top: 12px;
@@ -77,7 +86,7 @@ html{
         .buy {
             width: 100%;
             margin-bottom: 95px;
-            @include flex(row, space-between, end);
+            @include flex(row, space-between, stretch);
             @include d(820px){
                 flex-direction: column;
                 align-items: center;
@@ -92,6 +101,12 @@ html{
                 border-radius: 12px;
                 overflow: hidden;
                 @include btn_shadow($black, .4);
+                .image{
+                    height: 100%;
+                    img{
+                        height: 100%;
+                    }
+                }
                 @include d(820px){
                     display: none;
                     }

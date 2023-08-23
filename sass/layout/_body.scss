@@ -4,13 +4,14 @@ body {
     @include fontStyle($fontsize,$fontColor,400,1.2); 
    
 
-.wrapper {
-   @import './header';
-   @import './footer';
-   @import './backToTop';
-}
+
 
 }
+// .wrapper {
+  @import './header';
+  @import './footer';
+  @import './backToTop';
+// }
 
 h1{
   font-size:$h1;

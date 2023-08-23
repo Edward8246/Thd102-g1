@@ -42,12 +42,7 @@
                             <div class="image">
                                 <img :src="product[index].img" alt="">
                             </div>
-                            <div class="info-tags">
-                                <div  :class="'ft-'+product[index].color" class="info-tag">{{ product[index].cuisine }}</div>
-                                <div v-if="product[index].fast" class="ft-red info-tag">快速料理</div>
-                                <div v-if="product[index].health" class="ft-yellow info-tag">健康料理</div>
-            
-                            </div>
+                           
                         </div>
             
                         <div class="info-right ">

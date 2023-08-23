@@ -12,6 +12,9 @@
 </head>
 
 <body>
+  @@include('./layout/loading.html')
+
+
   @@include('./layout/login.html')
   <div class="wrapper boxPage">
     @@include('layout/header.html')
@@ -51,8 +54,7 @@
             <div class="box-text">
               <h6>{{item.name}}</h6>
               <div class="tag-group">
-                <div class="tag-color " :class="'box-'+item.color"></div>
-                <p class="t-n">{{ item.cuisine }}</p>
+               
                 <div class="time-icon">
                   <i class="fa-solid fa-clock"></i>
                   <p>{{ item.time }}</p>
