@@ -8,10 +8,7 @@ const app = Vue.createApp({
                     id: 1,
                     name: "薑汁燒肉",
                     img: "./images/box-info/box-info-ginger.jpg",
-                    color: "purple",
-                    cuisine: "中式料理",
-                    health: false,
-                    fast: true,
+                    cuisine: "日式料理",
                     price: "188",
                     time: "20分鐘",
                     tool: "平底鍋",
@@ -46,11 +43,8 @@ const app = Vue.createApp({
                 {
                     id: 2,
                     name: "蟹肉棒壽司捲",
-                    img: "./images/box/box_sushi.jpg",
-                    color: "blue",
+                    img: "./images/box-info/box-info-sushi.jpg",
                     cuisine: "日式料理",
-                    health: true,
-                    fast: true,
                     price: "166",
                     time: "30分鐘",
                     tool: "壽司捲蓆",
@@ -88,11 +82,8 @@ const app = Vue.createApp({
                 {
                     id: 3,
                     name: "夏日野薺盛宴",
-                    img: "./images/box/box_salad.jpg",
-                    color: "green",
+                    img: "./images/box-info/box-info-salad.jpg",
                     cuisine: "西式料理",
-                    health: true,
-                    fast: true,
                     price: "200",
                     time: "20分鐘",
                     tool: "平底鍋",
@@ -124,11 +115,8 @@ const app = Vue.createApp({
                 {
                     id: 4,
                     name: "糖醋排骨",
-                    img: "./images/box/box_pork.jpg",
-                    color: "purple",
+                    img: "./images/box-info/box-info-pork.jpg",
                     cuisine: "中式料理",
-                    health: false,
-                    fast: false,
                     price: "150",
                     time: "40分鐘",
                     tool: "平底鍋",
@@ -161,11 +149,8 @@ const app = Vue.createApp({
                 {
                     id: 5,
                     name: "POKE",
-                    img:"./images/box/box_poke.jpg",
-                    color: "green",
+                    img:"./images/box-info/box-info-poke.jpg",
                     cuisine: "西式料理",
-                    health: true,
-                    fast: true,
                     price: "160",
                     time: "20分鐘",
                     tool: "刀具、碗",
@@ -197,7 +182,7 @@ const app = Vue.createApp({
                 {
                     id: 6,
                     name: "火腿漢堡",
-                    img: "./images/box/box_hamburger.jpg",
+                    img: "./images/box-info/box-info-hamburger.jpg",
                     color: "green",
                     cuisine: "西式料理",
                     health: false,
@@ -227,6 +212,84 @@ const app = Vue.createApp({
                     chefName: "Alex Hamilton",
                     chefIntro: "Alex Hamilton是一位傑出的西式料理男廚師，他以他的創意、專業和熱情在烹飪界引起了廣泛的關注。出生於法國的廚藝世家，亞歷克斯從小就對美食和烹飪技藝產生濃厚的興趣。他善於將新鮮的季節食材和當地的特色結合，呈現出充滿層次感和口感的菜品，總是能給食客帶來驚喜和滿足。",
                     chefImg: "./images/box-info/box-info-chef2.png"
+
+                },
+                {
+                    id: 7,
+                    name: "韭菜豬肉水餃",
+                    img: "./images/box-info/box-info-dumpling.jpg",
+                    cuisine: "中式料理",
+                    price: "120",
+                    time: "40分鐘",
+                    tool: "鍋子",
+                    intro: "將新鮮的韭菜和多汁的豬肉結合在一起，確保每一口都充滿了鮮美和溫暖，這是一道適合與親朋好友共享的佳餚，不論是在午餐時間品味還是晚餐時與家人共享，我們的韭菜豬肉水餃都將成為您的味蕾最愛。",
+                    ingredients: [
+                        { item: "韭菜", num: "200g" },
+                        { item: "豬絞肉", num: "200g" },
+                        { item: "水餃皮", num: "20片" },
+                        { item: "薑蒜末", num: "依喜好" },
+                        { item: "醬油", num: "2匙" },
+                        { item: "鹽", num: "適量" },
+                        { item: "香油", num: "1茶匙" }
+
+                    ],
+                    steps: [
+                        { id: 1, title: "預備材料", do: "將韭菜切碎，將薑蒜剁成末，備用。" },
+                        { id: 2, title: "調製餡料", do: "在一個大碗中，將豬絞肉和切碎的韭菜放在一起。加入薑蒜末、醬油、花椒粉、鹽和香油，混合均勻。這就是水餃的餡料。" },
+                        { id: 3, title: "包水餃", do: "取一片水餃皮，放一些餡料在中間。用指尖蘸些水沿著水餃皮的邊緣，然後將皮對摺成半圓形。用手指輕壓餃邊，使其密封。根據需要，可以摺出花紋或將餃子封口。" },
+                        { id: 4, title: "煮水餃", do: " 在大鍋中加入足夠的水，讓水煮沸。將水餃放入滾水中，煮至餃子浮起並變形，這通常需要2-3分鐘。然後再繼續煮1-2分鐘，確保餃子熟透。" },
+                        { id: 5, title: "撈出水餃", do: "使用網漏或湯勺，將煮熟的水餃撈出，瀝乾水分。" },
+                        { id: 6, title: "擺盤上桌", do: "將煮好的韭菜豬肉水餃裝盤，可以在碟邊放上一碟醋和辣椒油，用來蘸餃子。" },
+
+                    ],
+                    tip1: "餃子皮的質地和厚度會影響水餃的口感。選擇適合包餃子的餃皮。",
+                    tip2: " 如果餡料過於乾燥，包水餃時容易封口不牢。您可以在餡料中加入少許水，保持餡料的濕潤度。",
+                    tip3: "包水餃時，不要過度填入餡料，以免餃子爆開煮熟時。適度的餡料量可以確保餃子在烹飪過程中不會爆裂。",
+                    chefName: "張文豪",
+                    chefIntro: "張文豪在多個知名中式餐廳和飯店的廚房中積累了豐富的烹飪經驗。他對中式料理的烹飪技巧和食材有著深刻的理解，同時又善於將傳統與現代相結合，創造出別具一格的美食。他的烹飪作品不僅味道美味，更帶著他對食物和文化的獨特理解，成為了中式料理界一個備受矚目的男廚師。",
+                    chefImg: "./images/box-info/box-info-chef3.png"
+
+                },
+                {
+                    id: 8,
+                    name: "牛肉丼飯",
+                    img: "./images/box-info/box-info-donburi.jpg",
+                    color: "blue",
+                    cuisine: "日式料理",
+                    price: "200",
+                    time: "35分鐘",
+                    tool: "平底鍋",
+                    intro: "這道簡單而美味的料理是日本料理的經典之一，以薄切的嫩牛肉、甜美的醬汁和蓬鬆的白飯為特色。每一口都是一次美味的冒險，牛肉的鮮嫩和醬汁的深邃味道在嘴裡融化，帶給您滿滿的滿足感。",
+                    ingredients: [
+                        { item: "牛肉", num: "200g" },
+                        { item: "洋蔥", num: "1顆" },
+                        { item: "薑蒜末", num: "依喜好" },
+                        { item: "醬油", num: "3匙" },
+                        { item: "糖", num: "1.5匙" },
+                        { item: "酒", num: "2匙" },
+                        { item: "高湯或水", num: "半杯" },
+                        { item: "雞蛋", num: "1顆" },
+                        { item: "蔥花", num: "適量" },
+                        { item: "白飯", num: "適量" },
+
+                    ],
+                    steps: [
+                        { id: 1, title: "預備材料", do: "將牛肉切成薄片或小塊，洋蔥切成薄片，打散雞蛋，備用。" },
+                        { id: 2, title: "炒煮備料", do: "在鍋中加熱一些食用油，加入洋蔥和薑蒜末炒煮片刻，直至洋蔥變軟。" },
+                        { id: 3, title: "加入牛肉", do: "將切好的牛肉加入鍋中，繼續翻炒至牛肉變色，變得稍微熟透。" },
+                        { id: 4, title: "調味", do: "加入醬油、糖和酒，攪拌均勻，使調味料充分滲透到牛肉和洋蔥中。" },
+                        { id: 5, title: "加入高湯或水", do: " 倒入高湯或水，使調味料和牛肉充分混合。將火調至中小火，繼續燉煮幾分鐘，使牛肉入味，洋蔥變軟。" },
+                        { id: 6, title: "加入雞蛋（選擇性）", do: "如果喜歡，您可以將打散的雞蛋倒入鍋中，攪拌均勻，讓蛋液在牛肉和洋蔥間凝固。" },
+                        { id: 7, title: "裝盤", do: "將煮好的牛肉和洋蔥混合物盛裝在煮好的白飯上，撒上一些蔥花作為裝飾。" }
+
+                    ],
+                    tip1: "您可以使用薄片的牛肉或小塊的牛肉。根據您的口味和喜好選擇適合的牛肉。",
+                    tip2: "調味料的份量可以根據您的喜好進行微調，如果您喜歡更甜或更鹹的口味，可以適當增加糖或醬油的量。",
+                    tip3: "在炒煮洋蔥時，可以用中小火進行，讓洋蔥變得軟嫩並散發出甜味。",
+                    chefName: "橫山一郎",
+                    chefIntro: "橫山一郎是一位熱愛料理的資深日本料理大廚，擁有超過25年的廚藝經驗。他在年輕時就對料理產生濃厚的興趣，經過多年的學習與精進，成為了日本料理界的翹楚。橫山一郎對於傳統的日本料理深具造詣，同時也敢於嘗試創新，將傳統料理元素與現代烹飪技巧巧妙結合。",
+                    chefImg: "./images/box-info/box-info-chef1.png"
+
 
                 },
 
