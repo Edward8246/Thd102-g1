@@ -11,39 +11,42 @@
 </head>
 <body>
 
+    @@include('./layout/login.html')
     <div class="wrapper memberform">
         @@include('./layout/header.html')
         <div class="container">
+            <h4 class="">會員中心</h4>
+
             <div class="member_tabs">
                 <div class="tab member t-choose"> <h6>會員資料</h6> </div>
-                <div class="tab product"> <h6>商品訂單查詢</h6> </div>
-                <div class="tab activity"> <h6>報名活動查詢</h6> </div>
+                <div class="tab product"> <h6> 商品訂單</h6> </div>
+                <div class="tab activity"> <h6>報名活動</h6> </div>
             </div>
             <div class="main">
                 <h5 class="main_text">基本資料設定</h5>
                 <div class="data">
                     <div class="short-g">
-                        <label for="name" class="title-text">姓名<span>*</span></label>
+                        <label for="name" class="title-text">姓名<span> *</span></label>
                         <input class="input-space"type="text" name="name" id="name">
                     </div>
     
                     <div class="short-g">
-                        <label for="phone" class="title-text">電話號碼<span>*</span></label>
+                        <label for="phone" class="title-text">電話號碼<span> *</span></label>
                         <input  class="input-space" type="text" name="phone" id="phone">
                     </div>
 
                     <div class="short-g">
-                        <label for="email" class="title-text">電子郵件<span>*</span></label>
+                        <label for="email" class="title-text">電子郵件<span> *</span></label>
                         <input class="input-space" type="text" name="eamil" id="eamil">
                     </div>
                     
                     <div class="short-g">
-                        <label for="password" class="title-text">密碼<span>*</span></label>
+                        <label for="password" class="title-text">密碼<span> *</span></label>
                         <input  class="input-space" type="text" name="password" id="password">
                     </div>
     
                     <div class="long-g">
-                        <label for="address" class="title-text">地址<span>*</span></label>
+                        <label for="address" class="title-text">地址<span> *</span></label>
                         <input  class="input-space" type="text" name="address" id="address">
                     </div>
     
@@ -58,15 +61,15 @@
             <!-- 商品訂單查詢 -->
     
             <div class="main product-list d-none">
-                <h5 class="main_text">商品訂單查詢</h5>
+                <h5 class="main_text">歷史訂單</h5>
                 <div class="table-users"> 
                     <table class="table_imfo" cellspacing="0">
                         <tr>
-                            <th>訂單商品</th>
-                            <th>訂單編號</th>
-                            <th>訂單日期</th>
-                            <th>訂單金額</th>
-                            <th width="230">商品名稱</th>
+                            <th class="pro-img">商品</th>
+                            <th class="pro-id">訂單編號</th>
+                            <th class="pro-date">訂單日期</th>
+                            <th class="pro-pri">金額</th>
+                            <th class="pro-item">品項</th>
                         </tr>
                     
                         <tr>
@@ -102,40 +105,40 @@
                         </tr>
                     </table>
                 </div>
-                <div class="btns">
+                <!-- <div class="btns">
                     <button type="button" class="btn_change">返回</button>
 
-                </div>
+                </div> -->
             </div>
     
             <!-- 報名活動查詢 -->
     
             <div class="main activity-list d-none">
-                <h5 class="main_text">報名活動查詢</h5>
+                <h5 class="main_text">已報名活動</h5>
     
                 <div class="table-users"> 
                     <table class="table_imfo" cellspacing="0">
                         <tr>
-                            <th>訂單商品</th>
-                            <th>訂單編號</th>
-                            <th>訂單日期</th>
-                            <th>訂單金額</th>
-                            <th width="230">商品名稱</th>
+                            <th class="pro-img">商品</th>
+                            <th class="pro-id">訂單編號</th>
+                            <th class="pro-date">訂單日期</th>
+                            <th class="pro-pri">金額</th>
+                            <th class="pro-item">品項</th>
                         </tr>
                     
                         <tr>
-                            <td><img src="./images/index_food5.jpg" class="tbimg"></td>
-                            <td>THD102-000000</td>
-                            <td>2023/05/20</td>
-                            <td>$5,000</td>
-                            <td>咖哩飯新登場</td>
+                            <td class="pro-img"><img src="./images/index_food5.jpg" class="tbimg"></td>
+                            <td class="pro-id">THD102-000000</td>
+                            <td class="pro-date">2023/05/20</td>
+                            <td class="pro-pri">$5,000</td>
+                            <td class="pro-item">咖哩飯新登場</td>
                         </tr>
                     </table>
                 </div>
             
-                <div class="btns">
+                <!-- <div class="btns">
                     <button type="button" class="btn_change">返回</button>
-                </div>
+                </div> -->
             </div>
         </div>
         @@include('./layout/footer.html')
@@ -143,6 +146,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./js/login.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/member.js"></script>
 
