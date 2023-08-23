@@ -1,19 +1,8 @@
 .shopping-success{
+    *{
+        outline: solid 1px red;
+    }
     .container{
-        .process{
-            @include m(){
-                // border: 1px solid #000;
-                align-items: center;
-                width: 100%;
-                padding: 0 6px 0 6px;
-            }
-        }
-        // 付款頁面  上排流程圖
-        .line{
-            width: 18%;
-            height: 3px;
-            background-color: $color_warterblue;
-        }
         .cart{
             background-color: $color_warterblue ;
         }
@@ -32,307 +21,324 @@
         .success-text{
             color: $white;
         }
-        .success-wrapper{
+    }
+    .process{
+        @include m(){
             // border: 1px solid #000;
-            text-align: center;
-        }
-       
-        //-------------------------------------------------
-        .fa-circle-check{
-            font-size: 180px;
-            margin-bottom: 50px;
-        }
-    
-        .success-content-text{
-            font-weight: $font-w-700;
-            margin-bottom: 10px;
-        }
-    
-    
-    
-        //--------animation--------------------
-        // 外層(給absolute用)
-        .success-animation-wrapper{
-            // transition: all 1s;
-            margin-top: 80px;
+            align-items: center;
             width: 100%;
-            height: 100vh;
-            // border: 1px solid #000;
-            position: relative;
-        }
-    
-        //中間層(包動畫物件)
-        .success-animation{
-            // border: 1px solid #000;
-            width: 62.5%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: calc(50% - 31.25%);
-            translate: -50%, 100%;
-        }
-        //箱子本體
-        .success-box-body{
-            width: 289px;
-            height: 221px;
-            position: absolute;
-            z-index: 1;
-            left: calc(50% - 144.5px);
-            top: 370px;
-            @include m(){
-            }
-        }
-        //箱子正面外包裝
-        .success-box-front{
-            position: absolute;
-            left: calc(50% - 56.8px);
-            top: 423px;
-            z-index: 3;
-        }
-        //箱子蓋子
-        .success-box-top{
-            position: absolute;
-            top: 10px;
-            left: calc(50% - 144.4px);
-            z-index: 4;
-            opacity: 0;
-        }
-        .boxtoprun{
-            transition: all 1s;
-            animation: boxtop 1s ease;
-            animation-delay: 1.5s;    
-            animation-fill-mode: forwards;
-        }
-        @keyframes boxtop{
-            0%{
-                transform: translateX(0) translateY(0);
-            }
-            30%{
-                transform: translateX(0) translateY(-10px);
-            }
-            100%{
-                transform: translateX(0) translateY(360px);
-            }
-        }
-        //--------------------------------小黃瓜
-        .success-food1-img{
-            // border: 1px solid #000;
-            width: 100%;
-            @include m(){
-                display: none;
-            }
-        }
-        .success-food1{
-            width: 100px;
-            position: absolute;
-            z-index: 2;
-            top: 50px;
-            left: calc(50% - 280px); 
-            @include m(){
-                display: none;
-            }
-        }
-        //-----------------------------------土豆
-        .success-food2-img{
-            // border: 1px solid #000;
-            width: 100%;
-        }
-        .success-food2{
-            width: 75px;
-            position: absolute;
-            z-index: 2;
-            top: 130px;
-            left: calc(50% - 150px);
-        }
-        //-----------------------------------蘑菇
-        .success-food3-img{
-            // border: 1px solid #000;
-            width: 100%;
-        }
-        .success-food3{
-            width: 100px;
-            position: absolute;
-            z-index: 2;
-            top: 80px;
-            left: calc(50% - 30px);
-        }
-        //-----------------------------------青椒
-        .success-food4-img{
-            // border: 1px solid #000;
-            width: 100%;
-            @include m(){
-                display: none;
-            }
-        }
-        .success-food4{
-            width: 70px;
-            height: 100%;
-            position: absolute;
-            z-index: 2;
-            top: 120px;
-            left: calc(50% + 200px);
-            @include m(){
-                display: none;
-            }
-        }
-        //----------------------------------肉
-        .success-food5-img{
-            // border: 1px solid #000;
-            width: 100%;
-        }
-        .success-food5{
-            width: 130px;
-            position: absolute;
-            z-index: 2;
-            top: 0px;
-            left: calc(50% - 150px);
-        }
-        //-----------------------------------魚
-        .success-food6-img{
-            // border: 1px solid #000;
-            width: 100%;
-        }
-        .success-food6{
-            width: 110px;
-            position: absolute;
-            z-index: 2;
-            top: 0px;
-            left: calc(50% + 70px);
-        }
-        .foodmove1{ 
-            animation: foodmove1 1s ease-in ;
-            animation-fill-mode: forwards;
-        }
-        .foodmove2{
-            animation: foodmove2 .8s ease-in ;
-            animation-delay: .5s;
-            animation-fill-mode: forwards;
-        }
-        .foodmove3{
-            animation: foodmove3 .9s ease-in ;
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
-        }
-        .foodmove4{
-            animation: foodmove4 .9s ease-in ;
-            animation-delay: 1.3s;
-            animation-fill-mode: forwards;
-        }
-        .foodmove5{
-            animation: foodmove5 .9s ease-in ;
-            animation-delay: 1.6s;
-            animation-fill-mode: forwards;
-        }
-        .foodmove6{
-            animation: foodmove6 1s ease-in ;
-            animation-delay: 2s;
-            animation-fill-mode: forwards;
-        }
-        @keyframes foodmove1{
-            0% {
-                transform: translateX(0) translateY(0);
-                
-            }
-            20% {
-                transform: translateX(-10px) translateY(-10px);
-            }
-            100%{
-                transform: translateX(280px) translateY(400px);
-            }
-        }
-        @keyframes foodmove2{
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            20% {
-                transform: translateX(-5px) translateY(-15px);
-            }
-            100%{
-                transform: translateX(120px) translateY(310px);
-            }
-        }
-        @keyframes foodmove3{
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            20% {
-                transform: translateX(-5px) translateY(-15px);
-            }
-            100%{
-                transform: translateX(-10px) translateY(400px);
-            }
-        }
-        @keyframes foodmove4{
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            20% {
-                transform: translateX(10px) translateY(-15px);
-            }
-            100%{
-                transform: translateX(-240px) translateY(340px);
-            }
-        }
-        @keyframes foodmove5{
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            20% {
-                transform: translateX(-5px) translateY(-15px);
-            }
-            100%{
-                transform: translateX(120px) translateY(430px);
-            }
-        }
-        @keyframes foodmove6{
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            20% {
-                transform: translateX(10px) translateY(-10px);
-            }
-            100%{
-                transform: translateX(-120px) translateY(450px);
-            }
-        }
-        .runend{
-            animation: goend 2s;
-            
-            animation-fill-mode: forwards;
-            
-        }
-        @keyframes goend{
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            30% {
-                transform: translateX(-10px) translateY(0);
-            }
-            100% {
-                transform: translateX(1500px) translateY(0);
-            }
-        }
-        //按鈕
-        .shoppinrcart-success-button{
-            display: flex;
-            justify-content: center;
-            opacity: 0;
-        }
-        .btn_shopping-prev{
-            font-size: $h6;
-            font-weight: $font-w-700;
-            margin: 0 10px 0 10px;
-        }
-    
-        
-    @media screen and (max-width: 1920px){
-        .success-animation-wrapper{
-            height: 600px;
-        }
-        .success-animation{
-            height: 100%;
-        }
-        
+            padding: 0 6px 0 6px;
         }
     }
+    // 付款頁面  上排流程圖
+    
+    .success-wrapper{
+        // border: 1px solid #000;
+        text-align: center;
+    }
+    
+    //-------------------------------------------------
+    .fa-circle-check{
+        font-size: 180px;
+        margin-bottom: 50px;
+    }
+
+    .success-content-text{
+        font-weight: $font-w-700;
+        margin-bottom: 10px;
+    }
+
+
+
+    //--------animation--------------------
+    // 外層(給absolute用)
+    .success-animation-wrapper{
+        // transition: all 1s;
+        margin-top: 80px;
+        width: 100%;
+        height: 100vh;
+        // border: 1px solid #000;
+        position: relative;
+    }
+
+    //中間層(包動畫物件)
+    .success-animation{
+        // border: 1px solid #000;
+        width: 62.5%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 31.25%);
+        translate: -50%, 100%;
+    }
+    //箱子本體
+    .success-box-body{
+        width: 289px;
+        height: 221px;
+        position: absolute;
+        z-index: 1;
+        left: calc(50% - 144.5px);
+        top: 370px;
+        @include m(){
+        }
+    }
+    //箱子正面外包裝
+    .success-box-front{
+        position: absolute;
+        left: calc(50% - 56.8px);
+        top: 423px;
+        z-index: 3;
+    }
+    //箱子蓋子
+    .success-box-top{
+        position: absolute;
+        top: 10px;
+        left: calc(50% - 144.4px);
+        z-index: 4;
+        opacity: 0;
+    }
+    .boxtoprun{
+        transition: all 1s;
+        animation: boxtop 1s ease;
+        animation-delay: 1.5s;    
+        animation-fill-mode: forwards;
+    }
+    @keyframes boxtop{
+        0%{
+            transform: translateX(0) translateY(0);
+        }
+        30%{
+            transform: translateX(0) translateY(-10px);
+        }
+        100%{
+            transform: translateX(0) translateY(360px);
+        }
+    }
+    //--------------------------------小黃瓜
+    .success-food1-img{
+        // border: 1px solid #000;
+        width: 100%;
+        @include m(){
+            display: none;
+        }
+    }
+    .success-food1{
+        width: 100px;
+        position: absolute;
+        z-index: 2;
+        top: 50px;
+        left: calc(50% - 280px); 
+        @include m(){
+            display: none;
+        }
+    }
+    //-----------------------------------土豆
+    .success-food2-img{
+        // border: 1px solid #000;
+        width: 100%;
+    }
+    .success-food2{
+        width: 75px;
+        position: absolute;
+        z-index: 2;
+        top: 130px;
+        left: calc(50% - 150px);
+    }
+    //-----------------------------------蘑菇
+    .success-food3-img{
+        // border: 1px solid #000;
+        width: 100%;
+    }
+    .success-food3{
+        width: 100px;
+        position: absolute;
+        z-index: 2;
+        top: 80px;
+        left: calc(50% - 30px);
+    }
+    //-----------------------------------青椒
+    .success-food4-img{
+        // border: 1px solid #000;
+        width: 100%;
+        @include m(){
+            display: none;
+        }
+    }
+    .success-food4{
+        width: 70px;
+        height: 100%;
+        position: absolute;
+        z-index: 2;
+        top: 120px;
+        left: calc(50% + 200px);
+        @include m(){
+            display: none;
+        }
+    }
+    //----------------------------------肉
+    .success-food5-img{
+        // border: 1px solid #000;
+        width: 100%;
+    }
+    .success-food5{
+        width: 130px;
+        position: absolute;
+        z-index: 2;
+        top: 0px;
+        left: calc(50% - 150px);
+    }
+    //-----------------------------------魚
+    .success-food6-img{
+        // border: 1px solid #000;
+        width: 100%;
+    }
+    .success-food6{
+        width: 110px;
+        position: absolute;
+        z-index: 2;
+        top: 0px;
+        left: calc(50% + 70px);
+    }
+    .foodmove1{ 
+        animation: foodmove1 1s ease-in ;
+        animation-fill-mode: forwards;
+    }
+    .foodmove2{
+        animation: foodmove2 .8s ease-in ;
+        animation-delay: .5s;
+        animation-fill-mode: forwards;
+    }
+    .foodmove3{
+        animation: foodmove3 .9s ease-in ;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+    .foodmove4{
+        animation: foodmove4 .9s ease-in ;
+        animation-delay: 1.3s;
+        animation-fill-mode: forwards;
+    }
+    .foodmove5{
+        animation: foodmove5 .9s ease-in ;
+        animation-delay: 1.6s;
+        animation-fill-mode: forwards;
+    }
+    .foodmove6{
+        animation: foodmove6 1s ease-in ;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes foodmove1{
+        0% {
+            transform: translateX(0) translateY(0);
+            
+        }
+        20% {
+            transform: translateX(-10px) translateY(-10px);
+        }
+        100%{
+            transform: translateX(280px) translateY(400px);
+        }
+    }
+    @keyframes foodmove2{
+        0% {
+            transform: translateX(0) translateY(0);
+        }
+        20% {
+            transform: translateX(-5px) translateY(-15px);
+        }
+        100%{
+            transform: translateX(120px) translateY(310px);
+        }
+    }
+    @keyframes foodmove3{
+        0% {
+            transform: translateX(0) translateY(0);
+        }
+        20% {
+            transform: translateX(-5px) translateY(-15px);
+        }
+        100%{
+            transform: translateX(-10px) translateY(400px);
+        }
+    }
+    @keyframes foodmove4{
+        0% {
+            transform: translateX(0) translateY(0);
+        }
+        20% {
+            transform: translateX(10px) translateY(-15px);
+        }
+        100%{
+            transform: translateX(-240px) translateY(340px);
+        }
+    }
+    @keyframes foodmove5{
+        0% {
+            transform: translateX(0) translateY(0);
+        }
+        20% {
+            transform: translateX(-5px) translateY(-15px);
+        }
+        100%{
+            transform: translateX(120px) translateY(430px);
+        }
+    }
+    @keyframes foodmove6{
+        0% {
+            transform: translateX(0) translateY(0);
+        }
+        20% {
+            transform: translateX(10px) translateY(-10px);
+        }
+        100%{
+            transform: translateX(-120px) translateY(450px);
+        }
+    }
+    .runend{
+        animation: goend 2s;
+        
+        animation-fill-mode: forwards;
+        
+    }
+    @keyframes goend{
+        0% {
+            transform: translateX(0) translateY(0);
+        }
+        30% {
+            transform: translateX(-10px) translateY(0);
+        }
+        100% {
+            transform: translateX(1500px) translateY(0);
+        }
+    }
+    //按鈕
+    .shoppinrcart-success-button{
+        display: flex;
+        justify-content: center;
+        opacity: 0;
+        .btn_white{
+            width: 120px;
+            font-weight: 700;
+            height: 32px;
+            border: 1px solid $color_blue;
+        }
+    }
+    .btn_shopping-next{
+        font-size: $h7;
+        font-weight: $font-w-700;
+        margin: 0 10px 0 10px;
+    }
+
+    
+    @media screen and (max-width: 1920px){
+    .success-animation-wrapper{
+        height: 600px;
+    }
+    .success-animation{
+        height: 100%;
+    }
+    
+    }
+    
 }
