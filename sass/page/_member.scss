@@ -8,53 +8,78 @@
         width: 100%;
         //max-width: 800px;
         margin-top: 80px;
-        padding: 80px $side_padding-360px;
+        padding: 40px $side_padding-360px 80px;
 
         @include d(610px){
-            padding: 80px 4%;
+            padding: 20px 4% 80px;
         }
+    
+    h4{
+        text-align: center;
+        margin-bottom: 30px;
+    }    
 
     }
 
 
     .member_tabs{
         display: flex;
-    
-    
+            
     }
     .main{
         background-color: $color_cream;
-        padding: 20px;
-        @include flex(column,space-between,space-between)
-    
+        color: $black;
+        padding: 20px 15% 40px;
+        border-radius: 0 5px 5px;
+        // @include btn_shadow();
+        box-shadow: 0px 1px 3px rgba(20, 20, 20, 0.3);
+        @include flex(column,space-between,space-between);
+        
+        @include p(){
+            padding: 20px 10%;
+        }
+        @include m(){
+            padding: 20px 5%;
+        }
     }
     .tab{
-        
+        cursor: pointer;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
-        background-color: #c0c0c0;
+        background-color: #f0f0f0;
+        color: #979797;
         padding: 10px 20px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 0px -1.5px 3px rgba(0, 30, 30, 0.3);
+        
         
         
     }
     .main_text{ 
         width: 100%;
-        font-size: 20px;
-        line-height: 3;
-        border-bottom: 3px solid #000;
-        margin-bottom: 30px;
+        // font-size: 20px;
+        line-height: 2; 
+        margin-bottom: 10px;
+        color: $color_darkblue;
     }
     
     .data{
-        width: 100%;
+        // width: 100%;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        
+
+        input{
+            &:focus{
+                outline: 1px solid $color_lightblue;
+            }
+        }
     }
     
     .short-g{  
-        width: 45%;        
+        width: 48%;   
+        // border-bottom: 1px solid $black;     
     }
 
     .long-g{
@@ -76,6 +101,10 @@
     
     .title-text{
         padding: 6px 0;
+
+        span{
+            color: $color_tag_red;
+        }
     }
     
     .input-space{
@@ -83,31 +112,34 @@
         background-color: white;
         border: none;
         padding: 10px;
-        border: 1px solid $color_darkblue;
+        border: 1px solid $color_grayblue;
     }
     
    
     .t-choose{
         background-color: $color_cream;
+        color: $color_darkblue;
     }
     .btns{
-        margin: 20px auto;
-        width: 80%;
-        @include flex(row,center,center)
+        // margin: 20px auto;
+        margin: 20px 0;
+        width: 100%;
+        @include flex(row,flex-end,center)
     }
     .btn{
-        margin: 0 10px;
+        // margin: 0 10px;
+        margin-left: 10px;
     }
     .btn_cxl{
         padding: 5px 20px;
         font-size: 16px;
+
+        @include size(146px, 38px); 
+        @include btn($color_blue,$white,$color_blue, 30px);
+        // border: none;
     
-        @include btn($color_darkblue,$color_lightblue,$color_blue,$border-radius-50);
-        border: none;
-    
-        &:active{
-            @include btn_hover($white,$color_darkblue,$color_lightblue);
-            border: none;
+        &:hover{
+            @include btn_shadow();
         }
         
         
@@ -117,12 +149,12 @@
         padding: 5px 20px;
         font-size: 16px;    
         
-        @include btn($white,$color_blue,$color_blue,$border-radius-50);
-        border: none;
+        @include size(146px, 38px); 
+        @include btn($white,$color_blue,$color_blue, 30px);
         
-        &:active{
-            @include btn_hover($white,$color_darkblue,$color_lightblue);
-            border: none;
+        &:hover{
+            @include btn_shadow();
+            // border: none;
         }
     }
     
@@ -143,40 +175,55 @@
     $padding: 10px;
     
     .table {
-    background-color: darken($baseColor, 5%);
-    color: white;
-    font-size: 1.5em;
-    padding: 1rem;
-    text-align: center;
-    text-transform: uppercase;
+        background-color: darken($baseColor, 5%);
+        color: white;
+        font-size: 1.5em;
+        padding: 1rem;
+        text-align: center;
+        text-transform: uppercase;
     }
     
     .tbimg {
-    border-radius: 50%;
-    height: $imageSmall;
-    width: $imageSmall;
+        border-radius: 50%;
+        height: 52px;
+        width: 52px;
     }
     
     .table-users {
     border: 1px solid darken($baseColor, 5%);
     border-radius: $borderRadius;
-    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
-    max-width: calc(100% - 2em);
-    margin: 0 auto;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    // max-width: calc(100% - 2em);
+    // margin: 0 auto;
     overflow: hidden;
     // width: 100%;
     }
     .table_imfo{
-        display: flex;
+        // display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
     table {
     width: 100%;
-    
+        .pro-img{
+            width: 15%;
+        }
+        .pro-id{
+            width: 20%;
+        }
+        .pro-date{
+            width: 20%;
+        }
+        .pro-pri{
+            width: 15%;
+        }
+        .pro-item{
+            width: 30%;
+        }
         td,th {
             color: darken($baseColor, 10%);
-            padding: $padding;
+            //padding: $padding;
+            padding: 8px 4px;
         }
     
         td {
@@ -224,10 +271,16 @@
     
     }
     
-    @media screen and (max-width: 800px) {
-    table,tr,td {
-        display: block;
+    @media screen and (max-width: 768px) {
+        table,tr,td,th {
+            display: block;
+            .pro-img, .pro-id, .pro-date, .pro-pri, .pro-item{
+                width: 100%;
+            }
         //width: 550px;
+    }
+    tbody{
+        display: block;
     }
     
     td {
