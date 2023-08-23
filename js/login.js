@@ -1,9 +1,32 @@
+//關閉視窗
 function close_window(){
     document.querySelector(".loginPage").style.display = "none";
     //如在註冊畫面關掉,再開啟會在登入畫面
     document.getElementById("sign-in-container").style.display = "block";
 	container.classList.remove("right-panel-active");
 }
+
+//------------------------------------------------
+//註冊功能
+let doSubmit_signUp_el=document.getElementById("doSubmit_signUp");
+doSubmit_signUp_el.addEventListener("click",function(e){
+    e.preventDefault(); //取消預設送出事件
+    doSubmit_signUp();
+})
+
+function doSubmit_signUp(){
+    let signUp_name_el = document.getElementById("signUp_name").value; //姓名
+    let signUp_email_el = document.getElementById("signUp_email").value; //email
+    let signUp_password_el = document.getElementById("signUp_password").value; //密碼
+    let signUp_password_2_el = document.getElementById("signUp_password_2").value; //確認密碼
+    console.log(signUp_name_el);
+    console.log(signUp_email_el);
+    console.log(signUp_password_el);
+    console.log(signUp_password_2_el);
+}
+
+
+//======================================================
 
 //點擊登入鍵跳出LOGIN
 document.getElementById("user_login").addEventListener("click", function(){
@@ -48,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const signInContainer = document.getElementById("sign-in-container");
 
     signUpLink.addEventListener("click", function() {
-    signInContainer.style.display = "none";
+      signInContainer.style.display = "none";
     });
 });
 
