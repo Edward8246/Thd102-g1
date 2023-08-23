@@ -140,16 +140,16 @@
 
         .recipe_slide{  
             margin: 0 auto;  
-            width: calc(100% - 40px);
+            width: 90vw;
             height:14vw;
             overflow:hidden;
            
             &.block1 .recipes_theme{
-            left: -10%; 
+            left: -15vw; 
             }
             
             &.block2 .recipes_theme{
-            right: -90%;
+            right: -90vw;
             }
         }
         .recipes_theme {
