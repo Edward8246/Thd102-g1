@@ -104,30 +104,6 @@
 
 
 
-//購物車 上頁
-.btn_shopping-prev{
-    @include btn($fontColor,#fff,$color_blue,$border-radius-50);
-    width: 181px;
-    height: 50px;
-    &:hover{
-        @include btn_hover($white,$color_blue,$color_blue);
-        border: none;
-    }
-}
-//購物車 下頁
-.btn_shopping-next{
-    @include btn($white ,$color_blue,$color_blue,$border-radius-50);
-    width: 181px;
-    height: 50px;
-    &:hover{
-        @include btn_hover($fontColor,#fff,$color_blue);
-        
-    }
-}
-
-
-
-
 //購物車按鈕
 .btn-number-shopping{
     
@@ -141,7 +117,7 @@
         background-color: $color_blue;
         color: $white;
         cursor: pointer;
-        width: 25%;
+        width: 40%;
         height: 100%;
 
     }
@@ -149,9 +125,9 @@
         position: relative;
         &::before{
             display: inline-block;
-            content: "";
-            width: 20px;
-            height: 2px;
+            content: "";    
+            // width: 20px;
+            // height: 2px;
             background-color: $white;
             @include abCenter_xy;
         }
@@ -171,13 +147,13 @@
         &::after{
             display: inline-block;
             content: "";
-            width: 2px;
-            height: 20px;
+                // width: 2px;
+                // height: 40%;
             background-color: $white;
             @include abCenter_xy;
         }
 
-        }
+    }
     .text-shopping{
         text-align: center;
         font-size: $h7;
@@ -186,6 +162,7 @@
         width: 60%;
         height: 100%;
         border: 1px solid $color_blue;
+        
 
        
     }
