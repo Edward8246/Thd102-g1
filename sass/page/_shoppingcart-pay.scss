@@ -1,34 +1,75 @@
 .shopping-pay{
     // 付款頁面  上排流程圖
-    .line{
-        width: 18%;
-        height: 3px;
-        background-color: $color_warterblue;
-      
+    *{
+        // outline: solid 1px red;
     }
-    .cart{
-        background-color: $color_warterblue;
+    .container{
+        margin-top: 80px;
+        padding: 40px $side_padding-360px;
+        @include p(){
+            padding: 40px $side_padding-m;
+        }
+        @include m(){
+            padding: 40px $side_padding-m;
+        }
+        .cart{
+            background-color: $color_warterblue;
+        }
+        .cart-text{
+            color: $black;
+        }
+        .pay{
+            background-color: $color_blue;
+        }
+        .pay-text{
+            color: $white;
+        }
     }
-    .cart-text{
-        color: $black;
-    }
-    .pay{
-        background-color: $color_blue;
-    }
-    .pay-text{
-        color: $white;
-    }
+    // ---------------------------------------
+    
     //-------------------------付款區塊
     .paypage{
-        width: 60%;
+        // width: 60%;
         border: 1.4px solid $color_darkblue;
-        margin: 0 auto 100px auto;
+        // margin: 0 auto 100px auto;
         
         border-radius: $border-radius-16;
+        @include m(){
+            width: 100%;
+            border: none;
+            margin: 0 auto;
+        }
+        @include p(){
+            border: none;
+         }
     }
     .paypage-form{
-        width: 385px;
-        margin: 70px auto ;
+        width: 60%;
+        margin: 40px auto ;
+        @include p(){
+            width: 80%;
+        }
+        @include m(){
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+    .shoppingcart-pay-form-title{
+        font-weight: 700;
+        width: auto;
+        margin: 0 auto;
+        text-align: center;
+        @include m(){
+            text-align: center;
+        }
+    }
+    .shoppingcart-pay-form-cardtitle{
+        font-weight: 700;
+        margin-top: 20px;
+        @include m(){
+            text-align: center;
+            margin: 40px;
+        }
     }
     .input-usertext{
         width: 100%;
@@ -44,18 +85,18 @@
         
     }
     span{
-        font-size: $h5;
+        font-size: $h7;
         width: fit-content;
     }
     .checkbox{
         width: 20px;
         height: 20px;
-        margin: 30px 15px 0 15px;
+        margin: auto 15px;
         // border: 1px solid $color_grayblue;
     }
     
     .card-number{
-        width: 80px;
+        width: 76px;
         height: 35px;
         text-align: center;
         font-size: $h6;
@@ -68,7 +109,9 @@
         margin-left: 5px;
         margin-right: 5px;
         font-size: 30px;
-        
+        @include m(){
+            margin: 0 3px;
+        }
     }
     .pay-carddate{
         width: 80px;
@@ -92,22 +135,22 @@
         border: 1px solid $color_grayblue;
         margin: 15px auto 0 auto;
     }
-    span .terms{
-        font-weight: $font-w-700;
+    .checkbox-wra{
+        display: flex;
+        margin-top: 30px;
     }
     .pay-button{
         display: flex;
-        margin: 70px auto 70px auto;
-        justify-content: center
+        margin: 40px auto;
+        justify-content: center;
+        @include p(){
+            margin: 40px auto 0 auto;
+        }
     }
     .pay-prev{
-        font-size: $h6;
-        font-weight: $font-w-700;
-        margin: 0 10px 0 10px;
+       margin-right: 10px;
     }
     .pay-next{
-        font-size: $h6;
-        font-weight: $font-w-700;
-        margin: 0 10px 0 10px;
+       margin-left: 10px;
     }
 }

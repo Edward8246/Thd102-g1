@@ -11,62 +11,70 @@
 </head>
 <body>
     <!--------------------------------上排付款流程 -->
-<div class="wrapper shopping shopping-pay">
+    @@include('./layout/login.html')
+    <div class="wrapper shopping shopping-pay">
+        @@include('./layout/header.html')
+        @@include('./layout/backToTop.html')
+        <div class="container">
 
-    <ul class="process">
-        <li class="cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <h5 class="cart-text">購物車</h5>
-        </li>
-        <li class="line"></li>
-        <li class="pay">
-            <i class="fa-regular fa-credit-card"></i>
-            <h5 class="pay-text">付款方式</h5>
-        </li>
-        <li class="line"></li>
-        <li class="success">
-            <i class="fa-solid fa-check"></i>
-            <h5 class="success-text">付款成功</h5>
-        </li>
-    </ul>
+            <ul class="process">
+                <li class="process_circle cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <h7 class="cart-text">購物車</h7>
+                </li>
+                <li class="line"></li>
+                <li class="process_circle pay">
+                    <i class="fa-regular fa-credit-card"></i>
+                    <h7 class="pay-text">付款方式</h7>
+                </li>
+                <li class="line"></li>
+                <li class="process_circle success">
+                    <i class="fa-solid fa-check"></i>
+                    <h7 class="success-text">付款成功</h7>
+                </li>
+            </ul>
 
-    <!--付款的表單------------->
+            <!--付款的表單------------->
 
-    <div class="paypage">
-        <h2>輸入以下資料</h2>
-        <form action="" class="paypage-form">
-            
-            <h5 class="form-h5">姓名</h5>
-            <input type="text" name="name" class="input-usertext">
-            <h5 class="form-h5">電話</h5>
-            <input type="text" name="phone" class="input-usertext">
-            <h5 class="form-h5">信箱</h5>
-            <input type="text" name="mail" class="input-usertext">
-            <h5 class="form-h5">地址(只能郵寄到府)</h5>
-            <input type="text" name="address" class="input-usertext">
-            <br>
-            <input type="checkbox" name="sameuser" class="checkbox"><span>同會員資料</span>
-            <h5 class="form-h5">信用卡卡號</h5>
-            <input type="text" class="card-number"><span class="pay-dash">-</span><input type="text" class="card-number"><span class="pay-dash">-</span><input type="text" class="card-number"><span class="pay-dash">-</span><input type="text" class="card-number">
-            <h5 class="form-h5">有效年月</h5>
-            <input type="text" class="pay-carddate" placeholder="MM"><span class="pay-slash">/</span><input type="text" class="pay-carddate" placeholder="YY">
-            <h5 class="form-h5">卡片背面末三碼</h5>
-            <input type="text" placeholder="XXX" class="chip-number">
-            <br>
-            <div class="checkbox-wra">
-                <input type="checkbox" name="agree" class="checkbox"><span>點選結帳即為同意此<span class="terms">購買條款</span></span>
+            <div class="paypage">
+                <h4 class="shoppingcart-pay-form-title">收件人資料</h4>
+                <form action="" method="post" class="paypage-form">
+                    
+                    <h6 class="form-h5">姓名</h6>
+                    <input type="text" name="name" class="input-usertext">
+                    <h6 class="form-h5">電話</h6>
+                    <input type="text" name="phone" class="input-usertext">
+                    <h6 class="form-h5">信箱</h6>
+                    <input type="text" name="mail" class="input-usertext">
+                    <h6 class="form-h5">地址(只能郵寄到府)</h6>
+                    <input type="text" name="address" class="input-usertext">
+                    <br>
+                    
+                    <h4 class="shoppingcart-pay-form-cardtitle">信用卡資料</h4>
+                    <h6 class="form-h5">信用卡卡號</h6>
+                    <input type="text" class="card-number"><span class="pay-dash">-</span><input type="text" class="card-number"><span class="pay-dash">-</span><input type="text" class="card-number"><span class="pay-dash">-</span><input type="text" class="card-number">
+                    <h6 class="form-h5">有效年月</h6>
+                    <input type="text" class="pay-carddate" placeholder="MM"><span class="pay-slash">/</span><input type="text" class="pay-carddate" placeholder="YY">
+                    <h6 class="form-h5">卡片背面末三碼</h6>
+                    <input type="text" placeholder="XXX" class="chip-number">
+                    <br>
+                    <div class="checkbox-wra">
+                        <input type="checkbox" name="agree" class="checkbox">
+                        <p>點選結帳即為同意此<span class="terms" style="font-weight: 700;">購買條款</span></p>
+                    </div>
+                    
+                </form>
+                <div class="pay-button">
+                    <a href="#"><button class="btn_white btn_shopping-prev prev pay-prev">回上一步</button></a>
+                    <a href="#"><button class="btn_white btn_shopping-next next pay-next">下一步</button></a>  
+                </div>
             </div>
-            
-        </form>
-        <div class="pay-button">
-            <a href="#"><button class="btn_shopping-prev pay-prev">回上一步</button></a>
-            <a href="#"><button class="btn_shopping-next pay-next">下一步</button></a>  
         </div>
+        @@include('./layout/footer.html')
     </div>
-
-
-
-</div>
-    
+    <!-------------------------------------------js-->
+    <script src="./js//vue.global.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>
