@@ -100,11 +100,13 @@ html{
                 width: 48%;
                 border-radius: 12px;
                 overflow: hidden;
+                @include flex;
                 @include btn_shadow($black, .4);
                 .image{
                     height: 100%;
+                    
                     img{
-                        height: 100%;
+                        // height: 100%;
                     }
                 }
                 @include d(820px){
