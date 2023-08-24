@@ -131,7 +131,7 @@
 .header_cataPage{
     overflow: auto;
     z-index: 1;
-    background-color: rgba($white,.9);
+    background-color: rgba($white,.95);
     width: 100%;
     height: calc(100vh - 80px);
     box-shadow: 0 4px 4px rgba(#333,.2);
@@ -190,7 +190,7 @@
         transition:all .5s;
         &:hover{
             font-weight: 700;
-            color:$color_lightblue;
+            color:$color_darkblue;
         }
         //斷點 p(800px)
         @include p(){
