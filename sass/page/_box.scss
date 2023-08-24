@@ -61,21 +61,7 @@
         position: relative;
     }
     
-    .tag-green::before{
-        @include tag_before($color_tag_green);
-    }
-    .tag-purple::before{
-        @include tag_before($color_tag_purple);
-    }
-    .tag-blue::before{
-        @include tag_before($color_tag_blue);
-    }
-    .tag-yellow::before{
-        @include tag_before($color_tag_yellow);
-    }
-    .tag-red::before{
-        @include tag_before($color_tag_red);
-    }
+  
     .box-tag{
         cursor: pointer;
         &:hover::before{
@@ -121,31 +107,33 @@
         }
         
     }
-    .onGreen{
-        @include btn_hover($white,$color_tag_green,$color_tag_green);
-        box-shadow: none;
-    }
-    .onPurple{
-        @include btn_hover($white,$color_tag_purple,$color_tag_purple);
-        box-shadow: none;
-    }
-    .onBlue{
-        @include btn_hover($white,$color_tag_blue,$color_tag_blue);
-        box-shadow: none;
-    }
-    .onYellow{
-        @include btn_hover($white,$color_tag_yellow,$color_tag_yellow);
-        box-shadow: none;
-    }
-    .onRed{
-        @include btn_hover($white,$color_tag_red,$color_tag_red);
-        box-shadow: none;
-    }
+   
+}
 
+.onGreen{
+    @include btn_hover($white,$color_tag_green,$color_tag_green);
+    box-shadow: none;
+}
+.onPurple{
+    @include btn_hover($white,$color_tag_purple,$color_tag_purple);
+    box-shadow: none;
+}
+.onBlue{
+    @include btn_hover($white,$color_tag_blue,$color_tag_blue);
+    box-shadow: none;
+}
+.onYellow{
+    @include btn_hover($white,$color_tag_yellow,$color_tag_yellow);
+    box-shadow: none;
+}
+.onRed{
+    @include btn_hover($white,$color_tag_red,$color_tag_red);
+    box-shadow: none;
 }
 
 .box-tag {
     font-size: $h5;
+    padding: 0px 20px;
 }
 
 
