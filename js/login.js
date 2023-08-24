@@ -26,7 +26,7 @@ function doSubmit_signUp(){
 }
 
 
-//======================================================
+// //======================================================
 
 //點擊登入鍵跳出LOGIN
 document.getElementById("user_login").addEventListener("click", function(){
@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     });
 });
+
 //忘記密碼> 成功> 成功畫面
 document.addEventListener("DOMContentLoaded", function() {
     const confirmBtn = document.getElementById("confirm-button");
