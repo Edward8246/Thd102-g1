@@ -46,6 +46,9 @@ document.addEventListener("keydown", function(e) {
         close_window();
     }
 })
+// document.getElementById("loginPage").addEventListener("click",function(){
+//     close_window();
+// })
 
 
 
@@ -154,4 +157,20 @@ document.addEventListener("DOMContentLoaded", function() {
         btn_logout();
     })
 
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const loginPage = document.getElementById("loginPage");
+    const container = document.getElementById("container");
+    const signUpContainer = document.getElementById("sign-up-container");
+    const signInContainer = document.getElementById("sign-in-container");
+    
+    loginPage.addEventListener("click", function (event) {
+        if (event.target === loginPage) {
+            container.classList.remove("active");
+            signUpContainer.classList.remove("active");
+            signInContainer.classList.remove("active");
+        }
+    });
 });
