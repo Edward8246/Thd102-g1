@@ -1,14 +1,18 @@
 .memberform{
     position: relative;
+    
     *{
         // outline: solid 1px red;
     }
     .container{
         font-family: $font-family;
         width: 100%;
-        //max-width: 800px;
         margin-top: 80px;
         padding: 40px $side_padding-360px 80px;
+        background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../../images/activity/activity-french.jpg');
+        background-color: #398b93;
+        background-size: cover;
+        margin-bottom: -40px;
 
         @include d(610px){
             padding: 20px 4% 80px;
