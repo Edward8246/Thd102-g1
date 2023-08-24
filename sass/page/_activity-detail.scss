@@ -1,12 +1,12 @@
 .activity-det{
+    //*{outline: 1px solid red;}
     .container{
         margin-top: 80px;
-        padding-top: 20px;
-        padding-bottom: 50px;
+        padding: 80px $side_padding-360px;
 
-        @include p(){
-            padding: 20px 20px 50px;
-        }
+        // @include p(){
+        //     //padding: 20px 20px 50px;
+        // }
     }
 
     
@@ -18,16 +18,17 @@
     // align-items: flex-start;
     flex-wrap: wrap;
 
-    @include rwdGrid(600px){
-        flex-direction: column-reverse;
-    }
+    // @include p(){
+    //     flex-direction: column-reverse;
+    // }
 }
 //左側
 .left-desc{
-    @include rwdGrid(600px){
-        margin-top: 20px;
-        width: 100%;
-    }   
+    flex:6;
+    // @include p(){
+    //     margin-top: 20px;
+    //     width: 100%;
+    // }   
     .act-d-img{
         // height: 502px;
         border-radius: 12px;
@@ -55,12 +56,13 @@
 
 //資訊
 .detail-info{
+    flex:4;
     padding-left: 24px;
-    @include rwdGrid(600px){
-        // display: none;
-        padding-left: 0;
-        width: 100%;
-    }
+    // @include rwdGrid(600px){
+    //     // display: none;
+    //     padding-left: 0;
+    //     width: 100%;
+    // }
     
     // border: 1px solid red;
     .detail-info-box{
@@ -75,7 +77,7 @@
             margin-bottom: 10px;
             
         }
-        h1{
+        h2{
             margin-bottom: 32px;
 
             @include rwdGrid(600px){
@@ -84,10 +86,13 @@
         }
         .detail-info-txt{
             display: flex;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
+            .icon{
+                width: 20px;
+                margin-right: 20px;
+            }
             i{
-                font-size: $h5;
-                margin-right: 10px;
+                font-size: $h6;
             }
             h6{
                 line-height: 1.5;
@@ -95,7 +100,8 @@
         }
 
         .price{
-            margin-bottom: 20px
+            margin: 32px 0;
+            font-weight: 700;
         }
 
         .join{

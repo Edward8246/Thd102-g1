@@ -22,7 +22,8 @@
         <div class="wrapper-t">
             <section class="flex-container-ad">
                 <!-- 左側 -->
-                <div class="left-desc col-8 col-m-6">
+                <!-- <div class="left-desc col-8 col-m-6"> -->
+                <div class="left-desc">
                     <div class="image act-d-img">
                         <img :src="filteredList[idPort].img" alt="">
                     </div>
@@ -41,25 +42,32 @@
                 </div>
                 
             <!-- 右側 -->
-                <div class="detail-info col-4 col-m-6">
+                <!-- <div class="detail-info col-4 col-m-6"> -->
+                <div class="detail-info">
                     <div class="detail-info-box">
                         <div class="col-6 col-m-3" :class="tagColor2(filteredList[idPort].tag)">{{ filteredList[idPort].tag }}</div>
-                        <h1>{{ filteredList[idPort].name }}</h1>
+                        <h2>{{ filteredList[idPort].name }}</h2>
                             
                         <div class="detail-info-txt">
-                            <i class="fa-solid fa-calendar"></i>
-                            <h6>{{ filteredList[idPort].date }}</h6>
+                            <div class="icon">
+                                <i class="fa-solid fa-calendar"></i>
+                            </div>
+                            <h7>{{ filteredList[idPort].date }}</h7>
                         </div>
             
                         <div class="detail-info-txt">
-                            <i class="fa-solid fa-clock"></i>
-                            <h6>{{ filteredList[idPort].dur }}</h6>
+                            <div class="icon">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <h7>{{ filteredList[idPort].dur }}</h7>
                         </div>
             
                         <div class="detail-info-txt">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <h6>{{ filteredList[idPort].loc }}<br>
-                                {{ filteredList[idPort].adr }}</h6>
+                            <div class="icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <h7>{{ filteredList[idPort].loc }}<br>
+                                {{ filteredList[idPort].adr }}</h7>
                         </div>
 
                         <div class="price">
