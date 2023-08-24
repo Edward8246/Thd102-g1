@@ -163,6 +163,17 @@
     <script src="./js/header.js"></script>
     <script src="./js/login.js"></script>
     <!-- <script src="./js/shoppingcart.js"></script> -->
+    <script>
+        var deleteButtons = document.querySelectorAll('.item-delete');
+            deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function() { 
+                var shoppingCartItem = button.closest('.shoppingcart-item');
+                if (shoppingCartItem) {
+                    shoppingCartItem.remove();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
