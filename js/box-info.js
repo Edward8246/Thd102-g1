@@ -294,7 +294,8 @@ const app = Vue.createApp({
                 },
 
             ],
-            currentTag:null //初始狀態沒有元素被添加
+            currentTag:null, //初始狀態沒有元素被添加
+            isToggled: false // 初始情况下不展开
         };
     },
     methods: {
@@ -353,6 +354,9 @@ const app = Vue.createApp({
         changeTag(tag) {
             // 当点击一个标签时，将该标签设置为当前标签，并取消其他标签的选择
             this.currentTag = tag;
+          },
+          toggleSlide() {
+            this.isToggled = !this.isToggled;
           }
     },
     mounted() {

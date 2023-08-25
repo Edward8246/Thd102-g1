@@ -20,7 +20,10 @@
         <div  class="container"> 
           <div id="app">
             <!-- cata ref -->
-            <div class="select-tag">
+            <div class="select-tag" :class="{ 'slideToggle': isToggled }">
+
+                <button class="slide" @click="toggleSlide" ><i class="fa-solid fa-right-left"></i></button>
+
                 <a href="#buy" class="select" :class="{ 'onTag': currentTag === 'buy' }" @click="changeTag('buy')">立即訂購</a>
 
                 <a href="#ingred" class="select" :class="{ 'onTag': currentTag === 'ingred' }" @click="changeTag('ingred')">內含食材</a>

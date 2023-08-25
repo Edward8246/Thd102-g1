@@ -15,7 +15,6 @@ html{
             //width: 75%;
            display: block;
            //padding-top: 30px;
-           padding: 0 $side_padding-360px;
            .image{
             border-radius: 10px;
             overflow: hidden;
@@ -36,7 +35,7 @@ html{
         //    }
         }
         @include m {
-            padding-top: 0;
+            //padding-top: 0 ;
             .image{
                 border-radius: 0;
             }
@@ -55,6 +54,8 @@ html{
     }
      //modify-----------------------------
      .select-tag{
+        position: relative;
+        z-index: 30;
         position: fixed;
         right: 0;
         bottom: 20vh;
@@ -62,21 +63,47 @@ html{
         padding: 20px 5vw 20px 20px;
         border-radius: 16px 0 0 16px;
         @include flex(column);
-        @include d(1120px){
+        @include d(820px){
             background-color: $color_blue;
-            
+            transform: translateX(100px);
+            transition: .5s;
+            &.slideToggle{
+                transform: translateX(10px);
+            }
         }
-        
+        .slide{
+            display: none;
+            @include size(36px,36px);
+            border-radius:50% ;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform:translate(-70%,-50%);
+            background-color: $white;
+            border: solid 1px $color_blue;
+            cursor: pointer;
+
+            
+
+            @include d(820px){
+                display: block;
+                
+            }
+            i{
+                color:$color_blue;
+                font-size: 12px;
+            }
+        }
         .select{
             padding: 4px;
             color:$gray;
-            @include d(1120px){
+            @include d(820px){
                 color: #eee;
             }
             
             &.onTag{
                 color: $color_blue;
-                @include d(1120px){
+                @include d(820px){
                     color: #fff;
                     font-weight: 700;
                 }
@@ -89,7 +116,7 @@ html{
                 background-color: $color_blue;
                 transition: .4s .2s;
                 margin-top: 4px;   
-                @include d(1120px){
+                @include d(820px){
                     background-color:  #fff;
                 }
             }
@@ -110,9 +137,10 @@ html{
         // @include d(820px){
         //     width: 75%;
         //     }
-        // @include m{
-        //     width: 90%;
-        // } 
+        @include m{
+            //width: 90%;
+            padding: 0 $side_padding-m;
+        } 
     
         // .select-tag {
         //     padding-top: 20px;
