@@ -293,9 +293,8 @@ const app = Vue.createApp({
 
                 },
 
-            ]
-
-
+            ],
+            currentTag:null //初始狀態沒有元素被添加
         };
     },
     methods: {
@@ -350,7 +349,11 @@ const app = Vue.createApp({
 
             // 将购物车数据重新存储到 localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
-        }
+        },
+        changeTag(tag) {
+            // 当点击一个标签时，将该标签设置为当前标签，并取消其他标签的选择
+            this.currentTag = tag;
+          }
     },
     mounted() {
         let urlParams = new URLSearchParams(window.location.search);

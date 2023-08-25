@@ -49,11 +49,16 @@
         <section class="box-title">
           <h4>訂購盒子</h4>
           <div class="select-tag2">
-            <div class="box-tag-m" @click="show('green', 'western','all')">西式料理</div>
-            <div class="box-tag-m" @click="show('purple', 'chinese','all')">中式料理</div>
-            <div class="box-tag-m" @click="show('blue', 'japanese','all')">日式料理</div>
-            <div class="box-tag-m" @click="show('yellow', 'health','all')">健康料理</div>
-            <div class="box-tag-m" @click="show('red', 'fast','all')">
+
+            <div class="box-tag-m"  :class="{onTag: currentTag === 'green' }" @click="show('green', 'western','all')">西式料理</div>
+
+            <div class="box-tag-m" :class="{onTag: currentTag === 'purple'}" @click="show('purple', 'chinese','all')">中式料理</div>
+
+            <div class="box-tag-m" :class="{onTag: currentTag === 'blue'}" @click="show('blue', 'japanese','all')">日式料理</div>
+
+            <div class="box-tag-m" :class="{onTag: currentTag === 'tellow'}" @click="show('yellow', 'health','all')">健康料理</div>
+
+            <div class="box-tag-m":class="{onTag: currentTag === 'red'}" @click="show('red', 'fast','all')">
               快速料理</div>
             </div>
         </section>

@@ -40,7 +40,7 @@
 }
 
 .box-wrapper {
-    margin : 0 $side_padding-360px;
+    margin : 40px $side_padding-360px;
     margin-right: 15%;
     //width: 100%;
     @include flex(row,flex-start);
@@ -155,15 +155,15 @@
         width: 16%;
         margin-bottom: 12px;
         text-align: center;
-        border: solid 1px $color_blue;
-        color : $color_blue;
+        border: solid 1px $color_darkblue;
         border-radius: 40px;
         line-height: 2;
         transition:.3s;
         &:hover,&:active{
-            transform: scale(1.2);
-            background-color: $color_blue;
+            transform: scale(1.15);
+            background-color: $color_darkblue;
             color: $white;
+            border: none;
         }
 
         @include p{
@@ -177,7 +177,14 @@
 
    
 }
+//modify
+.onTag{
+    background-color: $color_darkblue;
+    color: $white;
+}
 
+
+//------------------------------
 // .onGreen{
 //     @include btn_hover($white,$color_tag_green,$color_tag_green);
 //     box-shadow: none;

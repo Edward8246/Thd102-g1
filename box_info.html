@@ -15,30 +15,40 @@
     @@include('./layout/loading.html')
     @@include('./layout/login.html')
 
-    <div id="buy"  class="wrapper boxInfo">
+    <div class="wrapper boxInfo">
         @@include('layout/header.html')
         <div  class="container"> 
-            <div id="app">
+          <div id="app">
+            <!-- cata ref -->
+            <div class="select-tag">
+                <a href="#buy" class="select" :class="{ 'onTag': currentTag === 'buy' }" @click="changeTag('buy')">立即訂購</a>
+
+                <a href="#ingred" class="select" :class="{ 'onTag': currentTag === 'ingred' }" @click="changeTag('ingred')">內含食材</a>
+
+                <a href="#step" class="select" :class="{ 'onTag': currentTag === 'step' }" @click="changeTag('step')">料理步驟</a>
+
+                <a href="#chef" class="select" :class="{ 'onTag': currentTag === 'chef' }" @click="changeTag('chef')">主廚推薦</a>
+            </div>
             <div class="info-wrapper" >
                 <div class="info-top">
                     <div class="image">
                         <img :src="product[index].img" alt="">
                     </div>
-                    <div class="select-tag-r">
+                    <!-- <div class="select-tag-r">
                         <a href="#buy" class="select-r">訂購</a>
                         <a href="#ingred" class="select-r">食材</a>
                         <a href="#step" class="select-r">步驟</a>
-                    </div>
+                    </div> -->
             
                 </div>
                 <div class="box-info-wrapper ">
-                    <section class="select-tag"> 
+                    <!-- <section class="select-tag"> 
                         <a href="#buy" class="select">訂購</a>
                         <a href="#ingred" class="select">食材</a>
                         <a href="#step" class="select">步驟</a>
-                    </section>
+                    </section> -->
             
-                    <section class="buy">
+                    <section id="buy" class="buy">
                         <div class="info-left">
                             <!-- <div class="image"> -->
                                 <img class="image" :src="product[index].img" alt="">
@@ -125,7 +135,7 @@
                         </ul>
                     </div>
             
-                    <h5 class="chef-title">主廚介紹</h5>
+                    <h5 id="chef" class="chef-title">主廚介紹</h5>
                     <div class="chef">
                         <div class="image ">
                             <img :src="product[index].chefImg" alt="">
@@ -139,8 +149,8 @@
                 </div>
               </div>
           </div>
-         </div>
-         @@include('./layout/footer.html')
+        </div>
+        @@include('./layout/footer.html')
     </div>
  
    
