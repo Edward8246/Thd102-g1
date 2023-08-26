@@ -15,6 +15,32 @@
 </head>
 
 <script>
+
+  //顯示會員資訊<!-- 8/26測試 -->*************************************************************
+
+  // function initlogin(){
+
+//      showMember();
+//     }
+
+//     function showMember(){
+//         $.ajax({            
+//             method: "POST",
+//             url: "API/Frontend/Member.php",
+//             data:{},            
+//             dataType: "text",
+//             success: function (response) {                           
+       
+//                 $("#showMember").html("<b>" + response + "</b>"); 
+                
+//             },
+//             error: function(exception) {
+//                 alert("數據載入失敗: " + exception.status);
+//             }
+//         });
+//     }
+
+
 //登入的AJAX** <!-- 8/26更改 -->*************************************************************
   function doSubmit() {
         if (document.getElementById('account').value == '') {
@@ -98,7 +124,7 @@ function doSubmitjoin() {
 
 
 </script>
-<body>
+<body onload="initlogin()">
     <div class="wrapper loginPage" id="loginPage">
         
         <div class="container-login" id="container">
