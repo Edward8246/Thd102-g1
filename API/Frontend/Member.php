@@ -1,27 +1,27 @@
 <?php
-//  include("../Lib/Util.php");	   
+ include("../Lib/Member.php");	     
 
 // 	//顯示會員資訊
-//     $str = getMemberName();
-// 	echo $str == "" ? "<a href='index.html'>登入</a>" : "Hello~".$str."&nbsp;&nbsp;&nbsp;<a href='API/Logout.php'>登出</a>";
+    // $str = getMemberName();
+	// // echo $str == "" ? "<a href='index.html'>登入</a>" : "Hello~".$str."&nbsp;&nbsp;&nbsp;<a href='API/Logout.php'>登出</a>";
+	// echo $str == "" ? "<a>登入</a>" : "<a href='API/Logout.php'>登出</a>";
 
 
-
-	include("../Lib/Util.php");
 
 	// 顯示登入或登出按鈕
-	if (getMemberName() == "") {
-		echo "<div class='btn_white user login' id='user_login'>";
-		echo "    <i class='fa-solid fa-user'></i>";
-		echo "    <h7><a href='index.html'>登入</a></h7>";
-		echo "</div>";
+    $str = getMemberName();
+	if ($str == "") {
+		// echo "<div class='btn_white user login' id='user_login'>";
+		// echo "    <i class='fa-solid fa-user'></i>";
+		echo "    <div>登入</div>";
+		// echo "</div>";
 	} else {
-		echo "<div class='btn_white user logout -none' id='user_logout'>";
+		echo "<div class='btn_white user logout' id='user_logout'>";
 		echo "    <i class='fa-solid fa-arrow-right-from-bracket'></i>";
-		echo "    <h7>Hello~" . getMemberName() . "&nbsp;&nbsp;&nbsp;<a href='API/Logout.php'>登出</a></h7>";
+		// echo "    <div>Hello~" . getMemberName() . "&nbsp;&nbsp;&nbsp;<a href='API/Frontend/Logout.php'>登出</a></div>";
+		echo "    <div><a href='API/Frontend/Logout.php'>登出</a></div>";
 		echo "</div>";
 	}
-
 
 
 

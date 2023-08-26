@@ -18,27 +18,27 @@
 
   //顯示會員資訊<!-- 8/26測試 -->*************************************************************
 
-  // function initlogin(){
+  function initlogin(){
 
-//      showMember();
-//     }
+     showMember();
+    }
 
-//     function showMember(){
-//         $.ajax({            
-//             method: "POST",
-//             url: "API/Frontend/Member.php",
-//             data:{},            
-//             dataType: "text",
-//             success: function (response) {                           
+    function showMember(){
+        $.ajax({            
+            method: "POST",
+            url: "API/Frontend/Member.php",
+            data:{},            
+            dataType: "text",
+            success: function (response) {                           
        
-//                 $("#showMember").html("<b>" + response + "</b>"); 
+                $("#showMember").html(response); 
                 
-//             },
-//             error: function(exception) {
-//                 alert("數據載入失敗: " + exception.status);
-//             }
-//         });
-//     }
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    }
 
 
 //登入的AJAX** <!-- 8/26更改 -->*************************************************************

@@ -1,6 +1,6 @@
 <?php
 //盒食
-   include("../Lib/Util.php");	
+   include("../Lib/Member.php");	
 
     //清空session
     clearSession();
