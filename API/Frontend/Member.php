@@ -20,7 +20,7 @@
 		echo "<div class='btn_white user logout' id='user_logout'>";
 		echo "    <i class='fa-solid fa-arrow-right-from-bracket'></i>";
 		// echo "    <div>Hello~" . getMemberName() . "&nbsp;&nbsp;&nbsp;<a href='API/Frontend/Logout.php'>登出</a></div>";
-		echo "    <div>登出</a></div>";
+		echo "    <div>登出</div>";
 		echo "</div>";
 		echo "</a>";
 	}
