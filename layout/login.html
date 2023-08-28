@@ -6,7 +6,100 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>login</title>
+    <style>
+        .no-scroll{
+            overflow: hidden;
+            height: 100%;
+        }
+    </style>
 </head>
+
+<script>
+
+  
+//登入的AJAX** <!-- 8/26更改 -->*************************************************************
+  function doSubmit() {
+        if (document.getElementById('account').value == '') {
+            alert("請填寫[帳號]");
+            return false;
+        }
+        if (document.getElementById('pwd').value == '') {
+            alert("請填寫[密碼]");
+            return false;
+        }        
+
+        //AJAX送出表單內容
+        $.ajax({            
+            method: "POST",
+            url: "API/Frontend/Login.php",
+            data:{ 
+                account: $("#account").val(),
+                pwd: $("#pwd").val()
+            },
+            dataType: "text",
+            success: function (response) {
+                if(response == 'Y'){
+                    //登入成功->導回產品頁
+                    alert('登入成功');
+                    location.href = 'index.html';
+                }else{
+                    alert('帳號或密碼錯誤');
+                }                
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+            }
+        });
+    }
+//註冊的AJAX** <!-- 8/26更改 -->*************************************************************
+function doSubmitjoin() {
+    if (document.getElementById('signUp_name').value == '') {
+            alert("請填寫[姓名]");
+            return false;
+        }
+        if (document.getElementById('signUp_email').value == '') {
+            alert("請填寫[email]");
+            return false;
+        }
+        if (document.getElementById('signUp_password').value == '') {
+            alert("請填寫[密碼]");
+            return false;
+        }   
+        if (document.getElementById('signUp_password_2').value == '') {
+            alert("請填寫[確認密碼]");
+            return false;
+        }      
+
+        //AJAX送出表單內容
+        $.ajax({            
+            method: "POST",
+            url: "API/Frontend/Join.php",
+            data:{ 
+                email: $("#signUp_email").val(),
+                password: $("#signUp_password").val(),
+                name: $("#signUp_name").val(),
+            },
+            dataType: "text",
+            success: function (response) {
+                //加入成功->導回登入頁
+                alert(response);
+                location.href = 'index.html';               
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+</script>
 <body>
     <div class="wrapper loginPage" id="loginPage">
         
@@ -36,12 +129,14 @@
                         <label class="title-text">確認密碼</label>
                         <input class="input-space" id="signUp_password_2" name="password2"  type="text" placeholder="請再次輸入密碼">
                     </div>
-                    <p class="text">註冊即表示您已同意服務條款及隱私權政策</p>
-                    <button id="doSubmit_signUp">註冊會員</button>
+                    <!-- 8/26更改 -->
+                    <!-- <p class="text">註冊即表示您已同意服務條款及隱私權政策</p> -->
+                    <!-- <button id="doSubmit_signUp">註冊會員</button> -->
+                    <input type="button" id="doSubmit_signUp" value="註冊會員" onclick="return doSubmitjoin();">
                     
                     <div class="signup_login">
                         <div class="textarea">歡迎回來!
-                            <span href="#" class="text login-link">立即登入</span>
+                            <span href="#" class="text login-link" id="login-link">立即登入</span>
                         </div>
                     </div>
                     
@@ -55,17 +150,23 @@
     
                     <div class="form_input">
                         <label class="title-text">電子信箱</label>
-                        <input class="input-space" name="email" type="email" placeholder="請輸入E-mail">
+                        <!-- <input class="input-space" name="email" type="email" placeholder="請輸入E-mail"> -->
+                               <!-- 8/26更改 -->
+                        <input class="input-space" type="text" id="account" name="account" value="" placeholder="請輸入E-mail"/>
                     </div>
     
                     <div class="form_input">
                         <label class="title-text">密碼</label>
-                        <input class="input-space" name="password" type="password" placeholder="請輸入密碼">
+                        <!-- <input class="input-space" name="password" type="password" placeholder="請輸入密碼"> -->
+                          <!-- 8/26更改 -->
+                        <input class="input-space" type="password" id="pwd" name="pwd"  value="" placeholder="請輸入密碼"/>
                     </div>
     
                     <a href="#" class="forgot_password" id="forgot_password">忘記密碼了嗎?</a>
                     
-                    <button>登入</button>
+                    <!-- <button>登入</button> -->
+                    <!-- 8/26更改 -->
+                    <input type="button" class="loginbutton01" value="登入" onclick="return doSubmit();">
                     
                     <p class="text_p">or</p>
 
@@ -170,6 +271,7 @@
 
 
     <!-- <script src="../js/login.js"></script> -->
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

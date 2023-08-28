@@ -26,11 +26,12 @@ function doSubmit_signUp(){
 }
 
 
-//======================================================
+// //======================================================
 
 //點擊登入鍵跳出LOGIN
 document.getElementById("user_login").addEventListener("click", function(){
     document.querySelector(".loginPage").style.display = "flex";
+    document.body.classList.add("no-scroll");
     //修改密碼成功畫面關閉
     const successPw = document.getElementById("successPw");
     successPw.style.display = "none";
@@ -38,18 +39,19 @@ document.getElementById("user_login").addEventListener("click", function(){
 
 //登入畫面的X關掉鍵
 document.querySelector(".close-btn").addEventListener("click", function(){
+    document.body.classList.remove("no-scroll");
 	close_window();
 })
 //按下esc觸發關閉
 document.addEventListener("keydown", function(e) {
     if (e.key === "Escape") {
+        document.body.classList.remove("no-scroll");
         close_window();
     }
 })
 // document.getElementById("loginPage").addEventListener("click",function(){
 //     close_window();
 // })
-
 
 
 //登入和註冊畫面左右切換
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const signInContainer = document.getElementById("sign-in-container");
 
     signUpLink.addEventListener("click", function() {
-      signInContainer.style.display = "none";
+        signInContainer.style.display = "none";
     });
 });
 
@@ -109,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     });
 });
+
 //忘記密碼> 成功> 成功畫面
 document.addEventListener("DOMContentLoaded", function() {
     const confirmBtn = document.getElementById("confirm-button");
