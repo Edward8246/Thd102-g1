@@ -718,7 +718,7 @@ const app = Vue.createApp({
                         { item: "米酒", num: "1/4杯" },
                         { item: "糖", num: "1匙" },
                         { item: "麵條", num: "依喜好" },
-                        { item: "青菜", num: "適量" }
+                        { item: "青菜", num: "依喜好" }
 
                     ],
                     steps: [
