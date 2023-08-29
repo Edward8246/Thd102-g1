@@ -330,6 +330,12 @@ const activity = Vue.createApp({
           
                 },                
             },
+            beforeMount(){
+                axios.get('../API/activities.php')
+                    .then(response)
+                
+                console.log(response);
+            },
             mounted(){
                 let urlParams = new URLSearchParams(window.location.search);
                 let id = parseInt(urlParams.get('id')); 
@@ -342,3 +348,7 @@ const activity = Vue.createApp({
         });
 
         activity.mount('#actInfo');
+
+
+
+        

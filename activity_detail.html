@@ -12,25 +12,25 @@
 <script>
     function init(){
   
-  showMember();
-  }
-  
-  function showMember(){
-     $.ajax({            
-         method: "POST",
-         url: "API/Frontend/Member.php",
-         data:{},            
-         dataType: "text",
-         success: function (response) {                           
-    
-             $("#showMember").html(response); 
-             
-         },
-         error: function(exception) {
-             alert("數據載入失敗: " + exception.status);
-         }
-     });
-  }
+        showMember();
+        }
+        
+        function showMember(){
+            $.ajax({            
+                method: "POST",
+                url: "API/Frontend/Member.php",
+                data:{},            
+                dataType: "text",
+                success: function (response) {                           
+            
+                    $("#showMember").html(response); 
+                    
+                },
+                error: function(exception) {
+                    alert("數據載入失敗: " + exception.status);
+                }
+            });
+    }
   
   </script>
 
@@ -78,22 +78,22 @@
                             <div class="icon">
                                 <i class="fa-solid fa-calendar"></i>
                             </div>
-                            <h7>{{ filteredList[idPort].date }}</h7>
+                            <h6>{{ filteredList[idPort].date }}</h6>
                         </div>
             
                         <div class="detail-info-txt">
                             <div class="icon">
                                 <i class="fa-solid fa-clock"></i>
                             </div>
-                            <h7>{{ filteredList[idPort].dur }}</h7>
+                            <h6>{{ filteredList[idPort].dur }}</h6>
                         </div>
             
                         <div class="detail-info-txt">
                             <div class="icon">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
-                            <h7>{{ filteredList[idPort].loc }}<br>
-                                {{ filteredList[idPort].adr }}</h7>
+                            <h6>{{ filteredList[idPort].loc }}<br>
+                                {{ filteredList[idPort].adr }}</h6>
                         </div>
 
                         <div class="price">
