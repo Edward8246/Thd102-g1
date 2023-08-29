@@ -765,9 +765,6 @@ const app = Vue.createApp({
                         { id: 5, title: "加入煮肉", do: "將之前煮熟的豬絞肉加入番茄醬中，攪拌均勻，使肉和醬料結合。" },
                         { id: 6, title: "調味", do: "根據口味加入鹽、胡椒粉。讓醬料悶煮幾分鐘，使味道混合。" },
                         { id: 7, title: "混合義大利麵和醬料", do: "將煮熟的義大利麵倒入醬料中，輕輕攪拌，使麵條均勻覆蓋在醬料上。" },
-
-                     
-                        
                     ],
                     tip1: "如果您喜歡，可以使用新鮮的番茄，將其切碎後加入醬料中，使醬料更自然鮮甜。",
                     tip2: "加入一些紅酒可以增添醬料的豐富風味，但請確保烹飪過程中酒精已經揮發。",
@@ -775,7 +772,6 @@ const app = Vue.createApp({
                     chefName: "Alex Hamilton",
                     chefIntro: "Alex Hamilton是一位傑出的西式料理男廚師，他以他的創意、專業和熱情在烹飪界引起了廣泛的關注。出生於法國的廚藝世家，亞歷克斯從小就對美食和烹飪技藝產生濃厚的興趣。他善於將新鮮的季節食材和當地的特色結合，呈現出充滿層次感和口感的菜品，總是能給食客帶來驚喜和滿足。",
                     chefImg: "./images/box-info/box-info-chef2.png"
-
                 },
 
             ],
@@ -839,10 +835,18 @@ const app = Vue.createApp({
         changeTag(tag) {
             // 当点击一个标签时，将该标签设置为当前标签，并取消其他标签的选择
             this.currentTag = tag;
-          },
-          toggleSlide() {
+            this.scrollToId(tag);
+        },
+        toggleSlide() {
             this.isToggled = !this.isToggled;
+        },
+        scrollToId(id) {
+          const element = document.getElementById(id);
+          if (element) {
+            // 使用原生 JavaScript 滚动到目标元素
+            element.scrollIntoView({ behavior: 'smooth' });
           }
+        }
     },
     mounted() {
         let urlParams = new URLSearchParams(window.location.search);
@@ -860,3 +864,54 @@ const app = Vue.createApp({
 });
 
 app.mount("#app");
+
+
+//===============================================
+// 滑動變換class樣式
+// 获取所有链接和内容区块的引用
+const buyLink = document.getElementById('buyLink');
+const ingredientsLink = document.getElementById('ingredientsLink');
+const stepLink = document.getElementById('stepLink');
+const chefLink = document.getElementById('chefLink');
+
+// 内容区块...
+const buySection = document.getElementById('buy');
+const ingredientsSection = document.getElementById('ingredients');
+const stepSection = document.getElementById('step');
+const chefSection = document.getElementById('chef');
+
+
+// 滚动时检查当前视口中的区块并更新导航标签的类名
+window.addEventListener('scroll', function () {
+  // 获取页面滚动位置
+  const scrollPosition = window.scrollY;
+
+  // 为了触发 80px 区域，将每个区块的上方边界向上偏移 120px
+  const buyOffsetTop = buySection.offsetTop - 120;
+  const ingredientsOffsetTop = ingredientsSection.offsetTop - 120;
+  const stepOffsetTop = stepSection.offsetTop - 120;
+  const chefOffsetTop = chefSection.offsetTop - 120;
+
+  // 检查当前滚动位置并更新导航标签的类名
+  if (scrollPosition >= buyOffsetTop && scrollPosition < ingredientsOffsetTop) {
+    setActiveLink(buyLink);
+  } else if (scrollPosition >= ingredientsOffsetTop && scrollPosition < stepOffsetTop) {
+    setActiveLink(ingredientsLink);
+  } else if (scrollPosition >= stepOffsetTop && scrollPosition < chefOffsetTop) {
+    setActiveLink(stepLink);
+  } else if (scrollPosition >= chefOffsetTop) {
+    setActiveLink(chefLink);
+  } 
+});
+
+// 设置活动导航标签的类名
+function setActiveLink(link) {
+  removeActiveLinks();
+  link.classList.add('onTag');
+}
+
+// 移除所有导航标签的类名
+function removeActiveLinks() {
+  const allLinks = document.querySelectorAll('.select');
+  allLinks.forEach(link => link.classList.remove('onTag'));
+}

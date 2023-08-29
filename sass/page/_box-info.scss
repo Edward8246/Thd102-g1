@@ -1,9 +1,9 @@
 
 html{
     scroll-behavior: smooth;
-  }
-.boxInfo{
     //*{outline: solid 1px red;}
+}
+.boxInfo{
     .container{
         margin-top: 80px;
         position: relative;
@@ -12,42 +12,18 @@ html{
         display: none;
         @include d(820px){
             margin: 0 auto;
-            //width: 75%;
            display: block;
-           //padding-top: 30px;
            .image{
             border-radius: 10px;
             overflow: hidden;
            }
-        //    .select-tag-r{
-        //     position: sticky;
-        //     top: 0;
         
-        //     font-size: $h5;
-        //     @include flex(row,space-around,center);
-        //     padding-top: 20px;
-        //     padding-bottom: 15px;
-        //     border-bottom: 1px solid #d5d5d5;
-        //     .select-r{
-        //         color: $color_darkblue;
-               
-        //     }
-        //    }
         }
         @include m {
-            //padding-top: 0 ;
             .image{
                 border-radius: 0;
             }
             width: 100%;
-            // .select-tag-r{
-            //     padding-top: 12px;
-            //     padding-bottom: 10px;
-            //     .select-r{
-            //         font-size: $h7;
-                    
-            //     }
-            // }
             
         }
     
@@ -58,7 +34,7 @@ html{
         z-index: 30;
         position: fixed;
         right: 0;
-        bottom: 20vh;
+        bottom: 50vh;
         font-size: 12px;
         padding: 20px 5vw 20px 20px;
         border-radius: 16px 0 0 16px;
@@ -132,36 +108,11 @@ html{
     .box-info-wrapper {
         margin: 0 auto;
         width: 100%;
-        //max-width: 792px;
         padding: 0 $side_padding-360px;
-        // @include d(820px){
-        //     width: 75%;
-        //     }
+
         @include m{
-            //width: 90%;
             padding: 0 $side_padding-m;
         } 
-    
-        // .select-tag {
-        //     padding-top: 20px;
-        //     width: 100%;
-        //     @include flex(row, space-between, center);
-        //     border-bottom: 1px solid $color_blue;
-        //     padding-bottom: 25px;
-        //     margin-bottom: 70px;
-        //     margin-top: 50px;
-        //     font-size: $h5;
-        //    .select{
-        //     color: $color_darkblue;
-        //    }
-        //    @include d(820px){
-        //     display: none;
-        //     }
-    
-    
-        // }
-
-       
     
         .buy {
             width: 100%;
@@ -187,7 +138,7 @@ html{
                     height: 110%;
                     
                     img{
-                        // height: 100%;
+                        
                     }
                 }
                 @include d(820px){
@@ -297,23 +248,27 @@ html{
     
             }
     
-        h5{
-                margin-bottom: 35px;
-                @include m {
-                    font-size: $h6;
-    
-                }
+        .subTitle{
+            padding: 10px 0;
+            margin-bottom: 35px;
+            @include m {
+                font-size: $h6;
+
+            }
         }
         .ingredients{
             width: 100%;
-            margin-bottom: 100px;
-            @include flex(row,space-between,top);
+            padding-top: 80px;
+            margin-bottom: 80px;
+            @include flex(column,space-between,top);
             @include d(820px){
                 flex-direction: column;
                 align-items: start;
                 margin-bottom: 60px;
                 }
-            
+            .ingredients_info{
+                @include flex(row,space-between);
+            }
             .items{
                 width: 50%;
                 display: flex;
@@ -329,24 +284,7 @@ html{
                         border-bottom: 1px solid #d5d5d5;
                         }
                 }
-                // width: 100%;
-                // @include flex(row,space-between,top);
-                // li{
-                //     font-size: $h7;
-                //     margin-bottom: 25px;
-                //     &:last-child{
-                //         margin-bottom: 0;
-                //     }
-                //     @include d(820px){
-                //         // border-bottom: 1px solid #d5d5d5;
-                //         }
-                // }
-                // .item-num{
-                //     @include d(820px){
-                //         @include flex(column,top,end);
-                //         }
-                // }
-                
+    
     
             }
             .image{
@@ -359,6 +297,7 @@ html{
             }
         }
         .steps{
+            padding-top: 80px;
             margin-bottom: 120px;
             @include d(820px){
                 margin-bottom: 90px;
@@ -386,9 +325,9 @@ html{
         }
         .tips{
             width: 55%;
-            margin: 0 auto;
-            margin-bottom: 90px;
+            margin: 80px auto;
             .tip-icon{
+                padding: 20px;
               @include flex(row, center,top);
                i{
                 font-size: 30px;
@@ -397,8 +336,9 @@ html{
             .tip-text{
                 list-style:disc ;
                 li{
-                    margin-bottom: 10px;
+                    margin-bottom: 20px;
                     font-size: $h7;
+                    line-height: 1.6;
                 }
             }
             @include d(820px){
@@ -408,11 +348,14 @@ html{
                 width: 70%;
             }
         }
+        .chef{
+            padding-top: 40px;
+            border-top : solid 1px #bbb;
+        }
         .chef-title{
             padding-top: 30px;
-            border-top: 1px solid #d5d5d5;
         }
-        .chef{
+        .chef-info{
            @include flexCenter;
            padding-bottom: 90px;
            border-bottom: 1px solid #d5d5d5;
