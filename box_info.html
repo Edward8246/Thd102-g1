@@ -12,9 +12,8 @@
 </head>
 <script>
     function init(){
-  
-  showMember();
-  }
+        showMember();
+    }
   
   function showMember(){
      $.ajax({            
@@ -47,32 +46,23 @@
 
                 <button class="slide" @click="toggleSlide" ><i class="fa-solid fa-right-left"></i></button>
 
-                <a href="#buy" class="select" :class="{ 'onTag': currentTag === 'buy' }" @click="changeTag('buy')">立即訂購</a>
+                <a href="#buy" id="buyLink" class="select" :class="{ 'onTag': currentTag === 'buy' }" @click="changeTag('buy')">立即訂購</a>
 
-                <a href="#ingred" class="select" :class="{ 'onTag': currentTag === 'ingred' }" @click="changeTag('ingred')">內含食材</a>
+                <a href="#ingredients" id="ingredientsLink" class="select" :class="{ 'onTag': currentTag === 'ingredients' }" @click="changeTag('ingredients')">內含食材</a>
 
-                <a href="#step" class="select" :class="{ 'onTag': currentTag === 'step' }" @click="changeTag('step')">料理步驟</a>
+                <a href="#step" id="stepLink" class="select" :class="{ 'onTag': currentTag === 'step' }" @click="changeTag('step')">料理步驟</a>
 
-                <a href="#chef" class="select" :class="{ 'onTag': currentTag === 'chef' }" @click="changeTag('chef')">主廚推薦</a>
+                <a href="#chef" id="chefLink" class="select" :class="{ 'onTag': currentTag === 'chef' }" @click="changeTag('chef')">主廚推薦</a>
             </div>
             <div class="info-wrapper" >
                 <div class="info-top">
                     <div class="image">
                         <img :src="product[index].img" alt="">
                     </div>
-                    <!-- <div class="select-tag-r">
-                        <a href="#buy" class="select-r">訂購</a>
-                        <a href="#ingred" class="select-r">食材</a>
-                        <a href="#step" class="select-r">步驟</a>
-                    </div> -->
             
                 </div>
                 <div class="box-info-wrapper ">
-                    <!-- <section class="select-tag"> 
-                        <a href="#buy" class="select">訂購</a>
-                        <a href="#ingred" class="select">食材</a>
-                        <a href="#step" class="select">步驟</a>
-                    </section> -->
+    
             
                     <section id="buy" class="buy">
                         <div class="info-left">
@@ -117,63 +107,72 @@
                             </div>
                             <div class="btn-group">
                                 <button class="b-buy b-left colte-6" @click="addCart()">加入購物車</button>
-                                <button id="ingred" class="b-buy b-right colte-6">立即購買</button>
+                                <button class="b-buy b-right colte-6">立即購買</button>
                             </div>
             
                         </div>
                     </section>
-                    <h5 >食材</h5>
-                    <section class="ingredients">
-            
-                        <ul class="items colte-5">
-                            <li v-for=" ingredient in product[index].ingredients" :key="ingredient.name">
-                                 <span class="item-name ">{{ingredient.item}}</span>
-                                <span class="item-num">{{ ingredient.num }}</span>
-                            </li>
-                            <div id="step"></div>
-                        </ul>
-            
-            
-                        <div  class="image colte-5">
-                            <img src="./images/box-info/box-info-Ingredients.jpg" alt="">
-                            
+
+                    <section id="ingredients" class="ingredients">
+                    <h5 class="subTitle">食材</h5>
+                        <div class="ingredients_info">
+                            <ul class="items">
+                                <li v-for=" ingredient in product[index].ingredients" :key="ingredient.name">
+                                     <span class="item-name ">{{ingredient.item}}</span>
+                                    <span class="item-num">{{ ingredient.num }}</span>
+                                </li>
+                            </ul>
+                            <div  class="image">
+                                <img src="./images/box-info/box-info-Ingredients.jpg" alt="">
+                                
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <section id = "step" class="steps">
+                        <h5 class="subTitle">料理步驟</h5>
+                        <div class="step_info">
+                            <ul>
+                                <li v-for="step in product[index].steps" :key="id" class="step">
+                                    <span>{{ step.id }}</span>
+                                    <div class="step-text">
+                                        <h6>{{ step.title }}</h6>
+                                        <p>{{ step.do }}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="tips">
+                                <div class="tip-icon">
+                                    <i class="fa-regular fa-lightbulb"></i>
+                                    <h5>小撇步</h5>
+                                </div>
+                                <ul class="tip-text">
+                                    <li>{{ product[index].tip1 }}</li>
+                                    <li>{{ product[index].tip2 }}</li>
+                                    <li>{{ product[index].tip3 }}</li>
+                                </ul>
+                            </div>
                         </div>
                     </section>
-                    <h5 >料理步驟</h5>
-                    <ul  class="steps">
-                        <li v-for="step in product[index].steps" :key="id" class="step">
-                            <span>{{ step.id }}</span>
-                            <div class="step-text">
-                                <h6>{{ step.title }}</h6>
-                                <p>{{ step.do }}</p>
+
+                    <section id="chef" class="chef">
+                        <h5 class="subTitle">主廚介紹</h5>
+                        <div class="chef-info">
+                            <div class="image ">
+                                <img :src="product[index].chefImg" alt="">
                             </div>
-                        </li>
-                    </ul>
-                    <div class="tips ">
-                        <div class="tip-icon">
-                            <i class="fa-regular fa-lightbulb"></i>
-                            <h5>小撇步</h5>
+                            <div class="chef-name ">
+                                <h4>{{ product[index].chefName }}</h4>
+                                <p>{{ product[index].chefIntro }}
+                                </p>
+                            </div>
                         </div>
-                        <ul class="tip-text">
-                            <li>{{ product[index].tip1 }}</li>
-                            <li>{{ product[index].tip2 }}</li>
-                            <li>{{ product[index].tip3 }}</li>
-                        </ul>
-                    </div>
-            
-                    <h5 id="chef" class="chef-title">主廚介紹</h5>
-                    <div class="chef">
-                        <div class="image ">
-                            <img :src="product[index].chefImg" alt="">
-                        </div>
-                        <div class="chef-name ">
-                            <h4>{{ product[index].chefName }}</h4>
-                            <p>{{ product[index].chefIntro }}
-                            </p>
-                        </div>
-                    </div>
+                    </section>
+
+
                 </div>
-              </div>
+              </div> 
           </div>
         </div>
         @@include('./layout/footer.html')
