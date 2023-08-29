@@ -1,7 +1,7 @@
 
 html{
     scroll-behavior: smooth;
-    //*{outline: solid 1px red;}
+    *{outline: solid 1px red;}
 }
 .boxInfo{
     .container{
@@ -262,8 +262,6 @@ html{
             margin-bottom: 80px;
             @include flex(column,space-between,top);
             @include d(820px){
-                flex-direction: column;
-                align-items: start;
                 margin-bottom: 60px;
                 }
             .ingredients_info{
@@ -279,7 +277,7 @@ html{
                 li{
                     @include flex(row,space-between,top);
                     padding-bottom: 8px;
-                   margin-bottom: 22px;
+                margin-bottom: 22px;
                     @include d(820px){
                         border-bottom: 1px solid #d5d5d5;
                         }
