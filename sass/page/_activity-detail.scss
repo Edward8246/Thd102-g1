@@ -29,7 +29,7 @@
 }
 //左側
 .left-desc{
-    flex:6;
+    flex:7;
      @include rwdGrid(1000px){
         margin-top: 20px;
         flex: 1;
@@ -62,7 +62,7 @@
 
 //資訊
 .detail-info{
-    flex:4;
+    flex:3;
     padding-left: 24px;
      @include rwdGrid(1000px){
     //     // display: none;
