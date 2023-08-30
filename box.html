@@ -41,30 +41,6 @@
       @@include('./layout/backToTop.html')
       <div id="my_app" class="box-container">
         <div class="box-banner"></div>
-        <!-- <section class="select-tag">
-          <div class="box-tag tag-green " :class="{ onGreen: currentTag === 'green' }"
-            @click="show('green', 'western','all')">西式料理</div>
-          <div class="box-tag tag-purple" :class="{ onPurple: currentTag === 'purple' }"
-            @click="show('purple', 'chinese','all')">中式料理</div>
-          <div class="box-tag tag-blue" :class="{ onBlue: currentTag === 'blue' }" @click="show('blue', 'japanese','all')">
-            日式料理</div>
-          <div class="box-tag tag-yellow" :class="{ onYellow: currentTag === 'yellow' }"
-            @click="show('yellow', 'health','all')">健康料理</div>
-          <div class="box-tag tag-red" :class="{ onRed: currentTag === 'red' }" @click="show('red', 'fast','all')">快速料理
-          </div>
-        </section> -->
-        <!-- <section class="select-tag2">
-          <div class="box-tag-m tb-green " :class="{ onGreen: currentTag === 'green' }"
-            @click="show('green', 'western','all')">西式料理</div>
-          <div class="box-tag-m tb-purple " :class="{ onPurple: currentTag === 'purple' }"
-            @click="show('purple', 'chinese','all')">中式料理</div>
-          <div class="box-tag-m tb-blue " :class="{ onBlue: currentTag === 'blue' }"
-            @click="show('blue', 'japanese','all')">日式料理</div>
-          <div class="box-tag-m tb-yellow " :class="{ onYellow: currentTag === 'yellow' }"
-            @click="show('yellow', 'health','all')">健康料理</div>
-          <div class="box-tag-m tb-red " :class="{ onRed: currentTag === 'red' }" @click="show('red', 'fast','all')">
-            快速料理</div>
-        </section> -->
 
         <!-- modify ref -->
         <section class="box-title">
@@ -83,7 +59,7 @@
               快速料理</div>
             </div>
         </section>
-        <!-- <section class="box-wrapper grid-box"> -->
+
         <section class="box-wrapper">
           <a :href="'box_info.html?id='+item.id" class="card-box " v-for="(item, index) in items" :key="item.name"
             v-show="index < displayedItems">
@@ -112,7 +88,9 @@
   </div>
 
 
-  <script src="js/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/vue.global.js"></script>
+  <!-- <script src="./js/vue.global.prod.js"></script> -->
   <script src="js/header.js"></script>
   <script src="js/login.js"></script>
   <script src="js/box.js"></script>
