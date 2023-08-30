@@ -2,7 +2,7 @@ const activity = Vue.createApp({
             data(){
                 return{
                     dateNow: Date.now(),
-                    currentTag: "",
+                    currentTag: null,
                     displayedItems: 6,
                     itemsPerPage: 6,
                     noclick: false,
@@ -238,10 +238,34 @@ const activity = Vue.createApp({
                             loc_desc:"位於台北市繁華的中山區，是一個融合優雅氛圍和美食文化的綜合性場地。這個場地不僅提供豐富多樣的美食體驗，還擁有令人印象深刻的室內設計，為您的每次到訪帶來難忘的回憶。"
                         }
                     ],
-                    idPort: 0
+                    idPort: 0,
+                    category_list:{
+                        '新品宣傳':{
+                          color: 'red'
+                        },
+                        '共享餐桌':{
+                          color: 'purple'
+                        },
+                        '私廚教學':{
+                          color: 'green'
+                        },
+                    }
 
                 }
             },
+            computed:{
+                filteredList(){
+                  const self = this;
+            
+                  return this.arr_act.filter(function (tag) {
+                    // console.log(tag.activity_category === self.currentTag);
+                    // console.log(tag.activity_category);
+                    // console.log(self.currentTag);
+                    return tag.activity_category === self.currentTag || self.currentTag === null
+                  });
+                },
+            
+              },
             methods:{
                 tagColor(tag){
                     switch (tag) {
@@ -302,9 +326,7 @@ const activity = Vue.createApp({
                     if(date <= this.dateNow){
                         e.preventDefault();
                         // e.target.closest('a').classList.add('disabled');
-        
                     }
-                   
                 },
                 buttonDisable(date){
                     if(date <= this.dateNow){
@@ -330,12 +352,6 @@ const activity = Vue.createApp({
           
                 },                
             },
-            beforeMount(){
-                axios.get('../API/activities.php')
-                    .then(response)
-                
-                console.log(response);
-            },
             mounted(){
                 let urlParams = new URLSearchParams(window.location.search);
                 let id = parseInt(urlParams.get('id')); 
@@ -343,6 +359,17 @@ const activity = Vue.createApp({
                 // if (!isNaN(index)) {
                 //     this.filteredList = [this.arr_act[index]]; 
                 // }
+
+                axios.get('../API/Frontend/Activities.php')
+                .then(response => {
+                    this.arr_act = response.data;
+
+                    console.log(this.arr_act);
+
+                })
+                .catch(error => {
+                console.error(error);
+                });
 
             }
         });

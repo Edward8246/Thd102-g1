@@ -52,9 +52,9 @@
                     <div class="act-title wrapper-t">
                         <h4 class="">近期活動</h4>
                         <div class="tags flexCenter colte-6 colte-m-6">
-                            <div class="tb-red colte-4 colte-m-2" :class="{ tbredOn: currentTag === 'red' }" @click="show('red', $event, 'newProd')">新品宣傳</div>
-                            <div class="tb-green colte-4 colte-m-2" :class="{ tbgreenOn: currentTag === 'green' }" @click="show('green', $event, 'cook')">私廚教學</div>
-                            <div class="tb-purple colte-4 colte-m-2" :class="{ tbpurpleOn: currentTag === 'purple' }" @click="show('purple', $event, 'share')">共享餐桌</div>
+                            <div class="tb-red colte-4 colte-m-2" :class="{ tbredOn: currentTag === '新品宣傳' }" @click="currentTag === '新品宣傳' ? currentTag = null :  currentTag = '新品宣傳'">新品宣傳</div>
+                            <div class="tb-green colte-4 colte-m-2" :class="{ tbgreenOn: currentTag === '私廚教學' }" @click="currentTag === '私廚教學' ? currentTag = null :  currentTag = '私廚教學'">私廚教學</div>
+                            <div class="tb-purple colte-4 colte-m-2" :class="{ tbpurpleOn: currentTag === '共享餐桌' }" @click="currentTag === '共享餐桌' ? currentTag = null :  currentTag = '共享餐桌'">共享餐桌</div>
                         </div>
                     </div>      
                 </section>
@@ -67,27 +67,27 @@
                             
                             <div class="card-top">
                                 <div class="image">
-                                    <img :src="card.img" alt="">
+                                    <img :src="getUrl(card.photo_url)" alt="">
                                 </div>
                                 <div class="act-info">
-                                    <div :class="tagColor(card.tag)">
-                                        {{ card.tag }}
+                                    <div :class="'ft-' + category_list[card.activity_category].color">
+                                        {{ card.activity_category }}
                                     </div>
                                     <div class="act-txt">
                                         <h4>{{ card.name }}</h4>
                                         <ul>
                                             <li class="act-txt-info">
                                                 <i class="fa-solid fa-calendar"></i>
-                                                <p>{{card.date}}</p>
+                                                <p>{{card.activity_date}}</p>
                                     
                                             </li>
                                             <li>
                                                 <i class="fa-solid fa-clock"></i>
-                                                <p>{{card.dur}}</p>
+                                                <p>{{card.activity_duration_time}}</p>
                                             </li>
                                             <li>
                                                 <i class="fa-solid fa-location-dot"></i>
-                                                <p>{{card.loc}}</p>
+                                                <p>{{card.activity_place_name}}</p>
                                             </li>
                                         
                                         </ul>
@@ -99,7 +99,7 @@
                 
                             <div class="btn_group col-9">
                                 <a class="left col-6" :href="'./activity_detail.html?id='+ card.id"><p>詳細資訊</p></a>
-                                <a class="right col-6" id="apply" href="" @click="disable((new Date(card.date)).getTime(), $event)" :class="{disabled: buttonDisable((new Date(card.date)).getTime())}"><p>馬上報名!</p></a>
+                                <a class="right col-6" id="apply" href="" @click="disable((new Date(card.activity_date)).getTime(), $event)" :class="{disabled: buttonDisable((new Date(card.activity_date)).getTime())}"><p>馬上報名!</p></a>
                             </div>
                             
                         </div>
