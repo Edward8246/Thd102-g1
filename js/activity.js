@@ -5,8 +5,17 @@ const activity = Vue.createApp({
                     currentTag: null,
                     displayedItems: 6,
                     itemsPerPage: 6,
-                    noclick: false,
-                    //index: null,
+                    category_list:{
+                        '新品宣傳':{
+                          color: 'red'
+                        },
+                        '共享餐桌':{
+                          color: 'purple'
+                        },
+                        '私廚教學':{
+                          color: 'green'
+                        },
+                      },
                     arr_act: [
                         {
                             id: 1,
@@ -115,25 +124,9 @@ const activity = Vue.createApp({
                     
                     ],
 
-                    tags:[
-                        {
-                            id:'tag1',
-                            class: 'tb-red',
-                            name: '新品宣傳'
-                        },
-                        {
-                            id:'tag1',
-                            class: 'tb-green',
-                            name: '私廚教學'
-                        },
-                        {
-                            id:'tag1',
-                            class: 'tb-purple',
-                            name: '共享餐桌'
-                        }
-                    ],
+                   
                     filteredList:[
-                        {
+                        /* {
                             id: 1,
                             tag: '新品宣傳',
                             name: '咖哩飯新登場',
@@ -236,7 +229,7 @@ const activity = Vue.createApp({
                             adr: "台北市中山區民生東路三段789號",
                             act_desc:"隨著涼爽的秋風吹拂而來，秋季食物成為了大自然的恩賜，為我們帶來了一系列美味的享受。在這個季節裡，大自然的豐收將各種色彩鮮豔、風味豐富的食材呈現在我們的餐桌上。<br><br>秋季的果實成熟了，滿園的蘋果、梨子、葡萄和柿子都散發著迷人的香氣。您可以品嚐到多汁的水果，或是將它們加入到各種料理中，為菜餚增添獨特的風味。<br><br>蔬菜也在秋季達到了最美的時刻。色彩斑斕的南瓜、紅蘿蔔、甜菜根和菠菜等等，不僅是豐收的象徵，更是健康飲食的重要組成部分。這些蔬菜富含維生素和抗氧化劑，不僅可以為您的身體提供營養，還能為菜餚增添豐富的色彩和口感。最後，別忘了秋季的節慶食物，如感恩節的火雞、萬聖節的南瓜派和中秋節的月餅。這些特別的美食不僅滿足味蕾，更代表著文化和情感的交流。<br><br>總之，秋季食物帶來了無限的可能性，無論您是享受自然的恩賜，還是探索烹飪的樂趣，都能在這個季節找到令人愉悅的味道和體驗。讓我們一同迎接秋天，享受這個美食的季節吧！",
                             loc_desc:"位於台北市繁華的中山區，是一個融合優雅氛圍和美食文化的綜合性場地。這個場地不僅提供豐富多樣的美食體驗，還擁有令人印象深刻的室內設計，為您的每次到訪帶來難忘的回憶。"
-                        }
+                        } */
                     ],
                     idPort: 0,
                     category_list:{
@@ -264,10 +257,13 @@ const activity = Vue.createApp({
                     return tag.activity_category === self.currentTag || self.currentTag === null
                   });
                 },
+                loadMore(){
+                    this.displayedItems += this.itemsPerPage 
+                 }
             
               },
             methods:{
-                tagColor(tag){
+                /* tagColor(tag){
                     switch (tag) {
                         case "新品宣傳":
                             return "ft-red";
@@ -286,8 +282,8 @@ const activity = Vue.createApp({
                         case "私廚教學":
                             return "tb-green"
                     }
-                },
-                show(curr, event, type){
+                }, */
+                /* show(curr, event, type){
                         
                         let click_el = event.target;
                         // console.log(click_el);
@@ -315,10 +311,8 @@ const activity = Vue.createApp({
                             }
                         };
                         
-                },
-                loadMore(){
-                   this.displayedItems += this.itemsPerPage 
-                },
+                }, */
+                
                 disable(date, e){
                     // e.preventDefault();
                     // console.log(e.target.closest('a').classList.add('disabled'));
@@ -353,24 +347,22 @@ const activity = Vue.createApp({
                 },                
             },
             mounted(){
-                let urlParams = new URLSearchParams(window.location.search);
-                let id = parseInt(urlParams.get('id')); 
-                this.idPort = id -1
-                // if (!isNaN(index)) {
-                //     this.filteredList = [this.arr_act[index]]; 
-                // }
-
                 axios.get('../API/Frontend/Activities.php')
                 .then(response => {
-                    this.arr_act = response.data;
-
-                    console.log(this.arr_act);
-
-                })
-                .catch(error => {
+                  this.arr_act = response.data;
+          
+                  // console.log(this.arr_act);
+          
+              })
+              .catch(error => {
                 console.error(error);
-                });
-
+              });
+          
+              var urlParams = new URLSearchParams(window.location.search);
+              var id_el = urlParams.get('id');
+              // console.log(idPort);
+              this.idPort = id_el - 1;
+          
             }
         });
 
