@@ -5,8 +5,7 @@ var activity = Vue.createApp({
       currentTag: null,
       displayedItems: 6,
       itemsPerPage: 6,
-      //noclick: false,
-      arr_act: [], 
+      arr_act: null, 
       idPort: 0,
       category_list:{
         '新品宣傳':{
@@ -18,22 +17,21 @@ var activity = Vue.createApp({
         '私廚教學':{
           color: 'green'
         },
-      }
+      }, 
+      category: "",
     };
   },
   computed:{
-    filteredList(){
-      const self = this;
-      // console.table(self.arr_act);
-      return self.arr_act.filter(function (tag) {
+    // filteredList(){
+    //   const self = this;
+    //   console.table(self.arr_act);
+    //   return self.arr_act.filter(function (tag) {
         // console.log(tag.activity_category === self.currentTag);
         // console.log(tag.activity_category);
         // console.log(self.currentTag);
-        return tag.activity_category === self.currentTag || self.currentTag === null
-      });
-      // console.table(a);
-      // return a;
-    },
+    //     return tag.activity_category === self.currentTag || self.currentTag === null
+    //   });
+    // },
     
 
   },
@@ -51,37 +49,6 @@ var activity = Vue.createApp({
     loadMore() {
       this.displayedItems += this.itemsPerPage;
     },
-    /* show: function show(curr, event, type) {
-      var click_el = event.target;
-
-      if (this.currentTag == curr && click_el.classList.contains("tb".concat(curr, "On"))) {
-        this.currentTag = '';
-        this.filteredList = this.arr_act;
-      } else {
-        this.currentTag = curr;
-        switch (type) {
-          case "newProd":
-            this.filteredList = this.arr_act.filter(function (tag) {
-              return tag.tag == '新品宣傳';
-            });
-            break;
-          case "cook":
-            this.filteredList = this.arr_act.filter(function (tag) {
-              return tag.tag == '私廚教學';
-            });
-            break;
-          case "share":
-            this.filteredList = this.arr_act.filter(function (tag) {
-              return tag.tag == '共享餐桌';
-            });
-            break;
-          default:
-            this.filteredList = this.arr_act;
-            break;
-        }
-      }
-      ;
-    }, */
     
     disable: function disable(date, e) {
       // e.preventDefault();
@@ -116,27 +83,29 @@ var activity = Vue.createApp({
     }
   },
   mounted: function mounted() {
-
     let self = this;
 
     var urlParams = new URLSearchParams(window.location.search);
     self.idPort = urlParams.get('id');
 
-
+     
     axios.get('../API/Frontend/Activities.php')
       .then(response => {
-        self.arr_act = response.data;
-        // console.log(this.arr_act);
-        // if(response.data)
-        // {
-        //   self.arr_act = response.data.find(x => x.products_id == self.idPort);
-        // }
+        
+        if(response.data)
+        {
+          self.arr_act = response.data.find(x => x.products_id == self.idPort);
+          console.log(self.arr_act);
+        }
+      
     })
     .catch(error => {
       console.error(error);
     });
+
   
   }
 });
 
 activity.mount('#actInfo');
+
