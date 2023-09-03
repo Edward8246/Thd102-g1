@@ -64,11 +64,11 @@
     @include abCenter();
     @include flex();
 
-    a,button{
+    a, button{
         // display: inline-block;
         font-size: $h7;
         height: 43px;
-        
+    
     }
 }
 
