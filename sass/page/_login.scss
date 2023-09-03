@@ -296,12 +296,13 @@ form {
     background-color: $color_cream;
     border-radius: 15px;
     width: 300px;
+    padding: 20px 0;
     text-align: center;
     box-shadow: 0 0 20px rgba(#333,.2);
-
+    
     //開啟
     display: none;
-    
+
 }
 
 
@@ -318,14 +319,16 @@ form {
     font-size: $h6;
     
 }
-.member-button{
-    margin-top: 20px;
+.member-button, .home-button{
+    width: 80%;
+    margin: 20px auto;
+   
 }
 .member-button, .home-button, .loginbutton01{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    // width: 100%;
     
     @include btn($white,$color_blue,$color_blue,$border-radius-50);
     padding: 8px;
@@ -344,12 +347,11 @@ form {
 
 // <!-- 註冊成功 -->
 .signup-success{
-    // height: 300px;
-    // max-width: 836px;
     border-radius: 15px;
     background-color: $color_cream;
     border-radius: 15px;
     width: 300px;
+    padding: 20px 0;
     text-align: center;
     box-shadow: 0 0 20px rgba(#333,.2);
 
