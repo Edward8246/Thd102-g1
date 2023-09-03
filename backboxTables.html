@@ -86,17 +86,39 @@ function display(response) {
     $.each(response, function(index, row) {
 
         var status;
-            switch(row.Status){
+            // switch(row.Status){
+            //     case 0:
+            //         status = "已刪除";
+            //         break;
+            //     case 2: 
+            //         status = "<font color='red'>下架</font>";
+            //         break;
+            //     case 1: 
+            //         status = "<font color='green'>上架</font>";
+            //         break;                
+            // }
+
+        // 確保 row.Status 存在和有效
+        if (row.hasOwnProperty('Status')) {
+            switch(parseInt(row.Status, 10)) {  // 轉換為整數，以避免字串和數字比較的問題
                 case 0:
                     status = "已刪除";
                     break;
-                case 2: 
+                case 2:
                     status = "<font color='red'>下架</font>";
                     break;
-                case 1: 
+                case 1:
                     status = "<font color='green'>上架</font>";
-                    break;                
+                    break;
+                default:
+                    status = "無效狀態";
+                    break;
             }
+        } else {
+            console.error("row.Status 不存在或無效");  // 如果 row.Status 不存在，輸出錯誤到控制台
+        }
+
+            
 
          //防呆判斷顯示
          var UpdateDate = row.UpdateDate == null ? "" : row.UpdateDate;
@@ -106,12 +128,17 @@ function display(response) {
             row.name,
             row.unit_price,
             row.stock,
-            "<img src='/images/box-info/" + row.photo_url + "' width='200'/>",
+          "<img src='/images/box-info/" + row.photo_url + "' width='200'/>",
             status,
             status,
             status
         ]).draw();  // 使用 DataTables API 添加和繪制行
- //只需呼叫 DataTables API 的 row.add() 和 draw() 方法即可。
+
+
+        // status
+        // "<img src='/images/box-info/" + row.photo_url + "' width='200'/>",
+        //"<img src='/thd102/g1/images/box-info/" + row.photo_url + "' width='200'/>",     
+        //只需呼叫 DataTables API 的 row.add() 和 draw() 方法即可。
 
     });
 }
@@ -302,8 +329,8 @@ $(document).ready(function() {
                                             <th>商品存貨</th>
                                             <th>商品圖片</th>
                                             <th>商品狀態</th>
-                                            <th></th>
-                                            <th></th>
+                                            <th>商品狀態</th>
+                                            <th>商品狀態</th>
                                         </tr>
                                     </thead>
 
