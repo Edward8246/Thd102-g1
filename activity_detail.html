@@ -43,6 +43,7 @@
         @@include('layout/header.html')
 
         <div class="container">
+            @@include('./layout/backToTop.html')
              <!-- 活動資訊 -->
              <div id="actInfo">   
                 <div class="wrapper-t">
@@ -130,12 +131,34 @@
         @@include('layout/footer.html')
     </div>
 
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/vue.global.js"></script>
     <!-- <script src="./js/vue.global.prod.js"></script> -->
     <script src="./js/login.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/activity_detail.js"></script>
+
+    <script>
+            let joinBtn = document.getElementById("joinBtn");
+            let quantityCart = document.getElementById("quantity_cart");
+
+            // Initialize a variable to keep track of the quantity
+            let quantity = 0;
+
+            // Function to update the quantity and display it
+            function updateQuantity() {
+            // Increment the quantity
+            quantity++;
+            // Update the text content of the quantity element
+            quantityCart.textContent = quantity;
+
+            // Show the quantity element (remove the 'display: none' style)
+            quantityCart.style.display = "inline";
+            }
+
+            // Add a click event listener to the button
+            joinBtn.addEventListener("click", updateQuantity);
+    </script>
 
 </body>
 </html>
