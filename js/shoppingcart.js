@@ -1,74 +1,81 @@
 const app = Vue.createApp({
     data() {
         return {
-            box: [],
-            activity:[]
-        }
+            box: [
+                {
+                    image: "./images/shoppingcart/item1.png",
+                    quantity: 2,  // 將預設值更改為您期望的值
+                    price: 188,
+                    // 其他商品資訊
+                },
+            ],       // 這是您的購物車商品列表
+            activity: [],  // 這是您的活動商品列表
+            total: 0       // 總計金額
+        };
     },
     computed: {
-        total() {
-            // 使用 reduce 方法計算總價
-            return this.items.reduce((total, item) => {
-                return total + (item.price * item.quantity);
-            }, 0);
+        // 透過計算屬性計算總價
+        totalAmount() {
+            return this.box.reduce((total, item) => total + (item.price * item.quantity), 0);
         }
     },
     methods: {
+        // 增加數量
         addNumber(index) {
-            let quantity_num = document.getElementsByClassName("quantity-num")[0];
-            let btn_add = document.getElementsByClassName('b-add-shopping')[0];
-            if (quantity_num.value < 30) {
-
-                this.box[index].quantity = parseInt(this.box[index].quantity) + 1; // 增加数量
-                this.box[index].total = this.box[index].price * this.box[index].quantity; // 更新总价
+            if (this.box[index].quantity < 30) {
+                this.box[index].quantity++;
+                
                 this.updateTotal();
-
-                localStorage.setItem('cart', JSON.stringify(this.box));
+                // localStorage.setItem('cart', JSON.stringify(this.box));
+                const itemPrice = this.box[index].price;
+                console.log("新增一個商品，價格：", itemPrice);
             } else {
-                window.alert("超過庫存數量")
+                window.alert("超過庫存數量");
             }
-
         },
+        // 減少數量
         subNumber(index) {
-            let btn_sub = document.getElementsByClassName('b-sub-shopping')[0];
-            let quantity_num = document.getElementsByClassName("quantity-num")[0];
-            if (quantity_num.value >= 2) {
-
-                this.box[index].quantity -= 1; // 减少数量
-                this.box[index].total = this.box[index].price * this.box[index].quantity;
+            if (this.box[index].quantity >= 2) {
+                this.box[index].quantity--;
                 this.updateTotal();
-
-                // 保存更改后的数据到localStorage
-                localStorage.setItem('cart', JSON.stringify(this.box));
+                // localStorage.setItem('cart', JSON.stringify(this.box));
             }
-
-
-
-
         },
+        // 更新總計金額
         updateTotal() {
-            // 手动更新 total 属性
-            this.total = this.box.reduce((total, item) => {
-                return total + (item.price * item.quantity);
-            }, 0);
-        },
+            this.total = this.totalAmount;
+        }
     },
     mounted() {
-        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // 讀取購物車數據
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
         if (cart.length > 0) {
-            // 在页面中显示购物车中的产品信息
             this.box = cart;
-        } else {
-            // 如果购物车为空，显示一条消息
-            console.log("購物車是空的");
         }
 
-        //activity
-        var cart2 = JSON.parse(localStorage.getItem('cart2')) || [];
+        // 讀取活動商品數據
+        const cart2 = JSON.parse(localStorage.getItem('cart2')) || [];
         if (cart2.length > 0) {
-            // 在页面中显示购物车中的产品信息
             this.activity = cart2;
         }
+
+        // 初始化總計金額
+        this.updateTotal();
+
     }
 });
+
 app.mount("#app");
+
+// var deleteButtons = document.querySelectorAll('.item-delete');
+        //     deleteButtons.forEach(function(button) {
+        //     button.addEventListener('click', function() { 
+        //         var shoppingCartItem = button.closest('.shoppingcart-item');
+        //         let removeli = document.getElementsByClassName('.shoppingcart-item');
+                
+        //         setTimeout(function(){
+        //         $shoppingCartItem.remove();
+        //         },1000);
+                
+        //     });
+        // });

@@ -66,8 +66,8 @@
     .shoppingcart-pay-form-cardtitle{
         font-weight: 700;
         margin-top: 20px;
+        text-align: center;
         @include m(){
-            text-align: center;
             margin: 40px;
         }
     }
@@ -121,6 +121,7 @@
     .paypage-form .pay-slash{
         margin-left: 5px;
         margin-right: 5px;
+        font-weight: 700;
     }
     .chip-number{
         width: 20%;

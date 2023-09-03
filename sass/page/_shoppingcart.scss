@@ -78,13 +78,26 @@
     .shopping-theme-text{
         padding: 20px 2vw;
     }
-
+    .remove-item{
+        animation: remove-item .5s ease;
+        @keyframes  remove-item {
+            0%{
+                transform: scale(1);
+            }
+            100%{   
+                transform: scaleY(0);
+            }
+        }
+    }
     .shoppingcart-item{
         display: flex;
         width: 100%;
+        
+        
         @include flex(row,space-between,center);
         padding: 20px 2vw;
         border-bottom: 1px solid $color_warterblue;
+        
         .item-quantity{
             display: flex;
             @include flex(row,center,center);
