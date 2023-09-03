@@ -115,7 +115,7 @@
                                         <div class="b-n b-add " @click="addNumber"></div>
                                     </div>
                     
-                                    <button type="button" @click="addCart()">報名</button>
+                                    <button type="button" id="joinBtn" @click="addCart()">報名</button>
                     
                                 </div>
                             </div>
@@ -139,25 +139,25 @@
     <script src="./js/activity_detail.js"></script>
 
     <script>
-            let joinBtn = document.getElementById("joinBtn");
-            let quantityCart = document.getElementById("quantity_cart");
+            // let joinBtn = document.getElementById("joinBtn");
+            // let quantityCart = document.getElementById("quantity_cart");
 
-            // Initialize a variable to keep track of the quantity
-            let quantity = 0;
+            // // Initialize a variable to keep track of the quantity
+            // let quantity = 0;
 
-            // Function to update the quantity and display it
-            function updateQuantity() {
-            // Increment the quantity
-            quantity++;
-            // Update the text content of the quantity element
-            quantityCart.textContent = quantity;
+            // // Function to update the quantity and display it
+            // function updateQuantity() {
+            // // Increment the quantity
+            // quantity++;
+            // // Update the text content of the quantity element
+            // quantityCart.textContent = quantity;
 
-            // Show the quantity element (remove the 'display: none' style)
-            quantityCart.style.display = "inline";
-            }
+            // // Show the quantity element (remove the 'display: none' style)
+            // quantityCart.style.display = "inline";
+            // }
 
-            // Add a click event listener to the button
-            joinBtn.addEventListener("click", updateQuantity);
+            // // Add a click event listener to the button
+            // joinBtn.addEventListener("click", updateQuantity);
     </script>
 
 </body>
