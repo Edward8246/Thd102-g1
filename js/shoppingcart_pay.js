@@ -76,4 +76,14 @@ document.addEventListener("DOMContentLoaded", function(){
     
 });
 
+//---------------------下一步
+
+let btn = document.getElementById("nextsubmit");
+btn.addEventListener("click", function(){
+    let user = document.getElementById("inputUser");
+    let phone = document.getElementById("inputPhone");
+    let mail = document.getElementById("inputEmail");
+    
+    if(){}
+});
 
