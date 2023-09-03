@@ -29,3 +29,21 @@ bar_el.addEventListener("click", function () {
     });
   }
 });
+
+
+//顯示購物車數量
+let joinBtn = document.getElementById("joinBtn");
+let quantityCart = document.getElementById("quantity_cart");
+
+// Initialize a variable to keep track of the quantity
+// let quantity = 0;
+
+var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// 检查购物车中是否已经存在相同的商品
+let cart_items = cart.length;
+// console.log(cart_items);
+if(cart_items > 0){
+    quantityCart.style.display = "inline";
+    quantityCart.innerHTML = cart_items;
+}
