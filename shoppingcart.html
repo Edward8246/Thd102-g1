@@ -11,8 +11,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 </head>
-
-<body>
+<script>
+    function init(){
+  
+  showMember();
+  }
+  
+  function showMember(){
+     $.ajax({            
+         method: "POST",
+         url: "API/Frontend/Member.php",
+         data:{},            
+         dataType: "text",
+         success: function (response) {                           
+    
+             $("#showMember").html(response); 
+             
+         },
+         error: function(exception) {
+             alert("數據載入失敗: " + exception.status);
+         }
+     });
+  }
+  
+  </script>
+<body onload="init()">
 
     <!--------------------------------上排付款流程 -->
     @@include('./layout/login.html')
@@ -43,7 +66,7 @@
             <!----------------------購物車列表文字-->
     
             <div class="shoppingcart-list">
-                <div class="item-img"><h6>商品圖片</h6></div>
+                <div class="item-img"><h6></h6></div>
                 <div class="item-title"><h6>訂購商品</h6></div>
                 <div class="item-price"><h6>單價</h6></div>
                 <div class="item-quantity"><h6>數量</h6></div>
@@ -54,7 +77,7 @@
             <!--------------------商品卡片-->
         <div  id="app">
             <div class="shopping-theme box">
-                <h6 class="shopping-theme-text">我訂購的盒子</h6>
+                <h6 class="shopping-theme-text">訂購盒子</h6>
                 <ul>
                     <li v-for="(item, index) in box" class="shoppingcart-item">
                         <div class="item-img">
@@ -116,7 +139,7 @@
             </div>
             <!-------------------------------------------訂購活動-->
             <div class="shopping-theme activity">
-                <h6 class="shopping-theme-text">訂購活動</h6>
+                <h6 class="shopping-theme-text">預約活動</h6>
                 <ul>
                     <li v-for="(item, index) in box" class="shoppingcart-item">
                         <div class="item-img">

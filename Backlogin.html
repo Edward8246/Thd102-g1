@@ -27,6 +27,42 @@
 
 </head>
 
+<script type="text/javascript">
+    function doSubmit() {
+        if (document.getElementById('account').value == '') {
+            alert("請填寫[帳號]");
+            return false;
+        }
+        if (document.getElementById('pwd').value == '') {
+            alert("請填寫[密碼]");
+            return false;
+        }   
+        
+        
+        $.ajax({            
+            method: "POST",
+            url: "API/Backend/Login.php",
+            data:{ 
+                account: $("#account").val(),
+                pwd: $("#pwd").val()
+            },
+            dataType: "text",
+            success: function (response) {
+                if(response == 'Y'){
+                    //登入成功->導回產品頁
+                
+                    location.href = 'backCustomerTables.html';
+                }else{
+                    alert('帳號或密碼錯誤喔');
+                }                
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+            }
+        });
+    }
+</script>
+
 <!-- <body class="bg-gradient-primary"> -->
 <body class="loginbackground">
 
@@ -50,25 +86,23 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">HAKO後台登入</h1>
                                     </div>
-                                    <form class="user">
+                            
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="管理員帳號輸入">
+                                            <input type="text" class="form-control form-control-user"
+                                            id="account" name="account" aria-describedby="emailHelp"
+                                                placeholder="管理員帳號輸入" value="qwe123x">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="管理員密碼輸入">
+                                            id="pwd" name="pwd" placeholder="管理員密碼輸入" value="qwe123x">
                                         </div>
-
+                               
        
-
-                                        <a href="backCustomerTables.html" class="btn btn-primary btn-user btn-block">
-                                            登入
-                                        </a>
-
+                                        <input type="submit" name="submitBtn" class="btn btn-primary btn-user btn-block" id="submitBtn" value="登入" onclick="return doSubmit();">
+                                     
+                            
             
-                                    </form>
+                                  
  
                                 </div>
                             </div>

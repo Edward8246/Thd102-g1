@@ -10,43 +10,58 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <title>HAKO:盒子</title>
 </head>
+<script>
+  function init(){
+    showMember();
+  }
 
-<body>
+  function showMember(){
+    $.ajax({            
+        method: "POST",
+        url: "API/Frontend/Member.php",
+        data:{},            
+        dataType: "text",
+        success: function (response) {                           
+    
+            $("#showMember").html(response); 
+            
+        },
+        error: function(exception) {
+            alert("數據載入失敗: " + exception.status);
+        }
+    });
+  }
+</script>
+<body onload="init()">
   @@include('./layout/loading.html')
-
-
   @@include('./layout/login.html')
   <div class="wrapper boxPage">
     @@include('layout/header.html')
     <div class="container">
+      @@include('./layout/backToTop.html')
       <div id="my_app" class="box-container">
         <div class="box-banner"></div>
-        <section class="select-tag">
-          <div class="box-tag tag-green " :class="{ on: currentTag === 'green' }"
-            @click="show('green', 'western','all')">西式料理</div>
-          <div class="box-tag tag-purple" :class="{ on: currentTag === 'purple' }"
-            @click="show('purple', 'chinese','all')">中式料理</div>
-          <div class="box-tag tag-blue" :class="{ on: currentTag === 'blue' }" @click="show('blue', 'japanese','all')">
-            日式料理</div>
-          <div class="box-tag tag-yellow" :class="{ on: currentTag === 'yellow' }"
-            @click="show('yellow', 'health','all')">健康料理</div>
-          <div class="box-tag tag-red" :class="{ on: currentTag === 'red' }" @click="show('red', 'fast','all')">快速料理
-          </div>
+
+        <!-- modify ref -->
+        <section class="box-title">
+          <h4>訂購盒子</h4>
+          <div class="select-tag2">
+
+            <div class="box-tag-m"  :class="{onTag: currentTag === '西式料理' }" @click="show('西式料理')">西式料理</div>
+
+            <div class="box-tag-m" :class="{onTag: currentTag === '中式料理'}" @click="show('中式料理')">中式料理</div>
+
+            <div class="box-tag-m" :class="{onTag: currentTag === '日式料理'}" @click="show('日式料理')">日式料理</div>
+
+            <div class="box-tag-m" :class="{onTag: currentTag === '健康料理'}" @click="show('健康料理')">健康料理</div>
+
+            <div class="box-tag-m":class="{onTag: currentTag === '快速料理'}" @click="show('快速料理')">
+              快速料理</div>
+            </div>
         </section>
-        <section class="select-tag2">
-          <div class="box-tag-m tb-green " :class="{ onGreen: currentTag === 'green' }"
-            @click="show('green', 'western','all')">西式料理</div>
-          <div class="box-tag-m tb-purple " :class="{ onPurple: currentTag === 'purple' }"
-            @click="show('purple', 'chinese','all')">中式料理</div>
-          <div class="box-tag-m tb-blue " :class="{ onBlue: currentTag === 'blue' }"
-            @click="show('blue', 'japanese','all')">日式料理</div>
-          <div class="box-tag-m tb-yellow " :class="{ onYellow: currentTag === 'yellow' }"
-            @click="show('yellow', 'health','all')">健康料理</div>
-          <div class="box-tag-m tb-red " :class="{ onRed: currentTag === 'red' }" @click="show('red', 'fast','all')">
-            快速料理</div>
-        </section>
-        <section class="box-wrapper grid-box">
-          <a :href="'box_info.html?id='+item.id" class="card-box  " v-for="(item, index) in items" :key="item.name"
+
+        <section class="box-wrapper">
+          <a :href="'box_info.html?id='+item.id" class="card-box " v-for="(item, index) in items" :key="item.name"
             v-show="index < displayedItems">
             <div class="image">
               <img :src="item.img" alt="">
@@ -73,7 +88,9 @@
   </div>
 
 
-  <script src="js/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/vue.global.js"></script>
+  <!-- <script src="./js/vue.global.prod.js"></script> -->
   <script src="js/header.js"></script>
   <script src="js/login.js"></script>
   <script src="js/box.js"></script>

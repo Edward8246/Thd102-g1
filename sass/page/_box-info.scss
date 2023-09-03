@@ -1,96 +1,128 @@
 
 html{
-    scroll-behavior: smooth;
-  }
-
+    scroll-behavior: smooth;  
+}
 .boxInfo{
+    //*{outline: solid 1px red;}
     .container{
         margin-top: 80px;
+        position: relative;
     }
     .info-top{
         display: none;
         @include d(820px){
             margin: 0 auto;
-            width: 75%;
            display: block;
-           padding-top: 30px;
            .image{
             border-radius: 10px;
             overflow: hidden;
            }
-           .select-tag-r{
-            position: sticky;
-            top: 0;
         
-            font-size: $h5;
-            @include flex(row,space-around,center);
-            padding-top: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #d5d5d5;
-            .select-r{
-                color: $color_darkblue;
-               
-            }
-           }
         }
         @include m {
-            padding-top: 0;
             .image{
                 border-radius: 0;
             }
             width: 100%;
-            .select-tag-r{
-                padding-top: 12px;
-                padding-bottom: 10px;
-                .select-r{
-                    font-size: $h7;
-                    
-                }
-            }
             
         }
     
     }
+     //modify-----------------------------
+     .select-tag{
+        position: relative;
+        z-index: 30;
+        position: fixed;
+        right: 0;
+        bottom: 50vh;
+        font-size: 12px;
+        padding: 20px 5vw 20px 20px;
+        border-radius: 16px 0 0 16px;
+        @include flex(column);
+        @include d(820px){
+            background-color: $color_blue;
+            transform: translateX(100px);
+            transition: .5s;
+            &.slideToggle{
+                transform: translateX(10px);
+            }
+        }
+        .slide{
+            display: none;
+            @include size(36px,36px);
+            border-radius:50% ;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform:translate(-70%,-50%);
+            background-color: $white;
+            border: solid 1px $color_blue;
+            cursor: pointer;
+
+            
+
+            @include d(820px){
+                display: block;
+                
+            }
+            i{
+                color:$color_blue;
+                font-size: 12px;
+            }
+        }
+        .select{
+            padding: 4px;
+            color:$gray;
+            @include d(820px){
+                color: #eee;
+            }
+            
+            &.onTag{
+                color: $color_blue;
+                @include d(820px){
+                    color: #fff;
+                    font-weight: 700;
+                }
+            }
+            &::after{
+                content:" ";
+                display:block; 
+                width: 0%;
+                height: 2px;
+                background-color: $color_blue;
+                transition: .4s .2s;
+                margin-top: 4px;   
+                @include d(820px){
+                    background-color:  #fff;
+                }
+            }
+            &:hover::after,&:active::after{
+                width: 100%;
+            }
+            &.onTag::after{
+                width: 100%;
+            }
+        }
+    }
+    //------------------------------------
     .box-info-wrapper {
         margin: 0 auto;
-        max-width: 792px;
-        @include d(820px){
-            width: 75%;
-            }
+        width: 100%;
+        padding: 0 $side_padding-360px;
+
         @include m{
-    
-    
-            width: 90%;
+            padding: 0 $side_padding-m;
         } 
-    
-        .select-tag {
-            padding-top: 20px;
-            width: 100%;
-            @include flex(row, space-between, center);
-            border-bottom: 1px solid $color_blue;
-            padding-bottom: 25px;
-            margin-bottom: 70px;
-            margin-top: 50px;
-            font-size: $h5;
-           .select{
-            color: $color_darkblue;
-           }
-           @include d(820px){
-            display: none;
-            }
-    
-    
-        }
-       
     
         .buy {
             width: 100%;
-            margin-bottom: 95px;
+            padding: 80px 0;
+            //margin-bottom: 80px;
             @include flex(row, space-between, stretch);
             @include d(820px){
                 flex-direction: column;
                 align-items: center;
-                margin-bottom: 80px;
+                //margin-bottom: 80px;
             }
              @include m {
                         font-size: $h5;
@@ -98,15 +130,15 @@ html{
     
             .info-left {
                 width: 48%;
-                border-radius: 12px;
+                border-radius: 16px;
                 overflow: hidden;
                 @include flex;
                 @include btn_shadow($black, .4);
                 .image{
-                    height: 100%;
+                    height: 110%;
                     
                     img{
-                        // height: 100%;
+                        
                     }
                 }
                 @include d(820px){
@@ -153,10 +185,8 @@ html{
                     }
                 }
                 .info-detail {
-                    @include flexCenter;
-                    width: 60%;
-                    
-    
+                    @include flexCenter;                    
+                    width: 240px;
                     .icon-text {
                         @include flexCenter;
                         font-size: $h8;
@@ -164,19 +194,13 @@ html{
                         margin-bottom: 15px;
     
                         .fa-solid {
-                            margin-right: 5px;
+                            margin-right: 12px;
                         }
                         svg{
-                            margin-right: 3px;
+                            margin-right: 12px;
                         }
                     }
-                    @include d(820px){
-                        width: 130px;
-                        .use{
-                            display: none;
-                        }
                     
-                        }
                 }
     
                 .info-text {
@@ -193,7 +217,7 @@ html{
                     margin-bottom: 20px;
                     @include d(820px){
                         display: none;
-                        }
+                    }
                 }
     
                 .btn-group {
@@ -224,23 +248,25 @@ html{
     
             }
     
-        h5{
-                margin-bottom: 35px;
-                @include m {
-                    font-size: $h6;
-    
-                }
+        .subTitle{
+            padding: 10px 0;
+            margin-bottom: 35px;
+            @include m {
+                font-size: $h6;
+
+            }
         }
         .ingredients{
             width: 100%;
-            margin-bottom: 100px;
-            @include flex(row,space-between,top);
+            padding-top: 80px;
+            margin-bottom: 80px;
+            @include flex(column,space-between,top);
             @include d(820px){
-                flex-direction: column;
-                align-items: start;
                 margin-bottom: 60px;
                 }
-            
+            .ingredients_info{
+                @include flex(row,space-between);
+            }
             .items{
                 width: 50%;
                 display: flex;
@@ -251,29 +277,12 @@ html{
                 li{
                     @include flex(row,space-between,top);
                     padding-bottom: 8px;
-                   margin-bottom: 22px;
+                margin-bottom: 22px;
                     @include d(820px){
                         border-bottom: 1px solid #d5d5d5;
                         }
                 }
-                // width: 100%;
-                // @include flex(row,space-between,top);
-                // li{
-                //     font-size: $h7;
-                //     margin-bottom: 25px;
-                //     &:last-child{
-                //         margin-bottom: 0;
-                //     }
-                //     @include d(820px){
-                //         // border-bottom: 1px solid #d5d5d5;
-                //         }
-                // }
-                // .item-num{
-                //     @include d(820px){
-                //         @include flex(column,top,end);
-                //         }
-                // }
-                
+    
     
             }
             .image{
@@ -286,6 +295,7 @@ html{
             }
         }
         .steps{
+            padding-top: 80px;
             margin-bottom: 120px;
             @include d(820px){
                 margin-bottom: 90px;
@@ -313,9 +323,9 @@ html{
         }
         .tips{
             width: 55%;
-            margin: 0 auto;
-            margin-bottom: 90px;
+            margin: 80px auto;
             .tip-icon{
+                padding: 20px;
               @include flex(row, center,top);
                i{
                 font-size: 30px;
@@ -324,8 +334,9 @@ html{
             .tip-text{
                 list-style:disc ;
                 li{
-                    margin-bottom: 10px;
+                    margin-bottom: 20px;
                     font-size: $h7;
+                    line-height: 1.6;
                 }
             }
             @include d(820px){
@@ -335,11 +346,14 @@ html{
                 width: 70%;
             }
         }
+        .chef{
+            padding-top: 40px;
+            border-top : solid 1px #bbb;
+        }
         .chef-title{
             padding-top: 30px;
-            border-top: 1px solid #d5d5d5;
         }
-        .chef{
+        .chef-info{
            @include flexCenter;
            padding-bottom: 90px;
            border-bottom: 1px solid #d5d5d5;

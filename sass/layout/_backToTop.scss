@@ -1,4 +1,5 @@
 .backToTop{
+  display: none;
     z-index: 20;
     position: fixed;
     bottom: 20%;
@@ -12,7 +13,7 @@
       }
     }
 
-    @include m(){
+    @include d(500px){
       display: none;
     }
   }

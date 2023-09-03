@@ -5,7 +5,7 @@
     padding: 20px;
     height: 100vh;
     width: 100%; 
-    background-color: rgba($white,.8);  
+    background-color: rgba(rgb(64, 61, 61),.8);  
     position: relative;
     justify-content: center;
     align-items: center;
@@ -78,6 +78,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 12px;
+
 }
 .title-text{
     padding: 6px 0;
@@ -248,7 +249,7 @@ form {
 }
 
 .overlay-panel {
-    background-image: url(/login_bg.jpg);
+    background-image: url(../../images/login_bg.jpg);
     position: absolute;
     display: flex;
     align-items: center;
@@ -317,16 +318,17 @@ form {
     font-size: $h6;
     
 }
-
-.member-button, .home-button{
+.member-button{
+    margin-top: 20px;
+}
+.member-button, .home-button, .loginbutton01{
     display: flex;
     flex-direction: column;
-    margin: 10px auto;
     align-items: center;
+    width: 100%;
     
     @include btn($white,$color_blue,$color_blue,$border-radius-50);
-    width: 80%;
-    padding: 6px;
+    padding: 8px;
     font-weight: 500;
 
     &:active{

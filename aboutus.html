@@ -9,8 +9,33 @@
     <title>HAKO:關於我們</title>
 </head>
 
+<script>
+  function init(){
 
-<body>
+showMember();
+}
+
+function showMember(){
+   $.ajax({            
+       method: "POST",
+       url: "API/Frontend/Member.php",
+       data:{},            
+       dataType: "text",
+       success: function (response) {                           
+  
+           $("#showMember").html(response); 
+           
+       },
+       error: function(exception) {
+           alert("數據載入失敗: " + exception.status);
+       }
+   });
+}
+
+</script>
+
+
+<body onload="init()">
 
     @@include('./layout/login.html')
     <div class="wrapper aboutus">

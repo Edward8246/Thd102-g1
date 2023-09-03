@@ -1,12 +1,17 @@
 .activity-det{
+    //*{outline: 1px solid red;}
     .container{
-        margin-top: 80px;
-        padding-top: 20px;
-        padding-bottom: 50px;
+        // margin-top: 80px;
+        padding: 100px $side_padding-360px;
 
-        @include p(){
-            padding: 20px 20px 50px;
+        @include m(){
+            //padding: 20px 20px 50px;
+            padding: 20px 6.45% 0;
         }
+    }
+
+    .wrapper-t{
+        padding: 0;
     }
 
     
@@ -18,21 +23,24 @@
     // align-items: flex-start;
     flex-wrap: wrap;
 
-    @include m(){
+    @include rwdGrid(1000px){
         flex-direction: column-reverse;
     }
 }
 //左側
 .left-desc{
-    @include m(){
+    flex:7;
+     @include rwdGrid(1000px){
         margin-top: 20px;
+        flex: 1;
+    //     width: 100%;
     }   
     .act-d-img{
         // height: 502px;
         border-radius: 12px;
         overflow: hidden;
 
-        @include m(){
+        @include rwdGrid(600px){
             height: auto;
         }
     }
@@ -54,10 +62,13 @@
 
 //資訊
 .detail-info{
-    padding-left: 24px;
-    @include m(){
-        // display: none;
-        padding-left: 0;
+    flex:3;
+    padding-left: 36px;
+     @include rwdGrid(1000px){
+    //     // display: none;
+         padding-left: 0;
+         flex:1
+    //     width: 100%;
     }
     
     // border: 1px solid red;
@@ -65,7 +76,7 @@
         position: sticky;
         top: 100px;
 
-        @include m(){
+        @include rwdGrid(600px){
             position: static;
         }
         .tb-green{
@@ -73,27 +84,50 @@
             margin-bottom: 10px;
             
         }
-        h1{
-            margin-bottom: 32px;
+        h2{
+            margin: 15px 0 32px;
 
-            @include m(){
+            @include rwdGrid(1000px){
                 margin-top: 10px;
+                font-size: $h1;
             }
         }
         .detail-info-txt{
             display: flex;
-            margin-bottom: 24px;
-            i{
-                font-size: $h5;
+            margin-bottom: 16px;
+            .icon{
+                width: 20px;
                 margin-right: 10px;
+                text-align: center;
+
+                @include rwdGrid(1000px){
+                    width: 24px;
+                }
+            }
+            i{
+                font-size: $h6;
+                line-height: 1.5;
+
+                @include rwdGrid(1000px){
+                    font-size: 20px;
+                    
+                    
+                }
+                
             }
             h6{
                 line-height: 1.5;
+
+                @include rwdGrid(1000px){
+                    font-size: 20px;
+                    
+                }
             }
         }
 
         .price{
-            margin-bottom: 20px
+            margin: 32px 0;
+            font-weight: 700;
         }
 
         .join{
@@ -110,7 +144,7 @@
             @include btn($white, $color_blue, $color_blue, 10px);
             @include size(100%, 35px);
            
-            @include m(){
+            @include rwdGrid(600px){
                 margin: 16px auto;
             }
             

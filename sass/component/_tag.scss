@@ -18,22 +18,22 @@
     @include tag-full($color_tag_blue);
 }
 
-.tb-green{
+.tb-green, .tag-green{
     @include tag-border($color_tag_green);
 }
 
-.tb-yellow{
+.tb-yellow, .tag-yellow{
     @include tag-border($color_tag_yellow);
 }
 
-.tb-red{
+.tb-red, .tag-red{
     @include tag-border($color_tag_red);
 }
 
-.tb-purple{
+.tb-purple, .tag-purple{
     @include tag-border($color_tag_purple);
 }
 
-.tb-blue{
+.tb-blue,  .tag-blue{
     @include tag-border($color_tag_blue);
 }

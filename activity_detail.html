@@ -9,7 +9,33 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
+<script>
+    function init(){
+  
+        showMember();
+        }
+        
+        function showMember(){
+            $.ajax({            
+                method: "POST",
+                url: "API/Frontend/Member.php",
+                data:{},            
+                dataType: "text",
+                success: function (response) {                           
+            
+                    $("#showMember").html(response); 
+                    
+                },
+                error: function(exception) {
+                    alert("數據載入失敗: " + exception.status);
+                }
+            });
+    }
+  
+  </script>
+
+
+<body onload="init()">
     @@include('./layout/loading.html')
 
     @@include('./layout/login.html')
@@ -18,76 +44,86 @@
 
         <div class="container">
              <!-- 活動資訊 -->
-        <div id="actInfo">   
-        <div class="wrapper-t">
-            <section class="flex-container-ad">
-                <!-- 左側 -->
-                <div class="left-desc col-8 col-m-6">
-                    <div class="image act-d-img">
-                        <img :src="filteredList[idPort].img" alt="">
-                    </div>
+             <div id="actInfo">   
+                <div class="wrapper-t">
+                    <section class="flex-container-ad" v-if="arr_act">
+                        <!-- 左側 -->
+                        <!-- <div class="left-desc col-8 col-m-6"> -->
+                        <div class="left-desc">
+                            <div class="image act-d-img">
 
-
-                    <!-- 活動敘述 -->
-                    <div class="desc">
-                        <h4>課程資訊</h4>
-                        <hr>
-                        <p v-html="filteredList[idPort].act_desc "></p>
-            
-                        <h4>場地資訊</h4>
-                        <hr>
-                        <p v-html="filteredList[idPort].loc_desc"></p>
-                    </div>
-                </div>
-                
-            <!-- 右側 -->
-                <div class="detail-info col-4 col-m-6">
-                    <div class="detail-info-box">
-                        <div class="col-6 col-m-3" :class="tagColor2(filteredList[idPort].tag)">{{ filteredList[idPort].tag }}</div>
-                        <h1>{{ filteredList[idPort].name }}</h1>
-                            
-                        <div class="detail-info-txt">
-                            <i class="fa-solid fa-calendar"></i>
-                            <h6>{{ filteredList[idPort].date }}</h6>
-                        </div>
-            
-                        <div class="detail-info-txt">
-                            <i class="fa-solid fa-clock"></i>
-                            <h6>{{ filteredList[idPort].dur }}</h6>
-                        </div>
-            
-                        <div class="detail-info-txt">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <h6>{{ filteredList[idPort].loc }}<br>
-                                {{ filteredList[idPort].adr }}</h6>
-                        </div>
-
-                        <div class="price">
-                            <h4> ${{filteredList[idPort].price }} </h4>
-                        </div>
-
-            
-                        <div class="join">
-                            <div class="join-txt">
-                                <h6>人數</h6>
-                                <span>限25人報名</span>
+                                
+                                <img v-if="arr_act.photo_url" :src="'./images/activity/' + arr_act.photo_url" alt="">
                             </div>
-                            <div class="btn-number">
-                                <div class="b-n b-sub " @click="subNumber"></div>
-                                <input class="text buy-value" type="text" value="1" readonly="readonly">
-                                <div class="b-n b-add " @click="addNumber"></div>
+
+
+                            <!-- 活動敘述 -->
+                            <div class="desc">
+                                <h4>課程資訊</h4>
+                                <hr>
+                                <p v-if="arr_act.activity_description" v-html="arr_act.activity_description"></p>
+                    
+                                <h4>場地資訊</h4>
+                                <hr>
+                                <p v-html="arr_act.activity_place_description"></p>
                             </div>
-            
-                            <button type="button" @click="addCart()">報名</button>
-            
                         </div>
-                    </div>
-                </div>
+                        
+                    <!-- 右側 -->
+                        <!-- <div class="detail-info col-4 col-m-6"> -->
+                        <div class="detail-info">
+                            <div class="detail-info-box">
+                                <div v-if="arr_act && arr_act.activity_category && category_list[arr_act.activity_category]" class="col-6 col-m-3" :class="'tb-' + category_list[arr_act.activity_category].color">{{ arr_act.activity_category }}</div>
+                                <h2>{{ arr_act.name }}</h2>
+                                    
+                                <div class="detail-info-txt">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-calendar"></i>
+                                    </div>
+                                    <h6>{{ arr_act.activity_date }}</h6>
+                                </div>
+                    
+                                <div class="detail-info-txt">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-clock"></i>
+                                    </div>
+                                    <h6>{{ arr_act.activity_duration_time }}</h6>
+                                </div>
+                    
+                                <div class="detail-info-txt">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <h6>{{ arr_act.activity_place_name }}<br>
+                                        {{ arr_act.activity_place_adr }}</h6>
+                                </div>
+
+                                <div class="price">
+                                    <h4> $ {{ arr_act.unit_price }} </h4>
+                                </div>
+
+                    
+                                <div class="join">
+                                    <div class="join-txt">
+                                        <h6>人數</h6>
+                                        <span>名額餘{{ arr_act.stock }}位</span>
+                                    </div>
+                                    <div class="btn-number">
+                                        <div class="b-n b-sub " @click="subNumber"></div>
+                                        <input class="text buy-value" type="text" value="1" readonly="readonly">
+                                        <div class="b-n b-add " @click="addNumber"></div>
+                                    </div>
+                    
+                                    <button type="button" @click="addCart()">報名</button>
+                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </section>
                 
-            </section>
-        
-        </div>
-        </div>  
+                </div>
+             </div>  
         <!-- end -->
         </div>
        
@@ -99,7 +135,7 @@
     <!-- <script src="./js/vue.global.prod.js"></script> -->
     <script src="./js/login.js"></script>
     <script src="./js/header.js"></script>
-    <script src="./js/activity.js"></script>
+    <script src="./js/activity_detail.js"></script>
 
 </body>
 </html>

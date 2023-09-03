@@ -9,14 +9,37 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
+<script>
+    function init(){
+  
+  showMember();
+  }
+  
+  function showMember(){
+     $.ajax({            
+         method: "POST",
+         url: "API/Frontend/Member.php",
+         data:{},            
+         dataType: "text",
+         success: function (response) {                           
+    
+             $("#showMember").html(response); 
+             
+         },
+         error: function(exception) {
+             alert("數據載入失敗: " + exception.status);
+         }
+     });
+  }
+  
+  </script>
+<body onload="init()">
 
     @@include('./layout/login.html')
     <div class="wrapper memberform">
         @@include('./layout/header.html')
         <div class="container">
             <h4 class="">會員中心</h4>
-
             <div class="member_tabs">
                 <div class="tab member t-choose"> <h6>會員資料</h6> </div>
                 <div class="tab product"> <h6> 商品訂單</h6> </div>
