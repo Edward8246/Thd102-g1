@@ -84,6 +84,6 @@ btn.addEventListener("click", function(){
     let phone = document.getElementById("inputPhone");
     let mail = document.getElementById("inputEmail");
     
-    if(){}
+ 
 });
 
