@@ -39,9 +39,19 @@
             dataType: "text",
             success: function (response) {
                 if(response == 'Y'){
+                    
                     //登入成功->導回產品頁
-                    alert('登入成功');
-                    location.href = 'index.html';
+                    $('#signin-success').css('display','block');
+                    $('#container').css('display','none');
+                    $(function(){
+                        $("#member-button").click(function(){
+                            location.href = 'member.html';
+                        });
+                        $("#home-button").click(function(){
+                            location.href = 'index.html';
+                        });
+                    });
+                    // location.href = 'index.html';
                 }else{
                     alert('帳號或密碼錯誤');
                 }                
@@ -122,17 +132,18 @@ function doSubmitjoin() {
 
                     <div class="form_input">
                         <label class="title-text">密碼</label>
-                        <input class="input-space" id="signUp_password" name="password" type="text" placeholder="請輸入密碼">
+                        <input class="input-space" id="signUp_password" name="password" type="password" placeholder="請輸入密碼">
                     </div>
                     
                     <div class="form_input">
                         <label class="title-text">確認密碼</label>
-                        <input class="input-space" id="signUp_password_2" name="password2"  type="text" placeholder="請再次輸入密碼">
+                        <input class="input-space" id="signUp_password_2" name="password2"  type="password" placeholder="請再次輸入密碼">
+                        <span id="password-mismatch" style="color: red;"></span>
                     </div>
+
                     <!-- 8/26更改 -->
                     <!-- <p class="text">註冊即表示您已同意服務條款及隱私權政策</p> -->
-                    <!-- <button id="doSubmit_signUp">註冊會員</button> -->
-                    <input type="button" id="doSubmit_signUp" value="註冊會員" onclick="return doSubmitjoin();">
+                    <input type="button" class="member-button" id="doSubmit_signUp" value="註冊會員" onclick="return doSubmitjoin();">
                     
                     <div class="signup_login">
                         <div class="textarea">歡迎回來!
@@ -151,14 +162,14 @@ function doSubmitjoin() {
                     <div class="form_input">
                         <label class="title-text">電子信箱</label>
                         <!-- <input class="input-space" name="email" type="email" placeholder="請輸入E-mail"> -->
-                               <!-- 8/26更改 -->
+                            <!-- 8/26更改 -->
                         <input class="input-space" type="text" id="account" name="account" value="" placeholder="請輸入E-mail"/>
                     </div>
     
                     <div class="form_input">
                         <label class="title-text">密碼</label>
                         <!-- <input class="input-space" name="password" type="password" placeholder="請輸入密碼"> -->
-                          <!-- 8/26更改 -->
+                        <!-- 8/26更改 -->
                         <input class="input-space" type="password" id="pwd" name="pwd"  value="" placeholder="請輸入密碼"/>
                     </div>
     
@@ -212,7 +223,7 @@ function doSubmitjoin() {
         </div>
     
         <!-- 登入成功 -->
-      
+
         <div class="signin-success" id="signin-success">
             <div class="signin-icon">
                 <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
@@ -223,7 +234,7 @@ function doSubmitjoin() {
             <a href="../member.html"><button class="member-button" id="member-button">前往會員專區</button></a>
             <a href="../index.html"><button class="home-button" id="home-button">回首頁</button></a>
         </div>
-      
+    
 
 
         <!-- 註冊成功 -->

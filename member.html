@@ -12,28 +12,28 @@
 <script>
     function init(){
   
-  showMember();
-  }
-  
-  function showMember(){
-     $.ajax({            
-         method: "POST",
-         url: "API/Frontend/Member.php",
-         data:{},            
-         dataType: "text",
-         success: function (response) {                           
+    showMember();
+    }
     
-             $("#showMember").html(response); 
-             
-         },
-         error: function(exception) {
-             alert("數據載入失敗: " + exception.status);
-         }
-     });
-  }
-  
-  </script>
-<body onload="init()">
+    function showMember(){
+        $.ajax({            
+            method: "POST",
+            url: "API/Frontend/Member.php",
+            data:{},            
+            dataType: "text",
+            success: function (response) {                           
+        
+                $("#showMember").html(response); 
+                
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    }
+    
+    </script>
+    <body onload="init()">
 
     @@include('./layout/login.html')
     <div class="wrapper memberform">

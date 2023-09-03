@@ -177,3 +177,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+//密碼一致
+$(document).ready(function() {
+
+    $("#signUp_password_2").blur(function() {
+        validatePasswordsMatch();
+    });
+});
+
+//驗證密碼是否一致
+function validatePasswordsMatch() {
+    var password1 = $("#signUp_password").val();
+    var password2 = $("#signUp_password_2").val();
+
+    if (password1 !== password2) {
+        $("#password-mismatch").text("密碼不一致").css("color", "red");
+        $("#signUp_password").css('border','1px solid red');
+        $("#signUp_password_2").css('border','1px solid red');
+    } else {
+    $("#signUp_password").css('border','none');
+    $("#signUp_password_2").css('border','none');
+    $("#password-mismatch").text(""); // 清除提示信息
+    }
+}
