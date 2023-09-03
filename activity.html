@@ -63,11 +63,11 @@
                     <div class="grid-b wrapper-t">
                         
                         
-                        <div class="card-act" v-for="card, index in filteredList" :key="index" v-show="index < displayedItems">
+                        <div class="card-act" v-for="(card, index) in filteredList" :key="index" v-show="index < displayedItems">
                             
                             <div class="card-top">
                                 <div class="image">
-                                    <img :src="getUrl(card.photo_url)" alt="">
+                                    <img :src="'./images/activity/' + card.photo_url" alt="">
                                 </div>
                                 <div class="act-info">
                                     <div :class="'ft-' + category_list[card.activity_category].color">
@@ -99,7 +99,7 @@
                 
                             <div class="btn_group col-9">
                                 <a class="left col-6" :href="'./activity_detail.html?id='+ card.id"><p>詳細資訊</p></a>
-                                <a class="right col-6" id="apply" href="" @click="disable((new Date(card.activity_date)).getTime(), $event)" :class="{disabled: buttonDisable((new Date(card.activity_date)).getTime())}"><p>馬上報名!</p></a>
+                                <button class="right col-6" id="apply" @click="disable((new Date(card.activity_date)).getTime(), $event, index)" :class="{disabled: buttonDisable((new Date(card.activity_date)).getTime())}"><p>馬上報名!</p></button>
                             </div>
                             
                         </div>
