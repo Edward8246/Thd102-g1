@@ -83,6 +83,7 @@ var activity = Vue.createApp({
     },
     addCart() {
       let buy_value = document.getElementsByClassName("buy-value")[0];
+      var quantityCart = document.getElementById("quantity_cart");
 
       //放入要傳遞的活得的資料
       var productInfo = {
@@ -110,6 +111,10 @@ var activity = Vue.createApp({
           cart.push(productInfo);
       }
 
+      if (cart.length > 0) {
+        quantityCart.style.display = "inline";
+        quantityCart.innerHTML = cart.length;
+      }
 
       // 将购物车数据重新存储到 localStorage
       localStorage.setItem('cart', JSON.stringify(cart));

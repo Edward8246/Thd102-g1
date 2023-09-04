@@ -119,7 +119,6 @@ var activity = Vue.createApp({
             cart.push(productInfo);
         }
 
-
         // 将购物车数据重新存储到 localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
       }
