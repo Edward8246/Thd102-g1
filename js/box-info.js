@@ -33,11 +33,9 @@ const app = Vue.createApp({
 
 
         },
-    //購物車----------------------
+        //購物車
         addCart() {
             let buy_value = document.getElementsByClassName("buy-value")[0];
-            //購物車訂單數字
-            var cartNum = document.getElementsByClassName("quantity_cart")[0];
 
             let productInfo = {
                 img: this.product.photo_url,
@@ -63,16 +61,10 @@ const app = Vue.createApp({
                 // 否则，将新商品添加到购物车
                 cart.push(productInfo);
             }
-//購物車數量~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            if (cart.length > 0) {
-                cartNum.style.display = "inline";
-                cartNum.innerHTML = cart.length;
-            }
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      
+
+
             // 将购物车数据重新存储到 localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
-
         },        
         changeTag(tag) {
             // 当点击一个标签时，将该标签设置为当前标签，并取消其他标签的选择
@@ -215,5 +207,3 @@ function removeActiveLinks() {
   const allLinks = document.querySelectorAll('.select');
   allLinks.forEach(link => link.classList.remove('onTag'));
 }
-
-
