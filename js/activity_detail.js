@@ -83,7 +83,7 @@ var activity = Vue.createApp({
     },
     addCart() {
       let buy_value = document.getElementsByClassName("buy-value")[0];
-      let cartNum = document.getElementById("cart_num");
+      let cartNum = document.getElementsByClassName("quantity_cart")[0];
 
       //放入要傳遞的活得的資料
       var productInfo = {

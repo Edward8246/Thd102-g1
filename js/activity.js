@@ -119,6 +119,11 @@ var activity = Vue.createApp({
             cart.push(productInfo);
         }
 
+        if (cart.length > 0) {
+          cartNum.style.display = "inline";
+          cartNum.innerHTML = cart.length;
+        }
+
         // 将购物车数据重新存储到 localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
       }

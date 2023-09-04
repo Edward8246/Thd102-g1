@@ -33,7 +33,7 @@ bar_el.addEventListener("click", function () {
 
 //顯示購物車數量
 var joinBtn = document.getElementById("joinBtn");
-let cartNum = document.getElementById("cart_num");
+let cartNum = document.getElementsByClassName("quantity_cart")[0];
 
 // Initialize a variable to keep track of the quantity
 // let quantity = 0;
@@ -45,4 +45,6 @@ var cart = JSON.parse(localStorage.getItem('cart')) || [];
 if (cart.length > 0) {
   cartNum.style.display = "inline";
   cartNum.innerHTML = cart.length;
+}else{
+  cartNum.style.display = "none";
 }
