@@ -83,7 +83,7 @@ var activity = Vue.createApp({
     },
     addCart() {
       let buy_value = document.getElementsByClassName("buy-value")[0];
-      var quantityCart = document.getElementById("quantity_cart");
+      let cartNum = document.getElementById("cart_num");
 
       //放入要傳遞的活得的資料
       var productInfo = {
@@ -112,8 +112,8 @@ var activity = Vue.createApp({
       }
 
       if (cart.length > 0) {
-        quantityCart.style.display = "inline";
-        quantityCart.innerHTML = cart.length;
+        cartNum.style.display = "inline";
+        cartNum.innerHTML = cart.length;
       }
 
       // 将购物车数据重新存储到 localStorage

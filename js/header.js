@@ -33,7 +33,7 @@ bar_el.addEventListener("click", function () {
 
 //顯示購物車數量
 var joinBtn = document.getElementById("joinBtn");
-var quantityCart = document.getElementById("quantity_cart");
+let cartNum = document.getElementById("cart_num");
 
 // Initialize a variable to keep track of the quantity
 // let quantity = 0;
@@ -43,6 +43,6 @@ var cart = JSON.parse(localStorage.getItem('cart')) || [];
 // 检查购物车中是否已经存在相同的商品
 // console.log(cart_items);
 if (cart.length > 0) {
-  quantityCart.style.display = "inline";
-  quantityCart.innerHTML = cart.length;
+  cartNum.style.display = "inline";
+  cartNum.innerHTML = cart.length;
 }
