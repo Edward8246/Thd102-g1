@@ -83,7 +83,7 @@ var activity = Vue.createApp({
       ;
     }, */
     
-    disable: function disable(date, e) {
+    disable: function disable(date, e, index) {
       // e.preventDefault();
       // console.log(e.target.closest('a').classList.add('disabled'));
 
@@ -117,6 +117,11 @@ var activity = Vue.createApp({
         } else {
             // 否则，将新商品添加到购物车
             cart.push(productInfo);
+        }
+
+        if (cart.length > 0) {
+          cartNum.style.display = "inline";
+          cartNum.innerHTML = cart.length;
         }
 
         // 将购物车数据重新存储到 localStorage

@@ -81,43 +81,50 @@ var activity = Vue.createApp({
         buy_value.value -= 1;
       }
     },
-    addCart() {
-      let buy_value = document.getElementsByClassName("buy-value")[0];
-      let cartNum = document.getElementById("cart_num");
+    addCart(data, e) {
+      var buy_value = document.getElementsByClassName("buy-value")[0];
+      var cartNum = document.getElementsByClassName("quantity_cart")[0];
 
-      //放入要傳遞的活得的資料
-      var productInfo = {
+      if (date <= this.dateNow) {
+        e.preventDefault();
+        // e.target.closest('a').classList.add('disabled');
+      } else {
+        //放入要傳遞的活得的資料
+        var productInfo = {
           img: this.arr_act.photo_url,
-          name: this.arr_act.name, // 替换为实际的产品信息
-          price: this.arr_act.unit_price, // 替换为实际的产品价格
+          name: this.arr_act.name,
+          // 替换为实际的产品信息
+          price: this.arr_act.unit_price,
+          // 替换为实际的产品价格
           quantity: buy_value.value,
-          total: (this.arr_act.unit_price) * buy_value.value
+          total: this.arr_act.unit_price * buy_value.value
           // 添加其他产品信息
-      };
-
-      // 获取购物车数据（如果存在）
-      var cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-
-      // 检查购物车中是否已经存在相同的商品
-      const existingItem = cart.find(cartItem => cartItem.name === productInfo.name);
-
-      if (existingItem) {
+        };
+  
+        // 获取购物车数据（如果存在）
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+        // 检查购物车中是否已经存在相同的商品
+        var existingItem = cart.find(function (cartItem) {
+          return cartItem.name === productInfo.name;
+        });
+        if (existingItem) {
           // 如果存在相同的商品，更新数量
           existingItem.quantity = parseInt(existingItem.quantity) + parseInt(productInfo.quantity);
           existingItem.total = existingItem.price * existingItem.quantity;
-      } else {
+        } else {
           // 否则，将新商品添加到购物车
           cart.push(productInfo);
-      }
+        }
+        if (cart.length > 0) {
+          cartNum.style.display = "inline";
+          cartNum.innerHTML = cart.length;
+        }
+  
+        // 将购物车数据重新存储到 localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
 
-      if (cart.length > 0) {
-        cartNum.style.display = "inline";
-        cartNum.innerHTML = cart.length;
       }
-
-      // 将购物车数据重新存储到 localStorage
-      localStorage.setItem('cart', JSON.stringify(cart));
     }
   },
   mounted: function mounted() {

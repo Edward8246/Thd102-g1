@@ -138,7 +138,18 @@
                 color: $color_grayblue;
                    }
             }
+            .disabled{
+                background-color: #74B4C7;
+                border: 1px solid #74B4C7;
+                cursor: not-allowed;
+                &:hover{
+                    box-shadow: none;
+                }
+                
+            }
         }
+
+       
 
         button{
             @include btn($white, $color_blue, $color_blue, 10px);
@@ -150,4 +161,14 @@
             
         }
     } 
+
+    .back{
+        margin-top: 20px;
+        a{
+            color: white;
+            &:hover{
+                color: $color_blue;
+            }
+        }
+    }
 }
