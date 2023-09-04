@@ -115,12 +115,14 @@
                                         <div class="b-n b-add " @click="addNumber"></div>
                                     </div>
                     
-                                    <button type="button" id="joinBtn" @click="addCart()">報名</button>
+                                    <button type="button" id="joinBtn" @click="addCart((new Date(arr_act.activity_date)).getTime(), $event)" :class="{disabled: buttonDisable((new Date(arr_act.activity_date)).getTime())}">報名</button>
                     
                                 </div>
                             </div>
                         </div>
                         
+                        <button class="back"><a href="./activity.html">回到近期活動</a></button>
+
                     </section>
                 
                 </div>

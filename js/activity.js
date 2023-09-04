@@ -83,7 +83,7 @@ var activity = Vue.createApp({
       ;
     }, */
     
-    disable: function disable(date, e) {
+    disable: function disable(date, e, index) {
       // e.preventDefault();
       // console.log(e.target.closest('a').classList.add('disabled'));
 

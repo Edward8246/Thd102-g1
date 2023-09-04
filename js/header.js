@@ -1,5 +1,3 @@
-console.clear();
-
 //hamburdger點擊事件
 let bar_el = document.getElementById("bar");
 let bar_line_els = document.getElementsByClassName("line");
@@ -32,13 +30,13 @@ bar_el.addEventListener("click", function () {
 
 
 //顯示購物車數量
-var joinBtn = document.getElementById("joinBtn");
+let joinBtn = document.getElementById("joinBtn");
 let cartNum = document.getElementsByClassName("quantity_cart")[0];
 
 // Initialize a variable to keep track of the quantity
 // let quantity = 0;
 
-var cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // 检查购物车中是否已经存在相同的商品
 // console.log(cart_items);
