@@ -40,140 +40,158 @@
     <div class="wrapper boxInfo">
         @@include('layout/header.html')
         <div  class="container"> 
-          <div id="app">
-            <!-- cata ref -->
-            <div class="select-tag" :class="{ 'slideToggle': isToggled }">
+            <div id="app">
+              <!-- 滑鼠小標cata ref -->
+              <div class="select-tag" :class="{ 'slideToggle': isToggled }">
+  
+                  <button class="slide" @click="toggleSlide" ><i class="fa-solid fa-right-left"></i></button>
+  
+                  <a href="#buy" id="buyLink" class="select" :class="{ 'onTag': currentTag === 'buy' }" @click="changeTag('buy')">立即訂購</a>
+  
+                  <a href="#ingredients" id="ingredientsLink" class="select" :class="{ 'onTag': currentTag === 'ingredients' }" @click="changeTag('ingredients')">內含食材</a>
+  
+                  <a href="#step" id="stepLink" class="select" :class="{ 'onTag': currentTag === 'step' }" @click="changeTag('step')">料理步驟</a>
+  
+                  <a href="#chef" id="chefLink" class="select" :class="{ 'onTag': currentTag === 'chef' }" @click="changeTag('chef')">主廚推薦</a>
+              </div>
+              <!-- =============== product訂購資訊 ======================== -->
+              <div class="info-wrapper" >
+                  <div class="info-top">
+                      <div class="image">
+                          <!-- 商品圖片(mobile) -->
+                          <img class="image" :src="'./images/box-info/' + product.photo_url" alt="">
+                      </div>
+                  </div>
+                  <div class="box-info-wrapper">
+                      <section id="buy" class="buy">
+                          <div class="info-left">
+                              <!-- 商品圖片(PC) -->
+                              <img class="image" :src="'./images/box-info/' + product.photo_url" alt="">
+                          </div>
+              
+                          <div class="info-right ">
+                              <div class="info-name" >
+                                  <!-- 品名 -->
+                                  <h2>{{ product.name }}</h2>
+                                  <!-- 單價(mobile) -->
+                                  <h4 class="r-price">${{ product.unit_price }}</h4>
+                              </div>
+              
+                              <div class="info-detail">
+                                  <div class="icon-text">
+                                      <i class="fa-solid fa-clock"></i>
+                                      <!-- 料理時間 -->
+                                      <span>{{ product.box_time }}</span>
+                                  </div>
+                                  <div class="icon-text">
+                                      <i class="fa-solid fa-user"></i>
+                                      <span>1人份</span>
+                                  </div>
+                                  <div class="icon-text use">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
+                                          <path d="M8.41667 0.0625C6.94167 0.0625 5.64167 0.89125 5.225 2.09542C4.78333 1.92542 4.31667 1.83333 3.83333 1.83333C2.94928 1.83333 2.10143 2.13184 1.47631 2.6632C0.851189 3.19455 0.5 3.91522 0.5 4.66667C0.501974 5.29413 0.748328 5.90339 1.2006 6.3993C1.65287 6.89521 2.2856 7.24988 3 7.40792V12.4583H13.8333V7.40792C15.3 7.08208 16.3333 5.95583 16.3333 4.66667C16.3333 3.91522 15.9821 3.19455 15.357 2.6632C14.7319 2.13184 13.8841 1.83333 13 1.83333C12.5167 1.83333 12.05 1.92542 11.6083 2.09542C11.1917 0.89125 9.89167 0.0625 8.41667 0.0625ZM8 6.4375H8.83333V11.3958H8V6.4375ZM5.5 7.85417H6.33333V11.3958H5.5V7.85417ZM10.5 7.85417H11.3333V11.3958H10.5V7.85417ZM3 13.1667V13.875C3 14.0629 3.0878 14.243 3.24408 14.3759C3.40036 14.5087 3.61232 14.5833 3.83333 14.5833H13C13.221 14.5833 13.433 14.5087 13.5893 14.3759C13.7455 14.243 13.8333 14.0629 13.8333 13.875V13.1667H3Z" fill="#255359"/>
+                                          </svg>
+                                          <!-- 烹調方式 -->
+                                      <!-- <span>{{ product[index].tool }}</span> -->
+                                      <span>{{ product.box_tool }}</span>
+                                  </div>
+                              </div>
+                              <!-- 商品描述 -->
+                              <p class="info-text">
+                                  {{ product.description }}
+                              </p>
+                              <!-- 價格(laptop) -->
+                              <h4 class="box-price">
+                                  ${{ product.unit_price }}
+                              </h4>
+                              <!-- 數量增減 -->
+                              <div class="btn-number">
+                                  <div class="b-n b-sub " @click="subNumber"></div>
+                                  <input class="text buy-value" type="text" value="1" readonly="readonly">
+                                  <div class="b-n b-add " @click="addNumber"></div>
+                              </div>
+                              <div class="btn-group">
+                                  <button class="b-buy b-left colte-6" @click="addCart()">加入購物車</button>
+                                  <button class="b-buy b-right colte-6">立即購買</button>
+                              </div>
+              
+                          </div>
+                      </section>
+  
+                      <!-- 食材區 -->
+                      <section id="ingredients" class="ingredients">
+                          <h5 class="subTitle">食材</h5>
+                          <div class="ingredients_info" v-if="ingredients">
+                              <ul class="items">
+                                  <!-- 食材種類 -->
+                                  <li v-for="(ingredients, index) in ingredients" :key="index">
+                                  <!-- <li> -->
+                                      <!-- 食材名稱 -->
+                                      <span class="item-name">{{ingredients.ingredients}}</span>
+                                      <!-- 食材數量 -->
+                                      <span class="item-num">{{ingredients.ingredients_detail}}</span>
+                                  </li>
+                              </ul>
+                              <div  class="image">
+                                  <img src="./images/box-info/box-info-Ingredients.jpg" alt="">  
+                              </div>
+                          </div>
+                      </section>
+  
+                      <!-- 料理步驟區 -->
+                      <section id = "step" class="steps">
+                          <h5 class="subTitle">料理步驟</h5>
+                          <div class="step_info" v-if="recipes">
+                              <ul>
+                                  <!-- 步驟 -->
+                                  <li class="step" v-for="(recipe, index) in recipes" :key="index">
+                                      <!-- 步驟順序 -->
+                                      <span>{{ index+1 }}</span>
+                                      <div class="step-text">
+                                          <!-- 步驟小標 -->
+                                          <h6>{{ recipe.recipe }}</h6>
+                                          <!-- 步驟細項 -->
+                                          <p>{{ recipe.recipe_detail }}</p>
+                                      </div>
+                                  </li>
+                              </ul>
+  
+                              <!-- tips區塊 -->
+                              <div class="tips" v-if="tips">
+                                  <div class="tip-icon">
+                                      <i class="fa-regular fa-lightbulb"></i>
+                                      <h5>小撇步</h5>
+                                  </div>
+                                  <ul class="tip-text" v-for="(tip, index) in tips" :key="index">
+                                      <!-- 三個小撇步 -->
+                                      <li>{{tip.tip}}</li>
+                                  </ul>
+                              </div>
+  
+                          </div>
+                      </section>
 
-                <button class="slide" @click="toggleSlide" ><i class="fa-solid fa-right-left"></i></button>
-
-                <a href="#buy" id="buyLink" class="select" :class="{ 'onTag': currentTag === 'buy' }" @click="changeTag('buy')">立即訂購</a>
-
-                <a href="#ingredients" id="ingredientsLink" class="select" :class="{ 'onTag': currentTag === 'ingredients' }" @click="changeTag('ingredients')">內含食材</a>
-
-                <a href="#step" id="stepLink" class="select" :class="{ 'onTag': currentTag === 'step' }" @click="changeTag('step')">料理步驟</a>
-
-                <a href="#chef" id="chefLink" class="select" :class="{ 'onTag': currentTag === 'chef' }" @click="changeTag('chef')">主廚推薦</a>
+                      <!-- 主廚介紹區域 -->
+                      <section id="chef" class="chef" v-if="chef">
+                          <h5 class="subTitle">主廚介紹</h5>
+                          <div class="chef-info" v-for="(chefInfo, index) in chef" :key="index">
+                              <div class="image ">
+                                  <!-- 主廚圖片 -->
+                                  <img :src="'./images/box-info/' + chefInfo.chef_photo" alt="">
+                              </div>
+                              <div class="chef-name ">
+                                  <!-- 廚師名稱 -->
+                                  <h4>{{ chefInfo.chef_name }}</h4>
+                                  <!-- 廚師介紹 -->
+                                  <p>{{ chefInfo.chef_info}}</p>
+                                  
+                              </div>
+                          </div>
+                      </section>
+  
+                  </div>
+                </div> 
             </div>
-            <div class="info-wrapper" >
-                <div class="info-top">
-                    <div class="image">
-                        <img :src="product[index].img" alt="">
-                    </div>
-            
-                </div>
-                <div class="box-info-wrapper ">
-    
-            
-                    <section id="buy" class="buy">
-                        <div class="info-left">
-                            <!-- <div class="image"> -->
-                                <img class="image" :src="product[index].img" alt="">
-                            <!-- </div> -->
-                           
-                        </div>
-            
-                        <div class="info-right ">
-                            <div class="info-name" >
-                                <h2>{{ product[index].name }}</h2>
-                                <h4 class="r-price">${{product[index].price}}</h4>
-                            </div>
-            
-                            <div class="info-detail">
-                                <div class="icon-text">
-                                    <i class="fa-solid fa-clock"></i>
-                                    <span>{{ product[index].time }}</span>
-                                </div>
-                                <div class="icon-text">
-                                    <i class="fa-solid fa-user"></i>
-                                    <span>1人份</span>
-                                </div>
-                                <div class="icon-text use">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
-                                        <path d="M8.41667 0.0625C6.94167 0.0625 5.64167 0.89125 5.225 2.09542C4.78333 1.92542 4.31667 1.83333 3.83333 1.83333C2.94928 1.83333 2.10143 2.13184 1.47631 2.6632C0.851189 3.19455 0.5 3.91522 0.5 4.66667C0.501974 5.29413 0.748328 5.90339 1.2006 6.3993C1.65287 6.89521 2.2856 7.24988 3 7.40792V12.4583H13.8333V7.40792C15.3 7.08208 16.3333 5.95583 16.3333 4.66667C16.3333 3.91522 15.9821 3.19455 15.357 2.6632C14.7319 2.13184 13.8841 1.83333 13 1.83333C12.5167 1.83333 12.05 1.92542 11.6083 2.09542C11.1917 0.89125 9.89167 0.0625 8.41667 0.0625ZM8 6.4375H8.83333V11.3958H8V6.4375ZM5.5 7.85417H6.33333V11.3958H5.5V7.85417ZM10.5 7.85417H11.3333V11.3958H10.5V7.85417ZM3 13.1667V13.875C3 14.0629 3.0878 14.243 3.24408 14.3759C3.40036 14.5087 3.61232 14.5833 3.83333 14.5833H13C13.221 14.5833 13.433 14.5087 13.5893 14.3759C13.7455 14.243 13.8333 14.0629 13.8333 13.875V13.1667H3Z" fill="#255359"/>
-                                        </svg>
-                                    <span>{{ product[index].tool }}</span>
-                                </div>
-                            </div>
-                            <p class="info-text">
-                                {{ product[index].intro }}
-                            </p>
-                            <h4 class="box-price">
-                                ${{ product[index].price }}
-                            </h4>
-                            <div class="btn-number">
-                                <div class="b-n b-sub " @click="subNumber"></div>
-                                <input class="text buy-value" type="text" value="1" readonly="readonly">
-                                <div class="b-n b-add " @click="addNumber"></div>
-                            </div>
-                            <div class="btn-group">
-                                <button class="b-buy b-left colte-6" @click="addCart()">加入購物車</button>
-                                <button class="b-buy b-right colte-6">立即購買</button>
-                            </div>
-            
-                        </div>
-                    </section>
-
-                    <section id="ingredients" class="ingredients">
-                    <h5 class="subTitle">食材</h5>
-                        <div class="ingredients_info">
-                            <ul class="items">
-                                <li v-for=" ingredient in product[index].ingredients" :key="ingredient.name">
-                                     <span class="item-name ">{{ingredient.item}}</span>
-                                    <span class="item-num">{{ ingredient.num }}</span>
-                                </li>
-                            </ul>
-                            <div  class="image">
-                                <img src="./images/box-info/box-info-Ingredients.jpg" alt="">
-                                
-                            </div>
-                        </div>
-
-                    </section>
-
-                    <section id = "step" class="steps">
-                        <h5 class="subTitle">料理步驟</h5>
-                        <div class="step_info">
-                            <ul>
-                                <li v-for="step in product[index].steps" :key="id" class="step">
-                                    <span>{{ step.id }}</span>
-                                    <div class="step-text">
-                                        <h6>{{ step.title }}</h6>
-                                        <p>{{ step.do }}</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="tips">
-                                <div class="tip-icon">
-                                    <i class="fa-regular fa-lightbulb"></i>
-                                    <h5>小撇步</h5>
-                                </div>
-                                <ul class="tip-text">
-                                    <li>{{ product[index].tip1 }}</li>
-                                    <li>{{ product[index].tip2 }}</li>
-                                    <li>{{ product[index].tip3 }}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="chef" class="chef">
-                        <h5 class="subTitle">主廚介紹</h5>
-                        <div class="chef-info">
-                            <div class="image ">
-                                <img :src="product[index].chefImg" alt="">
-                            </div>
-                            <div class="chef-name ">
-                                <h4>{{ product[index].chefName }}</h4>
-                                <p>{{ product[index].chefIntro }}
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-
-
-                </div>
-              </div> 
-          </div>
         </div>
         @@include('./layout/footer.html')
     </div>
