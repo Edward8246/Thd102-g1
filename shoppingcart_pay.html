@@ -71,20 +71,20 @@
                     <h6 class="form-h5">信箱</h6>
                     <input type="email" name="mail" class="input-usertext" id="inputEmail">
                     <h6 class="form-h5">地址(只能郵寄到府)</h6>
-                    <input type="text" name="address" class="input-usertext">
+                    <input type="text" name="address" class="input-usertext" id="inputAddress">
                     <br>
                     
                     <h4 class="shoppingcart-pay-form-cardtitle">信用卡資料</h4>
                     <h6 class="form-h5">信用卡卡號</h6>
                     <input type="text" class="card-number" maxlength="4"><span class="pay-dash">-</span><input type="text" class="card-number" maxlength="4"><span class="pay-dash">-</span><input type="text" class="card-number" maxlength="4"><span class="pay-dash">-</span><input type="text" class="card-number" maxlength="4">
                     <h6 class="form-h5">有效年月</h6>
-                    <input type="text" class="pay-carddate" placeholder="MM" maxlength="2"><span class="pay-slash">/</span><input type="text" class="pay-carddate" placeholder="YY" maxlength="2">
+                    <input type="text" class="pay-carddate" placeholder="MM" maxlength="2" id="pay-carddatem"><span class="pay-slash">/</span><input type="text" class="pay-carddate" placeholder="YY" maxlength="2" id="pay-carddatey">
                     <h6 class="form-h5">卡片背面末三碼</h6>
                     <input type="text" placeholder="XXX" class="chip-number" maxlength="3">
                     <br>
                     <div class="checkbox-wra">
-                        <input type="checkbox" name="agree" class="checkbox">
-                        <p>點選結帳即為同意此<span class="terms" style="font-weight: 700;">購買條款</span></p>
+                        <input type="checkbox" name="agree" class="checkbox" id="checkBox">
+                        <p id="checkBoxText">點選結帳即為同意此<span class="terms" style="font-weight: 700;">購買條款</span></p>
                     </div>
                     
                 </form>
@@ -101,6 +101,8 @@
     <script src="./js/header.js"></script>
     <script src="./js/login.js"></script>
     <script src="./js/shoppingcart_pay.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/is.min.js"></script>
     
 </body>
 </html>

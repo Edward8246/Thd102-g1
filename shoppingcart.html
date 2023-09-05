@@ -42,7 +42,7 @@
     <div class="wrapper shopping">
         @@include('./layout/header.html')
         @@include('./layout/backToTop.html')
-        <div class="container">
+        <div id="cart" class="container">
 
             <ul class="process">
                 <li class="process_circle cart_item">
@@ -50,64 +50,76 @@
                     <h7 class="process-text">購物車</h7>
                 </li>
                 <li class="line"></li>
-    
+
                 <li class="process_circle pay">
                     <i class="fa-regular fa-credit-card"></i>
                     <h7 class="process-text">付款方式</h7>
                 </li>
                 <li class="line"></li>
-    
+
                 <li class="process_circle success">
                     <i class="fa-solid fa-check"></i>
                     <h7 class="process-text">付款成功</h7>
                 </li>
             </ul>
-    
+
             <!----------------------購物車列表文字-->
-    
+
             <div class="shoppingcart-list">
-                <div class="item-img"><h6></h6></div>
-                <div class="item-title"><h6>訂購商品</h6></div>
-                <div class="item-price"><h6>單價</h6></div>
-                <div class="item-quantity"><h6>數量</h6></div>
-                <div class="item-amount"><h6>金額</h6></div>
+                <div class="item-img">
+                    <h6>商品圖片</h6>
+                </div>
+                <div class="item-title">
+                    <h6>訂購商品</h6>
+                </div>
+                <div class="item-price">
+                    <h6>單價</h6>
+                </div>
+                <div class="item-quantity">
+                    <h6>數量</h6>
+                </div>
+                <div class="item-amount">
+                    <h6>金額</h6>
+                </div>
                 <div class="item-delete"></div>
             </div>
-        
+
             <!--------------------商品卡片-->
-        <div  id="app">
             <div class="shopping-theme box">
-                <h6 class="shopping-theme-text">訂購盒子</h6>
+                <h6 class="shopping-theme-text">我訂購的盒子</h6>
+
+                <h6 v-if="box == ''">目前沒有盒子商品</h6>
+
                 <ul>
-                    <li v-for="(item, index) in box" class="shoppingcart-item">
+                    <li v-for="(item,index) in box" :key="item.id" class="shoppingcart-item">
                         <div class="item-img">
-                            <img src="./images/shoppingcart/item1.png" alt="">
+                            <img :src="item.img" alt="">
                         </div>
-    
-                        
+
+
                         <div class="item-title">
                             <div class="item-theme ft-red">盒子</div>
-                            <h6 class="item-title-text">薑汁燒肉</h6>
+                            <h6 class="item-title-text">{{ item.name }}</h6>
                         </div>
                         <div class="item-price">
-                            <h6 class="price">$188</h6>
+                            <h6 class="price">${{item.price }}</h6>
                         </div>
                         <div class="item-quantity">
                             <div class="btn-number-shopping">
-                                <div class="b-n-shopping b-sub-shopping" @click="subNumber(index)"></div>
-                                <input class="quantity-num" type="text"  v-model="box[index].quantity">
-                                <div class="b-n-shopping b-add-shopping" @click="addNumber(index)"></div>
+                                <div class="b-n-shopping b-sub-shopping " @click="subNumberBox(index)"></div>
+                                <input class="quantity-num" type="text" v-model="item.quantity">
+                                <div class="b-n-shopping b-add-shopping " @click="addNumberBox(index)"></div>
                             </div>
                         </div>
                         <div class="item-amount">
-                            <h6 class="amount">$188</h6>
-                        </div>                        
-                        <div class="item-delete">
-                            <i class="fa-solid fa-trash-can"></i>
+                            <h6 class="amount">${{item.total}}</h6>
                         </div>
-                        
+                        <div class="item-delete">
+                            <i class="fa-solid fa-trash-can" @click="taskRemoveBox(index,e)"></i>
+                        </div>
+
                     </li>
-                    <li class="shoppingcart-item">
+                    <!-- <li class="shoppingcart-item">
                         <div class="item-img">
                             <img src="./images/shoppingcart/item1.png" alt="">
                         </div>
@@ -134,54 +146,54 @@
                             <i class="fa-solid fa-trash-can"></i>
                         </div>
                         
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-------------------------------------------訂購活動-->
             <div class="shopping-theme activity">
-                <h6 class="shopping-theme-text">預約活動</h6>
+                <h6 class="shopping-theme-text">訂購活動</h6>
+
+                <h6 v-if="activity == ''">目前沒有活動商品</h6>
+
                 <ul>
-                    <li v-for="(item, index) in box" class="shoppingcart-item">
+                    <li v-for="(item,index) in activity" :key="item.id" class="shoppingcart-item">
                         <div class="item-img">
-                            <img src="./images/activity/activity-curry.jpg" alt="">
+                            <img :src="item.img" alt="">
                         </div>
-    
-                        
+
+
                         <div class="item-title">
                             <div class="item-theme ft-purple">活動</div>
-                            <h6 class="item-title-text">咖哩飯新登場!</h6>
+                            <h6 class="item-title-text">{{item.name}}</h6>
                         </div>
                         <div class="item-price">
-                            <h6 class="price">$1200</h6>
+                            <h6 class="price">${{item.price}}</h6>
                         </div>
                         <div class="item-quantity">
                             <div class="btn-number-shopping">
-                                <div class="b-n-shopping b-sub-shopping" @click="addNumber"></div>
-                                <input class="quantity-num col-6" type="text"  v-model="item.quantity">
-                                <div class="b-n-shopping b-add-shopping" @click="subNumber"></div>
+                                <div class="b-n-shopping b-sub-shopping" @click="subNumberAct(index)"></div>
+                                <input class="quantity-num col-6" type="text" v-model="item.quantity">
+                                <div class="b-n-shopping b-add-shopping" @click="addNumberAct(index)"></div>
                             </div>
                         </div>
                         <div class="item-amount">
-                            <h6 class="amount">$1200</h6>
+                            <h6 class="amount">${{item.total}}</h6>
                         </div>
                         <div class="item-delete">
-                            <i class="fa-solid fa-trash-can"></i>
+                            <i class="fa-solid fa-trash-can" @click="taskRemoveAct(index,e)"></i>
                         </div>
-                        
+
                     </li>
                 </ul>
             </div>
-        
             <!-- 總計 -->
             <div class="item-total">
-                <h5 class="total">{{totalAmount}}</h5>
+                <h5 class="total">總計 : {{ totalPrice }}</h5>
                 <div class="item-button">
                     <a href="./box_info.html" class="shoppingcart-prev"><button class="btn_white prev">繼續購物</button></a>
                     <a href="./shoppingcart_pay.html"><button class="btn_white next">下一步</button></a>
                 </div>
             </div>
-        </div>
-
         </div>
         @@include('./layout/footer.html')
     </div>
@@ -189,10 +201,8 @@
     <script src="./js//vue.global.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/login.js"></script>
-    <script src="./js/shoppingcart.js"></script>
-    <script>
-      
-    </script>
+    <!-- <script src="./js/shoppingcart.js"></script> -->
+    
 </body>
 
 </html>
