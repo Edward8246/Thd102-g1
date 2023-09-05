@@ -80,30 +80,12 @@
             </article>
 
             <!-- 更多盒子 -->
-            <article class="article2" id='article2_app'>
+            <article class="article2" id='index_app'>
                 <!-- 帶入食譜資料  -->
                 <div class="recipe_slide block1">
                     <div class="recipes_theme">
-                        <a class="image recipe_item" href='./box_info.html?id=1'>
-                            <img :src="items.find(item => item.id === 1).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=2'>
-                            <img :src="items.find(item => item.id === 2).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=3'>
-                            <img :src="items.find(item => item.id === 3).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=4'>
-                            <img :src="items.find(item => item.id === 4).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=5'>
-                            <img :src="items.find(item => item.id === 5).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=6'>
-                            <img :src="items.find(item => item.id === 6).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=7'>
-                            <img :src="items.find(item => item.id === 7).img" alt="" >
+                        <a class="image recipe_item"  :href="'./box_info.html?id='+product.id" v-for="product in block1" >    
+                            <img :src="'./images/box-info/' + product.img" alt="" >
                         </a>
                     </div>
                 </div>
@@ -122,27 +104,8 @@
 
                 <div class="recipe_slide block2">
                     <div class="recipes_theme">
-                        
-                        <a class="image recipe_item" href='./box_info.html?id=8'>
-                            <img :src="items.find(item => item.id === 8).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=9'>
-                            <img :src="items.find(item => item.id === 9).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=10'>
-                            <img :src="items.find(item => item.id === 10).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=11'>
-                            <img :src="items.find(item => item.id === 11).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=12'>
-                            <img :src="items.find(item => item.id === 12).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=13'>
-                            <img :src="items.find(item => item.id === 13).img" alt="" >
-                        </a>
-                        <a class="image recipe_item" href='./box_info.html?id=14'>
-                            <img :src="items.find(item => item.id === 14).img" alt="" >
+                        <a class="image recipe_item"  :href="'./box_info.html?id='+product.id" v-for="product in block2" >    
+                            <img :src="'./images/box-info/' + product.img" alt="" >
                         </a>
                     </div>
                 </div>
@@ -196,13 +159,14 @@
 
     </div>
 
+    <!-- vue -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/vue.global.js"></script>
     <!-- gsap cdn-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- vue -->
-    <script src="js/vue.global.js"></script>
     <!-- js -->
-    <script src="./js/box.js"></script>
+    <!-- <script src="./js/box.js"></script> -->
     <script src="./js/index.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/login.js"></script>
