@@ -35,6 +35,8 @@ const app = Vue.createApp({
         },
         //購物車
         addCart() {
+            //cartNum為位於header的元素
+            let cartNum = document.getElementsByClassName("quantity_cart")[0];
             let buy_value = document.getElementsByClassName("buy-value")[0];
 
             let productInfo = {
@@ -61,7 +63,9 @@ const app = Vue.createApp({
                 // 否则，将新商品添加到购物车
                 cart.push(productInfo);
             }
-
+            //渲染存在localStorage的商品數到header數字
+            cartNum.style.display = "inline";
+            cartNum.innerHTML = cart.length;
 
             // 将购物车数据重新存储到 localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
