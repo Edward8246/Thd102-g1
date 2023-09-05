@@ -34,42 +34,47 @@ const app = Vue.createApp({
 
         },
         //購物車
-        addCart() {
+        addCart: function addCart() {
             //cartNum為位於header的元素
-            let cartNum = document.getElementsByClassName("quantity_cart")[0];
-            let buy_value = document.getElementsByClassName("buy-value")[0];
-
-            let productInfo = {
-                img: this.product.photo_url,
-                name: this.product.name, // 替换为实际的产品信息
-                price: this.product.unit_price, // 替换为实际的产品价格
-                quantity: buy_value.value,
-                total: (this.product.unit_price)* buy_value.value
-                // 添加其他产品信息
+            var cartNum = document.getElementsByClassName("quantity_cart")[0];
+            var buy_value = document.getElementsByClassName("buy-value")[0];
+            var productInfo = {
+            img: this.product.photo_url,
+            name: this.product.name,
+            // 替换为实际的产品信息
+            price: this.product.unit_price,
+            // 替换为实际的产品价格
+            quantity: buy_value.value,
+            total: this.product.unit_price * buy_value.value
+            // 添加其他产品信息
             };
-
+    
             // 获取购物车数据（如果存在）
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-
+            var cart_box = JSON.parse(localStorage.getItem('cart_box')) || []; //盒子
+            var cart_act = JSON.parse(localStorage.getItem('cart_act')) || []; //活動
+    
             // 检查购物车中是否已经存在相同的商品
-            let existingItem = cart.find(cartItem => cartItem.name === productInfo.name);
-
+            var existingItem = cart_box.find(function (cartItem) {
+            return cartItem.name === productInfo.name;
+            });
+    
             if (existingItem) {
-                // 如果存在相同的商品，更新数量
-                existingItem.quantity = parseInt(existingItem.quantity) + parseInt(productInfo.quantity);
-                existingItem.total = existingItem.price * existingItem.quantity;
+            // 如果存在相同的商品，更新数量
+            existingItem.quantity = parseInt(existingItem.quantity) + parseInt(productInfo.quantity);
+            existingItem.total = existingItem.price * existingItem.quantity;
             } else {
-                // 否则，将新商品添加到购物车
-                cart.push(productInfo);
+            // 否则，将新商品添加到购物车
+            cart_box.push(productInfo);
             }
             //渲染存在localStorage的商品數到header數字
+            if (cart_box.length > 0 || cart_act.length > 0) {
             cartNum.style.display = "inline";
-            cartNum.innerHTML = cart.length;
-
+            cartNum.innerHTML = cart_box.length + cart_act.length;
+            }
+    
             // 将购物车数据重新存储到 localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-        },        
+            localStorage.setItem('cart_box', JSON.stringify(cart_box));
+        },       
         changeTag(tag) {
             // 当点击一个标签时，将该标签设置为当前标签，并取消其他标签的选择
             this.currentTag = tag;

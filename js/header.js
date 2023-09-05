@@ -38,11 +38,13 @@ let cartNum = document.getElementsByClassName("quantity_cart")[0];
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+let cart_box = JSON.parse(localStorage.getItem('cart_box')) || [];
+let cart_act = JSON.parse(localStorage.getItem('cart_act')) || [];
 // 检查购物车中是否已经存在相同的商品
 // console.log(cart_items);
-if (cart.length > 0) {
+if (cart_box.length > 0 || cart_act.length > 0) {
   cartNum.style.display = "inline";
-  cartNum.innerHTML = cart.length;
-}else{
+  cartNum.innerHTML = cart_box.length + cart_act.length;
+} else {
   cartNum.style.display = "none";
 }
