@@ -91,7 +91,7 @@ var activity = Vue.createApp({
         e.preventDefault();
         // e.target.closest('a').classList.add('disabled');
       }else{
-        // let buy_value = document.getElementsById("apply");
+        var cartNum = document.getElementsByClassName("quantity_cart")[0];
 
         //放入要傳遞的活得的資料
         var productInfo = {
@@ -104,11 +104,11 @@ var activity = Vue.createApp({
         };
 
         // 获取购物车数据（如果存在）
-        var cart2 = JSON.parse(localStorage.getItem('cart2')) || [];
+        var cart_act = JSON.parse(localStorage.getItem('cart_act')) || [];
 
 
         // 检查购物车中是否已经存在相同的商品
-        const existingItem = cart2.find(cartItem => cartItem.name === productInfo.name);
+        const existingItem = cart_act.find(cartItem => cartItem.name === productInfo.name);
 
         if (existingItem) {
             // 如果存在相同的商品，更新数量
@@ -116,16 +116,16 @@ var activity = Vue.createApp({
             existingItem.total = existingItem.price * existingItem.quantity;
         } else {
             // 否则，将新商品添加到购物车
-            cart2.push(productInfo);
+            cart_act.push(productInfo);
         }
 
-        if (cart2.length > 0) {
+        if (cart_box.length > 0 || cart_act.length > 0) {
           cartNum.style.display = "inline";
-          cartNum.innerHTML = cart2.length;
+          cartNum.innerHTML = cart_box.length + cart_act.length;
         }
 
         // 将购物车数据重新存储到 localStorage
-        localStorage.setItem('cart2', JSON.stringify(cart2));
+        localStorage.setItem('cart_act', JSON.stringify(cart_act));
       }
     },
     buttonDisable: function buttonDisable(date) {
