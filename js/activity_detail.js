@@ -81,7 +81,7 @@ var activity = Vue.createApp({
         buy_value.value -= 1;
       }
     },
-    addCart(data, e) {
+    addCart(date, e) {
       var buy_value = document.getElementsByClassName("buy-value")[0];
       var cartNum = document.getElementsByClassName("quantity_cart")[0];
 
