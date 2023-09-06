@@ -22,6 +22,8 @@
     foreach($data as $index => $row){
         $memberID = $row["id"];
         $memberName = $row["email"];
+        // $memberAddress = $row["address"];
+        // $member = $row["email"];
     }
 
     //判斷是否有會員資料?
