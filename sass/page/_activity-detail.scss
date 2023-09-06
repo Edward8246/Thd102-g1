@@ -15,160 +15,158 @@
     }
 
     
-}
 
-.flex-container-ad{
-    display: flex;
-    // justify-content: space-between;
-    // align-items: flex-start;
-    flex-wrap: wrap;
 
-    @include rwdGrid(1000px){
-        flex-direction: column-reverse;
-    }
-}
-//左側
-.left-desc{
-    flex:7;
-     @include rwdGrid(1000px){
-        margin-top: 20px;
-        flex: 1;
-    //     width: 100%;
-    }   
-    .act-d-img{
-        // height: 502px;
-        border-radius: 12px;
-        overflow: hidden;
+    .flex-container-ad{
+        display: flex;
+        // justify-content: space-between;
+        // align-items: flex-start;
+        flex-wrap: wrap;
 
-        @include rwdGrid(600px){
-            height: auto;
+        @include rwdGrid(1000px){
+            flex-direction: column-reverse;
         }
     }
-    .desc{
-        hr{
-            background-color: $color_darkblue;
-            opacity: 50%;
+    //左側
+    .left-desc{
+        flex:7;
+        @include rwdGrid(1000px){
+            margin-top: 20px;
+            flex: 1;
+        //     width: 100%;
+        }   
+        .act-d-img{
+            // height: 502px;
+            border-radius: 12px;
+            overflow: hidden;
+
+            @include rwdGrid(600px){
+                height: auto;
+            }
+        }
+        .desc{
+            hr{
+                background-color: $color_darkblue;
+                opacity: 50%;
+            }
+            
+            h4{
+                margin-top: 48px;
+            }
+            p{
+                margin-top: 24px;
+                // line-height: 2;
+            }
+        }
+    }
+
+    //資訊
+    .detail-info{
+        flex:3;
+        padding-left: 36px;
+        @include rwdGrid(1000px){
+        //     // display: none;
+            padding-left: 0;
+            flex:1
+        //     width: 100%;
         }
         
-        h4{
-            margin-top: 48px;
-        }
-        p{
-            margin-top: 24px;
-            // line-height: 2;
-        }
-    }
-}
+        // border: 1px solid red;
+        .detail-info-box{
+            position: sticky;
+            top: 100px;
 
-//資訊
-.detail-info{
-    flex:3;
-    padding-left: 36px;
-     @include rwdGrid(1000px){
-    //     // display: none;
-         padding-left: 0;
-         flex:1
-    //     width: 100%;
-    }
-    
-    // border: 1px solid red;
-    .detail-info-box{
-        position: sticky;
-        top: 100px;
-
-        @include rwdGrid(600px){
-            position: static;
-        }
-        .tb-green{
-           
-            margin-bottom: 10px;
-            
-        }
-        h2{
-            margin: 15px 0 32px;
-
-            @include rwdGrid(1000px){
-                margin-top: 10px;
-                font-size: $h1;
-            }
-        }
-        .detail-info-txt{
-            display: flex;
-            margin-bottom: 16px;
-            .icon{
-                width: 20px;
-                margin-right: 10px;
-                text-align: center;
-
-                @include rwdGrid(1000px){
-                    width: 24px;
-                }
-            }
-            i{
-                font-size: $h6;
-                line-height: 1.5;
-
-                @include rwdGrid(1000px){
-                    font-size: 20px;
-                    
-                    
-                }
-                
-            }
-            h6{
-                line-height: 1.5;
-
-                @include rwdGrid(1000px){
-                    font-size: 20px;
-                    
-                }
-            }
-        }
-
-        .price{
-            margin: 32px 0;
-            font-weight: 700;
-        }
-
-        .join{
-            .join-txt{
-                @include flex(row, space-between);
-                margin-bottom: 10px;
-                span{
-                color: $color_grayblue;
-                   }
-            }
-            .disabled{
-                background-color: #74B4C7;
-                border: 1px solid #74B4C7;
-                cursor: not-allowed;
-                &:hover{
-                    box-shadow: none;
-                }
-                
-            }
-        }
-
-       
-
-        button{
-            @include btn($white, $color_blue, $color_blue, 10px);
-            @include size(100%, 35px);
-           
             @include rwdGrid(600px){
-                margin: 16px auto;
+                position: static;
             }
+            .tb-green{
             
-        }
-    } 
+                margin-bottom: 10px;
+                
+            }
+            h2{
+                margin: 15px 0 32px;
+
+                @include rwdGrid(1000px){
+                    margin-top: 10px;
+                    font-size: $h1;
+                }
+            }
+            .detail-info-txt{
+                display: flex;
+                margin-bottom: 16px;
+                .icon{
+                    width: 20px;
+                    margin-right: 10px;
+                    text-align: center;
+
+                    @include rwdGrid(1000px){
+                        width: 24px;
+                    }
+                }
+                i{
+                    font-size: $h6;
+                    line-height: 1.5;
+
+                    @include rwdGrid(1000px){
+                        font-size: 20px;
+                        
+                        
+                    }
+                    
+                }
+                h6{
+                    line-height: 1.5;
+
+                    @include rwdGrid(1000px){
+                        font-size: 20px;
+                        
+                    }
+                }
+            }
+
+            .price{
+                margin: 32px 0;
+                font-weight: 700;
+            }
+
+            .join{
+                .join-txt{
+                    @include flex(row, space-between);
+                    margin-bottom: 10px;
+                    span{
+                    color: $color_grayblue;
+                    }
+                }
+                .disabled{
+                    background-color: #74B4C7;
+                    border: 1px solid #74B4C7;
+                    cursor: not-allowed;
+                    &:hover{
+                        box-shadow: none;
+                    }
+                    
+                }
+            }
+
+        
+
+            button{
+                @include btn($white, $color_blue, $color_blue, 10px);
+                @include size(100%, 35px);
+            
+                @include rwdGrid(600px){
+                    margin: 16px auto;
+                }
+                
+            }
+        } 
+
+        
+    }
 
     .back{
-        margin-top: 20px;
-        a{
-            color: white;
-            &:hover{
-                color: $color_blue;
-            }
-        }
+        margin: 50px auto 0;
     }
+
 }

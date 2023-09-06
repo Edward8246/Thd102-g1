@@ -173,8 +173,10 @@
     display: block;
     margin: 0 auto;
     padding: 8px 0;
+    text-align: center;
 
     &:hover {
+        font-weight: bold;
         @include btn_hover($color_blue, $white, $color_blue);
     }
 }
@@ -184,12 +186,12 @@
 
 }
 
-.back{
-    margin: 50px auto 0;
-    a{
-        color: white;
-        &:hover{
-            color: $color_blue;
-        }
-    }
-}
+// .back{
+//     margin: 50px auto 0;
+//     a{
+//         color: white;
+//         &:hover{
+//             color: $color_blue;
+//         }
+//     }
+// }

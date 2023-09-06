@@ -28,6 +28,9 @@ html{
         }
     
     }
+    .back{
+        margin: 20px auto 80px;
+    }
      //modify-----------------------------
      .select-tag{
         position: relative;
@@ -355,8 +358,7 @@ html{
         }
         .chef-info{
            @include flexCenter;
-           padding-bottom: 90px;
-           border-bottom: 1px solid #d5d5d5;
+           padding-bottom: 40px;
            @include d(820px){
             flex-direction: column;
             }
