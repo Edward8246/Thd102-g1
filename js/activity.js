@@ -127,22 +127,6 @@ var activity = Vue.createApp({
               cartNum.innerHTML = cart_box.length + cart_act.length;
           }
 
-        // 检查购物车中是否已经存在相同的商品
-        const existingItem = cart_act.find(cartItem => cartItem.name === productInfo.name);
-
-        if (existingItem) {
-            // 如果存在相同的商品，更新数量
-            existingItem.quantity = parseInt(existingItem.quantity) + parseInt(productInfo.quantity);
-            existingItem.total = existingItem.price * existingItem.quantity;
-        } else {
-            // 否则，将新商品添加到购物车
-            cart_act.push(productInfo);
-        }
-
-        if (cart_box.length > 0 || cart_act.length > 0) {
-          cartNum.style.display = "inline";
-          cartNum.innerHTML = cart_box.length + cart_act.length;
-        }
 
         // 将购物车数据重新存储到 localStorage
         localStorage.setItem('cart_act', JSON.stringify(cart_act));
