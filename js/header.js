@@ -36,7 +36,6 @@ let cartNum = document.getElementsByClassName("quantity_cart")[0];
 // Initialize a variable to keep track of the quantity
 // let quantity = 0;
 
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 let cart_box = JSON.parse(localStorage.getItem('cart_box')) || [];
 let cart_act = JSON.parse(localStorage.getItem('cart_act')) || [];

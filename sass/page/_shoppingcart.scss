@@ -78,6 +78,11 @@
     .shopping-theme-text{
         padding: 20px 2vw;
     }
+
+    .no-product{
+        padding: 5px 2vw;
+        color: $color_grayblue;
+    }
     .remove-item{
         animation: remove-item .5s ease;
         @keyframes  remove-item {

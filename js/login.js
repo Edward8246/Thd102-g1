@@ -338,7 +338,7 @@ function doSubmitjoin() {
 $('input[name="pwd"]').keydown(function (event) {
     if (event.which === 13) {
     $('#loginButton').click();
-    var loginSuccess = doSubmit();
+    // var loginSuccess = doSubmit();
     if (loginSuccess) {
         // 登录成功后执行的操作
         // alert("登录成功！");
