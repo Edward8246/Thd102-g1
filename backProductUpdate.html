@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>商品修改</title>
+       <!-- Custom fonts for this template -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+       <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+       <link
+           href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+           rel="stylesheet">
+           
+           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <!-- Custom styles for this template -->
+       <link rel="stylesheet" href="./css/style.css">
+   
+       <!-- Custom styles for this page -->
+       <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
+       <link href="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.css" rel="stylesheet">
+
+
+       <style>
+        /* 整體置中 */
+        body {
+         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/thd102/g1/images/restaurant-4944585_1920.jpg');
+         background-size: cover; /* 使背景圖片覆蓋整個視窗 */
+         background-repeat: no-repeat; /* 防止背景圖片重複 */
+         background-position: center; /* 將背景圖片置於中央 */
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        /* 標題樣式 */
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* 表格美化 */
+        table {
+            border-collapse: collapse;
+            font-size: 20px; /* 放大字體到 20px */
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* 背景色和字體樣式 */
+        .s4 {
+            background-color: #A5DEE4;
+        }
+
+        /* 圖片放大到 400px*400px */
+        img {
+            width: 100%;
+            
+        }
+
+                /* 按鈕樣式 */
+                input[type="button"] {
+            font-size: 20px; /* 放大字體 */
+            margin-top: 20px; /* 上邊距 */
+        }
+
+        /* 按鈕置中 */
+        .button-container {
+            text-align: center;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js" integrity="sha512-igl8WEUuas9k5dtnhKqyyld6TzzRjvMqLC79jkgT3z02FvJyHAuUtyemm/P/jYSne1xwFI06ezQxEwweaiV7VA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/sb-admin-2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap4.min.js" integrity="sha512-OQlawZneA7zzfI6B1n1tjUuo3C5mtYuAWpQdg+iI9mkDoo7iFzTqnQHf+K5ThOWNJ9AbXL4+ZDwH7ykySPQc+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/datatables-demo.js"></script>
+
+<script type="text/javascript">
+    function init(){
+        $.ajax({            
+          method: "POST",
+          url: "API/Backend/LoginCheck.php",
+          data:{},            
+          dataType: "text",
+          success: function (response) {
+              if(response == ""){
+                alert('請先登入，將前往登入頁'); 
+                location.href = 'Backlogin.html';                
+              }else{
+                getData();
+              }
+          },
+          error: function(exception) {
+              alert("數據載入失敗: " + exception.status);
+          }
+      });
+    }
+
+    function getData(){ 
+
+        //在html頁面上取得GET(QueryString)的值
+        var PID = (new URL(location.href)).searchParams.get('PID');
+
+        $.ajax({            
+            method: "POST",
+            url: "API/Backend/ProductByID.php",
+            data:{PID: PID},            
+            dataType: "json",
+            success: function (response) {
+                display(response);                
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    }
+
+    function display(response){
+        //更新html內容(透過jQuery跑迴圈取值)
+        $.each(response, function(index, row) {
+            $("#ProductName").val(row.name);
+            $("#Price").val(row.unit_price);
+            $("#pdimg").attr("src","/thd102/g1/images/box-info/" + row.photo_url);
+            $("#PID").val(row.id);
+            $("#PictureName").val(row.photo_url);
+
+            switch(row.Status){
+                case 1: 
+                    $("#Status1").attr("checked", true); 
+                    break;
+                case 2: 
+                    $("#Status2").attr("checked", true); 
+                    break;
+            }
+
+        });
+    }
+
+    function doSubmit() {
+
+        if (document.getElementById('ProductName').value == '') {
+            alert("請填寫[商品名稱]");
+            return false;
+        }
+        if (document.getElementById('Price').value == '') {
+            alert("請填寫[商品金額]");
+            return false;
+        }
+        //判斷Status(radio button)是否有值?
+        var isChecked = false;
+        var obj = document.getElementsByName('Status');    
+        for(var i=0; i< obj.length; i++){
+            if (obj[i].checked) {
+                isChecked = true;
+            }
+        }    
+        if(!isChecked){
+            alert("請選擇[狀態]");
+            return false;
+        }
+
+        //將所有<input>加入FormData
+        var formData = new FormData();
+        var files = $('#ProductImage')[0].files;
+		formData.append('ProductImage',files[0]);
+        formData.append('ProductName',$("#ProductName").val());
+        formData.append('Price',$("#Price").val());
+        formData.append('Status',$('input[name=Status]:checked').val());        
+        formData.append('PID',$('#PID').val());        
+        formData.append('PictureName',$('#PictureName').val());        
+
+        //AJAX送出表單內容
+        $.ajax({            
+            method: "POST",
+            url: "API/Backend/ProductUpdate.php",
+            data: formData,
+            // 告訴jQuery不要去處理發送的資料
+            processData : false, 
+            // 告訴jQuery不要去設定Content-Type請求頭
+            contentType : false,   
+            dataType: "text",
+            success: function (response) {
+                alert(response);
+                location.href = 'backboxTables.html';
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+            }
+        });
+    }
+
+</script>
+
+<body onload="init()" bgcolor="#ffffff" leftmargin="0" marginwidth="0" topmargin="30" align="center">
+    <h1>修改商品</h1>
+
+    <form enctype="multipart/form-data">
+        <tr>
+            <td>
+
+                <table letter-spacing: 5px; " cellpadding=" 0" cellspacing="0" border="1" align="center">
+
+                    <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">商品名稱</td>
+                        <td align="center"><input type="text" id="ProductName" name="ProductName"/></td>
+                    </tr>
+                    <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">商品金額</td>
+                        <td align="center"><input type="text" id="Price" name="Price"/></td>
+                    </tr>
+                    <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">狀態</td>
+                        <td align="center">                            
+                            <input type="radio" name="Status" id="Status2" value="2"/>下架
+                            &nbsp;&nbsp;
+                            <input type="radio" name="Status" id="Status1" value="1"/>上架
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">商品圖</td>
+                        <td align="center">
+                            <img id="pdimg" src='' width="200"/><br/>
+                            <input type="file" id="ProductImage" name="ProductImage" />
+
+                            <!-- PK和圖片名稱需記錄在這，form送出時才能知道要更新那一筆資料 -->
+                            <input type="hidden" name="PID" id="PID"/>
+                            <input type="hidden" name="PictureName" id="PictureName"/>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <br>
+            <div class="button-container">
+                <input type="button" name="cancel" id="cancel" value="取消" onclick="javascript: history.go(-1);">&nbsp;&nbsp;
+                <input type="button" name="submitBtn" id="submitBtn" value="送出" onclick="return doSubmit();">
+            </div>
+            </td>
+        </tr>
+
+    </form>
+
+</body>
+
+</html>

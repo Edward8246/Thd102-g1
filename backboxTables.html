@@ -53,7 +53,7 @@ function init() {
       success: function (response) {
           if(response == ""){
             alert('請先登入，將前往登入頁'); 
-            location.href = 'Login.html';                
+            location.href = 'Backlogin.html';                
           } else {
             table = $('#dataTable').DataTable(); // 初始化 DataTables
             getData();  // 呼叫 getData 取得資料
@@ -101,9 +101,6 @@ function display(response) {
         // 確保 row.Status 存在和有效
         if (row.hasOwnProperty('Status')) {
             switch(parseInt(row.Status, 10)) {  // 轉換為整數，以避免字串和數字比較的問題
-                case 0:
-                    status = "已刪除";
-                    break;
                 case 2:
                     status = "<font color='red'>下架</font>";
                     break;
@@ -128,10 +125,9 @@ function display(response) {
             row.name,
             row.unit_price,
             row.stock,
-          "<img src='/images/box-info/" + row.photo_url + "' width='200'/>",
+          "<img src='/thd102/g1/images/box-info/" + row.photo_url + "' width='200'/>",
             status,
-            status,
-            status
+          "<a href='backProductUpdate.html?PID=" + row.id + "'>修改</a>",
         ]).draw();  // 使用 DataTables API 添加和繪制行
 
 
@@ -171,7 +167,7 @@ $(document).ready(function() {
             </a> -->
 
             <!-- Sidebar - Brand 我們的LOGO-->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="backCustomerTables.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="backboxTables.html">
 
                 <img src="images/LOGOW.png" alt="">
                       
@@ -204,44 +200,46 @@ $(document).ready(function() {
 
         
 <!-- TAB開始******************************************************************************************************* -->
-               <!-- Nav Item - Tables -->
-               <li class="nav-item active">
-                <a class="nav-link" href="backCustomerTables.html">
-                    <i class="fa-solid fa-people-group"></i>
-                    <span>會員名單</span></a>
-            </li>
+          
+                <!-- Nav Item - Tables -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="backCustomerTables.html">
+                            <i class="fa-solid fa-people-group"></i>
+                            <span>會員名單</span></a>
+                    </li>
+        
+                    <li class="nav-item active">
+                        <a class="nav-link" href="backboxTables.html">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>商品管理</span></a>
+                    </li>
+        
+                    <li class="nav-item active">
+                        <a class="nav-link" href="backactivityTables.html">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>活動管理</span></a>
+                    </li>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="backboxTables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>商品管理</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="backactivityTables.html">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span>活動管理</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="backchef.html">
-                    <i class="fa-solid fa-kitchen-set"></i>
-                    <span>主廚名單管理</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="backorderboxTables.html">
-                    <i class="fa-solid fa-box-open"></i>
-                    <span>商品訂單管理</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="backorderactivityTables.html">
-                    <i class="fa-solid fa-clipboard"></i>
-                    <span>活動訂單管理</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="backorderallTables.html">
-                    <i class="fa-solid fa-shop"></i>
-                    <span>全部訂單管理</span></a>
-            </li>
+                    <!-- <li class="nav-item active">
+                        <a class="nav-link" href="backchef.html">
+                            <i class="fa-solid fa-kitchen-set"></i>
+                            <span>主廚名單管理</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="backorderboxTables.html">
+                            <i class="fa-solid fa-box-open"></i>
+                            <span>商品訂單管理</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="backorderactivityTables.html">
+                            <i class="fa-solid fa-clipboard"></i>
+                            <span>活動訂單管理</span></a>
+                    </li> -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="backorderallTables.html">
+                            <i class="fa-solid fa-shop"></i>
+                            <span>訂單管理</span></a>
+                    </li>
 
 
    
@@ -329,8 +327,8 @@ $(document).ready(function() {
                                             <th>商品存貨</th>
                                             <th>商品圖片</th>
                                             <th>商品狀態</th>
-                                            <th>商品狀態</th>
-                                            <th>商品狀態</th>
+                                            <th>商品修改</th>
+                        
                                         </tr>
                                     </thead>
 

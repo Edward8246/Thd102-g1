@@ -127,7 +127,6 @@ var activity = Vue.createApp({
               cartNum.innerHTML = cart_box.length + cart_act.length;
           }
 
-
         // 将购物车数据重新存储到 localStorage
         localStorage.setItem('cart_act', JSON.stringify(cart_act));
       }

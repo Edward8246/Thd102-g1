@@ -9,30 +9,8 @@
     <title>HAKO:關於我們</title>
 </head>
 
-<script>
-  function init(){
+@@include('./layout/login_top.html')
 
-showMember();
-}
-
-function showMember(){
-   $.ajax({            
-       method: "POST",
-       url: "API/Frontend/Member.php",
-       data:{},            
-       dataType: "text",
-       success: function (response) {                           
-  
-           $("#showMember").html(response); 
-           
-       },
-       error: function(exception) {
-           alert("數據載入失敗: " + exception.status);
-       }
-   });
-}
-
-</script>
 
 
 <body onload="init()">
@@ -207,7 +185,7 @@ function showMember(){
                         <p>我們致力於提供美食愛好者共享平台，您可以自由地在這裡分享個人食譜，並透過參與活動認識各地饕客。</p>
                         <button class="btn_transparent shareRecipe">分享食譜</button>
                         <button class="btn_transparent eatTogether">共食活動</button>
-                </li>
+                    </li>
             </ul>
         </div>
     </div>
