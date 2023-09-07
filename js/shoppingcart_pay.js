@@ -144,26 +144,15 @@ $(function(){
         console.log(cardNumber.length);
         if (cardNumber === "" || cardNumber.length !== 4){
             $(this).css('border','1px solid red');
-        } else {
+        }else{
             $(this).css('border','');
         }
     });
 
-    $("#pay-carddatey").blur(function(){
-        let carddate = $(this).val();
-        
-        // console.log(cardnumber.length);
-        if (carddate === "" || carddate.length != 2){
-            $(this).css('border','1px solid red');
-            // console.log(cardNumber);
-        } else {
-            $(this).css('border','');
-        }
-    });
+    
     $("#pay-carddatem").blur(function(){
         let carddate = $(this).val();
         // 如果卡片日期不是兩位數，就在前面補零
-        console.log(carddate.length);
         if (carddate.length === 1) {
             carddate = "0" + carddate;
             $(this).val(carddate);
@@ -176,25 +165,24 @@ $(function(){
         }
     });
     $("#pay-carddatey").blur(function(){
-        let carddatey = $(this).val();
+        let carddatey = $("#pay-carddatey").val();
         let carddatem = $("#pay-carddatem").val();
-        if (carddatey == 23) {
-            if(carddatem < 9){
-                $("#pay-carddatey").css('border','1px solid red');
-                $("#pay-carddatem").css('border','1px solid red');
-                // console.log(this);
-                alert("這張卡片過期囉!!");
-            }
+        if (carddatey == 23 && carddatem < 9) {
+            $("#pay-carddatey").css('border','1px solid red');
+            $("#pay-carddatem").css('border','1px solid red');
+            // console.log(this);
+            alert("這張卡片過期囉!!");
         }else {
             $(this).css('border','');
         };
-
-        if (carddatey === "" || carddatey.length === 1) {
+        
+        if (carddatey === "" || carddatey.length === 1 || carddatey < 23) {
             $(this).css('border','1px solid red');
             
         } else {
             $(this).css('border','');
-        }
+        };
+
     });
     $(".chip-number").blur(function(){
         let chipNumber = $(this).val();
@@ -230,7 +218,8 @@ $(function(){
 
     //--------------------------------------------按下送出
     $("#nextsubmit").click(function(e){
-        
+        e.preventDefault();
+
         let user = $("#inputUser").val(); // 获取输入框的值
         let phone = $("#inputPhone").val();
         let mail = $("#inputEmail").val();
@@ -239,110 +228,111 @@ $(function(){
         let cards_el = $(".card-number");
         let payCarDdate = $(".pay-carddate").val();
         let chipNumber = $(".chip-number").val();
-        let isChecked = $("#checkBox").is(":checked");
         // console.log(cards_el);
         
-        let hasAlerted = false; // 新增的变量，用于跟踪是否已经触发了警告
+        let sendData = true; // 新增的变量，用于跟踪是否已经触发了警告
+
+//------------------------------------------------------------判斷姓名 
         if (user === "") {
             $("#inputUser").css('border','1px solid red');
-            hasAlerted = true;
-        }else{
-            hasAlerted = false;
-        };
+            sendData = false;
+        }
 
-
+//------------------------------------------------------------判斷電話
         if (phone === "") {
             $("#inputPhone").css('border','1px solid red');
-            hasAlerted = true;
-        }else{
-            hasAlerted = false;
-        };
+            sendData = false;
+        }
 
-
+//------------------------------------------------------------判斷信箱 
         if (mail === "") {
             $("#inputEmail").css('border','1px solid red');
-            hasAlerted = true;
-        }else{
-            hasAlerted = false;
-        };
+            sendData = false;
+        }
 
-
+//------------------------------------------------------------判斷地址
         if (address === "") {
             $("#inputAddress").css('border','1px solid red');
-            hasAlerted = true; 
-        }else{
-            hasAlerted = false;
-        };
+            sendData = false;
+        }
 
-
+        
+//------------------------------------------------------------判斷信用卡卡號
         let cards_str = "";
         for (let i = 0; i < cards_el.length; i++) {
             cards_str += cards_el.eq(i).val();
         };
-        if(is.creditCard(cards_str)){   //通過
-            for(let i = 0; i < cards_el.length; i++){
-                cards_el.eq(i).css('border','');
-            }
-            hasAlerted = false;
-            }else{
-                
-            for(let i = 0; i < cards_el.length; i++){
-                
-                cards_el.eq(i).css('border','1px solid red');
-                hasAlerted = true; 
-            }
-        };
 
 
-        if (payCarDdate === ""){
-            $(".pay-carddate").css('border','1px solid red');
-            hasAlerted = true; 
+        if (cardNumber === "" || cards_str.length !== 4) {
+            $(".card-number").css('border','1px solid red');
+            sendData = false;
         }else{
-            hasAlerted = false;
-        };
+            if (!is.creditCard(cards_str)) {
+                sendData = false;
+                for(let i = 0; i < cards_el.length; i++){
+                    cards_el.eq(i).css('border','1px solid red');
+                }
+            }
+        }
+
+
+//------------------------------------------------------------判斷信用卡年月
+        let carDdate = $("#pay-carddatem").val();
+        let cardDateYear = $("#pay-carddatey").val();
+
+        if (payCarDdate === "" || payCarDdate.length < 2 || parseInt(carDdate, 10) > 12 || cardDateYear === "" || parseInt(cardDateYear, 10) < 23) {
+            $(".pay-carddate").css('border', '1px solid red');
+            sendData = false;
+        } 
 
 //------------------------------------------------------------------判斷卡背三碼
-        if (chipNumber === ""){
+        if (chipNumber === "" || chipNumber.length < 3){
             $(".chip-number").css('border','1px solid red');
-            hasAlerted = true;
-        }else{
-            hasAlerted = false;
-        };
-
-//------------------------------------------------------------------判斷打勾
-        if (isChecked) {
-            // checkbox 被選中
-            $("#checkBoxText").css('color', '');
-            $(".terms").css('color', '');
-            $(".termsfalse").css('border-bottom', '');
-            console.log("有打勾")
-            hasAlerted = false;
+            sendData = false;
         }
-        if(!isChecked){
-            $("#checkBoxText").css('color', 'red');
-            $(".terms").css('color', 'red');
-            $(".terms").css('border-bottom', '1px solid red');
-            hasAlerted = true;
-        };
 //------------------------------------------------------------------判斷信箱 
         let email = $("#inputEmail").val();
             let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
             if (!emailPattern.test(email)) {
                 $("#inputEmail").css('border','1px solid red');
-                hasAlerted = true;
-            } else {
-                $("#inputEmail").css('border','');
-            }
-        
-//--------------------------------------------------------判斷整個資料
-        if (hasAlerted === true) {
+                sendData = false;
+            } 
+//------------------------------------------------------------------判斷打勾
+        $(function(){
+            $("#checkBox").click(function(){
+                let isChecked = $("#checkBox").is(":checked");
+            
+                if (isChecked) {
+                    // checkbox 被選中
+                    $("#checkBoxText").css('color', '');
+                    $(".terms").css('color', '');
+                    $(".termsfalse").css('border-bottom', '');
+                    console.log("有打勾");
+                } else {
+                    $("#checkBoxText").css('color', 'red');
+                    $(".terms").css('color', 'red');
+                    $(".terms").css('border-bottom', '1px solid red');
+                    console.log("沒打勾");
+                    sendData = false;
+                };
+
+            });
+        });
+
+        //--------------------------------------------------------判斷整個資料
+        if (!sendData) { //驗證失敗 sendData==false
             alert('請輸入完整資料');
             e.preventDefault();
-        } else {
+        } else { //驗證成功
             // 跳轉到 ./shoppingcart.html 頁面
-            window.location.href = './shoppingcart.html';
+            //window.location.href = './shoppingcart_success.html';
+            console.log("驗證成功");
+            //4556072908576837
         };
+
     });
+        
 });
 
