@@ -10,7 +10,7 @@
         $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
 
         //Apache根目錄之下的檔案存放路徑
-        $filePath = "/images/box-info/";
+        $filePath = "/thd102/g1/images/box-info/";
         
         return $ServerRoot.$filePath;
 

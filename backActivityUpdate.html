@@ -2,7 +2,7 @@
 <html lang="en"></html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>商品修改</title>
+    <title>活動修改</title>
        <!-- Custom fonts for this template -->
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
        <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
@@ -145,7 +145,7 @@
         $.each(response, function(index, row) {
             $("#ProductName").val(row.name);
             $("#Price").val(row.unit_price);
-            $("#pdimg").attr("src","/thd102/g1/images/box-info/" + row.photo_url);
+            $("#pdimg").attr("src","/thd102/g1/images/activity/" + row.photo_url);
             $("#PID").val(row.id);
             $("#PictureName").val(row.photo_url);
 
@@ -164,11 +164,11 @@
     function doSubmit() {
 
         if (document.getElementById('ProductName').value == '') {
-            alert("請填寫[商品名稱]");
+            alert("請填寫[活動名稱]");
             return false;
         }
         if (document.getElementById('Price').value == '') {
-            alert("請填寫[商品金額]");
+            alert("請填寫[活動金額]");
             return false;
         }
         //判斷Status(radio button)是否有值?
@@ -197,7 +197,7 @@
         //AJAX送出表單內容
         $.ajax({            
             method: "POST",
-            url: "API/Backend/ProductUpdate.php",
+            url: "API/Backend/activityUpdate.php",
             data: formData,
             // 告訴jQuery不要去處理發送的資料
             processData : false, 
@@ -206,7 +206,7 @@
             dataType: "text",
             success: function (response) {
                 alert(response);
-                location.href = 'backboxTables.html';
+                location.href = 'backactivityTables.html';
             },
             error: function(exception) {
                 alert("發生錯誤: " + exception.status);
@@ -217,7 +217,7 @@
 </script>
 
 <body onload="init()" bgcolor="#ffffff" leftmargin="0" marginwidth="0" topmargin="30" align="center">
-    <h1>修改商品</h1>
+    <h1>修改活動</h1>
 
     <form enctype="multipart/form-data">
         <tr>
@@ -226,11 +226,11 @@
                 <table letter-spacing: 5px; " cellpadding=" 0" cellspacing="0" border="1" align="center">
 
                     <tr>
-                        <td class="s4" align="center" style="background-color:#A5DEE4;">商品名稱</td>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">活動名稱</td>
                         <td align="center"><input type="text" id="ProductName" name="ProductName"/></td>
                     </tr>
                     <tr>
-                        <td class="s4" align="center" style="background-color:#A5DEE4;">商品金額</td>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">活動金額</td>
                         <td align="center"><input type="text" id="Price" name="Price"/></td>
                     </tr>
                     <tr>
@@ -242,7 +242,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="s4" align="center" style="background-color:#A5DEE4;">商品圖</td>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">活動圖</td>
                         <td align="center">
                             <img id="pdimg" src='' width="200"/><br/>
                             <input type="file" id="ProductImage" name="ProductImage" />

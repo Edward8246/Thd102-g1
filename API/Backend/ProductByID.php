@@ -1,6 +1,7 @@
 <?php    
       include("../Lib/Util.php");
-      include("../Lib/picB.php");
+      // include("../Lib/picB.php");
+      // include("../Lib/picA.php");
 
     //取得POST過來的值
     $PID = $_POST["PID"]; //PK
