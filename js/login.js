@@ -331,9 +331,6 @@ function doSubmitjoin() {
                 $('#signup-success').css('display', 'block');
                 $('#container').css('display', 'none');
                 $(function () {
-                  $(".member-button").click(function () {
-                    location.href = 'member.html';
-                  });
                   $(".home-button").click(function () {
                     location.href = 'index.html';
                   });
