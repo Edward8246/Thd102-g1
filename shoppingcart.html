@@ -66,7 +66,7 @@
             <div class="shopping-theme box">
                 <h6 class="shopping-theme-text">我訂購的盒子</h6>
 
-                <h6 v-if="box == ''">目前沒有盒子商品</h6>
+                <p v-if="box == ''" class="no-product">目前沒有盒子商品</p>
 
                 <ul>
                     <li v-for="(item,index) in box" :key="item.id" class="shoppingcart-item">
@@ -131,7 +131,7 @@
             <div class="shopping-theme activity">
                 <h6 class="shopping-theme-text">訂購活動</h6>
 
-                <h6 v-if="activity == ''">目前沒有活動商品</h6>
+                <p v-if="activity == ''" class="no-product">目前沒有活動商品</p>
 
                 <ul>
                     <li v-for="(item,index) in activity" :key="item.id" class="shoppingcart-item">
