@@ -18,12 +18,11 @@ var app = Vue.createApp({
         return total + (item.total || 0);
       }, 0);
       return boxTotal + activityTotal;
-    },
-
+    }
   },
   methods: {
     //header購物車數字改動
-    changeCartNum: function changeCartNum(){
+    changeCartNum: function changeCartNum() {
       var cartNum = document.getElementsByClassName("quantity_cart")[0];
       var cart_box = JSON.parse(localStorage.getItem('cart_box')) || [];
       var cart_act = JSON.parse(localStorage.getItem('cart_act')) || [];
@@ -36,7 +35,6 @@ var app = Vue.createApp({
         cartNum.style.display = "none";
       }
     },
-
     //盒子項目數量增加
     addNumberBox: function addNumberBox(index) {
       if (this.box[index].quantity < 30) {
@@ -101,13 +99,12 @@ var app = Vue.createApp({
       // comfirm 詢問視窗
       if (r) {
         _this.box.splice(i, 1);
-        
+
         //刪除資料後回存到localstorage
         localStorage.setItem("cart_box", JSON.stringify(_this.box));
-        
+
         //更新header購物車數字
         _this.changeCartNum();
-
       }
     },
     //移除訂單(活動)
@@ -115,42 +112,34 @@ var app = Vue.createApp({
       var _this = this;
       var r = confirm("確定要移除嗎？");
 
-      
       // comfirm 詢問視窗
       if (r) {
         _this.activity.splice(i, 1);
         //刪除資料後回存到localstorage
         localStorage.setItem("cart_act", JSON.stringify(_this.activity));
-        
+
         //更新header購物車數字
         _this.changeCartNum();
-        
       }
-      
-      
     }
   },
   //頁面一載入就執行的方法
-  mounted() { 
+  mounted: function mounted() {
     var cartNum = document.getElementsByClassName("quantity_cart")[0];
     //讀取localstorage的資料
     //分別查看cart_box 跟 cart_act 有無存放資訊
     var cart_box = JSON.parse(localStorage.getItem('cart_box')) || [];
     var cart_act = JSON.parse(localStorage.getItem('cart_act')) || [];
-    //更新header購物車數字
-    cartNum.style.display = "inline";
-    cartNum.innerHTML = cart_box.length + cart_act.length;
     
     if (cart_box.length > 0 || cart_act.length > 0) {
       // 在页面中显示购物车中的产品信息
       //若盒子商品則存入data的box裡面，html即可帶入資料
       this.box = cart_box;
-      this.activity = cart_act;  
+      this.activity = cart_act;
     } else {
       // 如果购物车为空，显示一条消息
       console.log("購物車是空的");
     }
-    
   }
 });
 app.mount("#cart");
