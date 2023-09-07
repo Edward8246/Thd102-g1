@@ -146,8 +146,11 @@
         &:hover{
             @include btn_shadow();
         }
-        
-        
+
+        &:active{
+            @include btn($white,$color_blue,$color_blue, 30px);
+        }
+
     }
     
     .btn_change{
@@ -161,6 +164,11 @@
             @include btn_shadow();
             // border: none;
         }
+
+        &:active{
+            @include btn($white,$color_darkblue,$color_blue, 30px);
+        }
+
     }
     
     
