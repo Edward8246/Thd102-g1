@@ -214,6 +214,14 @@ $(function(){
             if (isChecked) {
                 // checkbox 被選中
                 $("#checkBoxText").css('color', '');
+                $(".terms").css('color', '');
+                $(".terms").css('border-bottom', '');
+                console.log("有打勾");
+            }else{
+                $("#checkBoxText").css('color', 'red');
+                $(".terms").css('color', 'red');
+                $(".terms").css('border-bottom', '1px solid red');
+                console.log("沒打勾");
             };
         });
     });
@@ -277,10 +285,11 @@ $(function(){
             }
             hasAlerted = false;
             }else{
-                hasAlerted = true; 
+                
             for(let i = 0; i < cards_el.length; i++){
                 
                 cards_el.eq(i).css('border','1px solid red');
+                hasAlerted = true; 
             }
         };
 
@@ -292,21 +301,28 @@ $(function(){
             hasAlerted = false;
         };
 
-//------------------------------------------------------------------判斷
+//------------------------------------------------------------------判斷卡背三碼
         if (chipNumber === ""){
             $(".chip-number").css('border','1px solid red');
-            hasAlerted = true; 
+            hasAlerted = true;
         }else{
             hasAlerted = false;
         };
 
 //------------------------------------------------------------------判斷打勾
-        if (!isChecked) {
+        if (isChecked) {
             // checkbox 被選中
-            $("#checkBoxText").css('color', 'red');
-            hasAlerted = true;
-        }else{
+            $("#checkBoxText").css('color', '');
+            $(".terms").css('color', '');
+            $(".termsfalse").css('border-bottom', '');
+            console.log("有打勾")
             hasAlerted = false;
+        }
+        if(!isChecked){
+            $("#checkBoxText").css('color', 'red');
+            $(".terms").css('color', 'red');
+            $(".terms").css('border-bottom', '1px solid red');
+            hasAlerted = true;
         };
 //------------------------------------------------------------------判斷信箱 
         let email = $("#inputEmail").val();
@@ -320,7 +336,7 @@ $(function(){
             }
         
 //--------------------------------------------------------判斷整個資料
-        if (hasAlerted) {
+        if (hasAlerted === true) {
             alert('請輸入完整資料');
             e.preventDefault();
         } else {
