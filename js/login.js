@@ -19,10 +19,10 @@ function doSubmit_signUp(){
     let signUp_email_el = document.getElementById("signUp_email").value; //email
     let signUp_password_el = document.getElementById("signUp_password").value; //密碼
     let signUp_password_2_el = document.getElementById("signUp_password_2").value; //確認密碼
-    console.log(signUp_name_el);
-    console.log(signUp_email_el);
-    console.log(signUp_password_el);
-    console.log(signUp_password_2_el);
+    // console.log(signUp_name_el);
+    // console.log(signUp_email_el);
+    // console.log(signUp_password_el);
+    // console.log(signUp_password_2_el);
 }
 
 
@@ -49,9 +49,6 @@ document.addEventListener("keydown", function(e) {
         close_window();
     }
 })
-// document.getElementById("loginPage").addEventListener("click",function(){
-//     close_window();
-// })
 
 
 //登入和註冊畫面左右切換
@@ -336,3 +333,10 @@ function doSubmitjoin() {
         }
     });
 }
+
+//登入按下enter
+$('input[name="pwd"]').keydown(function(event) {
+    if (event.which === 13) {
+    }
+  });
+
