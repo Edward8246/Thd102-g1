@@ -13,6 +13,7 @@
         background-color: #398b93;
         background-size: cover;
         margin-bottom: -40px;
+        min-height: 600px;
 
         @include d(610px){
             padding: 20px 4% 80px;
@@ -213,7 +214,7 @@
     
         .pro-img{
             width: 15%;
-           
+    
         }
         .pro-id{
             width: 20%;
