@@ -326,7 +326,7 @@ function doSubmitjoin() {
         success: function (response) {
             //加入成功->導回登入頁
             // alert(response);
-            if(response){
+            if(response == 'Y'){
                 // location.href = 'index.html';
                 $('#signup-success').css('display', 'block');
                 $('#container').css('display', 'none');
@@ -336,6 +336,8 @@ function doSubmitjoin() {
                   });
                 });
         
+            }else{
+                alert('此帳號已註冊');
             }              
         },
         error: function(exception) {
