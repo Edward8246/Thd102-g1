@@ -1,288 +1,173 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>login</title>
-    <style>
-        .no-scroll{
-            overflow: hidden;
-            height: 100%;
-        }
-    </style>
-</head>
-
-<script>
-
-  
-//登入的AJAX** <!-- 8/26更改 -->*************************************************************
-  function doSubmit() {
-        if (document.getElementById('account').value == '') {
-            alert("請填寫[帳號]");
-            return false;
-        }
-        if (document.getElementById('pwd').value == '') {
-            alert("請填寫[密碼]");
-            return false;
-        }        
-
-        //AJAX送出表單內容
-        $.ajax({            
-            method: "POST",
-            url: "API/Frontend/Login.php",
-            data:{ 
-                account: $("#account").val(),
-                pwd: $("#pwd").val()
-            },
-            dataType: "text",
-            success: function (response) {
-                if(response == 'Y'){
-                    
-                    //登入成功->導回產品頁
-                    $('#signin-success').css('display','block');
-                    $('#container').css('display','none');
-                    $(function(){
-                        $("#member-button").click(function(){
-                            location.href = 'member.html';
-                        });
-                        $("#home-button").click(function(){
-                            location.href = 'index.html';
-                        });
-                    });
-                    // location.href = 'index.html';
-                }else{
-                    alert('帳號或密碼錯誤');
-                }                
-            },
-            error: function(exception) {
-                alert("發生錯誤: " + exception.status);
-            }
-        });
-    }
-//註冊的AJAX** <!-- 8/26更改 -->*************************************************************
-function doSubmitjoin() {
-    if (document.getElementById('signUp_name').value == '') {
-            alert("請填寫[姓名]");
-            return false;
-        }
-        if (document.getElementById('signUp_email').value == '') {
-            alert("請填寫[email]");
-            return false;
-        }
-        if (document.getElementById('signUp_password').value == '') {
-            alert("請填寫[密碼]");
-            return false;
-        }   
-        if (document.getElementById('signUp_password_2').value == '') {
-            alert("請填寫[確認密碼]");
-            return false;
-        }      
-
-        //AJAX送出表單內容
-        $.ajax({            
-            method: "POST",
-            url: "API/Frontend/Join.php",
-            data:{ 
-                email: $("#signUp_email").val(),
-                password: $("#signUp_password").val(),
-                name: $("#signUp_name").val(),
-            },
-            dataType: "text",
-            success: function (response) {
-                //加入成功->導回登入頁
-                alert(response);
-                location.href = 'index.html';               
-            },
-            error: function(exception) {
-                alert("發生錯誤: " + exception.status);
-            }
-        });
-    }
-
-
-
-
-
-
-
-
-
-</script>
-<body>
-    <div class="wrapper loginPage" id="loginPage">
-        
-        <div class="container-login" id="container">
-            <div class="close-btn" id="close-btn">&times;</div>
-
-            <!-- 註冊 -->
-            <div class="form-container sign-up-container" id="sign-up-container">
-                <form action="#">
-                    <h2 class="title2">註冊</h2>
-                    <div class="form_input">
-                        <label class="title-text">姓名</label>
-                        <input class="input-space" id="signUp_name" name="name" type="text"  placeholder="請輸入姓名">
-                    </div>
-
-                    <div class="form_input">
-                        <label class="title-text">電子信箱</label>
-                        <input class="input-space" id="signUp_email" name="email" type="text" placeholder="請輸入E-mail">
-                    </div>
-
-                    <div class="form_input">
-                        <label class="title-text">密碼</label>
-                        <input class="input-space" id="signUp_password" name="password" type="password" placeholder="請輸入密碼">
-                    </div>
-                    
-                    <div class="form_input">
-                        <label class="title-text">確認密碼</label>
-                        <input class="input-space" id="signUp_password_2" name="password2"  type="password" placeholder="請再次輸入密碼">
-                        <span id="password-mismatch" style="color: red;"></span>
-                    </div>
-
-                    <!-- 8/26更改 -->
-                    <!-- <p class="text">註冊即表示您已同意服務條款及隱私權政策</p> -->
-                    <input type="button" class="member-button" id="doSubmit_signUp" value="註冊會員" onclick="return doSubmitjoin();">
-                    
-                    <div class="signup_login">
-                        <div class="textarea">歡迎回來!
-                            <span href="#" class="text login-link" id="login-link">立即登入</span>
-                        </div>
-                    </div>
-                    
-                </form>
-            </div>
-
-            <!-- 登入 -->
-            <div class="form-container sign-in-container" id="sign-in-container">
-                <form action="#">
-                    <h2 class="title2">登入</h2>
+<div class="wrapper loginPage" id="loginPage">
     
-                    <div class="form_input">
-                        <label class="title-text">電子信箱</label>
-                        <!-- <input class="input-space" name="email" type="email" placeholder="請輸入E-mail"> -->
-                            <!-- 8/26更改 -->
-                        <input class="input-space" type="text" id="account" name="account" value="" placeholder="請輸入E-mail"/>
+    <div class="container-login" id="container">
+        <div class="close-btn" id="close-btn">&times;</div>
+
+        <!-- 註冊 -->
+        <div class="form-container sign-up-container" id="sign-up-container">
+            <form action="#">
+                <h2 class="title2">註冊</h2>
+                <div class="form_input">
+                    <label class="title-text">姓名</label>
+                    <input class="input-space" id="signUp_name" name="name" type="text"  placeholder="請輸入姓名">
+                </div>
+
+                <div class="form_input">
+                    <label class="title-text">電子信箱</label>
+                    <input class="input-space" id="signUp_email" name="email" type="text" placeholder="請輸入E-mail">
+                </div>
+
+                <div class="form_input">
+                    <label class="title-text">密碼</label>
+                    <input class="input-space" id="signUp_password" name="password" type="password" placeholder="請輸入密碼">
+                </div>
+                
+                <div class="form_input">
+                    <label class="title-text">確認密碼</label>
+                    <input class="input-space" id="signUp_password_2" name="password2"  type="password" placeholder="請再次輸入密碼">
+                    <span id="password-mismatch" style="color: red;"></span>
+                </div>
+
+                <!-- 8/26更改 -->
+                <!-- <p class="text">註冊即表示您已同意服務條款及隱私權政策</p> -->
+                <input type="button" class="member-button" id="doSubmit_signUp" value="註冊會員" onclick="return doSubmitjoin();">
+                
+                <div class="signup_login">
+                    <div class="textarea">歡迎回來!
+                        <span href="#" class="text login-link" id="login-link">立即登入</span>
                     </div>
-    
-                    <div class="form_input">
-                        <label class="title-text">密碼</label>
-                        <!-- <input class="input-space" name="password" type="password" placeholder="請輸入密碼"> -->
+                </div>
+                
+            </form>
+        </div>
+
+        <!-- 登入 -->
+        <div class="form-container sign-in-container" id="sign-in-container">
+            <form action="#">
+                <h2 class="title2">登入</h2>
+
+                <div class="form_input">
+                    <label class="title-text">電子信箱</label>
+                    <!-- <input class="input-space" name="email" type="email" placeholder="請輸入E-mail"> -->
                         <!-- 8/26更改 -->
-                        <input class="input-space" type="password" id="pwd" name="pwd"  value="" placeholder="請輸入密碼"/>
-                    </div>
-    
-                    <a href="#" class="forgot_password" id="forgot_password">忘記密碼了嗎?</a>
-                    
-                    <!-- <button>登入</button> -->
+                    <input class="input-space" type="text" id="account" name="account" value="" placeholder="請輸入E-mail"/>
+                </div>
+
+                <div class="form_input">
+                    <label class="title-text">密碼</label>
+                    <!-- <input class="input-space" name="password" type="password" placeholder="請輸入密碼"> -->
                     <!-- 8/26更改 -->
-                    <input type="button" class="loginbutton01" value="登入" onclick="return doSubmit();">
-                    
-                    <p class="text_p">or</p>
+                    <input class="input-space" type="password" id="pwd" name="pwd"  value="" placeholder="請輸入密碼"/>
+                </div>
+
+                <a href="#" class="forgot_password" id="forgot_password">忘記密碼了嗎?</a>
+                
+                <!-- <button>登入</button> -->
+                <!-- 8/26更改 -->
+                <input type="button" class="loginbutton01" value="登入" onclick="return doSubmit();">
+                
+                <p class="text_p">or</p>
 
 
-                    <div class="log-in-other">
-                        <button type="button" class="facebook">
-                            <img src="../images/icon/logo_facebook.svg" alt="">
-                            使用 Facebook 登入
-                        </button>
-                        <button type="button" class="google">
-                            <img src="../images/icon/logo_google.svg" alt="">
-                            使用 Google 登入
-                        </button>   
-                    </div> 
-                    
-                    <div class="login_signup">
-                        <div class="textarea">還不是會員嗎?
-                            <span class="text sigup-link" id="sigup-link">立即註冊</span>
-                        </div>
-                    </div>
-                </form>
-                    
-            </div>
-    
-
-
-            <div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left">
-                        <h1 class="title1">歡迎回來</h1>
-                        <p class="p1">有會員就直接登入吧!</p>
-                        <button class="ghost" id="signIn">登入</button>
-                    </div>
-                    <div class="overlay-panel overlay-right">
-                        <h1 class="title1">還不是會員嗎?</h1>
-                        <p class="p1">快加入我們吧!</p>
-                        <button class="ghost" id="signUp">註冊</button>
+                <div class="log-in-other">
+                    <button type="button" class="facebook">
+                        <img src="../images/icon/logo_facebook.svg" alt="">
+                        使用 Facebook 登入
+                    </button>
+                    <button type="button" class="google">
+                        <img src="../images/icon/logo_google.svg" alt="">
+                        使用 Google 登入
+                    </button>   
+                </div> 
+                
+                <div class="login_signup">
+                    <div class="textarea">還不是會員嗎?
+                        <span class="text sigup-link" id="sigup-link">立即註冊</span>
                     </div>
                 </div>
-            </div>
-
-
+            </form>
+                
         </div>
-    
-        <!-- 登入成功 -->
-
-        <div class="signin-success" id="signin-success">
-            <div class="signin-icon">
-                <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
-            </div>
-            <div class="signin-success-txt">
-                <p>登入成功！歡迎回來!</p>
-            </div>
-            <a href="../member.html"><button class="member-button" id="member-button">前往會員專區</button></a>
-            <a href="../index.html"><button class="home-button" id="home-button">回首頁</button></a>
-        </div>
-    
 
 
-        <!-- 註冊成功 -->
-        
-        <div class="signup-success" id="signup-success">
-            <div class="signup-icon">
-                <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
-            </div>
-            <div class="signup-success-txt">
-                <p>註冊成功！歡迎加入!</p>
-            </div>
-            <button class="member-button" id="member-button">前往會員專區</button>
-            <button class="home-button" id="home-button">回首頁</button>
-        </div>
-       
 
-
-        <!-- 忘記密碼 -->
-        <div class="container-forgot" id="container-forgot">
-            <div class="main-forget" >
-                <h2>忘記密碼</h2>
-                <div class="forgotpassword">
-                    <label class="title-test">請輸入您的電子郵件</label>
-                    <input class="input-space" type="text" placeholder="請輸入Email">
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 class="title1">歡迎回來</h1>
+                    <p class="p1">有會員就直接登入吧!</p>
+                    <button class="ghost" id="signIn">登入</button>
                 </div>
-                <button class="confirm-button" id="confirm-button">確認送出</button>
-                <button class="cancel-button" id="cancel-button">取消</button>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="title1">還不是會員嗎?</h1>
+                    <p class="p1">快加入我們吧!</p>
+                    <button class="ghost" id="signUp">註冊</button>
+                </div>
             </div>
         </div>
-        
-        
-        <!-- 成功忘記密碼 -->
-        <div class="password-success" id="successPw">
-            <div class="password-icon">
-                <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
-            </div>
-            <div class="password-success-txt">
-                <p>已傳送重置密碼的電子信箱 </p>
-            </div>
-            <button class="success-button" id="success-button">完成</button>
+
+
+    </div>
+
+    <!-- 登入成功 -->
+
+    <div class="signin-success" id="signin-success">
+        <div class="signin-icon">
+            <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
         </div>
-        
+        <div class="signin-success-txt">
+            <p>登入成功！歡迎回來!</p>
+        </div>
+        <a href="../member.html"><button class="member-button" id="member-button">前往會員專區</button></a>
+        <a href="../index.html"><button class="home-button" id="home-button">回首頁</button></a>
     </div>
 
 
 
-    <!-- <script src="../js/login.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
-</html>
+    <!-- 註冊成功 -->
+    
+    <div class="signup-success" id="signup-success">
+        <div class="signup-icon">
+            <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
+        </div>
+        <div class="signup-success-txt">
+            <p>註冊成功！歡迎加入!</p>
+        </div>
+        <button class="member-button" id="member-button">前往會員專區</button>
+        <button class="home-button" id="home-button">回首頁</button>
+    </div>
+    
+
+
+    <!-- 忘記密碼 -->
+    <div class="container-forgot" id="container-forgot">
+        <div class="main-forget" >
+            <h2>忘記密碼</h2>
+            <div class="forgotpassword">
+                <label class="title-test">請輸入您的電子郵件</label>
+                <input class="input-space" type="text" placeholder="請輸入Email">
+            </div>
+            <button class="confirm-button" id="confirm-button">確認送出</button>
+            <button class="cancel-button" id="cancel-button">取消</button>
+        </div>
+    </div>
+    
+    
+    <!-- 成功忘記密碼 -->
+    <div class="password-success" id="successPw">
+        <div class="password-icon">
+            <i class="fa-regular fa-circle-check" style="color: #1EA824;"></i>
+        </div>
+        <div class="password-success-txt">
+            <p>已傳送重置密碼的電子信箱 </p>
+        </div>
+        <button class="success-button" id="success-button">完成</button>
+    </div>
+    
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

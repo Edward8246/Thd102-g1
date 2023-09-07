@@ -202,3 +202,133 @@ function validatePasswordsMatch() {
     $("#password-mismatch").text(""); // 清除提示信息
     }
 }
+//=============================================================
+//login_top資料
+    function init(){
+        showMember();
+        }
+        
+        function showMember(){
+            $.ajax({            
+                method: "POST",
+                url: "API/Frontend/Member.php",
+                data:{},            
+                dataType: "text",
+                success: function (response) { 
+                    //   const r = JSON.parse(response) 
+
+                    // console.log(response.login);
+                    
+        
+                    //   $("#showMember").html(r.text); 
+  
+            if(response == true){
+                
+                $("#showMember").html(
+                    "<a href='API/Frontend/Logout.php'>" +
+                    "<div class='btn_white user logout -none' id='user_logout'>" +
+                    "<i class='fa-solid fa-arrow-right-from-bracket'></i>" +
+                    "<span>登出</span>" +
+                    "</div>" +
+                    "</a>"
+                )
+            }else{
+                $("#showMember").html(
+                    "<div class='btn_white user login -none' id='user_login'>" +
+                    "<i class='fa-solid fa-user'></i>" +
+                    "<span>登入</span>" +
+                    "</div>"
+                )
+            }
+              
+          },
+          error: function(exception) {
+              alert("數據載入失敗: " + exception.status);
+          }
+      });
+    }
+  
+ //=================================================
+ //登入的AJAX** <!-- 8/26更改 -->*************************************************************
+ function doSubmit() {
+    if (document.getElementById('account').value == '') {
+        alert("請填寫[帳號]");
+        return false;
+    }
+    if (document.getElementById('pwd').value == '') {
+        alert("請填寫[密碼]");
+        return false;
+    }        
+
+    //AJAX送出表單內容
+    $.ajax({            
+        method: "POST",
+        url: "API/Frontend/Login.php",
+        data:{ 
+            account: $("#account").val(),
+            pwd: $("#pwd").val()
+        },
+        dataType: "text",
+        success: function (response) {
+            if(response == 'Y'){
+                
+                //登入成功->導回產品頁
+                $('#signin-success').css('display','block');
+                $('#container').css('display','none');
+                $(function(){
+                    $("#member-button").click(function(){
+                        location.href = 'member.html';
+                    });
+                    $("#home-button").click(function(){
+                        location.href = 'index.html';
+                    });
+                });
+                // location.href = 'index.html';
+            }else{
+                alert('帳號或密碼錯誤');
+            }                
+        },
+        error: function(exception) {
+            alert("發生錯誤: " + exception.status);
+        }
+    });
+}
+//註冊的AJAX** <!-- 8/26更改 -->*************************************************************
+function doSubmitjoin() {
+    if (document.getElementById('signUp_name').value == '') {
+        alert("請填寫[姓名]");
+        return false;
+    }
+    if (document.getElementById('signUp_email').value == '') {
+        alert("請填寫[email]");
+        return false;
+    }
+    if (document.getElementById('signUp_password').value == '') {
+        alert("請填寫[密碼]");
+        return false;
+    }   
+    if (document.getElementById('signUp_password_2').value == '') {
+        alert("請填寫[確認密碼]");
+        return false;
+    }      
+
+    //AJAX送出表單內容
+    $.ajax({            
+        method: "POST",
+        url: "API/Frontend/Join.php",
+        data:{ 
+            email: $("#signUp_email").val(),
+            password: $("#signUp_password").val(),
+            name: $("#signUp_name").val(),
+        },
+        dataType: "text",
+        success: function (response) {
+            //加入成功->導回登入頁
+            alert(response);
+            location.href = 'index.html';               
+        },
+        error: function(exception) {
+            alert("發生錯誤: " + exception.status);
+        }
+    });
+}
