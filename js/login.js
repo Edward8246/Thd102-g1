@@ -277,10 +277,10 @@ function validatePasswordsMatch() {
                 $('#signin-success').css('display','block');
                 $('#container').css('display','none');
                 $(function(){
-                    $("#member-button").click(function(){
+                    $(".member-button").click(function(){
                         location.href = 'member.html';
                     });
-                    $("#home-button").click(function(){
+                    $(".home-button").click(function(){
                         location.href = 'index.html';
                     });
                 });
@@ -325,8 +325,21 @@ function doSubmitjoin() {
         dataType: "text",
         success: function (response) {
             //加入成功->導回登入頁
-            alert(response);
-            location.href = 'index.html';               
+            // alert(response);
+            if(response){
+                // location.href = 'index.html';
+                $('#signup-success').css('display', 'block');
+                $('#container').css('display', 'none');
+                $(function () {
+                  $(".member-button").click(function () {
+                    location.href = 'member.html';
+                  });
+                  $(".home-button").click(function () {
+                    location.href = 'index.html';
+                  });
+                });
+        
+            }              
         },
         error: function(exception) {
             alert("發生錯誤: " + exception.status);

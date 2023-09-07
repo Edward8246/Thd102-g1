@@ -18,6 +18,7 @@
     $statement->bindValue(3,  $nameW);
     $statement->execute();
 
-    echo "加入成功，請重新登入!"; 
+//     echo "加入成功，請重新登入!"; 
+          echo true; 
      }
 ?>
