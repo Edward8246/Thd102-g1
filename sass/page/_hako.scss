@@ -1,0 +1,44 @@
+.hako{
+    width: 100%; 
+    height: 100%;
+    // background-color: $color_warterblue;
+    // background-image: url(../../images/bg.jpg);
+    display: fixed;
+}
+.bg img{
+    width: 100%;
+}
+
+.hakologo img{
+    min-height: 100%;
+    width: 50%;
+    display: flex;
+    margin: 100px auto;
+    justify-content: center;
+}
+
+.fbBtn{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.font-btn a, .back-btn a{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: $color_cream;
+    color: $fontColor ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 50px;
+    
+    
+        &:active{
+            @include btn_hover($white,$color_darkblue,$color_lightblue);
+
+}
+
+}
