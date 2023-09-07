@@ -232,6 +232,8 @@ function validatePasswordsMatch() {
                     "</div>" +
                     "</a>"
                 )
+
+                $('#memberCenter').show();
             }else{
                 $("#showMember").html(
                     "<div class='btn_white user login -none' id='user_login'>" +
@@ -239,6 +241,8 @@ function validatePasswordsMatch() {
                     "<span>登入</span>" +
                     "</div>"
                 )
+
+                $('#memberCenter').hide();
             }
               
           },
