@@ -1,5 +1,7 @@
 $(function(){
-                
+    //產生單號=====================================  
+    //==============================================            
+          
     $(window).scroll(function(){
         console.log($(this).scrollTop());
         let move = $(this).scrollTop();
@@ -33,3 +35,4 @@ $(function(){
         }
     })
 })
+

@@ -62,16 +62,16 @@
                 <div class="item-delete"></div>
             </div>
 
+<!-- //=================================================== -->
             <!--------------------商品卡片-->
             <div class="shopping-theme box">
                 <h6 class="shopping-theme-text">我訂購的盒子</h6>
 
                 <h6 v-if="box == ''">目前沒有盒子商品</h6>
-
                 <ul>
                     <li v-for="(item,index) in box" :key="item.id" class="shoppingcart-item">
                         <div class="item-img">
-                            <img :src="item.img" alt="">
+                            <img :src="'./images/box-info/' + item.img" alt="">
                         </div>
 
 
@@ -97,34 +97,6 @@
                         </div>
 
                     </li>
-                    <!-- <li class="shoppingcart-item">
-                        <div class="item-img">
-                            <img src="./images/shoppingcart/item1.png" alt="">
-                        </div>
-    
-                        
-                        <div class="item-title">
-                            <div class="item-theme ft-red">盒子</div>
-                            <h6 class="item-title-text">薑汁燒肉</h6>
-                        </div>
-                        <div class="item-price">
-                            <h6 class="price">$188</h6>
-                        </div>
-                        <div class="item-quantity">
-                            <div class="btn-number-shopping">
-                                <div class="b-n-shopping b-sub-shopping" ></div>
-                                <input class="quantity-num col-6" type="text" value="1">
-                                <div class="b-n-shopping b-add-shopping" ></div>
-                            </div>
-                        </div>
-                        <div class="item-amount">
-                            <h6 class="amount">$188</h6>
-                        </div>                        
-                        <div class="item-delete">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </div>
-                        
-                    </li> -->
                 </ul>
             </div>
             <!-------------------------------------------訂購活動-->
@@ -136,7 +108,7 @@
                 <ul>
                     <li v-for="(item,index) in activity" :key="item.id" class="shoppingcart-item">
                         <div class="item-img">
-                            <img :src="item.img" alt="">
+                            <img :src="'./images/activity/' + item.img" alt="">
                         </div>
 
 
@@ -164,6 +136,7 @@
                     </li>
                 </ul>
             </div>
+<!-- //=================================================== -->
             <!-- 總計 -->
             <div class="item-total">
                 <h5 class="total">總計 : {{ totalPrice }}</h5>
