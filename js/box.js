@@ -112,7 +112,7 @@ var app = Vue.createApp({
         
         return {
           id: item.id - 8,
-          img: "./images/box-info/" + item.photo_url,
+          img: "/thd102/g1/images/box-info/" + item.photo_url,
           name: item.name,
           cuisine: item.box_category_name,
           time: item.box_time,

@@ -12,7 +12,7 @@
     display: flex;
     align-items: flex-end;
     background-repeat: no-repeat;
-    background-image: url(../../images/aboutus/aboutus_pic01.png);
+    background-image: url(/thd102/g1/images/aboutus/aboutus_pic01.png);
     @include p(){
         background-position: top center;
     }
@@ -131,7 +131,7 @@
 .sectionTwo{
     background-color: #fff;
     background-repeat: no-repeat;
-    background-image: url(../../images/aboutus/section2_bgPic.png);
+    background-image: url(/thd102/g1/images/aboutus/section2_bgPic.png);
 }
 
 .sectionTwo h1{
@@ -181,10 +181,6 @@
         margin: 0;
     }
 }
-
-.offers_wrapper p{
-}
-
 
 //轉場 transition
 
@@ -264,8 +260,6 @@
     margin-bottom: 20px;
 }
 
-.moreThanBox_wrapper{
-}
 
 .moreThanBox_wrapper ul{
     display: flex;
@@ -302,9 +296,6 @@
     color: #1E88A8;
     font-weight: 400;
 
-}
-
-.moreThanBox_wrapper img{
 }
 
 .moreThanBox_wrapper p{
@@ -407,7 +398,7 @@
 
 .background_pic01{
     // min-height: 245px;
-    background-image: url(../../images/aboutus/sectionFour_pic01.jpg);
+    background-image: url(/thd102/g1/images/aboutus/sectionFour_pic01.jpg);
    
     @include p(){
         height: 200px;
@@ -417,12 +408,12 @@
 
 .background_pic02{
     // min-height: 238px;
-    background-image: url(../../images/aboutus/sectionFour_pic02.jpg);
+    background-image: url(/thd102/g1/images/aboutus/sectionFour_pic02.jpg);
 }
 
 .background_pic03{
     // min-height: 372px;
-    background-image: url(../../images/aboutus/sectionFour_pic03.jpg);
+    background-image: url(/thd102/g1/images/aboutus/sectionFour_pic03.jpg);
     @include p(){
         // height: 215px;
      
@@ -457,7 +448,7 @@
     background-repeat: no-repeat;
     overflow: hidden;
     padding-bottom: 50px;
-    background-image: url(../../images/aboutus/sectionFive_bgPic.png);
+    background-image: url(/thd102/g1/images/aboutus/sectionFive_bgPic.png);
 }
 
 .sectionFive h1{
@@ -536,10 +527,6 @@
     padding: 30px 0;
 }
 
-.sectionFive ul{
-
-}
-
 .sectionFive li{
     display: flex;
     margin-right: 40px;
@@ -574,6 +561,5 @@
     height: 90%;
     margin-top: 60px;
 }
-
 
 }
