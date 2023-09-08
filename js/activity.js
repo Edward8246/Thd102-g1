@@ -162,7 +162,7 @@ var activity = Vue.createApp({
     self.idPort = urlParams.get('id');
 
 
-    axios.get('../API/Frontend/Activities.php')
+    axios.get('/thd102/g1/API/Frontend/Activities.php')
       .then(response => {
         self.arr_act = response.data;
         // console.log(this.arr_act);

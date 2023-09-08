@@ -1,5 +1,3 @@
-"use strict";
-
 var activity = Vue.createApp({
   data: function data() {
     return {
@@ -133,7 +131,7 @@ var activity = Vue.createApp({
     var self = this;
     var urlParams = new URLSearchParams(window.location.search);
     self.idPort = urlParams.get('id');
-    axios.get('../API/Frontend/Activities.php').then(function (response) {
+    axios.get('/thd102/g1/API/Frontend/Activities.php').then(function (response) {
       if (response.data) {
         self.arr_act = response.data.find(function (x) {
           return x.products_id == self.idPort;

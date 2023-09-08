@@ -98,7 +98,7 @@ const app = Vue.createApp({
         
         //---------------------------------------
         // 請求box_info.php數據資料
-        axios.get('../API/Frontend/box_info-product.php')
+        axios.get('/thd102/g1/API/Frontend/box_info-product.php')
         .then(function (response) {
             app.product = response.data;
             console.log(app.product);
@@ -113,7 +113,7 @@ const app = Vue.createApp({
         });
 
         // 請求 box_info-ingredients.php
-        axios.get('../API/Frontend/box_info-ingredients.php')
+        axios.get('/thd102/g1/API/Frontend/box_info-ingredients.php')
         .then(function (response) {
             if(response.data){
                 app.ingredients = response.data.filter(x => x.products_id == app.index); 
@@ -125,7 +125,7 @@ const app = Vue.createApp({
         });
 
         // 請求 box_info-recipe.php
-        axios.get('../API/Frontend/box_info-recipe.php')
+        axios.get('/thd102/g1/API/Frontend/box_info-recipe.php')
         .then(function (response) {
             if(response.data){
                 app.recipes = response.data.filter(x => x.products_id == app.index); 
@@ -137,7 +137,7 @@ const app = Vue.createApp({
         });
 
         // 請求 box_info-tips.php
-        axios.get('../API/Frontend/box_info-tips.php')
+        axios.get('/thd102/g1/API/Frontend/box_info-tips.php')
         .then(function (response) {
             if(response.data){
                 app.tips = response.data.filter(x => x.products_id == app.index); 
@@ -149,7 +149,7 @@ const app = Vue.createApp({
         });
 
         // 請求 box_info-chef.php
-        axios.get('../API/Frontend/box_info-chef.php')
+        axios.get('/thd102/g1/API/Frontend/box_info-chef.php')
         .then(function (response) {
             if(response.data){
                 app.chef = response.data.filter(x => x.products_id == app.index); 
