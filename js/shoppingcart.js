@@ -130,7 +130,6 @@ var app = Vue.createApp({
     //分別查看cart_box 跟 cart_act 有無存放資訊
     var cart_box = JSON.parse(localStorage.getItem('cart_box')) || [];
     var cart_act = JSON.parse(localStorage.getItem('cart_act')) || [];
-    
     if (cart_box.length > 0 || cart_act.length > 0) {
       // 在页面中显示购物车中的产品信息
       //若盒子商品則存入data的box裡面，html即可帶入資料
@@ -144,34 +143,33 @@ var app = Vue.createApp({
 });
 app.mount("#cart");
 
-
 //===================================
 //登入檢查
-let goToPay_btn = document.getElementById("goToPay");
-goToPay_btn.addEventListener("click",function(){
+var goToPay_btn = document.getElementById("goToPay");
+goToPay_btn.addEventListener("click", function () {
   loginCheck();
-})
+});
+function loginCheck() {
+  $.ajax({
+    method: "POST",
+    url: "API/Frontend/LoginCheck.php",
+    data: {},
+    dataType: "text",
+    success: function success(response) {
+      if (response == "") {
+        //無登入資料
 
-function loginCheck(){    
-  $.ajax({            
-      method: "POST",
-      url: "../API/Frontend/LoginCheck.php",
-      data:{},            
-      dataType: "text",
-      success: function (response) {
-          if(response == ""){ //無登入資料
-
-              alert('請先登入，將前往登入頁'); 
-              // 判斷是否登入，沒登入執行跳出登入視窗
-              login_pop();
-
-          }else{ //若有登入資料
-              // 跳轉到下一頁
-              location.href = './shoppingcart_pay.html';
-          }              
-      },
-      error: function(exception) {
-          alert("數據載入失敗: " + exception.status);
+        alert('請先登入，將前往登入頁');
+        // 判斷是否登入，沒登入執行跳出登入視窗
+        login_pop();
+      } else {
+        //若有登入資料
+        // 跳轉到下一頁
+        location.href = 'shoppingcart_pay.html';
       }
+    },
+    error: function error(exception) {
+      alert("數據載入失敗: " + exception.status);
+    }
   });
 }
