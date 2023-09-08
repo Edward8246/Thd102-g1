@@ -1,3 +1,12 @@
+//登入彈跳
+function login_pop(){
+    document.querySelector(".loginPage").style.display = "flex";
+    document.body.classList.add("no-scroll");
+    //修改密碼成功畫面關閉
+    const successPw = document.getElementById("successPw");
+    successPw.style.display = "none";
+}
+
 //關閉視窗
 function close_window(){
     document.querySelector(".loginPage").style.display = "none";
@@ -26,15 +35,11 @@ function doSubmit_signUp(){
 }
 
 
-// //======================================================
+// ======================================================
 
 //點擊登入鍵跳出LOGIN
 document.getElementById("user_login").addEventListener("click", function(){
-    document.querySelector(".loginPage").style.display = "flex";
-    document.body.classList.add("no-scroll");
-    //修改密碼成功畫面關閉
-    const successPw = document.getElementById("successPw");
-    successPw.style.display = "none";
+    login_pop();
 })
 
 //登入畫面的X關掉鍵
