@@ -133,7 +133,7 @@ var app = Vue.createApp({
         
         //---------------------------------------
         // 請求box_info.php數據資料
-        axios.get('../API/Frontend/index.php')
+        axios.get('/thd102/g1/API/Frontend/index.php')
         .then(function (response) {
             app.products = response.data;
             console.log(app.products);

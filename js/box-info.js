@@ -101,12 +101,12 @@ const app = Vue.createApp({
         axios.get('/thd102/g1/API/Frontend/box_info-product.php')
         .then(function (response) {
             app.product = response.data;
-            console.log(app.product);
+            // console.log(app.product);
             if(response.data){
                 // 修改为 app.product
                 app.product = response.data.find(x => x.products_id == app.index); 
             }
-            console.log(app.product);
+            // console.log(app.product);
         })
         .catch(function (error) {
             console.error(error);
@@ -142,7 +142,7 @@ const app = Vue.createApp({
             if(response.data){
                 app.tips = response.data.filter(x => x.products_id == app.index); 
             }
-            console.log(app.tips);
+            // console.log(app.tips);
         })
         .catch(function (error) {
         console.error(error);
@@ -154,7 +154,7 @@ const app = Vue.createApp({
             if(response.data){
                 app.chef = response.data.filter(x => x.products_id == app.index); 
             }
-            console.log(app.chef);
+            // console.log(app.chef);
         })
         .catch(function (error) {
         console.error(error);
