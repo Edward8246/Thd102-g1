@@ -272,7 +272,8 @@ function validatePasswordsMatch() {
         dataType: "text",
         success: function (response) {
             if(response == 'Y'){
-                
+                const userAccount = $("#account").val();
+                localStorage.setItem('user',userAccount);
                 //登入成功->導回產品頁
                 $('#signin-success').css('display','block');
                 $('#container').css('display','none');
