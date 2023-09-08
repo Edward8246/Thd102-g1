@@ -224,11 +224,9 @@ $(function(){
         let phone = $("#inputPhone").val();
         let mail = $("#inputEmail").val();
         let address = $("#inputAddress").val();
-        let cardNumber = $(".card-number").val();
-        let cards_el = $(".card-number");
+        let cards_el = $(".card-number"); //只抓得到第一筆
         let payCarDdate = $(".pay-carddate").val();
         let chipNumber = $(".chip-number").val();
-        // console.log(cards_el);
         
         let sendData = true; // 新增的变量，用于跟踪是否已经触发了警告
 
@@ -260,21 +258,17 @@ $(function(){
 //------------------------------------------------------------判斷信用卡卡號
         let cards_str = "";
         for (let i = 0; i < cards_el.length; i++) {
-            cards_str += cards_el.eq(i).val();
+            cards_str += cards_el.eq(i).val();   
         };
+        //console.log(typeof(cards_str)); //string
 
-
-        if (cardNumber === "" || cards_str.length !== 4) {
-            $(".card-number").css('border','1px solid red');
+        if (!is.creditCard(cards_str)) {
             sendData = false;
-        }else{
-            if (!is.creditCard(cards_str)) {
-                sendData = false;
-                for(let i = 0; i < cards_el.length; i++){
-                    cards_el.eq(i).css('border','1px solid red');
-                }
+            for(let i = 0; i < cards_el.length; i++){
+                cards_el.eq(i).css('border','1px solid red');
             }
         }
+        
 
 
 //------------------------------------------------------------判斷信用卡年月
@@ -325,11 +319,11 @@ $(function(){
         if (!sendData) { //驗證失敗 sendData==false
             alert('請輸入完整資料');
             e.preventDefault();
-        } else { //驗證成功
+        } else {         //驗證成功
             // 跳轉到 ./shoppingcart.html 頁面
-            //window.location.href = './shoppingcart_success.html';
-            console.log("驗證成功");
-            //4556072908576837
+            window.location.href = './shoppingcart_success.html';
+            //console.log("驗證成功");
+            //5459 4075 2059 4658//04/2027//404
         };
 
     });

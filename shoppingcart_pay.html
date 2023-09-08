@@ -54,7 +54,15 @@
                     
                     <h4 class="shoppingcart-pay-form-cardtitle">信用卡資料</h4>
                     <h6 class="form-h5">信用卡卡號</h6>
-                    <input type="text" class="card-number" maxlength="4"><span class="pay-dash">-</span><input type="text" class="card-number" maxlength="4"><span class="pay-dash">-</span><input type="text" class="card-number" maxlength="4"><span class="pay-dash">-</span><input type="text" class="card-number" maxlength="4">
+
+                    <input type="text" class="card-number" maxlength="4">
+                    <span class="pay-dash">-</span>
+                    <input type="text" class="card-number" maxlength="4">
+                    <span class="pay-dash">-</span>
+                    <input type="text" class="card-number" maxlength="4">
+                    <span class="pay-dash">-</span>
+                    <input type="text" class="card-number" maxlength="4">
+
                     <h6 class="form-h5">有效年月</h6>
                     <input type="text" class="pay-carddate" placeholder="MM" maxlength="2" id="pay-carddatem"><span class="pay-slash">/</span><input type="text" class="pay-carddate" placeholder="YY" maxlength="2" id="pay-carddatey">
                     <h6 class="form-h5">卡片背面末三碼</h6>
@@ -75,7 +83,8 @@
         @@include('./layout/footer.html')
     </div>
     <!-------------------------------------------js-->
-    <script src="./js//vue.global.js"></script>
+    <script src="./js/vue.global.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/login.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
