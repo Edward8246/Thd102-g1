@@ -69,8 +69,7 @@
 
 .btn_transparent{
     margin: 0 auto;
-    margin-top: 20px;
-    
+    margin-top: 20px; 
 
     
 }
@@ -358,7 +357,7 @@
     @include p(){
         width: 60%;
         padding:45px;
-        height: 200px;
+        min-height: 200px;
         margin-left: 5%;
 
     }
