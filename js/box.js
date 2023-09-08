@@ -60,8 +60,34 @@ var app = Vue.createApp({
     }
 
   },
+  beforeMount(){
+    this.fromHeader()
+  },
 
   methods: {
+    fromHeader(){
+
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const filter = urlParams.get('currentTag');
+
+      // 選擇顯示的內容
+      // let resultText = '';
+
+      if (filter === '西式料理') {
+        this.currentTag = '西式料理';
+      } else if (filter === '中式料理') {
+        this.currentTag = '中式料理';
+      } else if (filter === '日式料理') {
+        this.currentTag = '日式料理';
+      }else{
+        this.currentTag = null;
+      }
+      // 將結果顯示在頁面上
+      // const filterResult = document.getElementById('filterResult');
+      // filterResult.textContent = resultText;
+    },
+
     show(tag){
       if(this.currentTag === tag){
         this.currentTag = null;
