@@ -33,3 +33,31 @@ tab_h.addEventListener("click", function () {
     main_s.classList.add("d-none");
 
 });
+
+function initial() {
+    const GetData = localStorage.getItem('user');
+  
+    fetch(`/thd102/g1/API/Frontend/setting.php?account=${GetData}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('name').value = data[0].name;
+        document.getElementById('email').value = data[0].email;
+        document.getElementById('password').value = data[0].password;
+        document.getElementById('address').value = data[0].address;
+        document.getElementById('phone').value = data[0].phone;
+
+            
+            // name = data.name;
+        console.log(data); // 打印响应数据到控制台
+      })
+      .catch(error => {
+        console.error(error); // 打印错误信息到控制台
+      });
+  }
+  
+  initial();
