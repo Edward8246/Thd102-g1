@@ -1,0 +1,156 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>EC管理後台</title>
+
+    <style>
+        body {
+         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/thd102/g1/images/restaurant-4944585_1920.jpg');
+         background-size: cover; /* 使背景圖片覆蓋整個視窗 */
+         background-repeat: no-repeat; /* 防止背景圖片重複 */
+         background-position: center; /* 將背景圖片置於中央 */
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+            
+        }
+        /* 單獨為內部表格設定背景色 */
+            #result {
+                background-color: white;
+            }
+
+
+
+        /* 標題樣式 */
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            margin-top:-300px;
+        }
+
+        /* 表格美化 */
+        table {
+            border-collapse: collapse;
+            font-size: 30px; /* 放大字體到 20px */
+            margin-top:-100px;
+        }
+
+
+        /* 背景色和字體樣式 */
+        .s4 {
+            background-color: #A5DEE4;
+        }
+   
+    </style>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js" integrity="sha512-igl8WEUuas9k5dtnhKqyyld6TzzRjvMqLC79jkgT3z02FvJyHAuUtyemm/P/jYSne1xwFI06ezQxEwweaiV7VA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/sb-admin-2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap4.min.js" integrity="sha512-OQlawZneA7zzfI6B1n1tjUuo3C5mtYuAWpQdg+iI9mkDoo7iFzTqnQHf+K5ThOWNJ9AbXL4+ZDwH7ykySPQc+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/datatables-demo.js"></script>
+<script>
+
+    function init(){
+        $.ajax({            
+          method: "POST",
+          url: "API/Backend/LoginCheck.php",
+          data:{},            
+          dataType: "text",
+          success: function (response) {
+              if(response == ""){
+                alert('請先登入，將前往登入頁'); 
+                location.href = 'Backlogin.html';                
+              }else{
+                getData();
+              }
+          },
+          error: function(exception) {
+              alert("數據載入失敗: " + exception.status);
+          }
+      });
+    }
+
+    function getData(){    
+
+        //在html頁面上取得GET(QueryString)的值
+        var OID = (new URL(location.href)).searchParams.get('OID');
+
+        $.ajax({            
+            method: "POST",
+            url: "API/Backend/OrderByID.php",
+            data:{OID: OID},           
+            dataType: "json",
+            success: function (response) {
+                display(response);              
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    }
+
+    function display(response){
+        //更新html內容(透過jQuery跑迴圈取值)
+        $.each(response, function(index, row) {
+            $("#result").append(
+                "<tr>" +
+                    "<td align='center'>" + row.id + "</td>" +  
+                    "<td align='center'>" + row.category + "</td>" +  
+                    "<td align='center'>" + row.name + "</td>" +  
+                    "<td align='center'>" + row.unit_price + "</td>" +                                                
+                    "<td align='center'>" + row.quantity + "</td>" +                  
+                "</tr>"
+            );
+        });
+    }
+
+</script>
+
+<body onload="init()">
+    <table align="center">        
+        <tr>
+            <td colspan="2" align="center">
+                <h1>訂單明細</h1>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" height="15"><br /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td align="right"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table id="result" align="center" letter-spacing: 5px; " cellpadding=" 0" cellspacing="0" border="1">
+                                <tr style="background-color:#A5DEE4;">
+                                    <td align="center">商品序號</td>
+                                    <td align="center">商品種類</td>
+                                    <td align="center">商品名稱</td>                                    
+                                    <td align="center">商品價格</td>
+                                    <td align="center">商品數量</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+</body>
