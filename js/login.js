@@ -208,7 +208,7 @@ function validatePasswordsMatch() {
         function showMember(){
             $.ajax({            
                 method: "POST",
-                url: "API/Frontend/Member.php",
+                url: "/thd102/g1/API/Frontend/Member.php",
                 data:{},            
                 dataType: "text",
                 success: function (response) { 
@@ -264,7 +264,7 @@ function validatePasswordsMatch() {
     //AJAX送出表單內容
     $.ajax({            
         method: "POST",
-        url: "API/Frontend/Login.php",
+        url: "/thd102/g1/API/Frontend/Login.php",
         data:{ 
             account: $("#account").val(),
             pwd: $("#pwd").val()
@@ -316,7 +316,7 @@ function doSubmitjoin() {
     //AJAX送出表單內容
     $.ajax({            
         method: "POST",
-        url: "API/Frontend/Join.php",
+        url: "/thd102/g1/API/Frontend/Join.php",
         data:{ 
             email: $("#signUp_email").val(),
             password: $("#signUp_password").val(),

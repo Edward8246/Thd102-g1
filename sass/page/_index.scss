@@ -236,7 +236,7 @@
         width: 100%;
         padding: 80px $side_padding-360px;
         margin-bottom: -40px;
-        background-image: url(../../images/index_bg.jpg);
+        background-image: url(/thd102/g1/images/index_bg.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         @include m(){
@@ -310,13 +310,13 @@
             margin-right: 20px;
         }
         .newProduct{
-            background-image: url(../../images/index_irregularCircle1.png);
+            background-image: url(/thd102/g1/images/index_irregularCircle1.png);
         }
         .chefClass{
-            background-image: url(../../images/index_irregularCircle2.png);
+            background-image: url(/thd102/g1/images/index_irregularCircle2.png);
         }
         .shareTable{
-            background-image: url(../../images/index_irregularCircle3.png);
+            background-image: url(/thd102/g1/images/index_irregularCircle3.png);
         }
         
     }

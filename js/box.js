@@ -85,7 +85,7 @@ var app = Vue.createApp({
     // console.log('aaa');
 
     //接box.php $data
-    axios.get('../API/Frontend/box.php').then(function (response) {
+    axios.get('/thd102/g1/API/Frontend/box.php').then(function (response) {
       let items = response.data;
       console.log(items);
       
