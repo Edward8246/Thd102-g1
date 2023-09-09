@@ -155,7 +155,7 @@ goToPay_btn.addEventListener("click",function(){
 function loginCheck(){    
   $.ajax({            
       method: "POST",
-      url: "../API/Frontend/LoginCheck.php",
+      url: "/thd102/g1/API/Frontend/LoginCheck.php",
       data:{},            
       dataType: "text",
       success: function (response) {
@@ -167,7 +167,7 @@ function loginCheck(){
 
           }else{ //若有登入資料
               // 跳轉到下一頁
-              location.href = './shoppingcart_pay.html';
+              location.href = '/thd102/g1/shoppingcart_pay.html';
           }              
       },
       error: function(exception) {
