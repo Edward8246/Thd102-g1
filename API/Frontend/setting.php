@@ -1,7 +1,7 @@
 <?php
 include("../Lib/Util.php");	
 
-$input = $_GET['account'];
+$token = $_GET['account'];
 
 try {
     // 讀取資料庫中的會員資料
@@ -15,7 +15,7 @@ try {
     WHERE email = :EMAIL;";
     
     $stmt = getPDO()->prepare($sql);
-    $stmt->bindParam(':EMAIL', $input, PDO::PARAM_STR);
+    $stmt->bindParam(':EMAIL', $token, PDO::PARAM_STR);
     $stmt->execute();
 
     $resultArray = [];
