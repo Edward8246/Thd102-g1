@@ -27,7 +27,7 @@
             $filePath_Temp = $_FILES["ProductImage"]["tmp_name"];
 
             //欲放置的檔案路徑
-            $filePath = getFilePath().$_FILES["ProductImage"]["name"];
+            $filePath = getFilePathB().$_FILES["ProductImage"]["name"];
 
             //將暫存檔搬移到正確位置
             if(copy($filePath_Temp, $filePath)){
