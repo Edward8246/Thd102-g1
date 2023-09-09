@@ -32,7 +32,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 110vh;
             margin: 0;
             background-color: #ffffff;
         }
@@ -148,6 +148,9 @@
             $("#pdimg").attr("src","/thd102/g1/images/box-info/" + row.photo_url);
             $("#PID").val(row.id);
             $("#PictureName").val(row.photo_url);
+            $("#category").val(row.category);
+            $("#stock").val(row.stock);
+            $("#description").val(row.description);
 
             switch(row.Status){
                 case 1: 
@@ -192,7 +195,10 @@
         formData.append('Price',$("#Price").val());
         formData.append('Status',$('input[name=Status]:checked').val());        
         formData.append('PID',$('#PID').val());        
-        formData.append('PictureName',$('#PictureName').val());        
+        formData.append('PictureName',$('#PictureName').val());   
+        formData.append('stock',$('#stock').val());  
+        formData.append('description',$('#description').val());  
+        formData.append('category',$('#category').val());       
 
         //AJAX送出表單內容
         $.ajax({            
@@ -246,12 +252,28 @@
                         <td align="center">
                             <img id="pdimg" src='' width="200"/><br/>
                             <input type="file" id="ProductImage" name="ProductImage" />
-
                             <!-- PK和圖片名稱需記錄在這，form送出時才能知道要更新那一筆資料 -->
                             <input type="hidden" name="PID" id="PID"/>
                             <input type="hidden" name="PictureName" id="PictureName"/>
+                        </td> 
+                    </tr>
+
+                    <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">種類</td>
+                        <td align="center">                            
+                            <input type="radio" name="category" id="category" value="盒子"/>盒子
                         </td>
                     </tr>
+                    <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">商品存貨</td>
+                        <td align="center"><input type="text" id="stock" name="stock"/></td>
+                    </tr>
+                     <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">商品描述</td>
+                        <td align="center"><input type="text" id="description" name="description"/></td>
+                    </tr>
+    
+
                 </table>
             </td>
         </tr>

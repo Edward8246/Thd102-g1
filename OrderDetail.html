@@ -46,6 +46,25 @@
         .s4 {
             background-color: #A5DEE4;
         }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+            }
+
+            #cancel {
+                font-size: 24px;  /* 設置字體大小為 24px */
+                padding: 10px 20px;
+                background-color: #A5DEE4;  /* 淺藍色背景 */
+                border: none;
+                color: black;  /* 字體顏色為黑色 */
+                border-radius: 12px;  /* 圓角邊框 */
+                cursor: pointer;  /* 當滑鼠移到按鈕上時，將其變為指標 */
+                font-weight: bold;  
+            }
+
+            #cancel:hover {
+                background-color: #96C8CE;  /* 滑鼠移到按鈕上時的背景顏色 */
+            }
    
     </style>
 </head>
@@ -151,7 +170,10 @@
             </td>
         </tr>
     </table>
-
+    <div class="button-container">
+        <input type="button" name="cancel" id="cancel" value="回上頁" onclick="javascript: history.go(-1);">&nbsp;&nbsp;
+      
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

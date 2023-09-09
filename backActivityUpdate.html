@@ -32,7 +32,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 110vh;
             margin: 0;
             background-color: #ffffff;
         }
@@ -148,6 +148,9 @@
             $("#pdimg").attr("src","/thd102/g1/images/activity/" + row.photo_url);
             $("#PID").val(row.id);
             $("#PictureName").val(row.photo_url);
+            $("#category").val(row.category);
+            $("#stock").val(row.stock);
+            $("#description").val(row.description);
 
             switch(row.Status){
                 case 1: 
@@ -193,7 +196,9 @@
         formData.append('Status',$('input[name=Status]:checked').val());        
         formData.append('PID',$('#PID').val());        
         formData.append('PictureName',$('#PictureName').val());        
-
+        formData.append('stock',$('#stock').val());  
+        formData.append('description',$('#description').val());  
+        formData.append('category',$('#category').val());  
         //AJAX送出表單內容
         $.ajax({            
             method: "POST",
@@ -252,6 +257,24 @@
                             <input type="hidden" name="PictureName" id="PictureName"/>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">種類</td>
+                        <td align="center">                            
+                            <input type="radio" name="category" id="category" value="活動"/>活動
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">活動限制人數</td>
+                        <td align="center"><input type="text" id="stock" name="stock"/></td>
+                    </tr>
+                     <tr>
+                        <td class="s4" align="center" style="background-color:#A5DEE4;">活動描述</td>
+                        <td align="center"><input type="text" id="description" name="description"/></td>
+                    </tr>
+    
+
+
                 </table>
             </td>
         </tr>

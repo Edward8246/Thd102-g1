@@ -8,7 +8,9 @@
     $Price = $_POST["Price"];   //售價
     $Status = $_POST["Status"];   //狀態  1:上架, 2:下架
     $PictureName = $_POST["PictureName"];   //原本的商品圖片名稱
-    
+    $stock = $_POST["stock"]; 
+    $description = $_POST["description"]; 
+    $category = $_POST["category"];  
     //返回訊息文字
     $message = "修改成功!";
 
@@ -44,7 +46,9 @@
     }
 
     //建立SQL
-    $sql = "UPDATE products set  name = ?, unit_price = ?, Status = ?, photo_url = ? WHERE id = ?";
+    $sql = "UPDATE products set  name = ?, unit_price = ?, Status = ?, photo_url = ? 
+    ,stock = ?,description = ?,category = ?
+    WHERE id = ?";
     
     //執行
     $statement = getPDO()->prepare($sql);     
@@ -52,7 +56,10 @@
     $statement->bindValue(2 , $Price);
     $statement->bindValue(3 , $Status);
     $statement->bindValue(4 , $PictureName);
-    $statement->bindValue(5 , $PID);
+    $statement->bindValue(5 , $stock);
+    $statement->bindValue(6 , $description);
+    $statement->bindValue(7 , $category);
+    $statement->bindValue(8 , $PID);
     $statement->execute();
     
     //導頁    
