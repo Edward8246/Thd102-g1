@@ -262,24 +262,12 @@ $(function(){
         };
         //console.log(typeof(cards_str)); //string
 
-
-        // if (cardNumber === "" || cards_str.length !== 4) {
-        //     $(".card-number").css('border','1px solid red');
-        //     sendData = false;
-        // };
-        if (is.creditCard(cards_str)) {
+        if (!is.creditCard(cards_str)) {
             sendData = false;
             for(let i = 0; i < cards_el.length; i++){
                 cards_el.eq(i).css('border','1px solid red');
             }
-        }else{
-            cards_el.eq(i).css('border','');
-        };
-        if(sendData = false){
-            console.log("錯的");
-        }else{
-            console.log("對的");
-        };
+        }
         
 
 
@@ -290,7 +278,8 @@ $(function(){
         if (payCarDdate === "" || payCarDdate.length < 2 || parseInt(carDdate, 10) > 12 || cardDateYear === "" || parseInt(cardDateYear, 10) < 23) {
             $(".pay-carddate").css('border', '1px solid red');
             sendData = false;
-        };
+        } 
+
 //------------------------------------------------------------------判斷卡背三碼
         if (chipNumber === "" || chipNumber.length < 3){
             $(".chip-number").css('border','1px solid red');
@@ -306,7 +295,6 @@ $(function(){
             } 
 //------------------------------------------------------------------判斷打勾
                 let isChecked = $("#checkBox").is(":checked");
-            
                 if (isChecked) {
                     // checkbox 被選中
                     $("#checkBoxText").css('color', '');
@@ -320,17 +308,16 @@ $(function(){
                     console.log("沒打勾");
                     sendData = false;
                 };
-        
+
         //--------------------------------------------------------判斷整個資料
         if (!sendData) { //驗證失敗 sendData==false
             alert('請輸入完整資料');
             e.preventDefault();
         } else {         //驗證成功
             // 跳轉到 ./shoppingcart.html 頁面
-            //window.location.href = './shoppingcart_success.html';
-            console.log(cards_str);
-            console.log("驗證成功");
-            //4556072908576837
+            window.location.href = './shoppingcart_success.html';
+            //console.log("驗證成功");
+            //5459 4075 2059 4658//04/2027//404
         };
 
     });
