@@ -110,6 +110,7 @@
             color: $color_tag_red;
         }
     }
+
     
     .input-space{
         border-radius: 8px ;
@@ -119,7 +120,10 @@
         border: 1px solid $color_grayblue;
     }
     
-   
+    #email{
+        background-color: #E0e0e0;
+    }
+    
     .t-choose{
         background-color: $color_cream;
         color: $color_darkblue;
@@ -348,6 +352,7 @@
     }
     }
     
-     
+
+
 
 }
