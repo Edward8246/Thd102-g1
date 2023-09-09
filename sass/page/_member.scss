@@ -9,12 +9,11 @@
         width: 100%;
         margin-top: 80px;
         padding: 40px $side_padding-360px 80px;
-        background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/thd102/g1/images/activity/activity-french.jpg');
+        background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/thd102/g1/images/bg1.jpg");
         background-color: #398b93;
         background-size: cover;
         margin-bottom: -40px;
-        min-height: 600px;
-
+        min-height: 615px;
         @include d(610px){
             padding: 20px 4% 80px;
         }
