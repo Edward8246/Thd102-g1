@@ -159,13 +159,26 @@ function loginCheck() {
       if (response == "") {
         //無登入資料
 
-        alert('請先登入，將前往登入頁');
-        // 判斷是否登入，沒登入執行跳出登入視窗
-        login_pop();
-      } else {
-        //若有登入資料
-        // 跳轉到下一頁
-        location.href = '/thd102/g1/shoppingcart_pay.html';
+function loginCheck(){    
+  $.ajax({            
+      method: "POST",
+      url: "/thd102/g1/API/Frontend/LoginCheck.php",
+      data:{},            
+      dataType: "text",
+      success: function (response) {
+          if(response == ""){ //無登入資料
+
+              alert('請先登入，將前往登入頁'); 
+              // 判斷是否登入，沒登入執行跳出登入視窗
+              login_pop();
+
+          }else{ //若有登入資料
+              // 跳轉到下一頁
+              location.href = '/thd102/g1/shoppingcart_pay.html';
+          }              
+      },
+      error: function(exception) {
+          alert("數據載入失敗: " + exception.status);
       }
     },
     error: function error(exception) {
