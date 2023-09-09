@@ -14,7 +14,7 @@
     LEFT JOIN products_box_detail as box_detail
         ON  box_detail.products_id = products.id
 
-    WHERE category = '盒子';
+    WHERE category = '盒子'and Status = 1;
     ";
 
   $statement = getPDO() -> prepare($sql);
