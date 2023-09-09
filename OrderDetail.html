@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <title>EC商城</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/thd102/g1/images/restaurant-4944585_1920.jpg');
+         background-size: cover; /* 使背景圖片覆蓋整個視窗 */
+         background-repeat: no-repeat; /* 防止背景圖片重複 */
+         background-position: center; /* 將背景圖片置於中央 */
+
+
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+            
+        }
+        /* 單獨為內部表格設定背景色 */
+            #result {
+                background-color: white;
+            }
+
+
+
+        /* 標題樣式 */
+        h1 {
+            font-size: 44px;
+            margin-bottom: 20px;
+       
+        }
+
+        /* 表格美化 */
+        table {
+            border-collapse: collapse;
+            font-size: 32px; /* 放大字體到 20px */
+            margin-top: 50px;
+        }
+
+
+        /* 背景色和字體樣式 */
+        .s4 {
+            background-color: #A5DEE4;
+        }
+   
+    </style>
+</head>
+
+<script type="text/javascript">
+
+    function init(){
+
+        loginCheck();      
+    }
+
+    //登入檢查
+    function loginCheck(){    
+        $.ajax({            
+            method: "POST",
+            url: "API/Frontend/LoginCheck.php",
+            data:{},            
+            dataType: "text",
+            success: function (response) {
+                if(response == ""){
+                    //尚未登入->前往Login.php
+                    alert('請先登入，將前往登入頁'); 
+                    location.href = 'Login.html';
+                }else{
+                    getData()
+                }              
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    }
+
+    //------------------------------------------------------------------------
+
+    //取得訂單資訊
+    function getData(){
+        
+        //在html頁面上取得GET(QueryString)的值
+        var OID = (new URL(location.href)).searchParams.get('OID');
+        
+        $.ajax({            
+            method: "POST",
+            url: "API/Frontend/OrderDetail.php",
+            data:{OID: OID},         
+            dataType: "json",
+            success: function (response) {
+                display(response);
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    }
+
+    //顯示訂單資訊
+    function display(response){
+        //更新html內容(透過jQuery跑迴圈取值)
+        $.each(response, function(index, row) {
+            $("#result").append(
+                "<tr>" +
+                    "<td align='center'>" + row.id + "</td>" +  
+                    "<td align='center'>" + row.category + "</td>" +  
+                    "<td align='center'>" + row.name + "</td>" +  
+                    "<td align='center'>" + row.unit_price + "</td>" +                                                
+                    "<td align='center'>" + row.quantity + "</td>" +                  
+                "</tr>"
+            );
+        });
+    }
+
+</script>
+
+<body onload="init()">
+    <table align="center">        
+        <tr>
+            <td colspan="2" align="center">
+                <h1>訂單明細</h1>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td align="right"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table id="result" align="center" letter-spacing: 5px; " cellpadding=" 0" cellspacing="0" border="1">
+                                <tr style="background-color:#A5DEE4;">
+                                    <td align="center">商品編號</td>
+                                    <td align="center">商品種類</td>
+                                    <td align="center">商品名稱</td>                                    
+                                    <td align="center">商品價格</td>
+                                    <td align="center">商品數量</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
