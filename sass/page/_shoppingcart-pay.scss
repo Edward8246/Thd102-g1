@@ -78,6 +78,7 @@
         border: 1px solid $color_grayblue;
         margin: 15px auto 0 auto;
         font-size: $h6;
+        padding-left: 10px;
     }
     .form-h5{
         width: fit-content;
@@ -103,11 +104,16 @@
         border-radius: 8px;
         border: 1px solid $color_grayblue;
         margin: 15px auto 0 auto;
-        
+        @include d(769px){
+            
+        }
     }
     .pay-dash{
         font-size: 30px;
         margin: 0 4px;
+        @include d(1048px){
+            margin: 0;
+        }
     }
     .pay-carddate{
         width: 20%;

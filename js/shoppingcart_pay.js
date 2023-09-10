@@ -324,3 +324,27 @@ $(function(){
         
 });
 
+//----------------------------------------------放資料
+function doSubmit(){
+    //input your code...
+let user = document.getElementById("inputUser").value;
+let phone = document.getElementById("inputPhone").value;
+let address = document.getElementById("inputAddress").value;
+      //將要傳送的內容封裝成FormData
+      var fd = new FormData();
+      fd.append('user', user);
+      fd.append('phone', phone);
+      fd.append('address', address);
+//POST請求
+axios.post('login.php', fd)
+.then(function (response) {
+  //更新html內容
+  document.getElementById("result").innerHTML = response.data;
+//   document.getElementById("result").innerHTML = response.data;
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+}
+
