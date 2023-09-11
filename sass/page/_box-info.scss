@@ -138,11 +138,9 @@ html{
                 @include flex;
                 @include btn_shadow($black, .4);
                 .image{
-                    height: 110%;
+                    height: 129%;
                     
-                    img{
-                        
-                    }
+            
                 }
                 @include d(820px){
                     display: none;
