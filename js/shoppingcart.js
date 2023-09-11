@@ -132,6 +132,17 @@ var app = Vue.createApp({
     
             // 更新总金额
             this.updateTotal();
+          }else {
+            // 如果用户取消，将商品数量设置为1，价格设置为单个商品的价格
+            item.quantity = 1;
+            item.total = item.price;
+    
+            // 更新本地存储
+            localStorage.setItem("cart_box", JSON.stringify(this.box));
+    
+            // 更新购物车数量
+            this.changeCartNum();
+            this.updateTotal();
           }
         }
       }
@@ -171,6 +182,17 @@ var app = Vue.createApp({
             this.changeCartNum();
     
             // 更新总金额
+            this.updateTotal();
+          }else {
+            // 如果用户取消，将商品数量设置为1，价格设置为单个商品的价格
+            item.quantity = 1;
+            item.total = item.price;
+    
+            // 更新本地存储
+            localStorage.setItem("cart_act", JSON.stringify(this.activity));
+    
+            // 更新购物车数量
+            this.changeCartNum();
             this.updateTotal();
           }
         }
