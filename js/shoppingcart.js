@@ -50,14 +50,17 @@ var app = Vue.createApp({
     },
     //盒子項目數量減少
     subNumberBox: function subNumberBox(index) {
-      if (this.box[index].quantity >= 2) {
+      if (this.box[index].quantity >= 1) {
         this.box[index].quantity -= 1; // 减少数量
         this.box[index].total = this.box[index].price * this.box[index].quantity; //更新金額
         this.updateTotal();
+        // console.log(this);
 
         // 保存更改后的数据到localStorage
         localStorage.setItem('cart_box', JSON.stringify(this.box));
-      }
+      };
+     
+      
     },
     //活動項目數量增加
     addNumberAct: function addNumberAct(index) {
@@ -75,7 +78,7 @@ var app = Vue.createApp({
     //活動項目數量減少
     subNumberAct: function subNumberAct(index) {
       var btn_sub = document.getElementsByClassName('b-sub-shopping')[index];
-      if (this.activity[index].quantity >= 2) {
+      if (this.activity[index].quantity >= 1) {
         this.activity[index].quantity -= 1; // 减少数量
         this.activity[index].total = this.activity[index].price * this.activity[index].quantity;
         this.updateTotal();
@@ -106,6 +109,32 @@ var app = Vue.createApp({
         //更新header購物車數字
         _this.changeCartNum();
       }
+      
+    },
+    //------------------------------------------------當數量是0可刪除品項
+    RemoveBox: function RemoveBox(index) {
+      // 确保索引 index 存在且在有效范围内
+      if (index >= 0 && index < this.box.length) {
+        var item = this.box[index]; // 获取要删除的商品
+    
+        // 检查是否需要显示确认对话框
+        if (item.quantity === 0) {
+          var userConfirmed = confirm("確定要移除 " + item.name + " 嗎？");
+    
+          if (userConfirmed) { // 如果用户确认
+            this.box.splice(index, 1); // 从购物车中删除商品
+    
+            // 更新本地存储
+            localStorage.setItem("cart_box", JSON.stringify(this.box));
+    
+            // 更新购物车数量
+            this.changeCartNum();
+    
+            // 更新总金额
+            this.updateTotal();
+          }
+        }
+      }
     },
     //移除訂單(活動)
     taskRemoveAct: function taskRemoveAct(i, e) {
@@ -121,7 +150,32 @@ var app = Vue.createApp({
         //更新header購物車數字
         _this.changeCartNum();
       }
-    }
+    },
+    //-------------------------------------------------------當活動數量是0的話 可刪除此活動
+    RemoveAct: function RemoveAct(index) {
+      // 确保索引 index 存在且在有效范围内
+      if (index >= 0 && index < this.activity.length) {
+        var item = this.activity[index]; // 获取要删除的商品
+    
+        // 检查是否需要显示确认对话框
+        if (item.quantity === 0) {
+          var userConfirmed = confirm("確定要移除 " + item.name + " 嗎？");
+    
+          if (userConfirmed) { // 如果用户确认
+            this.activity.splice(index, 1); // 从购物车中删除商品
+    
+            // 更新本地存储
+            localStorage.setItem("cart_act", JSON.stringify(this.activity));
+    
+            // 更新购物车数量
+            this.changeCartNum();
+    
+            // 更新总金额
+            this.updateTotal();
+          }
+        }
+      }
+    },
   },
   //頁面一載入就執行的方法
   mounted: function mounted() {

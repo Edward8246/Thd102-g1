@@ -85,7 +85,7 @@
                         </div>
                         <div class="item-quantity">
                             <div class="btn-number-shopping">
-                                <div class="b-n-shopping b-sub-shopping " @click="subNumberBox(index)"></div>
+                                <div class="b-n-shopping b-sub-shopping " @click="subNumberBox(index), RemoveBox(index,e)"></div>
                                 <input class="quantity-num" type="text" v-model="item.quantity">
                                 <div class="b-n-shopping b-add-shopping " @click="addNumberBox(index)"></div>
                             </div>
@@ -122,7 +122,7 @@
                         </div>
                         <div class="item-quantity">
                             <div class="btn-number-shopping">
-                                <div class="b-n-shopping b-sub-shopping" @click="subNumberAct(index)"></div>
+                                <div class="b-n-shopping b-sub-shopping" @click="subNumberAct(index), RemoveAct(index,e)"></div>
                                 <input class="quantity-num col-6" type="text" v-model="item.quantity">
                                 <div class="b-n-shopping b-add-shopping" @click="addNumberAct(index)"></div>
                             </div>
