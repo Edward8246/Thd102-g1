@@ -1,5 +1,5 @@
 .wrapper_header {
-    // *{outline: 1px red solid;}
+    //*{outline: 1px red solid;}
 
     @include flex(column,start,space-between);
     //固定在最上面
@@ -188,20 +188,25 @@
     }
     .cata_right{
         flex:3;
+        i{
+            font-weight: 600;
+            font-size: 12px;
+            margin-left: 20px;
+        }
         @include flex(column,space-between,start);
         @include d(468px){
             z-index: 5;
         }
     }
     .pageLinks_container{
-        @include flex(row,space-between);
+        display: flex;
         flex-wrap: wrap;
     }
     .pageLinks{
         padding: 20px 8px;
-        width: 45%;
+        width: 33.33%;
         min-width: 144px;
-        @include flex(row,space-between,center);
+        @include flex(row,flex-start,center);
         color:$color_blue;
         transition:all .5s;
         &:hover{

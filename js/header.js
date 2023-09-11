@@ -7,7 +7,14 @@ bar_el.addEventListener("click", function () {
   header_cataPage_el.classList.toggle("-none");
   bar_el.classList.toggle("-close");
 
+  //當header打開，滾動取消
   if (bar_el.classList.contains("-close")) {
+    document.body.style.overflow = 'hidden';
+  }else{
+    document.body.style.overflow = 'auto';
+  }
+  //bar樣式變換(漢堡<-> x )
+  if (bar_el.classList.contains("-close")) { 
     //轉換bar為X符號
     Array.from(bar_line_els).forEach(function (i) {
       i.style.transition = "0.5s";

@@ -86,14 +86,14 @@
                                   ${{ product.unit_price }}
                               </h4>
                               <!-- 數量增減 -->
-                              <div class="btn-number">
-                                  <div class="b-n b-sub " @click="subNumber"></div>
-                                  <input class="text buy-value" type="text" value="1" readonly="readonly">
-                                  <div class="b-n b-add " @click="addNumber"></div>
-                              </div>
+
                               <div class="btn-group">
-                                  <button class="b-buy b-left colte-6" @click="addCart()">加入購物車</button>
-                                  <button class="b-buy b-right colte-6">立即購買</button>
+                                <div class="btn-number">
+                                    <div class="b-n b-sub " @click="subNumber"></div>
+                                    <input class="text buy-value" type="text" value="1" readonly="readonly">
+                                    <div class="b-n b-add " @click="addNumber"></div>
+                                </div>
+                                <button class="b-buy b-left colte-6" @click="addCart()">加入購物車</button>
                               </div>
               
                           </div>

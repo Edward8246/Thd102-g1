@@ -389,8 +389,12 @@ $(function () {
         cart_box_arr = JSON.parse(cart_box_arr);
         cart_act_arr = JSON.parse(cart_act_arr);
  
-        add_order_detail(cart_box_arr,order_id);
-        add_order_detail(cart_act_arr,order_id);
+        if (cart_box_arr.length > 0 ){
+          add_order_detail(cart_box_arr, order_id);
+        }
+        if(cart_act.length > 0){
+          add_order_detail(cart_act_arr, order_id);
+        }
         
       };
       //執行insert的func
