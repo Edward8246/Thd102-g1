@@ -192,7 +192,7 @@ form {
     opacity: 0;
     z-index: 1;
 
-    // display: none;
+    display: none;
 }
 
 .container-login.right-panel-active .sign-up-container {
@@ -302,7 +302,7 @@ form {
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 0 20px rgba(#333,.2);
-    
+    position: relative;
     //開啟
     display: none;
 
@@ -314,6 +314,8 @@ form {
     font-size: 120px;
     padding: 20px 50px;
     justify-items: center;
+    position: relative;
+
     
 }
 
