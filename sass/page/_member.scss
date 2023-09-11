@@ -313,32 +313,32 @@
     
         &:not(:first-child) {
             clear: both;
-            margin-left: $imageBig;
+            margin-left: 55px;
             padding: 4px 20px 4px 90px;
             position: relative;
             text-align: left;
     
-            &:before {
+            &:nth-child(1):before {
             // color: lighten($baseColor, 30%);
             content: "";
-            display: block;
-            left: 0;
-            position: absolute;
+            // display: block;
+            // left: 0;
+            // position: absolute;
             }
         }
     
         &:nth-child(2):before {
-            content: "訂單編號:";
-        }
-        &:nth-child(3):before {
             content: "訂單日期:";
         }
-        &:nth-child(4):before {
+        &:nth-child(3):before {
             content: "訂單金額:";
         }
-        &:nth-child(5):before {
+        &:nth-child(4):before {
             content: "訂單商品:";
         }
+        // &:nth-child(5):before {
+        //     content: "訂單商品:";
+        // }
     }
     
     tr {
