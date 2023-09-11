@@ -29,10 +29,10 @@ function doSubmit_signUp() {
   var signUp_email_el = document.getElementById("signUp_email").value; //email
   var signUp_password_el = document.getElementById("signUp_password").value; //密碼
   var signUp_password_2_el = document.getElementById("signUp_password_2").value; //確認密碼
-  // console.log(signUp_name_el);
-  // console.log(signUp_email_el);
-  // console.log(signUp_password_el);
-  // console.log(signUp_password_2_el);
+  console.log(signUp_name_el);
+  console.log(signUp_email_el);
+  console.log(signUp_password_el);
+  console.log(signUp_password_2_el);
 }
 
 // ======================================================
