@@ -138,9 +138,7 @@ html{
                 @include flex;
                 @include btn_shadow($black, .4);
                 .image{
-                    height: 129%;
-                    
-            
+                    height: 120%;
                 }
                 @include d(820px){
                     display: none;
@@ -152,8 +150,7 @@ html{
                     .info-tag{
                         margin-right: 8px;
                     }
-    
-                   
+
                 }
     
     
@@ -222,9 +219,10 @@ html{
                 }
     
                 .btn-group {
-                    @include flexCenter;
-                    margin-top: 20px;
-    
+                    @include flex(row,space-between,center);
+                    .btn-number{
+                        width: 45%;
+                    }
                     .b-buy {
                         height: 35px;
                         border-radius: 10px;

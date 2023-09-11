@@ -21,261 +21,254 @@
         @@include('./layout/header.html')
         
         <!-- container -->
-        <div class="aboutusContainer">
+        <div class="container">
+            @@include('./layout/backToTop.html')
 
+            <!-- section1 -->
             <div class="sectionOne">
-                @@include('./layout/backToTop.html')
-        
-            <!-- Section 1 左邊內容 -->
+              <!-- Section 1 左邊內容 -->
               <div class="leftContent">                
                 <div class="text_button_wrapper">
-                    <h1>品牌精神</h1>
-                    <h4>新鮮美味，簡單共享<br>喚醒味蕾的共感時刻</h4>
+                    <h3>品牌精神</h3>
+                    <h6>新鮮美味，簡單共享<br>喚醒味蕾的共感時刻</h6>
                     <a href="./box.html">
                         <button class="btn_transparent startBooking">開始預訂一個專屬的食物盒子</button> 
                     </a> 
                 </div>
 
-                <div class="image_wrapper">
+                <div class="image aboutus_box">
                    <img src="/thd102/g1/images/aboutus/aboutus_box.svg" alt="" class="aboutus_box">
+                   <!-- <img src="./images/aboutus/aboutus_box.svg" alt=""> -->
                 </div>
               </div>
 
 
-            <!-- Section 1 右邊內容 -->
+              <!-- Section 1 右邊內容 -->
               <div class="rightContent">
-        
                     <p>
                         食物盒子不只是一個原食商品，我們希望在忙碌的日子裡，無論您身  在何處，也要照顧好自己的身體與心靈。
-                        <br>
-                        <br>
+                    </p>   
+                    <p class="drop">
                         透過一步步隨著食譜的製作，輕鬆品味私廚料理，在這個平台上，陌生人只是還沒認識的好朋友，我們邀請您參與我們以食會友的各種活動。
-                        <br>
-                        <br>
+                    </p>
+                    <p class="drop"> 
                         我們關心地方小農，共享、參與和創新，讓食物的滋味連結著全球的善意與關懷。
                     </p>
               </div>
-        </div>
 
-        <!-- Section 2 -->
+            </div>
 
-        <div class="sectionTwo">
-            <h1>你會得到...</h1>
-
-            <div class="offers_wrapper">
-
-                <ul>
+            <!-- Section 2 -->
+            <div class="sectionTwo">
+                <h3>你會得到...</h3>
+                <ul class="offers_wrapper">
                     <li>
-                        <img src="/thd102/g1/images/aboutus/section2_chef.png" alt="">
-                        <h3>大廚食譜</h3>
-                        <p>每份餐點有專屬的大廚食譜，人人都可輕鬆完成一份美味精緻料理。</p>
+                        <div class="image">
+                            <img src="/thd102/g1/images/aboutus/section2_chef.png" alt="">
+                            <!-- <img src="./images/aboutus/section2_chef.png" alt=""> -->
+                        </div>
+                        <div class="offers_text">
+                            <h5>大廚食譜</h5>
+                            <p>每份餐點有專屬的大廚食譜，人人都可輕鬆完成一份美味精緻料理。</p>
+                        </div>
+
                     </li>
 
                     <li>
-                        <img src="/thd102/g1/images/aboutus/section2_ingredient.png" alt="">
-                        <h3>專屬食材</h3>
-                        <p>肉多多、菜多多、海鮮多多，我們盡力滿足您的挑剔胃口。</p>
+                        <div class="image">
+                            <img src="/thd102/g1/images/aboutus/section2_ingredient.png" alt="">
+                            <!-- <img src="./images/aboutus/section2_ingredient.png" alt=""> -->
+                        </div>
+                        <div class="offers_text">
+                            <h5>專屬食材</h5>
+                            <p>肉多多、菜多多、海鮮多多，我們盡力滿足您的挑剔胃口。</p>
+                        </div>
+
                     </li>
 
                     <li>
-                        <img src="/thd102/g1/images/aboutus/section2_packaging.png" alt="">
-                        <h3>環保包裝</h3>
-                        <p>盒子100%可回收材質，您亦可再下次貨到時將盒子交由我們貨運人員協助送回。</p>
+                        <div class="image">
+                            <img src="/thd102/g1/images/aboutus/section2_packaging.png" alt="">
+                            <!-- <img src="./images/aboutus/section2_packaging.png" alt=""> -->
+                        </div>
+                        <div class="offers_text">
+                            <h5>環保包裝</h5>
+                            <p>盒子100%可回收材質，您亦可再下次貨到時將盒子交由我們貨運人員協助送回。</p>
+                        </div>
+
                     </li>
 
                     <li>
-                        <img src="/thd102/g1/images/aboutus/section2_gift.png" alt="">
-                        <h3>感謝小禮</h3>
-                        <p>我們將不定期地提供您當季小小驚喜，希望能夠持續陪伴您。</p>
+                        <div class="image">
+                            <img src="/thd102/g1/images/aboutus/section2_gift.png" alt="">
+                            <!-- <img src="./images/aboutus/section2_gift.png" alt=""> -->
+                        </div>
+
+                        <div class="offers_text">
+                            <h5>感謝小禮</h5>
+                            <p>我們將不定期地提供您當季小小驚喜，希望能夠持續陪伴您。</p>
+                        </div>
+
                     </li>
                 </ul>
             </div>
-        </div>
 
         
-        <!-- 轉場 -->
-        <div class="transition">
-            <div class="box_explode">
-                <img src="/thd102/g1/images/aboutus/aboutus_cata_box.png" alt="">
-            </div>
+            <!-- 轉場 -->
+            <div class="transition">
+                <div class="box_explode">
+                    <div class="image">
+                        <img src="/thd102/g1/images/aboutus/aboutus_cata_box.png" alt="">
+                        <!-- <img src="./images/aboutus/aboutus_cata_box.png" alt=""> -->
+                    </div>
+                </div>
 
-            <div class="bg_animattion">
-                <div>
-                    <span>HAKO</span>
-                    <span>HAKO</span>
-                    <span>HAKO</span>
-                    <span>HAKO</span>
+                <div class="bg_animattion">
+                    <div>
+                        <span>HAKO</span>
+                        <span>HAKO</span>
+                        <span>HAKO</span>
+                        <span>HAKO</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Section 3 -->
-
-        <div class="sectionThree">
-            <h2>不只是盒子...</h2>
-
-            
-            <div class="moreThanBox_wrapper">
-              <ul>
-                <li>
-                    <h3>參加我們的活動</h3>
-                    <img src="/thd102/g1/images/aboutus/section3_joinActivities.png" alt="">
-                    <h2>輕鬆完成大餐</h2>
-                    <hr class="underline">
-                    <p>參加我們的精彩活動，與其他食材探索者一同分享美食和烹飪的喜悅！
-                    <br>
-                    無論是網上直播烹飪課程、創意的美食品分享，我們將為您帶來難忘的體驗和驚喜。</p>
-                </li>
-
-                <li>
-                    <h3>預訂個性化盒子</h3>
-                    <img src="/thd102/g1/images/aboutus/section3_bookBoxes.png" alt="">
-                    <h2>照顧你的特殊口味</h2>
-                    <hr class="underline">
-                    <p>亞洲風味到地中海風情，我們精選全球美食，讓您足不出戶品嚐世界。
-                    <br>
-                    每一份盒子都蘊含著精心挑選的特色美食，帶您探索各國風味，讓味覺旅程更具豐富多彩。
-                    </p>
-                </li>
-
-                <li>
-                    <h3>加入共享社群</h3>
-                    <img src="/thd102/g1/images/aboutus/section3_joinSocial.png" alt="">
-                    <h2>尋找你的專屬菜單</h2>
-                    <hr class="underline">
-                    <p>不論你是料理小白，還是喜愛挑戰高難度料理的進階高手，這裡匯聚了同樣熱愛美食的新朋友們。
-                    <br>
-                    加入我們的食物盒子社群，分享你的專屬食譜，參與我們共享餐桌活動，開啟美食交友之旅！       
-                    </p>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
-    <!-- Section 4 -->
-
-    <div class="sectionFour">
-
-        <h1>我們承諾</h1>
-        
-        <div class="background_pic01">
-            <ul>
-                <li class="sectionFour_one">
-                        <div class="dot-title">
-                            <div class="dot"></div>
-                        <h3>支持小農</h3>
+            <!-- Section 3 -->
+            <div class="sectionThree">
+                <h3>不只是盒子...</h3>
+                <ul class="moreThanBox_wrapper">
+                    <li>
+                        <h6 class="title_sm">參加我們的活動</h6>
+                        <div class="image">
+                            <img src="/thd102/g1/images/aboutus/section3_joinActivities.png" alt="">
+                            <!-- <img src="./images/aboutus/section3_joinActivities.png" alt=""> -->
                         </div>
-                        
-                        <p>我們與地方小農配合，支持獨立的農民品牌，專業分工以提供您精緻的食物原料。</p>              
-                </li>
-            </ul>
-        </div>
-
-        <div class="background_pic02">
-            <ul>
-                <li class="sectionFour_two">
-                        <div class="dot-title">
-                            <div class="dot"></div>
-                            <h3>品質把關</h3>
-                        </div>
-                        
-                        <p>我們直接向農場採購高品質的原食，並透過冷鏈物鏈確保消費者獲得最新鮮的商品，您也可以由食物履歷得知採收日期與商品來源。</p>
-                </li>
-            </ul>
-        </div>
-
-
-        <div class="background_pic03">
-            <ul>
-                <li class="sectionFour_three">
-                        <div class="dot-title">
-                            <div class="dot"></div>
-                            <h3>共享精神</h3>
-                        </div>
-                        
-                        <p>我們致力於提供美食愛好者共享平台，您可以自由地在這裡分享個人食譜，並透過參與活動認識各地饕客。</p>
-                        <button class="btn_transparent shareRecipe">分享食譜</button>
-                        <button class="btn_transparent eatTogether">共食活動</button>
+                        <h6 class="title_sm_2">輕鬆完成大餐</h6>
+                        <p>參加我們的精彩活動，與其他食材探索者一同分享美食和烹飪的喜悅！
+                        <br>
+                        無論是網上直播烹飪課程、創意的美食品分享，我們將為您帶來難忘的體驗和驚喜。</p>
                     </li>
-            </ul>
-        </div>
-    </div>
+
+                    <li>
+                        <h6 class="title_sm">預訂個性化盒子</h6>
+                        <div class="image">
+                            <img src="/thd102/g1/images/aboutus/section3_bookBoxes.png" alt="">
+                            <!-- <img src="./images/aboutus/section3_bookBoxes.png" alt=""> -->
+                        </div>
+                        <h6 class="title_sm_2">照顧你的特殊口味</h6>
+                        <p>亞洲風味到地中海風情，我們精選全球美食，讓您足不出戶品嚐世界。
+                        <br>
+                        每一份盒子都蘊含著精心挑選的特色美食，帶您探索各國風味，讓味覺旅程更具豐富多彩。
+                        </p>
+                    </li>
+
+                    <li>
+                        <h6 class="title_sm">加入共享社群</h6>
+                        <div class="image">
+                            <img src="/thd102/g1/images/aboutus/section3_joinSocial.png" alt="">
+                            <!-- <img src="./images/aboutus/section3_joinSocial.png" alt=""> -->
+                        </div>
+                        <h6 class="title_sm_2">尋找你的專屬菜單</h6>
+                        <p>不論你是料理小白，還是喜愛挑戰高難度料理的進階高手，這裡匯聚了同樣熱愛美食的新朋友們。
+                        <br>
+                        加入我們的食物盒子社群，分享你的專屬食譜，參與我們共享餐桌活動，開啟美食交友之旅！       
+                        </p>
+                    </li>
+                </ul>   
+            </div>
 
 
-    <!-- Section 5 -->
+            <!-- Section 4 -->
+            <div class="sectionFour">
+                <h3>我們承諾</h3>
+                <ul class="section_blocks">
+                    <div class="section_block support">
+                        <li>
+                            <div class="dot-title">
+                                <div class="dot"></div>
+                                <h5>支持小農</h5>
+                            </div>
+                            <p>我們與地方小農配合，支持獨立的農民品牌，專業分工以提供您精緻的食物原料。</p>              
+                        </li>
+                    </div>
+                    <div class="section_block quality">
+                        <li>
+                            <div class="dot-title">
+                                <div class="dot"></div>
+                                <h5>品質把關</h5>
+                            </div>
+                            <p>我們直接向農場採購高品質的原食，並透過冷鏈物鏈確保消費者獲得最新鮮的商品，您也可以由食物履歷得知採收日期與商品來源。</p>
+                        </li>
+                    </div>
+                    <div class="section_block spirit">
+                        <li>
+                            <div class="dot-title">
+                                <div class="dot"></div>
+                                <h5>共享精神</h5>
+                            </div>
+                            <p>我們致力於提供美食愛好者共享平台，您可以自由地在這裡分享個人食譜，並透過參與活動認識各地饕客。</p>
+                            <div class="btns">
+                                <button class="btn_transparent shareRecipe">分享食譜</button>
+                                <button class="btn_transparent eatTogether">共食活動</button>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
 
-    <div class="sectionFive">
-        <h1>現在開始預訂一個盒子</h1>
+            <!-- Section 5 -->
+            <div class="sectionFive">
+                <h3 class="sectionFive_title"> 現在開始預訂一個盒子</h3>
+                <div class="sectionFive_content">
+                    <!-- Left: Text -->
+                    <ul class="leftText">
+                        <li class="reservation_info">
+                            <div class="image">
+                                <img src="/thd102/g1/images/aboutus/section5_icon01.png" alt="">
+                                <!-- <img src="./images/aboutus/section5_icon01.png" alt=""> -->
+                            </div>
+                            <div class="info_text">
+                                <h6>專屬您的偏好盒子</h6>
+                                <p>您可依據您的口味偏好、您有的廚房工具選擇想要的食物盒子，我們也提供季節/節慶限定盒子供您選擇。</p>
+                            </div>
+                        </li>
+
+                        <li class="reservation_info">
+                            <div class="image">
+                                <img src="/thd102/g1/images/aboutus/section5_icon02.png" alt="">
+                                <!-- <img src="./images/aboutus/section5_icon02.png" alt=""> -->
+                            </div>
+                            <div class="info_text">
+                                <h6>預訂與收取食物盒子</h6>
+                                <p>透過預訂盒子所希望送達的日期與時間，打開盒子後，內容物除了美味新鮮食材，以及一份由大廚推薦的官方食譜。</p>
+                            </div>
+                        </li>
+
+                        <li class="reservation_info">
+                            <div class="image">
+                                <img src="/thd102/g1/images/aboutus/section5_icon03.png" alt="">
+                                <!-- <img src="./images/aboutus/section5_icon03.png" alt=""> -->
+                            </div>
+
+                            <div class="info_text">
+                                <h6>享受您的美食體驗</h6>
+                                <p>您可依大廚食譜或個人喜好自由地開啟一段專屬於您的美食無憂之旅</p>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <!-- Right: Image -->
+                    <div class="image rightPicture">
+                        <img src="/thd102/g1/images/aboutus/section5_rightPic.jpg" alt="">
+                        <!-- <img src="./images/aboutus/section5_rightPic.jpg"> -->
+                    </div>
+                </div>
+            </div>
     
-    <!-- Left: Text -->
-
-    <div class="sectionFive_content">
-        <div class="leftText">
-
-            <ul>
-                <li>
-                    <div class="sectionFive_icon">
-                        <img src="/thd102/g1/images/aboutus/section5_icon01.png" alt="">
-                    </div>
-                    <div class="sectionFive_content01">
-                        <h3>專屬您的偏好盒子</h3>
-                        <p>您可依據您的口味偏好、您有的廚房工具選擇想要的食物盒子，我們也提供季節/節慶限定盒子供您選擇。</p>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="sectionFive_icon">
-                        <img src="/thd102/g1/images/aboutus/section5_icon02.png" alt="">
-                    </div>
-                    <div class="sectionFive_content02">
-                        <h3>預訂與收取食物盒子</h3>
-                        <p>透過預訂盒子所希望送達的日期與時間，打開盒子後，內容物除了美味新鮮食材，以及一份由大廚推薦的官方食譜。</p>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="sectionFive_icon">
-                        <img src="/thd102/g1/images/aboutus/section5_icon03.png" alt="">
-                    </div>
-
-                    <div class="sectionFive_content03">
-                        <h3>享受您的美食體驗</h3>
-                        <p>您可依大廚食譜或個人喜好自由地開啟一段專屬於您的美食無憂之旅</p>
-                    </div>
-                </li>
-            </ul>
-
-        </div>
-
-
-        <!-- Right: Image -->
-
-
-        <div class="rightPicture">
-            <img src="/thd102/g1/images/aboutus/section5_rightPic.jpg" alt="">
-        </div>
-
-
-    </div>
-
-    
-
-    </div>
-
-
-
-
+        </div> <!--container end -->
         <!-- footer -->
         @@include('./layout/footer.html')
-
     </div>
-    
-    
-
-
-
-</div>
 
 
 

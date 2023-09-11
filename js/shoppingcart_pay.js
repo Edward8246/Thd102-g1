@@ -302,90 +302,8 @@ $(function () {
       e.preventDefault();
     } else {
       //--------------------------------------------------
-      //執行抓到input資料後放入資料庫中
-      var order_data = function order_data(id) {
-        $.ajax({
-          method: "POST",
-          url: "/thd102/g1/API/Frontend/addOrder.php",
-          //insert的php
-          data: {
-            customer_id: id,
-            recipient_name: user,
-            recipient_phone: phone,
-            //input的資料
-            shipping_addr: address //input的資料
-          },
+      
 
-          dataType: "text",
-          success: function success(response) {
-            if (response !== "") {
-              //有資料
-              var data = JSON.parse(response);
-              console.log("orderId:" + data.id); //取得order_id
-
-              addOrders(data.id);
-
-              // 跳轉到 ./shoppingcart_success.html 頁面
-              window.location.href = '/thd102/g1/shoppingcart_success.html';
-            } else {
-              //沒資料
-              console.log("資料錯誤");
-            }
-          },
-          error: function error(exception) {
-            alert("數據載入失敗: " + exception.status);
-          }
-        });
-      };
-      //--------------------------------------------------
-      //抓到order_id後執行將localstorage的資料寫進資料庫orders中
-      var addOrders = function addOrders(order_id) {
-        //2. 執行將localstorage user資料接出來寫php
-        var cart_box_arr = localStorage.getItem('cart_box');
-        var cart_act_arr = localStorage.getItem('cart_act');
-        // 轉型為JSON格式
-        cart_box_arr = JSON.parse(cart_box_arr);
-        cart_act_arr = JSON.parse(cart_act_arr);
-        add_order_detail(cart_box_arr, order_id);
-        add_order_detail(cart_act_arr, order_id);
-      };
-      //執行insert的func
-      var add_order_detail = function add_order_detail(cart_arr, order_id) {
-        for (var _i3 = 0; _i3 < cart_arr.length; _i3++) {
-          var item = cart_arr[_i3]; //購物車中每一筆盒子的資料
-          console.log(item); //{img,name,price,quantity,total}
-
-          //ajax回傳寫在這
-          $.ajax({
-            method: "POST",
-            url: "/thd102/g1/API/Frontend/addOrder_detail.php",
-            //insert需要的資料
-            data: {
-              order_id: order_id,
-              //引數帶入的值
-              product_name: item.name,
-              //localhost的資料(需用商品名查找product_id)
-              quantity: item.quantity //localhost的資料
-            },
-
-            dataType: "text",
-            success: function success(response) {
-              if (response !== "") {
-                //有資料 
-                var data = JSON.parse(response);
-                console.log("成功insert盒子商品");
-                console.log(data);
-              } else {
-                //沒資料
-                console.log("資料錯誤");
-              }
-            },
-            error: function error(exception) {
-              alert("數據載入失敗: " + exception.status);
-            }
-          });
-        }
-      };
       //這裡執行驗證成功後
       console.log(user); //收件人姓名
       console.log(phone); //收件電話
@@ -430,9 +348,101 @@ $(function () {
           alert("數據載入失敗: " + exception.status);
         }
       });
-      ;
-      ;
-      ;
+
+
+
+
+      //--------------------------------------------------
+      //執行抓到input資料後放入資料庫中
+      function order_data(id) {
+        $.ajax({
+          method: "POST",
+          url: "/thd102/g1/API/Frontend/addOrder.php",
+          //insert的php
+          data: {
+            customer_id: id,
+            recipient_name: user,
+            recipient_phone: phone, //input的資料
+            shipping_addr: address //input的資料
+          },
+
+          dataType: "text",
+          success: function success(response) {
+            if (response !== "") {
+              //有資料
+              var data = JSON.parse(response);
+              console.log("orderId:" + data.id); //取得order_id
+
+              addOrders(data.id);
+
+              // 跳轉到 ./shoppingcart_success.html 頁面
+              window.location.href = '/thd102/g1/shoppingcart_success.html';
+              
+
+            } else {
+              //沒資料
+              console.log("資料錯誤");
+            }
+          },
+          error: function error(exception) {
+            alert("數據載入失敗: " + exception.status);
+          }
+        });
+      };
+      //--------------------------------------------------
+      //抓到order_id後執行將localstorage的資料寫進資料庫orders中
+      function addOrders(order_id){
+        
+        //2. 執行將localstorage user資料接出來寫php
+        var cart_box_arr = localStorage.getItem('cart_box');
+        var cart_act_arr = localStorage.getItem('cart_act');
+        // 轉型為JSON格式
+        cart_box_arr = JSON.parse(cart_box_arr);
+        cart_act_arr = JSON.parse(cart_act_arr);
+ 
+        if (cart_box_arr.length > 0 ){
+          add_order_detail(cart_box_arr, order_id);
+        }
+        if(cart_act.length > 0){
+          add_order_detail(cart_act_arr, order_id);
+        }
+        
+      };
+      //執行insert的func
+      function add_order_detail(cart_arr,order_id){
+        for (let i = 0; i < cart_arr.length; i++) {
+          let item = cart_arr[i]; //購物車中每一筆盒子的資料
+          console.log(item);//{img,name,price,quantity,total}
+      
+          //ajax回傳寫在這
+          $.ajax({
+            method: "POST",
+            url: "/thd102/g1/API/Frontend/addOrder_detail.php",
+            //insert需要的資料
+            data: {
+              order_id: order_id, //引數帶入的值
+              product_name: item.name, //localhost的資料(需用商品名查找product_id)
+              quantity:item.quantity  //localhost的資料
+            },
+            dataType: "text",
+            success: function success(response) {
+              if (response !== "") {//有資料 
+                var data = JSON.parse(response);
+                console.log("成功insert盒子商品")
+                console.log(data);
+        
+              } else {//沒資料
+                console.log("資料錯誤");
+              }
+            },
+            error: function error(exception) {
+              alert("數據載入失敗: " + exception.status);
+            }
+          });
+        }
+      };
+      
+      
     }
   });
 });
