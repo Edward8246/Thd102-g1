@@ -83,6 +83,7 @@ var activity = Vue.createApp({
 
       var buy_value = document.getElementsByClassName("buy-value")[0];
       var cartNum = document.getElementsByClassName("quantity_cart")[0];
+      let animation = document.getElementsByClassName('add-alert')[0];
 
       if (date <= this.dateNow) {
         e.preventDefault();
@@ -120,10 +121,21 @@ var activity = Vue.createApp({
         if (cart_box.length > 0 || cart_act.length > 0) {
             cartNum.style.display = "inline";
             cartNum.innerHTML = cart_box.length + cart_act.length;
+            cartNum.classList.add('cart_shake');
+            animation.classList.add('ani_alert');        
         }
 
         // 将购物车数据重新存储到 localStorage
         localStorage.setItem('cart_act', JSON.stringify(cart_act));
+
+        //移除動畫
+        setTimeout(function(){
+          cartNum.classList.remove('cart_shake');
+
+        },1000)
+        setTimeout(function(){
+          animation.classList.remove('ani_alert');
+        },2001)
       }
     }
   },

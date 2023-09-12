@@ -38,6 +38,8 @@ const app = Vue.createApp({
             //cartNum為位於header的元素
             var cartNum = document.getElementsByClassName("quantity_cart")[0];
             var buy_value = document.getElementsByClassName("buy-value")[0];
+            let animation = document.getElementsByClassName('add-alert')[0];
+
             var productInfo = {
             img: this.product.photo_url,
             name: this.product.name,
@@ -68,12 +70,23 @@ const app = Vue.createApp({
             }
             //渲染存在localStorage的商品數到header數字
             if (cart_box.length > 0 || cart_act.length > 0) {
-            cartNum.style.display = "inline";
-            cartNum.innerHTML = cart_box.length + cart_act.length;
+                cartNum.style.display = "inline";
+                cartNum.innerHTML = cart_box.length + cart_act.length;
+                cartNum.classList.add('cart_shake');
+                animation.classList.add('ani_alert'); 
             }
     
             // 将购物车数据重新存储到 localStorage
             localStorage.setItem('cart_box', JSON.stringify(cart_box));
+
+            //移除動畫
+            setTimeout(function(){
+                cartNum.classList.remove('cart_shake');
+    
+            },1000)
+            setTimeout(function(){
+                animation.classList.remove('ani_alert');
+            },2001)
         },       
         changeTag(tag) {
             // 当点击一个标签时，将该标签设置为当前标签，并取消其他标签的选择
