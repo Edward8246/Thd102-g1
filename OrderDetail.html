@@ -80,28 +80,30 @@
 </script>
 
 <body onload="init()">
-       
-        <div align="center">
-            <h1>訂單明細</h1>
+    <div class="wrapper orderDetail">
+        <div class="container">
+            <div align="center">
+                <h1 class="title_sm">訂單明細</h1>
+            </div>
+        
+            <table id="result" align="center" letter-spacing: 5px; " cellpadding=" 0" cellspacing="0" border="1">
+                <tr style="background-color:#A5DEE4;">
+                    <td align="center">商品序號</td>
+                    <td align="center">商品種類</td>
+                    <td align="center">商品名稱</td>                                    
+                    <td align="center">商品價格</td>
+                    <td align="center">商品數量</td>
+                </tr>
+            </table>
+        
+            <div class="button-container">
+                <input type="button" name="cancel" id="cancel" value="回上頁" onclick="javascript: history.go(-1);">&nbsp;&nbsp;
+            
+            </div>
+
         </div>
-    
-
-
+    </div>   
       
-                        <table id="result" align="center" letter-spacing: 5px; " cellpadding=" 0" cellspacing="0" border="1">
-                            <tr style="background-color:#A5DEE4;">
-                                <td align="center">商品序號</td>
-                                <td align="center">商品種類</td>
-                                <td align="center">商品名稱</td>                                    
-                                <td align="center">商品價格</td>
-                                <td align="center">商品數量</td>
-                            </tr>
-                        </table>
-
-    <div class="button-container">
-        <input type="button" name="cancel" id="cancel" value="回上頁" onclick="javascript: history.go(-1);">&nbsp;&nbsp;
-      
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
