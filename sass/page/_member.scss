@@ -9,63 +9,62 @@
         width: 100%;
         margin-top: 80px;
         padding: 40px $side_padding-360px 80px;
-        background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/thd102/g1/images/bg1.jpg");
-        background-color: #398b93;
+        background-image: url("/thd102/g1/images/bg1.jpg");
+        background-color: $color_blue;
         background-size: cover;
-        margin-bottom: -40px;
         min-height: 615px;
         @include d(610px){
             padding: 20px 4% 80px;
         }
     
-    h4{
-        text-align: center;
-        margin-bottom: 30px;
-    }    
 
     }
-
+    .title_sm{
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 600;
+        color: $white;
+        text-shadow: 0 0 20px rgba(#333,.8);
+    }
 
     .member_tabs{
         display: flex;
+        margin-bottom: -2px;
+        z-index: 1;
             
     }
     .main{
-        background-color: $color_cream;
+        background-color: #fff;
         color: $black;
         padding: 20px 15% 40px;
-        border-radius: 0 5px 5px;
-        // @include btn_shadow();
-        box-shadow: 0px 1px 3px rgba(20, 20, 20, 0.3);
+        border-radius: 0 20px 20px 20px;
+        box-shadow: 0 0 20px rgba(#333,.2);
+        z-index: 2;
         @include flex(column,space-between,space-between);
         
         @include p(){
             padding: 20px 10%;
         }
-        @include m(){
+        @include d(438px){
             padding: 20px 5%;
+            border-radius: 0 0 20px 20px;
         }
     }
     .tab{
         cursor: pointer;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        background-color: #f0f0f0;
+        background-color: #eee;
         color: #979797;
         padding: 10px 20px;
         width: 200px;
-        text-align: center;
-        box-shadow: 0px -1.5px 3px rgba(0, 30, 30, 0.3);
-        
-        
-        
+        text-align: center; 
+        border-radius: 20px 20px 0 0;       
     }
     .main_text{ 
         width: 100%;
-        // font-size: 20px;
         line-height: 2; 
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         color: $color_darkblue;
+        font-weight: 600;
     }
     
     .data{
@@ -114,19 +113,19 @@
     
     .input-space{
         border-radius: 8px ;
-        background-color: white;
+        background-color: $white;
         border: none;
         padding: 10px;
-        border: 1px solid $color_grayblue;
+        border: 1px solid rgba(#333,.2);
     }
     
-    #email{
-        background-color: #E0e0e0;
-    }
+
     
     .t-choose{
-        background-color: $color_cream;
-        color: $color_darkblue;
+        background-color: #fff;
+        color: $color_blue;
+        font-weight: 600;
+        box-shadow: 2px -2px 5px rgba(#333,.2);
     }
     .btns{
         // margin: 20px auto;
@@ -165,7 +164,6 @@
         
         &:hover{
             @include btn_shadow();
-            // border: none;
         }
 
         &:active{
@@ -207,12 +205,8 @@
     
     .table-users {
     border: 1px solid darken($baseColor, 5%);
-    border-radius: $borderRadius;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    // max-width: calc(100% - 2em);
-    // margin: 0 auto;
+    border-radius: 20px;
     overflow: hidden;
-    // width: 100%;
     }
     .table_imfo{
         // display: flex;
@@ -342,7 +336,6 @@
     }
     
     tr {
-        
         padding: $padding 0;
         position: relative;
         
