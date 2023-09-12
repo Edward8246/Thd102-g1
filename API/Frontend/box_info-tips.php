@@ -5,7 +5,7 @@
   $sql = "SELECT 
     products_id-8 as products_id,
     tip 
-    FROM boxfood.box_tip;
+    FROM box_tip;
   ";
 
   $statement = getPDO() -> prepare($sql);

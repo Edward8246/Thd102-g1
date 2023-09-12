@@ -113,7 +113,7 @@ var app = Vue.createApp({
     //接box.php $data
     axios.get('/thd102/g1/API/Frontend/box.php').then(function (response) {
       let items = response.data;
-      console.log(items);
+      // console.log(items);
       
       //=============================================
       // 创建一个用于存储已处理数据的对象
@@ -148,7 +148,7 @@ var app = Vue.createApp({
       });
       _this.all=items
       // _this.items = _this.all
-      console.log(_this.all);
+      // console.log(_this.all);
     })["catch"](function (error) {
       console.error(error);
     });
