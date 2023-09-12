@@ -275,8 +275,7 @@ $(function () {
     //   sendData = false;
     // }
     //------------------------------------------------------------------判斷打勾
-    $(function () {
-      $("#checkBox").click(function () {
+
         var isChecked = $("#checkBox").is(":checked");
         if (isChecked) {
           // checkbox 被選中
@@ -290,10 +289,8 @@ $(function () {
           $(".terms").css('border-bottom', '1px solid red');
           console.log("沒打勾");
           sendData = false;
-        }
-        ;
-      });
-    });
+        };
+
 
     //--------------------------------------------------------判斷整個資料
     if (!sendData) {
