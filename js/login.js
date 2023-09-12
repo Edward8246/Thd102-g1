@@ -203,9 +203,13 @@ function showMember() {
       if (response == true) {
         $("#showMember").html("<a href='API/Frontend/Logout.php'>" + "<div class='btn_white user logout -none' id='user_logout'>" + "<i class='fa-solid fa-arrow-right-from-bracket'></i>" + "<span>登出</span>" + "</div>" + "</a>");
         $('#memberCenter').show();
+        $('#btn_membercenter').show();
+
       } else {
         $("#showMember").html("<div class='btn_white user login -none' id='user_login'>" + "<i class='fa-solid fa-user'></i>" + "<span>登入</span>" + "</div>");
         $('#memberCenter').hide();
+        $('#btn_membercenter').hide();
+
       }
     },
     error: function error(exception) {

@@ -147,11 +147,9 @@
 .cart_shake{
     animation: tada;
     animation-duration: 1s;
-  }
-.btn_membercenter{
+}
+.btn_membercenter {
    
-
-
     .center{
         @include fontStyle($h7,$color_blue);
         transition: color .3s;
@@ -161,6 +159,10 @@
             color: $white;
             @include font_shadow;
         }  
+    }
+
+    @include p(){
+        display: none;
     }
 }
 
