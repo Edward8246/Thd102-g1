@@ -136,7 +136,7 @@ var app = Vue.createApp({
         axios.get('/thd102/g1/API/Frontend/index.php')
         .then(function (response) {
             app.products = response.data;
-            console.log(app.products);
+            // console.log(app.products);
 
             app.$nextTick(function () {
 

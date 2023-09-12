@@ -136,7 +136,7 @@ var activity = Vue.createApp({
         self.arr_act = response.data.find(function (x) {
           return x.products_id == self.idPort;
         });
-        console.log(self.arr_act);
+        // console.log(self.arr_act);
       }
     })["catch"](function (error) {
       console.error(error);

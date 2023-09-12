@@ -118,7 +118,7 @@ const app = Vue.createApp({
             if(response.data){
                 app.ingredients = response.data.filter(x => x.products_id == app.index); 
             }
-            console.log(app.ingredients);
+            // console.log(app.ingredients);
         })
         .catch(function (error) {
         console.error(error);
@@ -130,7 +130,7 @@ const app = Vue.createApp({
             if(response.data){
                 app.recipes = response.data.filter(x => x.products_id == app.index); 
             }
-            console.log(app.recipes);
+            // console.log(app.recipes);
         })
         .catch(function (error) {
         console.error(error);

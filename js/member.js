@@ -92,7 +92,7 @@ tab_h.addEventListener("click", function () {
         document.getElementById('phone').value = data[0].phone;
     
         // name = data.name;
-        console.log(data); // 打印响应数据到控制台
+        // console.log(data); // 打印响应数据到控制台
       })["catch"](function (error) {
         console.error(error); // 打印错误信息到控制台
       });
@@ -131,7 +131,7 @@ tab_h.addEventListener("click", function () {
         body: JSON.stringify(payload)
     }).then(response => response.json())
       .then(data => {
-          console.log(data);
+          // console.log(data);
           // 可以在這裡加入成功的反饋，例如：
           if (data.message === "更新成功") {
               alert("更新成功！");

@@ -3,10 +3,10 @@
   include("../Lib/Util.php");    
   
   $sql = "SELECT 
-    products_id-8 as products_id,
-    recipe,
-    recipe_detail
-  FROM boxfood.products_recipe;";
+  products_id-8 as products_id,
+  receipt,
+  receipt_detail
+  FROM products_receipt;";
 
   $statement = getPDO() -> prepare($sql);
   $statement->execute();
