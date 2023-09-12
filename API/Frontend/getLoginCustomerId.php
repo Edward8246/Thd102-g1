@@ -5,7 +5,7 @@
      $login_account = $_POST['login_account']; 
 
      $sql ="select id
-     from boxfood.customers
+     from customers
      where email = ? 
      ;"; //抓到抓到customer_id
 

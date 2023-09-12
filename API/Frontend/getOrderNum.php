@@ -8,7 +8,7 @@
     //查customer_id的最新一筆訂單編號
     $sql ="
         SELECT orders_num 
-        FROM boxfood.orders
+        FROM orders
         WHERE customer_id = ?
         ORDER BY created_date DESC
         LIMIT 1;
