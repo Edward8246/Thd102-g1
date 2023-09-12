@@ -148,6 +148,23 @@
     animation: tada;
     animation-duration: 1s;
   }
+.btn_membercenter{
+   
+
+
+    .center{
+        @include fontStyle($h7,$color_blue);
+        transition: color .3s;
+        margin-right: 20px; 
+        position: relative;  
+        &:hover{
+            color: $white;
+            @include font_shadow;
+        }  
+    }
+}
+
+
 
 .header_cataPage{
     overflow: auto;
