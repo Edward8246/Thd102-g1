@@ -7,7 +7,7 @@ $product_quantity = $_POST['quantity'];
 
 // STEP1 先透過產品名稱查詢product_id
 $sql = "SELECT id as product_id
-        FROM boxfood.products
+        FROM products
         WHERE name = ?";
 
 //执行插入操作
@@ -21,7 +21,7 @@ $productData = $statement->fetchAll();
 if($productData){ //有查到product_id
     $product_id = $productData[0]['product_id']; //回傳的資料
     $insertSql = "
-    INSERT INTO boxfood.order_detail (order_id, product_id, quantity)
+    INSERT INTO order_detail (order_id, product_id, quantity)
     VALUES (?, ?, ?)
     ";
     $insertStatement = getPDO()->prepare($insertSql);
