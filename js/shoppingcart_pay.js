@@ -102,7 +102,7 @@ $(function () {
   });
   $("#inputPhone").blur(function () {
     var phone = $(this).val();
-    if (phone === "") {
+    if (phone === "" || phone.length != 10) {
       $(this).css('border', '1px solid red');
     } else {
       $(this).css('border', '');
