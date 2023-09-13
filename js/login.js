@@ -204,12 +204,10 @@ function showMember() {
         $("#showMember").html("<a href='API/Frontend/Logout.php'>" + "<div class='btn_white user logout -none' id='user_logout'>" + "<i class='fa-solid fa-arrow-right-from-bracket'></i>" + "<span>登出</span>" + "</div>" + "</a>");
         $('#memberCenter').show();
         $('#btn_membercenter').show();
-
       } else {
         $("#showMember").html("<div class='btn_white user login -none' id='user_login'>" + "<i class='fa-solid fa-user'></i>" + "<span>登入</span>" + "</div>");
         $('#memberCenter').hide();
         $('#btn_membercenter').hide();
-
       }
     },
     error: function error(exception) {
@@ -264,56 +262,72 @@ function doSubmit() {
     }
   });
 }
-//註冊的AJAX** <!-- 8/26更改 -->*************************************************************
+//註冊的AJAX** <!-- 9/13更改 -->*************************************************************
 function doSubmitjoin() {
-  if (document.getElementById('signUp_name').value == '') {
-    alert("請填寫[姓名]");
-    return false;
-  }
-  if (document.getElementById('signUp_email').value == '') {
-    alert("請填寫[email]");
-    return false;
-  }
-  if (document.getElementById('signUp_password').value == '') {
-    alert("請填寫[密碼]");
-    return false;
-  }
-  if (document.getElementById('signUp_password_2').value == '') {
-    alert("請填寫[確認密碼]");
-    return false;
+  //==========================================
+  //抓到密碼
+    let password1 = $("#signUp_password").val();
+    let password2 = $("#signUp_password_2").val();
+  //==========================================
+  
+    if (document.getElementById('signUp_name').value == '') {
+      alert("請填寫[姓名]");
+      return false;
+    }
+    if (document.getElementById('signUp_email').value == '') {
+      alert("請填寫[email]");
+      return false;
+    }
+    if (document.getElementById('signUp_password').value == '') {
+      alert("請填寫[密碼]");
+      return false;
+    }
+    if (document.getElementById('signUp_password_2').value == '') {
+      alert("請填寫[確認密碼]");
+      return false;
+    }
+  
+  //==========================================
+    //判斷密碼是否一致
+   if (password1 !== password2) {
+      alert("請再次確認密碼");
+      return false;
+   }
+  //==========================================
+  
+    //AJAX送出表單內容
+    $.ajax({
+      method: "POST",
+      url: "/thd102/g1/API/Frontend/Join.php",
+      data: {
+        email: $("#signUp_email").val(),
+        password: $("#signUp_password").val(),
+        name: $("#signUp_name").val()
+      },
+      dataType: "text",
+      success: function success(response) {
+        //加入成功->導回登入頁
+        // alert(response);
+        if (response == 'Y') {
+          // location.href = 'index.html';
+          $('#signup-success').css('display', 'block');
+          $('#container').css('display', 'none');
+          $(function () {
+            $(".home-button").click(function () {
+              location.href = 'index.html';
+            });
+          });
+        } else {
+          alert('此帳號已註冊');
+        }
+      },
+      error: function error(exception) {
+        alert("發生錯誤: " + exception.status);
+      }
+    });
   }
 
-  //AJAX送出表單內容
-  $.ajax({
-    method: "POST",
-    url: "/thd102/g1/API/Frontend/Join.php",
-    data: {
-      email: $("#signUp_email").val(),
-      password: $("#signUp_password").val(),
-      name: $("#signUp_name").val()
-    },
-    dataType: "text",
-    success: function success(response) {
-      //加入成功->導回登入頁
-      // alert(response);
-      if (response == 'Y') {
-        // location.href = 'index.html';
-        $('#signup-success').css('display', 'block');
-        $('#container').css('display', 'none');
-        $(function () {
-          $(".home-button").click(function () {
-            location.href = 'index.html';
-          });
-        });
-      } else {
-        alert('此帳號已註冊');
-      }
-    },
-    error: function error(exception) {
-      alert("發生錯誤: " + exception.status);
-    }
-  });
-}
+
 
 //登入按下enter
 $('input[name="pwd"]').keydown(function (event) {
@@ -330,7 +344,9 @@ $('input[name="pwd"]').keydown(function (event) {
   }
 });
 
-// 获取 close-btn 元素
+
+
+// login close-btn 按鍵
 var closeBtn = document.getElementById("signin-closen");
 
 // 获取 signin-success 元素
@@ -341,6 +357,4 @@ closeBtn.addEventListener("click", function () {
   // 隐藏 loginpage视窗
   loginPage.style.display = "none";
   showMember();
-
-
 });
