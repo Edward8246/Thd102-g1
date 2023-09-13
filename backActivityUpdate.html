@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html lang="en"></html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>活動修改</title>
-       <!-- Custom fonts for this template -->
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-       <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
-       <link
-           href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-           rel="stylesheet">
-           
-           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-       <!-- Custom styles for this template -->
-       <link rel="stylesheet" href="./css/style.css">
-   
-       <!-- Custom styles for this page -->
-       <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
-       <link href="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.css" rel="stylesheet">
+<html lang="en">
 
-       <link rel="icon" href="/thd102/g1/images/logo_icon.ico">
-       <style>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/thd102/g1/images/logo_icon.ico">
+    <title>訂單明細</title>
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Custom styles for this page -->
+    <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.css" rel="stylesheet">
+
+    <style>
         /* 整體置中 */
-        body {
-         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/thd102/g1/images/restaurant-4944585_1920.jpg');
+        .backUpdate {
+         /* background-image:  url('/thd102/g1/images/restaurant-4944585_1920.jpg'); */
          background-size: cover; /* 使背景圖片覆蓋整個視窗 */
          background-repeat: no-repeat; /* 防止背景圖片重複 */
          background-position: center; /* 將背景圖片置於中央 */
@@ -32,15 +39,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 110vh;
-            margin: 0;
-            background-color: #ffffff;
+            height: 100%;
+            margin: 20px;
+            background-color: #FCFCFC;
         }
 
         /* 標題樣式 */
         h1 {
             font-size: 36px;
-            margin-bottom: 20px;
+            margin: 20px;
         }
 
         /* 表格美化 */
@@ -66,11 +73,27 @@
             
         }
 
-                /* 按鈕樣式 */
-                input[type="button"] {
-            font-size: 20px; /* 放大字體 */
-            margin-top: 20px; /* 上邊距 */
-        }
+        .button-container input[type="button"] {
+    font-size: 20px; /* 放大字体 */
+    background-color: #A5DEE4; /* 蓝色背景 */
+   
+    padding: 10px 20px; /* 按钮内边距 */
+    border: none; /* 移除按钮边框 */
+    border-radius: 12px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标指针样式 */
+    font-weight: bold; /* 加粗字体 */
+    transition: background-color 0.3s; /* 添加过渡效果 */
+    margin: 20px;
+}
+
+/* 鼠标悬停效果 */
+.button-container input[type="button"]:hover {
+    background-color: #1E88A8; /* 鼠标悬停时的背景颜色 */
+    color: #f3f3f3;
+}
+
+
+        
 
         /* 按鈕置中 */
         .button-container {
@@ -78,17 +101,8 @@
         }
     </style>
 
-
-
-
-
-
-
-
-
-
-
-
+    
+    
 
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -221,9 +235,151 @@
 
 </script>
 
-<body onload="init()" bgcolor="#ffffff" leftmargin="0" marginwidth="0" topmargin="30" align="center">
-    <h1>修改活動</h1>
 
+
+
+
+
+
+
+<body  onload="init()" id="page-top">
+
+<div class="containerBackgroundTable">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="backboxTables.html">
+
+                <img src="images/LOGOW.png" alt="">
+                      
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+        
+
+            <!-- Heading -->
+
+        
+<!-- TAB開始******************************************************************************************************* -->
+                           <!-- Nav Item - Tables -->
+                           <li class="nav-item active">
+                            <a class="nav-link" href="backCustomerTables.html">
+                                <i class="fa-solid fa-people-group"></i>
+                                <span>會員名單</span></a>
+                        </li>
+            
+                        <li class="nav-item active">
+                            <a class="nav-link" href="backboxTables.html">
+                                <i class="fas fa-fw fa-table"></i>
+                                <span>商品管理</span></a>
+                        </li>
+            
+                        <li class="nav-item active">
+                            <a class="nav-link" href="backactivityTables.html">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span>活動管理</span></a>
+                        </li>
+    
+                        <li class="nav-item active">
+                            <a class="nav-link" href="backorderallTables.html">
+                                <i class="fa-solid fa-shop"></i>
+                                <span>訂單管理</span></a>
+                        </li>
+        
+
+
+
+
+<!-- 縮小按鈕***********************************************************************************************************-->
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+<!-- End of Sidebar***************************************************************************************************** -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+<!-- Topbar *********************************************************************************************-->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    
+                    <form class="form-inline">
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </form>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        
+                        <div class="topbarBanner"><i class="fa-solid fa-chart-line"></i>活動管理</div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                 
+                        <div class="logoutBackground">
+                            
+        
+                            <input class="dropdown-item" type="button" value="登出後台" onclick="javascript: location.href = 'API/Backend/Logout.php';" />
+
+           
+                        <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            登出後台
+                        </a> -->
+                        </div>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <!-- <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
+
+
+
+
+
+
+<!-- ***********************這裡是表格的開頭******************************************************************************************************************************************         -->
+                    <!-- DataTales Example -->
+                    <div class="cardNew card shadow mb-4">
+                        <!-- <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="table-responsive" >
+
+
+   <div class="backUpdate">
+    <h1>修改活動</h1>
     <form enctype="multipart/form-data">
         <tr>
             <td>
@@ -251,11 +407,10 @@
                         <td align="center">
                             <img id="pdimg" src='' width="200"/><br/>
                             <input type="file" id="ProductImage" name="ProductImage" />
-
                             <!-- PK和圖片名稱需記錄在這，form送出時才能知道要更新那一筆資料 -->
                             <input type="hidden" name="PID" id="PID"/>
                             <input type="hidden" name="PictureName" id="PictureName"/>
-                        </td>
+                        </td> 
                     </tr>
 
                     <tr>
@@ -270,10 +425,9 @@
                     </tr>
                      <tr>
                         <td class="s4" align="center" style="background-color:#A5DEE4;">活動描述</td>
-                        <td align="center"><input type="text" id="description" name="description"/></td>
+                        <td align="center"><textarea id="description" name="description" rows="5" cols="50"></textarea></td>
                     </tr>
     
-
 
                 </table>
             </td>
@@ -289,6 +443,67 @@
         </tr>
 
     </form>
+</div>
+        
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; HAKO Co., Ltd.</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">確定登出</div>
+                <!-- Select "Logout" below if you are ready to end your current session. -->
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="Backlogin.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Bootstrap core JavaScript-->
+    <!-- <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+
+
+
 
 </body>
 
