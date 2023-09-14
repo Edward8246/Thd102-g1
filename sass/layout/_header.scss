@@ -149,7 +149,7 @@
     animation-duration: 1s;
 }
 .btn_membercenter {
-   
+    display: none;
     .center{
         @include fontStyle($h7,$color_blue);
         transition: color .3s;
