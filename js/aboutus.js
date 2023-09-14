@@ -14,7 +14,7 @@
       t2.to(".mark", { scale: 1.5, duration: 1});
       t2.to(".mark2", { yPercent: -23, delay:2, duration: 1});
       t2.to(".mark2", { scale: 0.8, duration: 1});
-      //食物爆炸----------------------------
+    //   食物爆炸----------------------------
       const box_explode = gsap.timeline({
         scrollTrigger: {
           trigger: ".sectionTwo",
@@ -81,7 +81,7 @@
     el_move(".sectionFive",".small_info");
     
 //============================================
-      //article3圓圈視差
+      //圓圈視差
       function selectormove(article_el,move_el){
         const t1 = gsap.timeline({
           scrollTrigger: {
