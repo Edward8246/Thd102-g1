@@ -1,6 +1,6 @@
 
 .aboutus{
-    *{outline: solid 1px red;}
+    //*{outline: solid 1px red;}
 
     .container{
         margin-top: 80px;
@@ -11,8 +11,8 @@
         position: relative;
         width: 100%;
         @include flex(row,flex-end,center);
-        // background-image: url(/thd102/g1/images/aboutus/aboutus_pic01.png);
-        background-image: url(../../images/aboutus/aboutus_pic01.png);
+        background-image: url(/thd102/g1/images/aboutus/aboutus_pic01.png);
+        // background-image: url(../../images/aboutus/aboutus_pic01.png);
         background-size: cover;
         background-position: bottom center;
         background-repeat: no-repeat;
@@ -161,8 +161,9 @@
         background-color: $white;
    
 
-        background-image: url(../../images//aboutus/section2_bgPic.png);
-        // background-image: url(/thd102/g1/images/aboutus/section2_bgPic.png);
+        background-image: url(/thd102/g1/images//aboutus/section2_bgPic.png);
+        // background-image: url(../../images//aboutus/section2_bgPic.png);
+
         background-repeat: no-repeat;
         background-size: contain;
 
@@ -447,16 +448,16 @@
             }
         }
         &.support{
-            // background-image: url(/thd102/g1/images/aboutus/sectionFour_pic01.jpg);
-            background-image: url(../../images/aboutus/sectionFour_pic01.jpg);
+            background-image: url(/thd102/g1/images/aboutus/sectionFour_pic01.jpg);
+            // background-image: url(../../images/aboutus/sectionFour_pic01.jpg);
         }
         &.quality{
-            // background-image: url(/thd102/g1/images/aboutus/sectionFour_pic02.jpg);
-            background-image: url(../../images/aboutus/sectionFour_pic02.jpg);
+            background-image: url(/thd102/g1/images/aboutus/sectionFour_pic02.jpg);
+            // background-image: url(../../images/aboutus/sectionFour_pic02.jpg);
         }
         &.spirit{
-            // background-image: url(/thd102/g1/images/aboutus/sectionFour_pic03.jpg);
-            background-image: url(../../images/aboutus/sectionFour_pic03.jpg);
+            background-image: url(/thd102/g1/images/aboutus/sectionFour_pic03.jpg);
+            // background-image: url(../../images/aboutus/sectionFour_pic03.jpg);
         }
         p{
             font-size: 14px;
@@ -502,8 +503,8 @@
         margin-bottom: -40px;
         background-repeat: no-repeat;
         overflow: hidden;
-        // background-image: url(/thd102/g1/images/aboutus/sectionFive_bgPic.png);
-        background-image: url(../../images/aboutus/sectionFive_bgPic.png);
+        background-image: url(/thd102/g1/images/aboutus/sectionFive_bgPic.png);
+        // background-image: url(../../images/aboutus/sectionFive_bgPic.png);
         background-size: cover;
         @include m(){
             padding:100px $side_padding-m ;
