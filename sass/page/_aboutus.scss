@@ -1,6 +1,6 @@
 
 .aboutus{
-    //*{outline: solid 1px red;}
+    *{outline: solid 1px red;}
 
     .container{
         margin-top: 80px;
@@ -11,13 +11,15 @@
         position: relative;
         width: 100%;
         @include flex(row,flex-end,center);
-        background-repeat: no-repeat;
-        background-image: url(/thd102/g1/images/aboutus/aboutus_pic01.png);
-        // background-image: url(../../images/aboutus/aboutus_pic01.png);
+        // background-image: url(/thd102/g1/images/aboutus/aboutus_pic01.png);
+        background-image: url(../../images/aboutus/aboutus_pic01.png);
         background-size: cover;
-        background-position: top center;
+        background-position: bottom center;
+        background-repeat: no-repeat;
            
-
+        @include d(550px){
+            padding-top: 100px;
+        }
         //左邊內容
         .leftContent{
             width: 60%;
@@ -25,7 +27,7 @@
             background-color: $white;
             left: 0;
             bottom: 0;
-            padding: 100px 40px 100px 19vw ;
+            padding: 80px 40px 100px 19vw ;
             border-radius: 0 180px 0 0;
             @include flex(row,space-between,center);
             text-align: center;
@@ -35,7 +37,6 @@
             }  
             @include d(550px){
                 width: 100%;
-                padding: 0;
                 padding-bottom: 40px;
             }
             
@@ -89,31 +90,53 @@
             }
             
         }
-
+        //盒子動畫
         .aboutus_box{
             width: 14.6vw;
             min-width: 180px;
+            position: relative;
+
             @include d(980px){
             display: none;
             }
+
+            .mark{ //驚嘆號
+                position: absolute;
+                width: 10%;
+                left: 60%;
+                top: 0;
+                z-index: 2;
+                transform: scale(0.8);
+            }
+            .mark2{
+                position: absolute;
+                width: 70%;
+                left: 24%;
+                top: 20%;
+                z-index: 2;
+            }
+            .box{
+                
+            }
+            
         }
 
         //右邊內容
         .rightContent{
-            margin-top: 25vw;
+            margin-top: 18vw;
             margin-bottom: 100px;
             padding-right: $side_padding-360px;
             width: 36%;
             @include d(550px){
                 width: 100%;
-                padding: 25vw  $side_padding-360px 0;
+                padding: 20vw  $side_padding-360px 0;
             }
             
 
             p{
-            color: $white;
-            font-size: 14px; 
-            margin-top: 20px; 
+                color: $white;
+                font-size: 14px; 
+                margin-top: 20px; 
                 @include d(980px){
                     margin: 0;
                 }
@@ -132,22 +155,30 @@
     }
     // Section 2-------------------------------------
     .sectionTwo{
+        position: relative;
         width: 100%;
         padding: 80px $side_padding-360px;
         background-color: $white;
+   
+
+        background-image: url(../../images//aboutus/section2_bgPic.png);
+        // background-image: url(/thd102/g1/images/aboutus/section2_bgPic.png);
         background-repeat: no-repeat;
-        background-image: url(/thd102/g1/images/aboutus/section2_bgPic.png);
-        // background-image: url(../../images/aboutus/section2_bgPic.png);
-        
-        @include flex(column);
         background-size: contain;
+
+        transform: scale(0.8);
+            
+        @include flex(column);
 
         @include m(){
             padding: 80px $side_padding-m;
         }
+
+      
         h3{
             margin-bottom: 40px;
             font-weight: 600;
+            z-index: 2;
         }
     }
 
@@ -167,17 +198,57 @@
             h5{
                 text-align: center;
                 color: $color_blue;
-                margin-bottom: 24px;
+                margin: 16px 0 24px;
                 white-space:nowrap;
             }
             p{
                 font-size: 14px;
             }
             .image{
+                position: relative;
+                transform: scale(0.8);
+                
                 @include p(){
                     width: 30%;
                     min-width: 132px;
                 }
+
+                .photo{
+                    transition: .5s;
+                    transform: scale(0.9);
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                }
+                .photo_bg{
+                    position: absolute;
+                }
+                &.img_chef{
+                    .photo_bg{
+                        bottom: -6px;
+                        left: 10px;
+                    }
+                }
+                &.img_ingredient{
+                    .photo_bg{
+                        right: 5px;
+                        bottom: 2px;
+                    }
+                }
+                &.img_packaging{
+                    .photo_bg{
+                        right: 6px;
+                        bottom: 6px;
+                    }
+                }
+                &.img_gift{
+                    .photo_bg{
+                        left: 6px;
+                        bottom: 6px;
+                        
+                    }
+                }
+
             }
             .offers_text{
                 @include p(){
@@ -196,13 +267,28 @@
         width: 100%;
         @include flex;
         background-color:$white;
+        margin-top: 160px;
+
+        @include d(800px){
+            margin-top: 40px;
+        }
         
 
         .box_explode{ 
             width: 20vw;
             z-index: 2;
-            @include p(){
-                display: none;
+
+            .image{
+                position: relative;
+            }
+            .cata_box_food{
+                position: absolute;
+                bottom: 0;
+                transform: scale(.3) translateY(50px);
+                
+            }
+            .cata_box_food_bg{
+
             }
         }    
     }
@@ -346,6 +432,7 @@
         padding: 0 $side_padding-360px;
         background-repeat: no-repeat;
         background-size: cover;
+        
         @include m(){
             padding: 0 $side_padding-m;
         }
@@ -360,16 +447,16 @@
             }
         }
         &.support{
-            background-image: url(/thd102/g1/images/aboutus/sectionFour_pic01.jpg);
-            // background-image: url(../../images/aboutus/sectionFour_pic01.jpg);
+            // background-image: url(/thd102/g1/images/aboutus/sectionFour_pic01.jpg);
+            background-image: url(../../images/aboutus/sectionFour_pic01.jpg);
         }
         &.quality{
-            background-image: url(/thd102/g1/images/aboutus/sectionFour_pic02.jpg);
-            // background-image: url(../../images/aboutus/sectionFour_pic02.jpg);
+            // background-image: url(/thd102/g1/images/aboutus/sectionFour_pic02.jpg);
+            background-image: url(../../images/aboutus/sectionFour_pic02.jpg);
         }
         &.spirit{
-            background-image: url(/thd102/g1/images/aboutus/sectionFour_pic03.jpg);
-            // background-image: url(../../images/aboutus/sectionFour_pic03.jpg);
+            // background-image: url(/thd102/g1/images/aboutus/sectionFour_pic03.jpg);
+            background-image: url(../../images/aboutus/sectionFour_pic03.jpg);
         }
         p{
             font-size: 14px;
@@ -415,8 +502,8 @@
         margin-bottom: -40px;
         background-repeat: no-repeat;
         overflow: hidden;
-        background-image: url(/thd102/g1/images/aboutus/sectionFive_bgPic.png);
-        // background-image: url(../../images/aboutus/sectionFive_bgPic.png);
+        // background-image: url(/thd102/g1/images/aboutus/sectionFive_bgPic.png);
+        background-image: url(../../images/aboutus/sectionFive_bgPic.png);
         background-size: cover;
         @include m(){
             padding:100px $side_padding-m ;
@@ -462,15 +549,27 @@
             }
 
             .image{
+                position: relative;
                 width: 20%;
-                img{
+                .img_sm{
                     width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+
                 }
             }
         }
         .reservation_info{
             @include flex(row,space-between);
             padding: 20px 0;
+        }
+        .circle{
+            width: 6.25vw;
+            height: 6.25vw;
+            border-radius: 50%;
+            background-color: #FFE0A5;
         }
         .info_text{
             width: 70%;

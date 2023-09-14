@@ -1,71 +1,37 @@
-
-    .orderDetail {
-        // background-image:  url('/thd102/g1/images/restaurant-4944585_1920.jpg');
-        // background-size: cover; /* 使背景圖片覆蓋整個視窗 */
-        // background-repeat: no-repeat; /* 防止背景圖片重複 */
-        // background-position: center; /* 將背景圖片置於中央 */
-        .container{
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-            background-color: #f3f3f3;
-        }
-        
-        
-    
-    /* 單獨為內部表格設定背景色 */
-    #result {
-        background-color: white;
+.orderDetail{
+    background-image: url("/thd102/g1/images/bg1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    .container {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        /* 這邊要抽換padding */
+        padding:40px $side_padding-360px ;
     }
-
-
-
-    /* 標題樣式 */
-    h1 {
-        font-size: 44px;
-        margin-bottom: 20px;
-        margin-top: 50px;
-    }
-
-    /* 表格美化 */
-    table {
-        border-collapse: collapse;
-        font-size: 32px; 
-        margin-top: 30px;
-        border-radius:15px;
-            overflow: hidden; /* 隱藏多餘的邊框 */
-    }
-
-    /* 每個單元格（cell）的間距 */
-    td {
-        padding: 5px; /* 字與邊緣要有5px的距離 */
-    }
-
-
-    /* 背景色和字體樣式 */
-    .s4 {
-        background-color: #A5DEE4;
-    }
-    .button-container {
+    .title_sm{
         text-align: center;
-        margin-top: 20px;
-        }
-
-        #cancel {
-            font-size: 24px;  /* 設置字體大小為 24px */
-            padding: 10px 20px;
-            background-color: #A5DEE4;  /* 淺藍色背景 */
-            border: none;
-            color: black;  /* 字體顏色為黑色 */
-            border-radius: 12px;  /* 圓角邊框 */
-            cursor: pointer;  /* 當滑鼠移到按鈕上時，將其變為指標 */
-            font-weight: bold;  
-        }
-
-        #cancel:hover {
-            background-color: #96C8CE;  /* 滑鼠移到按鈕上時的背景顏色 */
-        }
-
-
+        margin-bottom: 30px;
+        font-weight: 600;
+        color: $color_blue;
     }
+    .result {
+        background-color: $white;
+        font-size: 16px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .td {
+        padding: 12px 16px; 
+        border-bottom: #eee solid 1px;
+    }
+
+    .back {
+        color: $white;
+    }
+    .back:hover {
+        color: $color_darkblue;
+    }
+
+
+}

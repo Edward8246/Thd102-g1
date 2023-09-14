@@ -5,105 +5,43 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="icon" href="./images/logo_icon.ico">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 </head>
 
-<script type="text/javascript">
-
-    function init(){
-
-        loginCheck();      
-    }
-
-    //登入檢查
-    function loginCheck(){    
-        $.ajax({            
-            method: "POST",
-            url: "API/Frontend/LoginCheck.php",
-            data:{},            
-            dataType: "text",
-            success: function (response) {
-                if(response == ""){
-                    //尚未登入->前往Login.php
-                    alert('請先登入，將前往登入頁'); 
-                    location.href = 'Login.html';
-                }else{
-                    getData()
-                }              
-            },
-            error: function(exception) {
-                alert("數據載入失敗: " + exception.status);
-            }
-        });
-    }
-
-    //------------------------------------------------------------------------
-
-    //取得訂單資訊
-    function getData(){
-        
-        //在html頁面上取得GET(QueryString)的值
-        var OID = (new URL(location.href)).searchParams.get('OID');
-        
-        $.ajax({            
-            method: "POST",
-            url: "API/Frontend/OrderDetail.php",
-            data:{OID: OID},         
-            dataType: "json",
-            success: function (response) {
-                display(response);
-            },
-            error: function(exception) {
-                alert("數據載入失敗: " + exception.status);
-            }
-        });
-    }
-
-    //顯示訂單資訊
-    function display(response){
-        //更新html內容(透過jQuery跑迴圈取值)
-        $.each(response, function(index, row) {
-            $("#result").append(
-                "<tr>" +
-                    "<td align='center'>" + row.id + "</td>" +  
-                    "<td align='center'>" + row.category + "</td>" +  
-                    "<td align='center'>" + row.name + "</td>" +  
-                    "<td align='center'>" + row.unit_price + "</td>" +                                                
-                    "<td align='center'>" + row.quantity + "</td>" +                  
-                "</tr>"
-            );
-        });
-    }
-
-</script>
-
 <body onload="init()">
+    @@include('./layout/login.html')
+
     <div class="wrapper orderDetail">
+        @@include('layout/header.html')
+
         <div class="container">
             <div align="center">
-                <h1 class="title_sm">訂單明細</h1>
+                <h4 class="title_sm">訂單明細</h4>
             </div>
         
-            <table id="result" align="center" letter-spacing: 5px; " cellpadding=" 0" cellspacing="0" border="1">
+            <table class="result" id="result" align="center" letter-spacing: 5px; " cellpadding=" 0" cellspacing="0" border="1">
                 <tr style="background-color:#A5DEE4;">
-                    <td align="center">商品序號</td>
-                    <td align="center">商品種類</td>
-                    <td align="center">商品名稱</td>                                    
-                    <td align="center">商品價格</td>
-                    <td align="center">商品數量</td>
+                    <td align="center" class="td">序號</td>
+                    <td align="center" class="td">種類</td>
+                    <td align="center" class="td">名稱</td>                                    
+                    <td align="center" class="td">單價</td>
+                    <td align="center" class="td">數量</td>
                 </tr>
             </table>
-        
-            <div class="button-container">
-                <input type="button" name="cancel" id="cancel" value="回上頁" onclick="javascript: history.go(-1);">&nbsp;&nbsp;
-            
-            </div>
-
+          
+            <a class="back" href="./member.html">回上頁</a>
+         
         </div>
+        @@include('./layout/footer.html')
     </div>   
       
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/order_detail.js"></script>
 </body>
 </html>
