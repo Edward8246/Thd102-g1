@@ -12,10 +12,10 @@ var app = Vue.createApp({
     totalPrice: function totalPrice() {
       // Sum the 'total' property of items in 'box' and 'activity'
       var boxTotal = this.box.reduce(function (total, item) {
-        return total + (item.total || 0);
+        return parseInt(total) + parseInt(item.total || 0);
       }, 0);
       var activityTotal = this.activity.reduce(function (total, item) {
-        return total + (item.total || 0);
+        return parseInt(total) + parseInt(item.total || 0);
       }, 0);
       return boxTotal + activityTotal;
     }
