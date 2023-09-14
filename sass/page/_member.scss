@@ -1,51 +1,49 @@
 .memberform{
     position: relative;
+    background-image: url("/thd102/g1/images/bg1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     
-    *{
-        // outline: solid 1px red;
-    }
+    // *{
+    //     outline: solid 1px red;
+    // }
     .container{
         font-family: $font-family;
         width: 100%;
         margin-top: 80px;
-        padding: 40px $side_padding-360px 80px;
-        background-image: url("/thd102/g1/images/bg1.jpg");
-        background-color: $color_blue;
-        background-size: cover;
-        min-height: 615px;
-        @include d(610px){
-            padding: 20px 4% 80px;
+        padding: 40px $side_padding-360px ;
+        @include d(512px){
+            padding: 40px $side_padding-m ;
         }
-    
 
     }
+
     .title_sm{
         text-align: center;
         margin-bottom: 30px;
         font-weight: 600;
-        color: $white;
-        text-shadow: 0 0 20px rgba(#333,.8);
+        color: $color_blue;
+    }
+    .member_form{
+
     }
 
     .member_tabs{
         display: flex;
         margin-bottom: -2px;
-        z-index: 1;
-            
     }
     .main{
         background-color: #fff;
         color: $black;
-        padding: 20px 15% 40px;
+        padding: 40px 10%;
         border-radius: 0 20px 20px 20px;
         box-shadow: 0 0 20px rgba(#333,.2);
-        z-index: 2;
         @include flex(column,space-between,space-between);
         
         @include p(){
-            padding: 20px 10%;
+            padding: 40px 10%;
         }
-        @include d(438px){
+        @include d(657px){
             padding: 20px 5%;
             border-radius: 0 0 20px 20px;
         }
@@ -57,7 +55,7 @@
         padding: 10px 20px;
         width: 200px;
         text-align: center; 
-        border-radius: 20px 20px 0 0;       
+        border-radius: 16px 16px 0 0;       
     }
     .main_text{ 
         width: 100%;
@@ -82,11 +80,9 @@
     
     .short-g{  
         width: 48%;   
-        // border-bottom: 1px solid $black;     
     }
 
     .long-g{
-        /* border: 1px solid blue; */
         width: 100%;
     }
 
@@ -94,12 +90,10 @@
         display: flex;
         flex-direction: column; 
         margin-bottom: 20px;
-        //min-width:200px;
-        @include d(468px){
+        @include d(512px){
             width: 100%;
         }
-
-        
+ 
     }
     
     .title-text{
@@ -137,23 +131,7 @@
         // margin: 0 10px;
         margin-left: 10px;
     }
-    .btn_cxl{
-        padding: 5px 20px;
-        font-size: 16px;
-
-        @include size(146px, 38px); 
-        @include btn($color_blue,$white,$color_blue, 30px);
-        // border: none;
     
-        &:hover{
-            @include btn_shadow();
-        }
-
-        &:active{
-            @include btn($white,$color_blue,$color_blue, 30px);
-        }
-
-    }
     
     .btn_change{
         padding: 5px 20px;
@@ -180,172 +158,61 @@
     
     
     // 商品訂單查詢
-    
-    
-    $baseColor: #398b93;
-    $borderRadius: 10px;
-    $imageBig: 100px;
-    $imageSmall: 60px;
-    $padding: 10px;
-    
-    .table {
-        background-color: darken($baseColor, 5%);
-        color: white;
-        font-size: 1.5em;
-        padding: 1rem;
-        text-align: center;
-        text-transform: uppercase;
-    }
-    
-    .tbimg {
-        border-radius: 50%;
-        height: 52px;
-        width: 52px;
-    }
-    
-    .table-users {
-    border: 1px solid darken($baseColor, 5%);
-    border-radius: 20px;
-    overflow: hidden;
-    }
-    .table_imfo{
-        // display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    .table_info{
+        border: 1px solid #eee;
+        border-radius: 16px;
+        overflow: hidden;
         font-size: 14px;
     }
-    table {
-    width: 100%;
-    
-        .pro-img{
-            width: 15%;
-    
-        }
-        .pro-id{
-            width: 20%;
-        }
-        .pro-date{
-            width: 20%;
-        }
-        .pro-pri{
-            width: 15%;
-        }
-        .pro-item{
-            width: 30%;
-        }
-        td,th {
-            color: darken($baseColor, 10%);
-            //padding: $padding;
-            padding: 8px 4px;
-        }
-    
-        td {
-            text-align: center;
-            vertical-align: middle;
-    
-            &:last-child {
-                font-size: 0.95em;
-                line-height: 1.4;
-                // text-align: left;
-            }
-        }
-    
-        th {
-            background-color: lighten($baseColor, 50%);
-            font-weight: 300;
-            font-weight: bold;
-        }
-    
-        tr {
-            &:nth-child(even) {
-                background-color: white;
-            }
-            &:nth-child(2n + 1) {
-                background-color: lighten($baseColor, 55%);
-            }
-        }
+    .thead{
+        background-color: $color_blue;
+        color:$white;
     }
-    .btn_back{
-        width: 200px;
-        margin:  20px auto;
-        padding: 5px 20px;
-        font-size: 16px;
-        // margin-left: auto;
-        // margin-bottom: auto;
-    //    
-        
-        
-        @include btn($white,$color_blue,$color_blue,$border-radius-50);
-        border: none;
-        
-        &:active{
-            @include btn_hover($white,$color_darkblue,$color_lightblue);
-            border: none;
-        }
-    
+    .thead,.tbody{
+        width: 100%;
     }
-    
-    @media screen and (max-width: 768px) {
-        table,tr,td,th {
-            display: block;
-            .pro-img, .pro-id, .pro-date, .pro-pri, .pro-item{
-                width: 100%;
-            }
-        //width: 550px;
-    }
-    tbody{
+    tbody,tr{
         display: block;
     }
-    
-    td {
-        &:first-child {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: $imageBig;
-        }
-    
-        &:not(:first-child) {
-            clear: both;
-            margin-left: 55px;
-            padding: 4px 20px 4px 90px;
-            position: relative;
-            text-align: left;
-    
-            &:nth-child(1):before {
-            // color: lighten($baseColor, 30%);
-            content: "";
-            // display: block;
-            // left: 0;
-            // position: absolute;
-            }
-        }
-    
-        &:nth-child(2):before {
-            content: "訂單日期:";
-        }
-        &:nth-child(3):before {
-            content: "訂單金額:";
-        }
-        &:nth-child(4):before {
-            content: "訂單商品:";
-        }
-        // &:nth-child(5):before {
-        //     content: "訂單商品:";
-        // }
-    }
-    
-    tr {
-        padding: $padding 0;
-        position: relative;
-        
-        &:first-child {
-            display: none;
-        }
-    }
-    }
-    
 
+    .pro-id{
+        width: 40%;
+    }
+    .pro-date{
+        width: 40%;
+    }
+    .pro-pri{
+        width: 15%;
+    }
+    .pro-detail{
+        width: 15%;
+    }
+    .tbody .pro-detail a{
+        color:$color_blue;
+    } 
+    td{
+        padding:8px;
+    }
+
+    tr{
+        width: 100%;
+        @include flex(row,space-between);
+
+        &:nth-child(even) {
+            background-color: $white;
+        }
+        &:nth-child(2n + 1) {
+            background-color: rgba($color_lightblue,.3);
+        }
+    }
+    
+    
+    .back {
+        color: $white;
+    }
+    .back:hover {
+        color: $color_darkblue;
+    }
 
 
 }

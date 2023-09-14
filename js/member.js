@@ -5,7 +5,6 @@ var tab_p = document.getElementsByClassName("tab")[1];
 var tab_h = document.getElementsByClassName("tab")[2];
 var main_s = document.getElementsByClassName("main")[0];
 var main_p = document.getElementsByClassName("main")[1];
-var main_h = document.getElementsByClassName("main")[2];
 // let intro = document.getElementsByClassName('intro')[0];
 
 tab_m.addEventListener("click", function () {
@@ -14,7 +13,6 @@ tab_m.addEventListener("click", function () {
   // tab_h.classList.remove("t-choose");
   main_s.classList.remove("d-none");
   main_p.classList.add("d-none");
-  main_h.classList.add("d-none");
 });
 tab_p.addEventListener("click", function () {
   tab_p.classList.add("t-choose");
@@ -22,7 +20,6 @@ tab_p.addEventListener("click", function () {
   // tab_h.classList.remove("t-choose");
   main_p.classList.remove("d-none");
   main_s.classList.add("d-none");
-  main_h.classList.add("d-none");
 });
 // tab_h.addEventListener("click", function () {
 //   tab_h.classList.add("t-choose");
@@ -137,3 +134,44 @@ function saveChanges() {
     // 可以在這裡加入失敗的反饋
   });
 }
+
+
+//=========================================
+//取得訂單資訊
+
+
+function getData() {
+  $.ajax({
+    method: "POST",
+    url: "API/Frontend/OrderHistory.php",
+    data: {},
+    dataType: "json",
+    success: function (response) {
+      display(response);
+    },
+    error: function error(exception) {
+      alert("數據載入失敗: " + exception.status);
+    }
+  });
+}
+
+
+
+
+
+function display(response) {
+  // 更新 html 内容（通过 jQuery 跑循环取值）
+  $.each(response, function (index, row) {
+    $("#tbody_add").append(
+      "<tr class='tr'>" 
+      + "<td class='pro-id'>" + row.orders_num + "</td>" 
+      + "<td class='pro-date'>" + row.created_date + "</td>" 
+      + "<td class='pro-pri'>" + row.total_price + "</td>" 
+      + "<td class='pro-detail'><a href='OrderDetail.html?OID=" + row.id + "'>明細</a></td>"
+      + "</tr>"
+    );
+  });
+  
+}
+
+getData();

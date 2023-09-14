@@ -20,114 +20,88 @@
         @@include('./layout/header.html')
         <div class="container">
             <h4 class="title_sm">會員中心</h4>
-            <div class="member_tabs">
-                <div class="tab member t-choose">
-                    <h6>會員資料</h6>
+            <!-- 包裹所有表單 -->
+            <div class="member_form">
+                <!-- 頁籤 -->
+                <div class="member_tabs">
+                    <div class="tab member t-choose">
+                        <h6>會員資料</h6>
+                    </div>
+                    <div class="tab product">
+                        <h6> 歷史訂單</h6>
+                    </div>
                 </div>
-                <div class="tab product">
-                    <h6> 歷史訂單</h6>
+                <!-- 基本資料頁 -->
+                <div class="main">
+                    <h5 class="main_text">基本資料設定</h5>
+                    <form class="data">
+                        <div class="short-g">
+                            <label for="name" class="title-text">姓名<span> *</span></label>
+                            <input class="input-space" type="text" name="name" id="name" value="">
+                        </div>
+    
+                        <div class="short-g">
+                            <label for="phone" class="title-text">電話號碼<span> *</span></label>
+                            <input class="input-space" type="text" name="phone" id="phone" value="">
+                        </div>
+    
+                        <div class="short-g">
+                            <label for="email" class="title-text">電子郵件<span> *</span></label>
+                            <input class="input-space" type="text" name="email" id="email" value="" disabled>
+                        </div>
+    
+                        <div class="short-g">
+                            <label for="password" class="title-text">密碼<span> *</span></label>
+                            <input class="input-space" type="password" name="password" id="password" value="">
+                        </div>
+    
+                        <div class="long-g">
+                            <label for="address" class="title-text">地址<span> *</span></label>
+                            <input class="input-space" type="text" name="address" id="address" value="">
+                        </div>
+    
+    
+                        <div class="btns">
+                            <button type="button" class="btn btn_change" id="saveChanges">儲存變更</button>
+                        </div>
+                    </form>
                 </div>
-                <!-- <div class="tab activity">
-                    <h6>報名活動</h6>
-                </div> -->
-            </div>
-            <div class="main">
-                <h5 class="main_text">基本資料設定</h5>
-                <form class="data">
-                    <div class="short-g">
-                        <label for="name" class="title-text">姓名<span> *</span></label>
-                        <input class="input-space" type="text" name="name" id="name" value="">
-                    </div>
 
-                    <div class="short-g">
-                        <label for="phone" class="title-text">電話號碼<span> *</span></label>
-                        <input class="input-space" type="text" name="phone" id="phone" value="">
-                    </div>
-
-                    <div class="short-g">
-                        <label for="email" class="title-text">電子郵件<span> *</span></label>
-                        <input class="input-space" type="text" name="email" id="email" value="" disabled>
-                    </div>
-
-                    <div class="short-g">
-                        <label for="password" class="title-text">密碼<span> *</span></label>
-                        <input class="input-space" type="password" name="password" id="password" value="">
-                    </div>
-
-                    <div class="long-g">
-                        <label for="address" class="title-text">地址<span> *</span></label>
-                        <input class="input-space" type="text" name="address" id="address" value="">
-                    </div>
-
-
-                    <div class="btns">
-                        <button type="button" class="btn btn_change" id="saveChanges">儲存變更</button>
-                    </div>
-                </form>
-
-            </div>
-            <!-- 商品訂單查詢 -->
-
-            <div class="main product-list d-none">
-                <h5 class="main_text">歷史訂單</h5>
-                <div class="table-users">
-                    <table class="table_imfo" id="table_imfo" cellspacing="0">
-                 
-                            <tr>
+                <!-- 歷史訂單查詢 -->
+                <div class="main product-list d-none">
+                    <h5 class="main_text">歷史訂單</h5>
+                    <table class="table_info" id="table_imfo">
+                        <thead class="thead">
+                            <tr class="tr">
                                 <td class="pro-id">訂單編號</td>
                                 <td class="pro-date">訂單日期</td>
-                                <td class="pro-pri">訂單金額</td>
-                                <td>訂單明細</td>
+                                <td class="pro-pri">金額</td>
+                                <td class="pro-detail">明細</td>
                             </tr>
-
-        
+                        </thead>
+                        <!-- tbody會被加進這裡 結構如下-->
+                        <tbody class="tbody" id="tbody_add">
+                            <!-- <tr class="tr">
+                                <td class="pro-id"></td>
+                                <td class='pro-date'></td>
+                                <td class='pro-pri'></td>
+                                <td class='pro-detail'></td>
+                            </tr> -->
+                        </tbody>
                     </table>
                 </div>
-                <!-- <div class="btns">
-                    <button type="button" class="btn_change">返回</button>
 
-                </div> -->
             </div>
-
-            <!-- 報名活動查詢 -->
-
-            <!-- <div class="main activity-list d-none">
-                <h5 class="main_text">已報名活動</h5>
-
-                <div class="table-users">
-                    <table class="table_imfo" cellspacing="0">
-                        <tr>
-                            <th class="pro-img">商品</th>
-                            <th class="pro-id">訂單編號</th>
-                            <th class="pro-date">訂單日期</th>
-                            <th class="pro-pri">金額</th>
-                            <th class="pro-item">品項</th>
-                        </tr>
-
-                        <tr>
-                            <td class="pro-img"><img src="./images/index_food5.jpg" class="tbimg"></td>
-                            <td class="pro-id">THD102-000000</td>
-                            <td class="pro-date">2023/05/20</td>
-                            <td class="pro-pri">$5,000</td>
-                            <td class="pro-item">咖哩飯新登場</td>
-                        </tr>
-                    </table>
-                </div> -->
-
-                <!-- <div class="btns">
-                    <button type="button" class="btn_change">返回</button>
-                </div> -->
-            </div>
+            <a class="back" href="./index.html">回首頁</a>
         </div>
         @@include('./layout/footer.html')
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
     <script src="./js/login.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/member.js"></script>
-    <script src="./js/Orderhistory.js"></script>
 </body>
 
 </html>
