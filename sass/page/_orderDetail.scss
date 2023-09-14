@@ -6,8 +6,9 @@
         margin-top: 80px;
         display: flex;
         flex-direction: column;
+        height: 800px;
         /* 這邊要抽換padding */
-        padding:40px $side_padding-360px ;
+        padding:150px $side_padding-360px ;
     }
     .title_sm{
         text-align: center;
