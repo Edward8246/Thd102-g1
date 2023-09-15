@@ -135,7 +135,13 @@ var app = Vue.createApp({
         // 請求box_info.php數據資料
         axios.get('/thd102/g1/API/Frontend/index.php')
         .then(function (response) {
-            app.products = response.data;
+            var modifiedArray = response.data.map(function(obj) {
+              // 將項目0的數字減八
+              obj.id -= 8;
+              return obj;
+            });
+            
+            app.products = modifiedArray;
             // console.log(app.products);
 
             app.$nextTick(function () {
